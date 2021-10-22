@@ -1,2 +1,2 @@
-# genersa
+# Genersa
 Budget Trip Planning
