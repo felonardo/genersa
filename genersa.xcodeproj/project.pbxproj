@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A7B7E2662722BA08002B6EF7 /* genersaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B7E2652722BA08002B6EF7 /* genersaApp.swift */; };
+		A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B7E2652722BA08002B6EF7 /* GenersaApp.swift */; };
 		A7B7E2682722BA08002B6EF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B7E2672722BA08002B6EF7 /* ContentView.swift */; };
 		A7B7E26A2722BA0A002B6EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7B7E2692722BA0A002B6EF7 /* Assets.xcassets */; };
 		A7B7E26D2722BA0A002B6EF7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7B7E26C2722BA0A002B6EF7 /* Preview Assets.xcassets */; };
@@ -15,7 +15,7 @@
 
 /* Begin PBXFileReference section */
 		A7B7E2622722BA08002B6EF7 /* genersa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = genersa.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A7B7E2652722BA08002B6EF7 /* genersaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genersaApp.swift; sourceTree = "<group>"; };
+		A7B7E2652722BA08002B6EF7 /* GenersaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenersaApp.swift; sourceTree = "<group>"; };
 		A7B7E2672722BA08002B6EF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A7B7E2692722BA0A002B6EF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7B7E26C2722BA0A002B6EF7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 		A7B7E2642722BA08002B6EF7 /* genersa */ = {
 			isa = PBXGroup;
 			children = (
-				A7B7E2652722BA08002B6EF7 /* genersaApp.swift */,
+				A7B7E2652722BA08002B6EF7 /* GenersaApp.swift */,
 				A7B7E2672722BA08002B6EF7 /* ContentView.swift */,
 				A7B7E2692722BA0A002B6EF7 /* Assets.xcassets */,
 				A7B7E26B2722BA0A002B6EF7 /* Preview Content */,
@@ -77,6 +77,7 @@
 				A7B7E25E2722BA08002B6EF7 /* Sources */,
 				A7B7E25F2722BA08002B6EF7 /* Frameworks */,
 				A7B7E2602722BA08002B6EF7 /* Resources */,
+				A7C5D9A42726B06D00B360C0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -132,13 +133,33 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A7C5D9A42726B06D00B360C0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A7B7E25E2722BA08002B6EF7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A7B7E2682722BA08002B6EF7 /* ContentView.swift in Sources */,
-				A7B7E2662722BA08002B6EF7 /* genersaApp.swift in Sources */,
+				A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
