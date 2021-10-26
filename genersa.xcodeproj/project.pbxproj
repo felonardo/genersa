@@ -11,6 +11,9 @@
 		A7B7E2682722BA08002B6EF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B7E2672722BA08002B6EF7 /* ContentView.swift */; };
 		A7B7E26A2722BA0A002B6EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7B7E2692722BA0A002B6EF7 /* Assets.xcassets */; };
 		A7B7E26D2722BA0A002B6EF7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7B7E26C2722BA0A002B6EF7 /* Preview Assets.xcassets */; };
+		A7E3536B2727CC26004E999A /* genersaDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7E353692727CC26004E999A /* genersaDataModel.xcdatamodeld */; };
+		A7E3536D2727CC74004E999A /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E3536C2727CC74004E999A /* Persistance.swift */; };
+		A7E3537227280180004E999A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E3537127280180004E999A /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,11 @@
 		A7B7E2672722BA08002B6EF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A7B7E2692722BA0A002B6EF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7B7E26C2722BA0A002B6EF7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A7D7281B2727761E00BCFE61 /* genersa.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = genersa.entitlements; sourceTree = "<group>"; };
+		A7E3536A2727CC26004E999A /* genersaDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = genersaDataModel.xcdatamodel; sourceTree = "<group>"; };
+		A7E3536C2727CC74004E999A /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
+		A7E3536F27280175004E999A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A7E3537127280180004E999A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7E3537227280180004E999A /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +46,7 @@
 			children = (
 				A7B7E2642722BA08002B6EF7 /* genersa */,
 				A7B7E2632722BA08002B6EF7 /* Products */,
+				A7E3537027280180004E999A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,9 +61,13 @@
 		A7B7E2642722BA08002B6EF7 /* genersa */ = {
 			isa = PBXGroup;
 			children = (
-				A7B7E2652722BA08002B6EF7 /* GenersaApp.swift */,
-				A7B7E2672722BA08002B6EF7 /* ContentView.swift */,
+				A7E3536F27280175004E999A /* Info.plist */,
+				A7E3535F2727CAD8004E999A /* App */,
+				A7E353602727CB00004E999A /* Vendors */,
+				A7E353612727CB0C004E999A /* Modules */,
+				A7D7281B2727761E00BCFE61 /* genersa.entitlements */,
 				A7B7E2692722BA0A002B6EF7 /* Assets.xcassets */,
+				A7E353692727CC26004E999A /* genersaDataModel.xcdatamodeld */,
 				A7B7E26B2722BA0A002B6EF7 /* Preview Content */,
 			);
 			path = genersa;
@@ -65,6 +79,94 @@
 				A7B7E26C2722BA0A002B6EF7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A7E3535F2727CAD8004E999A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A7E3536C2727CC74004E999A /* Persistance.swift */,
+				A7B7E2672722BA08002B6EF7 /* ContentView.swift */,
+				A7B7E2652722BA08002B6EF7 /* GenersaApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A7E353602727CB00004E999A /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				A7E353632727CB3C004E999A /* Utilities */,
+				A7E353622727CB2D004E999A /* Services */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		A7E353612727CB0C004E999A /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				A7E353672727CB6C004E999A /* Header */,
+				A7E353662727CB65004E999A /* Budget */,
+				A7E353682727CB99004E999A /* Savings */,
+				A7E353652727CB5A004E999A /* Expenses */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		A7E353622727CB2D004E999A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A7E353632727CB3C004E999A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A7E353642727CB46004E999A /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A7E353642727CB46004E999A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A7E353652727CB5A004E999A /* Expenses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Expenses;
+			sourceTree = "<group>";
+		};
+		A7E353662727CB65004E999A /* Budget */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Budget;
+			sourceTree = "<group>";
+		};
+		A7E353672727CB6C004E999A /* Header */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		A7E353682727CB99004E999A /* Savings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Savings;
+			sourceTree = "<group>";
+		};
+		A7E3537027280180004E999A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7E3537127280180004E999A /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,7 +261,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7B7E2682722BA08002B6EF7 /* ContentView.swift in Sources */,
+				A7E3536D2727CC74004E999A /* Persistance.swift in Sources */,
 				A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */,
+				A7E3536B2727CC26004E999A /* genersaDataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,12 +391,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = genersa/genersa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"genersa/Preview Content\"";
-				DEVELOPMENT_TEAM = SS6XWJ44B6;
+				DEVELOPMENT_TEAM = 7BXMQ2C5C2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = genersa/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,7 +410,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Genersa.genersa;
+				PRODUCT_BUNDLE_IDENTIFIER = Genersa.genersaTravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -317,12 +423,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = genersa/genersa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"genersa/Preview Content\"";
-				DEVELOPMENT_TEAM = SS6XWJ44B6;
+				DEVELOPMENT_TEAM = 7BXMQ2C5C2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = genersa/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -334,7 +442,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Genersa.genersa;
+				PRODUCT_BUNDLE_IDENTIFIER = Genersa.genersaTravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -364,6 +472,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A7E353692727CC26004E999A /* genersaDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A7E3536A2727CC26004E999A /* genersaDataModel.xcdatamodel */,
+			);
+			currentVersion = A7E3536A2727CC26004E999A /* genersaDataModel.xcdatamodel */;
+			path = genersaDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A7B7E25A2722BA08002B6EF7 /* Project object */;
 }
