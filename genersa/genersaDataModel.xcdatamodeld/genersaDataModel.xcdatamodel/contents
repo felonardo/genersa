@@ -7,7 +7,7 @@
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="tripId" optional="YES" attributeType="String"/>
-        <attribute name="userId" optional="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String"/>
         <relationship name="expenses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="budget" inverseEntity="Expense"/>
         <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="budgets" inverseEntity="Trip"/>
     </entity>
@@ -84,12 +84,12 @@
     </entity>
     <elements>
         <element name="Budget" positionX="31.908203125" positionY="-211.9632873535156" width="128" height="178"/>
+        <element name="Debt" positionX="251.0904235839844" positionY="429.9390258789062" width="128" height="118"/>
         <element name="Expense" positionX="252.3718566894531" positionY="-229.5875244140625" width="128" height="193"/>
         <element name="Saving" positionX="32.25860595703125" positionY="168.0829467773438" width="128" height="193"/>
-        <element name="Trip" positionX="-136.8325805664062" positionY="-144.837158203125" width="128" height="208"/>
-        <element name="User" positionX="244.5079345703125" positionY="5.26513671875" width="128" height="118"/>
         <element name="SavingRecord" positionX="233.6915283203125" positionY="172.7135314941406" width="128" height="133"/>
         <element name="Settlement" positionX="43.92547607421875" positionY="388.05908203125" width="128" height="193"/>
-        <element name="Debt" positionX="251.0904235839844" positionY="429.9390258789062" width="128" height="118"/>
+        <element name="Trip" positionX="-136.8325805664062" positionY="-144.837158203125" width="128" height="208"/>
+        <element name="User" positionX="244.5079345703125" positionY="5.26513671875" width="128" height="118"/>
     </elements>
 </model>
