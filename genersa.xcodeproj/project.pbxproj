@@ -13,6 +13,12 @@
 		7E944D3C272BEDD00017EF76 /* DebtsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D3B272BEDD00017EF76 /* DebtsModel.swift */; };
 		7E944D41272BFD2B0017EF76 /* SettlementsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D40272BFD2B0017EF76 /* SettlementsModel.swift */; };
 		7E944D43272BFD3B0017EF76 /* SettlementsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D42272BFD3B0017EF76 /* SettlementsDataSource.swift */; };
+		A7394D29272F1F0E00C65D55 /* BudgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D28272F1F0E00C65D55 /* BudgetModel.swift */; };
+		A7394D2B272F1F4D00C65D55 /* BudgetDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D2A272F1F4D00C65D55 /* BudgetDataSource.swift */; };
+		A7394D2F272F272000C65D55 /* ExpenseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D2E272F272000C65D55 /* ExpenseDataSource.swift */; };
+		A7394D31272F272A00C65D55 /* ExpenseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D30272F272A00C65D55 /* ExpenseModel.swift */; };
+		A7394D35272F318B00C65D55 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D34272F318B00C65D55 /* TripModel.swift */; };
+		A7394D37272F31B200C65D55 /* TripDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D36272F31B200C65D55 /* TripDataSource.swift */; };
 		A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B7E2652722BA08002B6EF7 /* GenersaApp.swift */; };
 		A7B7E2682722BA08002B6EF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B7E2672722BA08002B6EF7 /* ContentView.swift */; };
 		A7B7E26A2722BA0A002B6EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7B7E2692722BA0A002B6EF7 /* Assets.xcassets */; };
@@ -29,6 +35,12 @@
 		7E944D3B272BEDD00017EF76 /* DebtsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtsModel.swift; sourceTree = "<group>"; };
 		7E944D40272BFD2B0017EF76 /* SettlementsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettlementsModel.swift; sourceTree = "<group>"; };
 		7E944D42272BFD3B0017EF76 /* SettlementsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettlementsDataSource.swift; sourceTree = "<group>"; };
+		A7394D28272F1F0E00C65D55 /* BudgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetModel.swift; sourceTree = "<group>"; };
+		A7394D2A272F1F4D00C65D55 /* BudgetDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDataSource.swift; sourceTree = "<group>"; };
+		A7394D2E272F272000C65D55 /* ExpenseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDataSource.swift; sourceTree = "<group>"; };
+		A7394D30272F272A00C65D55 /* ExpenseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseModel.swift; sourceTree = "<group>"; };
+		A7394D34272F318B00C65D55 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
+		A7394D36272F31B200C65D55 /* TripDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataSource.swift; sourceTree = "<group>"; };
 		A7B7E2622722BA08002B6EF7 /* genersa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = genersa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7B7E2652722BA08002B6EF7 /* GenersaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenersaApp.swift; sourceTree = "<group>"; };
 		A7B7E2672722BA08002B6EF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,16 +82,10 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		7E944D33272BE4710017EF76 /* Budget */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Budget;
-			sourceTree = "<group>";
-		};
 		7E944D34272BE47E0017EF76 /* Expenses */ = {
 			isa = PBXGroup;
 			children = (
+				A7394D2C272F26F100C65D55 /* Expense */,
 				7E944D3D272BFCF30017EF76 /* Settlement */,
 				7E944D35272BE4A20017EF76 /* Debts */,
 			);
@@ -116,6 +122,57 @@
 			children = (
 				7E944D42272BFD3B0017EF76 /* SettlementsDataSource.swift */,
 				7E944D40272BFD2B0017EF76 /* SettlementsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A7394D26272F1EE100C65D55 /* Budget */ = {
+			isa = PBXGroup;
+			children = (
+				A7394D27272F1EF500C65D55 /* Model */,
+			);
+			path = Budget;
+			sourceTree = "<group>";
+		};
+		A7394D27272F1EF500C65D55 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A7394D28272F1F0E00C65D55 /* BudgetModel.swift */,
+				A7394D2A272F1F4D00C65D55 /* BudgetDataSource.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A7394D2C272F26F100C65D55 /* Expense */ = {
+			isa = PBXGroup;
+			children = (
+				A7394D2D272F271100C65D55 /* Model */,
+			);
+			path = Expense;
+			sourceTree = "<group>";
+		};
+		A7394D2D272F271100C65D55 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A7394D2E272F272000C65D55 /* ExpenseDataSource.swift */,
+				A7394D30272F272A00C65D55 /* ExpenseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A7394D32272F317100C65D55 /* Trip */ = {
+			isa = PBXGroup;
+			children = (
+				A7394D33272F317C00C65D55 /* Model */,
+			);
+			path = Trip;
+			sourceTree = "<group>";
+		};
+		A7394D33272F317C00C65D55 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A7394D34272F318B00C65D55 /* TripModel.swift */,
+				A7394D36272F31B200C65D55 /* TripDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,9 +239,10 @@
 		A7E353612727CB0C004E999A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A7394D32272F317100C65D55 /* Trip */,
+				A7394D26272F1EE100C65D55 /* Budget */,
 				7E08C151272F0A8B00F269BD /* User */,
 				A7E353672727CB6C004E999A /* Header */,
-				7E944D33272BE4710017EF76 /* Budget */,
 				A7E353682727CB99004E999A /* Savings */,
 				7E944D34272BE47E0017EF76 /* Expenses */,
 			);
@@ -332,7 +390,13 @@
 				7E08C154272F0A9F00F269BD /* UsersDataSource.swift in Sources */,
 				7E944D41272BFD2B0017EF76 /* SettlementsModel.swift in Sources */,
 				A7E3536D2727CC74004E999A /* Persistance.swift in Sources */,
+				A7394D2F272F272000C65D55 /* ExpenseDataSource.swift in Sources */,
 				7E944D38272BE4D70017EF76 /* DebtsDataSource.swift in Sources */,
+				A7394D35272F318B00C65D55 /* TripModel.swift in Sources */,
+				A7394D37272F31B200C65D55 /* TripDataSource.swift in Sources */,
+				A7394D31272F272A00C65D55 /* ExpenseModel.swift in Sources */,
+				A7394D2B272F1F4D00C65D55 /* BudgetDataSource.swift in Sources */,
+				A7394D29272F1F0E00C65D55 /* BudgetModel.swift in Sources */,
 				A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */,
 				7E08C156272F0E2700F269BD /* UsersModel.swift in Sources */,
 				A7E3536B2727CC26004E999A /* genersaDataModel.xcdatamodeld in Sources */,
