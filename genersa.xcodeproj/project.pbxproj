@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E08C154272F0A9F00F269BD /* UsersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C153272F0A9F00F269BD /* UsersDataSource.swift */; };
+		7E08C156272F0E2700F269BD /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C155272F0E2700F269BD /* UsersModel.swift */; };
+		7E944D38272BE4D70017EF76 /* DebtsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D37272BE4D70017EF76 /* DebtsDataSource.swift */; };
+		7E944D3C272BEDD00017EF76 /* DebtsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D3B272BEDD00017EF76 /* DebtsModel.swift */; };
+		7E944D41272BFD2B0017EF76 /* SettlementsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D40272BFD2B0017EF76 /* SettlementsModel.swift */; };
+		7E944D43272BFD3B0017EF76 /* SettlementsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D42272BFD3B0017EF76 /* SettlementsDataSource.swift */; };
 		A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B7E2652722BA08002B6EF7 /* GenersaApp.swift */; };
 		A7B7E2682722BA08002B6EF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B7E2672722BA08002B6EF7 /* ContentView.swift */; };
 		A7B7E26A2722BA0A002B6EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7B7E2692722BA0A002B6EF7 /* Assets.xcassets */; };
@@ -17,6 +23,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E08C153272F0A9F00F269BD /* UsersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDataSource.swift; sourceTree = "<group>"; };
+		7E08C155272F0E2700F269BD /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
+		7E944D37272BE4D70017EF76 /* DebtsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtsDataSource.swift; sourceTree = "<group>"; };
+		7E944D3B272BEDD00017EF76 /* DebtsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtsModel.swift; sourceTree = "<group>"; };
+		7E944D40272BFD2B0017EF76 /* SettlementsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettlementsModel.swift; sourceTree = "<group>"; };
+		7E944D42272BFD3B0017EF76 /* SettlementsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettlementsDataSource.swift; sourceTree = "<group>"; };
 		A7B7E2622722BA08002B6EF7 /* genersa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = genersa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7B7E2652722BA08002B6EF7 /* GenersaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenersaApp.swift; sourceTree = "<group>"; };
 		A7B7E2672722BA08002B6EF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,6 +53,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E08C151272F0A8B00F269BD /* User */ = {
+			isa = PBXGroup;
+			children = (
+				7E08C152272F0A9100F269BD /* Model */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		7E08C152272F0A9100F269BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7E08C153272F0A9F00F269BD /* UsersDataSource.swift */,
+				7E08C155272F0E2700F269BD /* UsersModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7E944D33272BE4710017EF76 /* Budget */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Budget;
+			sourceTree = "<group>";
+		};
+		7E944D34272BE47E0017EF76 /* Expenses */ = {
+			isa = PBXGroup;
+			children = (
+				7E944D3D272BFCF30017EF76 /* Settlement */,
+				7E944D35272BE4A20017EF76 /* Debts */,
+			);
+			path = Expenses;
+			sourceTree = "<group>";
+		};
+		7E944D35272BE4A20017EF76 /* Debts */ = {
+			isa = PBXGroup;
+			children = (
+				7E944D36272BE4BD0017EF76 /* Model */,
+			);
+			path = Debts;
+			sourceTree = "<group>";
+		};
+		7E944D36272BE4BD0017EF76 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7E944D37272BE4D70017EF76 /* DebtsDataSource.swift */,
+				7E944D3B272BEDD00017EF76 /* DebtsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7E944D3D272BFCF30017EF76 /* Settlement */ = {
+			isa = PBXGroup;
+			children = (
+				7E944D44272C01230017EF76 /* Model */,
+			);
+			path = Settlement;
+			sourceTree = "<group>";
+		};
+		7E944D44272C01230017EF76 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7E944D42272BFD3B0017EF76 /* SettlementsDataSource.swift */,
+				7E944D40272BFD2B0017EF76 /* SettlementsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A7B7E2592722BA08002B6EF7 = {
 			isa = PBXGroup;
 			children = (
@@ -103,10 +182,11 @@
 		A7E353612727CB0C004E999A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7E08C151272F0A8B00F269BD /* User */,
 				A7E353672727CB6C004E999A /* Header */,
-				A7E353662727CB65004E999A /* Budget */,
+				7E944D33272BE4710017EF76 /* Budget */,
 				A7E353682727CB99004E999A /* Savings */,
-				A7E353652727CB5A004E999A /* Expenses */,
+				7E944D34272BE47E0017EF76 /* Expenses */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -131,20 +211,6 @@
 			children = (
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		A7E353652727CB5A004E999A /* Expenses */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Expenses;
-			sourceTree = "<group>";
-		};
-		A7E353662727CB65004E999A /* Budget */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Budget;
 			sourceTree = "<group>";
 		};
 		A7E353672727CB6C004E999A /* Header */ = {
@@ -260,9 +326,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E944D3C272BEDD00017EF76 /* DebtsModel.swift in Sources */,
+				7E944D43272BFD3B0017EF76 /* SettlementsDataSource.swift in Sources */,
 				A7B7E2682722BA08002B6EF7 /* ContentView.swift in Sources */,
+				7E08C154272F0A9F00F269BD /* UsersDataSource.swift in Sources */,
+				7E944D41272BFD2B0017EF76 /* SettlementsModel.swift in Sources */,
 				A7E3536D2727CC74004E999A /* Persistance.swift in Sources */,
+				7E944D38272BE4D70017EF76 /* DebtsDataSource.swift in Sources */,
 				A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */,
+				7E08C156272F0E2700F269BD /* UsersModel.swift in Sources */,
 				A7E3536B2727CC26004E999A /* genersaDataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
