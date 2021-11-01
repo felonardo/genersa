@@ -1,95 +1,100 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Budget" representedClassName="Budget" syncable="YES" codeGenerationType="class">
-        <attribute name="amountSaved" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="amountTotal" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="amountUsed" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="amountSaved" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="amountTotal" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="amountUsed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="tripId" optional="YES" attributeType="String"/>
-        <attribute name="userId" optional="YES" attributeType="String"/>
-        <relationship name="expenses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="budget" inverseEntity="Expense"/>
+        <relationship name="expenses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ExpenseParty" inverseName="budget" inverseEntity="ExpenseParty"/>
         <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="budgets" inverseEntity="Trip"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="budgets" inverseEntity="User"/>
     </entity>
     <entity name="Debt" representedClassName="Debt" syncable="YES" codeGenerationType="class">
-        <attribute name="amount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="id" optional="YES" attributeType="String"/>
-        <attribute name="tripId" optional="YES" attributeType="String"/>
-        <attribute name="userId" optional="YES" attributeType="String"/>
-        <relationship name="settlements" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Settlement" inverseName="debts" inverseEntity="Settlement"/>
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="debts" inverseEntity="Trip"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="debts" inverseEntity="User"/>
     </entity>
     <entity name="Expense" representedClassName="Expense" syncable="YES" codeGenerationType="class">
-        <attribute name="amount" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="budgetId" optional="YES" attributeType="String"/>
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="photoBill" optional="YES" attributeType="Binary"/>
-        <attribute name="userIdPayer" optional="YES" attributeType="String"/>
-        <attribute name="userIdReceiver" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="parties" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ExpenseParty" inverseName="expense" inverseEntity="ExpenseParty"/>
+    </entity>
+    <entity name="ExpenseParty" representedClassName="ExpenseParty" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isPayer" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isReceiver" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="budget" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Budget" inverseName="expenses" inverseEntity="Budget"/>
-        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="expense" inverseEntity="User"/>
+        <relationship name="expense" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Expense" inverseName="parties" inverseEntity="Expense"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="expenses" inverseEntity="User"/>
     </entity>
     <entity name="Saving" representedClassName="Saving" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isMonthly" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="lastUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="totalAmount" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="totalSaved" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="totalUsed" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="tripId" optional="YES" attributeType="String"/>
-        <attribute name="userId" optional="YES" attributeType="String"/>
-        <relationship name="savingRecords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SavingRecord" inverseName="saving" inverseEntity="SavingRecord"/>
+        <attribute name="totalAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="totalSaved" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalUsed" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="records" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SavingRecord" inverseName="saving" inverseEntity="SavingRecord"/>
         <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="savings" inverseEntity="Trip"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="saving" inverseEntity="User"/>
     </entity>
     <entity name="SavingRecord" representedClassName="SavingRecord" syncable="YES" codeGenerationType="class">
-        <attribute name="amountSaved" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="amountSaved" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="goal" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="id" optional="YES" attributeType="String"/>
-        <attribute name="savingId" optional="YES" attributeType="String"/>
-        <relationship name="saving" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Saving" inverseName="savingRecords" inverseEntity="Saving"/>
+        <attribute name="goal" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="saving" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Saving" inverseName="records" inverseEntity="Saving"/>
     </entity>
     <entity name="Settlement" representedClassName="Settlement" syncable="YES" codeGenerationType="class">
-        <attribute name="amount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="budgetId" optional="YES" attributeType="String"/>
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isPaid" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="tripId" optional="YES" attributeType="String"/>
-        <attribute name="userIdPayer" optional="YES" attributeType="String"/>
-        <attribute name="userIdReceiver" optional="YES" attributeType="String"/>
-        <relationship name="debts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Debt" inverseName="settlements" inverseEntity="Debt"/>
-        <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="settlement" inverseEntity="Trip"/>
+        <relationship name="payer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="settlementsPaid" inverseEntity="User"/>
+        <relationship name="receiver" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="settlementsReceived" inverseEntity="User"/>
+        <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="settlements" inverseEntity="Trip"/>
     </entity>
     <entity name="Trip" representedClassName="Trip" syncable="YES" codeGenerationType="class">
         <attribute name="currency" optional="YES" attributeType="String"/>
         <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="totalBudget" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="userId" optional="YES" attributeType="String"/>
+        <attribute name="totalBudget" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="budgets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Budget" inverseName="trip" inverseEntity="Budget"/>
+        <relationship name="debts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Debt" inverseName="trip" inverseEntity="Debt"/>
         <relationship name="savings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Saving" inverseName="trip" inverseEntity="Saving"/>
-        <relationship name="settlement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Settlement" inverseName="trip" inverseEntity="Settlement"/>
+        <relationship name="settlements" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Settlement" inverseName="trip" inverseEntity="Settlement"/>
         <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="trip" inverseEntity="User"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="profilImage" optional="YES" attributeType="String"/>
-        <relationship name="expense" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Expense" inverseName="users" inverseEntity="Expense"/>
+        <attribute name="profilImage" optional="YES" attributeType="Binary"/>
+        <relationship name="budgets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Budget" inverseName="user" inverseEntity="Budget"/>
+        <relationship name="debts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Debt" inverseName="user" inverseEntity="Debt"/>
+        <relationship name="expenses" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ExpenseParty" inverseName="user" inverseEntity="ExpenseParty"/>
+        <relationship name="saving" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Saving" inverseName="user" inverseEntity="Saving"/>
+        <relationship name="settlementsPaid" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Settlement" inverseName="payer" inverseEntity="Settlement"/>
+        <relationship name="settlementsReceived" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Settlement" inverseName="receiver" inverseEntity="Settlement"/>
         <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="users" inverseEntity="Trip"/>
     </entity>
     <elements>
-        <element name="Budget" positionX="31.908203125" positionY="-211.9632873535156" width="128" height="178"/>
-        <element name="Debt" positionX="251.0904235839844" positionY="429.9390258789062" width="128" height="118"/>
-        <element name="Expense" positionX="252.3718566894531" positionY="-229.5875244140625" width="128" height="193"/>
-        <element name="Saving" positionX="32.25860595703125" positionY="168.0829467773438" width="128" height="193"/>
-        <element name="SavingRecord" positionX="233.6915283203125" positionY="172.7135314941406" width="128" height="133"/>
-        <element name="Settlement" positionX="43.92547607421875" positionY="388.05908203125" width="128" height="193"/>
-        <element name="Trip" positionX="-136.8325805664062" positionY="-144.837158203125" width="128" height="208"/>
-        <element name="User" positionX="244.5079345703125" positionY="5.26513671875" width="128" height="118"/>
+        <element name="Budget" positionX="-219.840087890625" positionY="-401.2649536132812" width="128" height="163"/>
+        <element name="Debt" positionX="-744.1543273925781" positionY="-251.6341552734376" width="128" height="103"/>
+        <element name="Expense" positionX="149.8949279785156" positionY="-327.6695251464844" width="128" height="148"/>
+        <element name="ExpenseParty" positionX="-46.1195068359375" positionY="-313.5655517578124" width="128" height="148"/>
+        <element name="Saving" positionX="-38.56268310546881" positionY="-78.52804565429685" width="128" height="178"/>
+        <element name="SavingRecord" positionX="135.754150390625" positionY="-48.03524780273435" width="128" height="118"/>
+        <element name="Settlement" positionX="-785.7568969726562" positionY="-76.4388427734375" width="128" height="148"/>
+        <element name="Trip" positionX="-516.6627197265625" positionY="-401.0585021972656" width="185.9066162109375" height="208"/>
+        <element name="User" positionX="-494.6686401367188" positionY="-48.25598144531244" width="128" height="193"/>
     </elements>
 </model>

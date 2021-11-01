@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E08C154272F0A9F00F269BD /* UsersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C153272F0A9F00F269BD /* UsersDataSource.swift */; };
+		7E08C156272F0E2700F269BD /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C155272F0E2700F269BD /* UsersModel.swift */; };
+		7E944D38272BE4D70017EF76 /* DebtsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D37272BE4D70017EF76 /* DebtsDataSource.swift */; };
+		7E944D3C272BEDD00017EF76 /* DebtsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D3B272BEDD00017EF76 /* DebtsModel.swift */; };
+		7E944D41272BFD2B0017EF76 /* SettlementsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D40272BFD2B0017EF76 /* SettlementsModel.swift */; };
+		7E944D43272BFD3B0017EF76 /* SettlementsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D42272BFD3B0017EF76 /* SettlementsDataSource.swift */; };
+		A7394D29272F1F0E00C65D55 /* BudgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D28272F1F0E00C65D55 /* BudgetModel.swift */; };
+		A7394D2B272F1F4D00C65D55 /* BudgetDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D2A272F1F4D00C65D55 /* BudgetDataSource.swift */; };
+		A7394D2F272F272000C65D55 /* ExpenseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D2E272F272000C65D55 /* ExpenseDataSource.swift */; };
+		A7394D31272F272A00C65D55 /* ExpenseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D30272F272A00C65D55 /* ExpenseModel.swift */; };
+		A7394D35272F318B00C65D55 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D34272F318B00C65D55 /* TripModel.swift */; };
+		A7394D37272F31B200C65D55 /* TripDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D36272F31B200C65D55 /* TripDataSource.swift */; };
 		A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B7E2652722BA08002B6EF7 /* GenersaApp.swift */; };
 		A7B7E2682722BA08002B6EF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B7E2672722BA08002B6EF7 /* ContentView.swift */; };
 		A7B7E26A2722BA0A002B6EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7B7E2692722BA0A002B6EF7 /* Assets.xcassets */; };
@@ -14,9 +26,23 @@
 		A7E3536B2727CC26004E999A /* genersaDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7E353692727CC26004E999A /* genersaDataModel.xcdatamodeld */; };
 		A7E3536D2727CC74004E999A /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E3536C2727CC74004E999A /* Persistance.swift */; };
 		A7E3537227280180004E999A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E3537127280180004E999A /* CloudKit.framework */; };
+		A7F90747272FDED800A84016 /* ExpensePartyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F90746272FDED800A84016 /* ExpensePartyModel.swift */; };
+		A7F90749272FDF0C00A84016 /* ExpensePartyDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F90748272FDF0C00A84016 /* ExpensePartyDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E08C153272F0A9F00F269BD /* UsersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDataSource.swift; sourceTree = "<group>"; };
+		7E08C155272F0E2700F269BD /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
+		7E944D37272BE4D70017EF76 /* DebtsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtsDataSource.swift; sourceTree = "<group>"; };
+		7E944D3B272BEDD00017EF76 /* DebtsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtsModel.swift; sourceTree = "<group>"; };
+		7E944D40272BFD2B0017EF76 /* SettlementsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettlementsModel.swift; sourceTree = "<group>"; };
+		7E944D42272BFD3B0017EF76 /* SettlementsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettlementsDataSource.swift; sourceTree = "<group>"; };
+		A7394D28272F1F0E00C65D55 /* BudgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetModel.swift; sourceTree = "<group>"; };
+		A7394D2A272F1F4D00C65D55 /* BudgetDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDataSource.swift; sourceTree = "<group>"; };
+		A7394D2E272F272000C65D55 /* ExpenseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDataSource.swift; sourceTree = "<group>"; };
+		A7394D30272F272A00C65D55 /* ExpenseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseModel.swift; sourceTree = "<group>"; };
+		A7394D34272F318B00C65D55 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
+		A7394D36272F31B200C65D55 /* TripDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataSource.swift; sourceTree = "<group>"; };
 		A7B7E2622722BA08002B6EF7 /* genersa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = genersa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7B7E2652722BA08002B6EF7 /* GenersaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenersaApp.swift; sourceTree = "<group>"; };
 		A7B7E2672722BA08002B6EF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -27,6 +53,8 @@
 		A7E3536C2727CC74004E999A /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		A7E3536F27280175004E999A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A7E3537127280180004E999A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		A7F90746272FDED800A84016 /* ExpensePartyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePartyModel.swift; sourceTree = "<group>"; };
+		A7F90748272FDF0C00A84016 /* ExpensePartyDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePartyDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +69,120 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E08C151272F0A8B00F269BD /* User */ = {
+			isa = PBXGroup;
+			children = (
+				7E08C152272F0A9100F269BD /* Model */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		7E08C152272F0A9100F269BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7E08C153272F0A9F00F269BD /* UsersDataSource.swift */,
+				7E08C155272F0E2700F269BD /* UsersModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7E944D34272BE47E0017EF76 /* Expenses */ = {
+			isa = PBXGroup;
+			children = (
+				A7394D2C272F26F100C65D55 /* Expense */,
+				7E944D3D272BFCF30017EF76 /* Settlement */,
+				7E944D35272BE4A20017EF76 /* Debts */,
+			);
+			path = Expenses;
+			sourceTree = "<group>";
+		};
+		7E944D35272BE4A20017EF76 /* Debts */ = {
+			isa = PBXGroup;
+			children = (
+				7E944D36272BE4BD0017EF76 /* Model */,
+			);
+			path = Debts;
+			sourceTree = "<group>";
+		};
+		7E944D36272BE4BD0017EF76 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7E944D37272BE4D70017EF76 /* DebtsDataSource.swift */,
+				7E944D3B272BEDD00017EF76 /* DebtsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7E944D3D272BFCF30017EF76 /* Settlement */ = {
+			isa = PBXGroup;
+			children = (
+				7E944D44272C01230017EF76 /* Model */,
+			);
+			path = Settlement;
+			sourceTree = "<group>";
+		};
+		7E944D44272C01230017EF76 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7E944D42272BFD3B0017EF76 /* SettlementsDataSource.swift */,
+				7E944D40272BFD2B0017EF76 /* SettlementsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A7394D26272F1EE100C65D55 /* Budget */ = {
+			isa = PBXGroup;
+			children = (
+				A7394D27272F1EF500C65D55 /* Model */,
+			);
+			path = Budget;
+			sourceTree = "<group>";
+		};
+		A7394D27272F1EF500C65D55 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A7394D28272F1F0E00C65D55 /* BudgetModel.swift */,
+				A7394D2A272F1F4D00C65D55 /* BudgetDataSource.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A7394D2C272F26F100C65D55 /* Expense */ = {
+			isa = PBXGroup;
+			children = (
+				A7394D2D272F271100C65D55 /* Model */,
+			);
+			path = Expense;
+			sourceTree = "<group>";
+		};
+		A7394D2D272F271100C65D55 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A7394D30272F272A00C65D55 /* ExpenseModel.swift */,
+				A7394D2E272F272000C65D55 /* ExpenseDataSource.swift */,
+				A7F90746272FDED800A84016 /* ExpensePartyModel.swift */,
+				A7F90748272FDF0C00A84016 /* ExpensePartyDataSource.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A7394D32272F317100C65D55 /* Trip */ = {
+			isa = PBXGroup;
+			children = (
+				A7394D33272F317C00C65D55 /* Model */,
+			);
+			path = Trip;
+			sourceTree = "<group>";
+		};
+		A7394D33272F317C00C65D55 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A7394D34272F318B00C65D55 /* TripModel.swift */,
+				A7394D36272F31B200C65D55 /* TripDataSource.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A7B7E2592722BA08002B6EF7 = {
 			isa = PBXGroup;
 			children = (
@@ -103,10 +245,12 @@
 		A7E353612727CB0C004E999A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A7394D32272F317100C65D55 /* Trip */,
+				A7394D26272F1EE100C65D55 /* Budget */,
+				7E08C151272F0A8B00F269BD /* User */,
 				A7E353672727CB6C004E999A /* Header */,
-				A7E353662727CB65004E999A /* Budget */,
 				A7E353682727CB99004E999A /* Savings */,
-				A7E353652727CB5A004E999A /* Expenses */,
+				7E944D34272BE47E0017EF76 /* Expenses */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -131,20 +275,6 @@
 			children = (
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		A7E353652727CB5A004E999A /* Expenses */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Expenses;
-			sourceTree = "<group>";
-		};
-		A7E353662727CB65004E999A /* Budget */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Budget;
 			sourceTree = "<group>";
 		};
 		A7E353672727CB6C004E999A /* Header */ = {
@@ -251,7 +381,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "
+";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -260,9 +391,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7F90747272FDED800A84016 /* ExpensePartyModel.swift in Sources */,
+				7E944D3C272BEDD00017EF76 /* DebtsModel.swift in Sources */,
+				7E944D43272BFD3B0017EF76 /* SettlementsDataSource.swift in Sources */,
 				A7B7E2682722BA08002B6EF7 /* ContentView.swift in Sources */,
+				7E08C154272F0A9F00F269BD /* UsersDataSource.swift in Sources */,
+				7E944D41272BFD2B0017EF76 /* SettlementsModel.swift in Sources */,
+				A7F90749272FDF0C00A84016 /* ExpensePartyDataSource.swift in Sources */,
 				A7E3536D2727CC74004E999A /* Persistance.swift in Sources */,
+				A7394D2F272F272000C65D55 /* ExpenseDataSource.swift in Sources */,
+				7E944D38272BE4D70017EF76 /* DebtsDataSource.swift in Sources */,
+				A7394D35272F318B00C65D55 /* TripModel.swift in Sources */,
+				A7394D37272F31B200C65D55 /* TripDataSource.swift in Sources */,
+				A7394D31272F272A00C65D55 /* ExpenseModel.swift in Sources */,
+				A7394D2B272F1F4D00C65D55 /* BudgetDataSource.swift in Sources */,
+				A7394D29272F1F0E00C65D55 /* BudgetModel.swift in Sources */,
 				A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */,
+				7E08C156272F0E2700F269BD /* UsersModel.swift in Sources */,
 				A7E3536B2727CC26004E999A /* genersaDataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
