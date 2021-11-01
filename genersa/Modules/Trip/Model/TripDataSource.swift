@@ -18,15 +18,19 @@ class TripDataSource {
     func getTrip(with id: UUID) -> Trip? {
         return trips.first(where: {$0.id == id})
     }
-    func createTrip(currency: String, startDate: Date, endDate: Date,
-                    name: String, totalBudget: Double, users: [User], budgets: [Budget]) {
+    func createTrip(startDate: Date, endDate: Date,
+                    name: String, totalBudget: Double, settlement: Settlement,
+                    debts: [Debt], users: [User], budgets: [Budget]) {
         let newTrip = Trip(context: container.viewContext)
         newTrip.id = UUID()
-        newTrip.currency = currency
+//        newTrip.currency = currency
         newTrip.startDate = startDate
+        newTrip.endDate = endDate
         newTrip.name = name
         newTrip.totalBudget = totalBudget
+        newTrip.settlements = settlement
         // test
+        newTrip.debts?.addingObjects(from: debts)
         newTrip.users?.addingObjects(from: users)
         newTrip.budgets?.addingObjects(from: budgets)
         PersistenceController.shared.save()
@@ -37,12 +41,13 @@ class TripDataSource {
         do {
             trips =  try container.viewContext.fetch(request)
         } catch {
-            print("Error reading budgets. \(error.localizedDescription)")
+            print("Error reading trips. \(error.localizedDescription)")
         }
     }
-    func updateTrip(id: UUID, name: String? = nil) {
+    func updateTrip(id: UUID, name: String? = nil, totalBudget: Double? = nil) {
         if let trip = getTrip(with: id) {
             trip.name = name ?? trip.name
+            trip.totalBudget = totalBudget ?? trip.totalBudget
             PersistenceController.shared.save()
             readTrips()
         } else {
