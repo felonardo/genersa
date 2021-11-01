@@ -19,8 +19,7 @@ class BudgetDataSource {
         return budgets.first(where: {$0.id == id})
     }
     func createBudget(amountSaved: Double, amountTotal: Double,
-                      amountUsed: Double, name: String, user: User, trip: Trip,
-                      expenses: [ExpenseParty]) {
+                      amountUsed: Double, name: String, user: User, trip: Trip) {
         let newBudget = Budget(context: container.viewContext)
         newBudget.id = UUID()
         newBudget.amountSaved = amountSaved
@@ -30,7 +29,7 @@ class BudgetDataSource {
         newBudget.user = user
         newBudget.trip = trip
         // expenses should consider for create budget object
-        newBudget.expenses?.addingObjects(from: expenses)
+//        newBudget.expenses?.addingObjects(from: expenses)
         PersistenceController.shared.save()
         readBudgets()
     }
