@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import CoreData
+
+extension SavingRecord {
+    var savedPercentage: Double {
+        return amountSaved / goal
+    }
+}
