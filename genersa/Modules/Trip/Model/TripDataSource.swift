@@ -33,8 +33,8 @@ class TripDataSource {
         newTrip.endDate = endDate
         newTrip.name = name
         newTrip.totalBudget = totalBudget
-        newTrip.settlements = settlement
-        newTrip.savings = saving
+//        newTrip.settlements = settlement
+//        newTrip.savings = saving
         newTrip.debts = NSSet(objects: debts)
         newTrip.debts?.addingObjects(from: debts)
         newTrip.users = NSSet(objects: users)
