@@ -16,36 +16,14 @@ struct SavingHistoryComponent: View {
     
     var body: some View{
         HStack {
-            CircularProgressBar(progress: Float(amountSaved/totalAmount))
-                           .frame(width: 64.0, height: 64.0)
-                           .padding(20.0)
+//            CircularProgressBar(progress: Float(amountSaved/totalAmount))
+//                           .frame(width: 64.0, height: 64.0)
+//                           .padding(20.0)
             VStack (alignment: .leading, spacing: 4){
                 Text(formatter.string(from: month))
                     .bold()
                 Text("\(amountSaved) of \(totalAmount)")
             }
-        }
-    }
-}
-
-struct CircularProgressBar: View {
-    var progress: Float
-    
-    var body: some View {
-        ZStack {
-            Circle()
-                .stroke(lineWidth: 9.0)
-                .opacity(0.3)
-                .foregroundColor(Color.black)
-            
-            Circle()
-                .trim(from: 0.0, to: CGFloat(min(self.progress, 1.0)))
-                .stroke(style: StrokeStyle(lineWidth: 9.0, lineCap: .round, lineJoin: .round))
-                .foregroundColor(Color.black)
-                .rotationEffect(Angle(degrees: 270.0))
-                .animation(.linear)
-            Text(String(format: "%.0f %%", self.progress*100.0))
-                .font(.title3)
         }
     }
 }
