@@ -11,7 +11,6 @@ import SwiftUI
 struct GenersaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-        }
+            ContentView()        }
     }
 }
