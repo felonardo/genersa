@@ -15,6 +15,7 @@
 		7E08C1632734571D00F269BD /* DateFormatter+WithFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C1622734571D00F269BD /* DateFormatter+WithFormat.swift */; };
 		7E08C165273458B500F269BD /* HeaderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C164273458B500F269BD /* HeaderButton.swift */; };
 		7E08C16D27345ED900F269BD /* TimeInterval+CommonIntervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C16C27345ED900F269BD /* TimeInterval+CommonIntervals.swift */; };
+		7E171142273538F20086A78F /* IconComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E171141273538F10086A78F /* IconComponentView.swift */; };
 		7E6100C7273471440084B014 /* DateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100C6273471440084B014 /* DateButton.swift */; };
 		7E6100C9273471620084B014 /* TripDatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100C8273471620084B014 /* TripDatePickerViewModel.swift */; };
 		7E6100CB273472CE0084B014 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100CA273472CE0084B014 /* DateTimePicker.swift */; };
@@ -58,6 +59,7 @@
 		7E08C1622734571D00F269BD /* DateFormatter+WithFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+WithFormat.swift"; sourceTree = "<group>"; };
 		7E08C164273458B500F269BD /* HeaderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderButton.swift; sourceTree = "<group>"; };
 		7E08C16C27345ED900F269BD /* TimeInterval+CommonIntervals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+CommonIntervals.swift"; sourceTree = "<group>"; };
+		7E171141273538F10086A78F /* IconComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconComponentView.swift; sourceTree = "<group>"; };
 		7E6100C6273471440084B014 /* DateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateButton.swift; sourceTree = "<group>"; };
 		7E6100C8273471620084B014 /* TripDatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDatePickerViewModel.swift; sourceTree = "<group>"; };
 		7E6100CA273472CE0084B014 /* DateTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		7E08C16E27345FD900F269BD /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7E171141273538F10086A78F /* IconComponentView.swift */,
 				7E6588DF2734653F003882A4 /* TripDatePicker.swift */,
 				7E6100C8273471620084B014 /* TripDatePickerViewModel.swift */,
 				7E6100C6273471440084B014 /* DateButton.swift */,
@@ -155,6 +158,14 @@
 				7E6100D727350A520084B014 /* CurrencyList.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		7E171140273538DA0086A78F /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				E8ECA1D52733C9A7005C8EFA /* IconComponentView.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		7E6100CC2734FB140084B014 /* Constants */ = {
@@ -268,6 +279,7 @@
 				A7B7E2642722BA08002B6EF7 /* genersa */,
 				A7B7E2632722BA08002B6EF7 /* Products */,
 				A7E3537027280180004E999A /* Frameworks */,
+				7E171140273538DA0086A78F /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -367,14 +379,6 @@
 				A7E3537127280180004E999A /* CloudKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E8ECA1D42733BE91005C8EFA /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				E8ECA1D52733C9A7005C8EFA /* IconComponentView.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		E8F9DBE4272F9CCB00200DAC /* Model */ = {
@@ -512,6 +516,7 @@
 				A7F90749272FDF0C00A84016 /* ExpensePartyDataSource.swift in Sources */,
 				A7E3536D2727CC74004E999A /* Persistance.swift in Sources */,
 				A7394D2F272F272000C65D55 /* ExpenseDataSource.swift in Sources */,
+				7E171142273538F20086A78F /* IconComponentView.swift in Sources */,
 				7E944D38272BE4D70017EF76 /* DebtsDataSource.swift in Sources */,
 				E8E2ECAA272F80C70019DBCE /* SavingsModel.swift in Sources */,
 				7E6100D22734FFC70084B014 /* NumberFormatter+CurrencyFormatter.swift in Sources */,
