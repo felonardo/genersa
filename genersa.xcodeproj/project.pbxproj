@@ -9,6 +9,20 @@
 /* Begin PBXBuildFile section */
 		7E08C154272F0A9F00F269BD /* UsersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C153272F0A9F00F269BD /* UsersDataSource.swift */; };
 		7E08C156272F0E2700F269BD /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C155272F0E2700F269BD /* UsersModel.swift */; };
+		7E08C15827330BB300F269BD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C15727330BB300F269BD /* HeaderView.swift */; };
+		7E08C15A2734529400F269BD /* View+CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C1592734529400F269BD /* View+CornerRadiusStyle.swift */; };
+		7E08C15E2734535900F269BD /* HeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C15D2734535900F269BD /* HeaderViewModel.swift */; };
+		7E08C1632734571D00F269BD /* DateFormatter+WithFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C1622734571D00F269BD /* DateFormatter+WithFormat.swift */; };
+		7E08C165273458B500F269BD /* HeaderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C164273458B500F269BD /* HeaderButton.swift */; };
+		7E08C16D27345ED900F269BD /* TimeInterval+CommonIntervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C16C27345ED900F269BD /* TimeInterval+CommonIntervals.swift */; };
+		7E6100C7273471440084B014 /* DateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100C6273471440084B014 /* DateButton.swift */; };
+		7E6100C9273471620084B014 /* TripDatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100C8273471620084B014 /* TripDatePickerViewModel.swift */; };
+		7E6100CB273472CE0084B014 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100CA273472CE0084B014 /* DateTimePicker.swift */; };
+		7E6100CE2734FB230084B014 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100CD2734FB230084B014 /* Currency.swift */; };
+		7E6100D22734FFC70084B014 /* NumberFormatter+CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100D12734FFC70084B014 /* NumberFormatter+CurrencyFormatter.swift */; };
+		7E6100D62735011C0084B014 /* CurrencyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100D52735011C0084B014 /* CurrencyPicker.swift */; };
+		7E6100D827350A520084B014 /* CurrencyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100D727350A520084B014 /* CurrencyList.swift */; };
+		7E6588E02734653F003882A4 /* TripDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6588DF2734653F003882A4 /* TripDatePicker.swift */; };
 		7E944D38272BE4D70017EF76 /* DebtsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D37272BE4D70017EF76 /* DebtsDataSource.swift */; };
 		7E944D3C272BEDD00017EF76 /* DebtsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D3B272BEDD00017EF76 /* DebtsModel.swift */; };
 		7E944D41272BFD2B0017EF76 /* SettlementsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D40272BFD2B0017EF76 /* SettlementsModel.swift */; };
@@ -38,6 +52,20 @@
 /* Begin PBXFileReference section */
 		7E08C153272F0A9F00F269BD /* UsersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDataSource.swift; sourceTree = "<group>"; };
 		7E08C155272F0E2700F269BD /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
+		7E08C15727330BB300F269BD /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		7E08C1592734529400F269BD /* View+CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "View+CornerRadiusStyle.swift"; path = "genersa/Vendors/Utilities/Extensions/View+CornerRadiusStyle.swift"; sourceTree = SOURCE_ROOT; };
+		7E08C15D2734535900F269BD /* HeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModel.swift; sourceTree = "<group>"; };
+		7E08C1622734571D00F269BD /* DateFormatter+WithFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+WithFormat.swift"; sourceTree = "<group>"; };
+		7E08C164273458B500F269BD /* HeaderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderButton.swift; sourceTree = "<group>"; };
+		7E08C16C27345ED900F269BD /* TimeInterval+CommonIntervals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+CommonIntervals.swift"; sourceTree = "<group>"; };
+		7E6100C6273471440084B014 /* DateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateButton.swift; sourceTree = "<group>"; };
+		7E6100C8273471620084B014 /* TripDatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDatePickerViewModel.swift; sourceTree = "<group>"; };
+		7E6100CA273472CE0084B014 /* DateTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
+		7E6100CD2734FB230084B014 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		7E6100D12734FFC70084B014 /* NumberFormatter+CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+CurrencyFormatter.swift"; sourceTree = "<group>"; };
+		7E6100D52735011C0084B014 /* CurrencyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPicker.swift; sourceTree = "<group>"; };
+		7E6100D727350A520084B014 /* CurrencyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyList.swift; sourceTree = "<group>"; };
+		7E6588DF2734653F003882A4 /* TripDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDatePicker.swift; sourceTree = "<group>"; };
 		7E944D37272BE4D70017EF76 /* DebtsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtsDataSource.swift; sourceTree = "<group>"; };
 		7E944D3B272BEDD00017EF76 /* DebtsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtsModel.swift; sourceTree = "<group>"; };
 		7E944D40272BFD2B0017EF76 /* SettlementsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettlementsModel.swift; sourceTree = "<group>"; };
@@ -94,6 +122,47 @@
 				7E08C155272F0E2700F269BD /* UsersModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7E08C15B273452BD00F269BD /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7E6100CC2734FB140084B014 /* Constants */,
+				7E08C15C273452C400F269BD /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		7E08C15C273452C400F269BD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7E08C1592734529400F269BD /* View+CornerRadiusStyle.swift */,
+				7E08C1622734571D00F269BD /* DateFormatter+WithFormat.swift */,
+				7E08C16C27345ED900F269BD /* TimeInterval+CommonIntervals.swift */,
+				7E6100D12734FFC70084B014 /* NumberFormatter+CurrencyFormatter.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7E08C16E27345FD900F269BD /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7E6588DF2734653F003882A4 /* TripDatePicker.swift */,
+				7E6100C8273471620084B014 /* TripDatePickerViewModel.swift */,
+				7E6100C6273471440084B014 /* DateButton.swift */,
+				7E6100CA273472CE0084B014 /* DateTimePicker.swift */,
+				7E6100D52735011C0084B014 /* CurrencyPicker.swift */,
+				7E6100D727350A520084B014 /* CurrencyList.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		7E6100CC2734FB140084B014 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				7E6100CD2734FB230084B014 /* Currency.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		7E944D34272BE47E0017EF76 /* Expenses */ = {
@@ -246,7 +315,7 @@
 		A7E353602727CB00004E999A /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
-				A7E353632727CB3C004E999A /* Utilities */,
+				7E08C15B273452BD00F269BD /* Utilities */,
 				A7E353622727CB2D004E999A /* Services */,
 			);
 			path = Vendors;
@@ -255,7 +324,7 @@
 		A7E353612727CB0C004E999A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				E8ECA1D42733BE91005C8EFA /* Components */,
+				7E08C16E27345FD900F269BD /* Components */,
 				A7394D32272F317100C65D55 /* Trip */,
 				A7394D26272F1EE100C65D55 /* Budget */,
 				7E08C151272F0A8B00F269BD /* User */,
@@ -273,24 +342,12 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		A7E353632727CB3C004E999A /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				A7E353642727CB46004E999A /* Extensions */,
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
-		A7E353642727CB46004E999A /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		A7E353672727CB6C004E999A /* Header */ = {
 			isa = PBXGroup;
 			children = (
+				7E08C15727330BB300F269BD /* HeaderView.swift */,
+				7E08C15D2734535900F269BD /* HeaderViewModel.swift */,
+				7E08C164273458B500F269BD /* HeaderButton.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -438,19 +495,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E6100D827350A520084B014 /* CurrencyList.swift in Sources */,
 				A7F90747272FDED800A84016 /* ExpensePartyModel.swift in Sources */,
+				7E08C15E2734535900F269BD /* HeaderViewModel.swift in Sources */,
 				7E944D3C272BEDD00017EF76 /* DebtsModel.swift in Sources */,
 				7E944D43272BFD3B0017EF76 /* SettlementsDataSource.swift in Sources */,
 				A7B7E2682722BA08002B6EF7 /* ContentView.swift in Sources */,
 				E8E2ECA8272F80B20019DBCE /* SavingsDataSource.swift in Sources */,
+				7E6100CE2734FB230084B014 /* Currency.swift in Sources */,
 				7E08C154272F0A9F00F269BD /* UsersDataSource.swift in Sources */,
+				7E08C165273458B500F269BD /* HeaderButton.swift in Sources */,
+				7E6100D62735011C0084B014 /* CurrencyPicker.swift in Sources */,
 				7E944D41272BFD2B0017EF76 /* SettlementsModel.swift in Sources */,
+				7E08C1632734571D00F269BD /* DateFormatter+WithFormat.swift in Sources */,
+				7E08C15A2734529400F269BD /* View+CornerRadiusStyle.swift in Sources */,
 				A7F90749272FDF0C00A84016 /* ExpensePartyDataSource.swift in Sources */,
 				A7E3536D2727CC74004E999A /* Persistance.swift in Sources */,
 				A7394D2F272F272000C65D55 /* ExpenseDataSource.swift in Sources */,
 				7E944D38272BE4D70017EF76 /* DebtsDataSource.swift in Sources */,
 				E8E2ECAA272F80C70019DBCE /* SavingsModel.swift in Sources */,
+				7E6100D22734FFC70084B014 /* NumberFormatter+CurrencyFormatter.swift in Sources */,
 				E8F9DBEC272F9D6200200DAC /* SavingRecordModel.swift in Sources */,
+				7E6100C9273471620084B014 /* TripDatePickerViewModel.swift in Sources */,
+				7E6588E02734653F003882A4 /* TripDatePicker.swift in Sources */,
 				A7394D35272F318B00C65D55 /* TripModel.swift in Sources */,
 				A7394D37272F31B200C65D55 /* TripDataSource.swift in Sources */,
 				A7394D31272F272A00C65D55 /* ExpenseModel.swift in Sources */,
@@ -459,8 +526,12 @@
 				A7394D29272F1F0E00C65D55 /* BudgetModel.swift in Sources */,
 				E8F9DBEA272F9D5500200DAC /* SavingRecordDataSource.swift in Sources */,
 				A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */,
+				7E6100CB273472CE0084B014 /* DateTimePicker.swift in Sources */,
 				7E08C156272F0E2700F269BD /* UsersModel.swift in Sources */,
+				7E08C16D27345ED900F269BD /* TimeInterval+CommonIntervals.swift in Sources */,
+				7E08C15827330BB300F269BD /* HeaderView.swift in Sources */,
 				A7E3536B2727CC26004E999A /* genersaDataModel.xcdatamodeld in Sources */,
+				7E6100C7273471440084B014 /* DateButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

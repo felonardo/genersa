@@ -35,7 +35,7 @@ class TripDataSource {
         newTrip.totalBudget = totalBudget
         newTrip.settlements = NSSet(objects: settlements)
         newTrip.settlements?.addingObjects(from: settlements)
-        newTrip.savings = NSSet(object: savings)
+        newTrip.savings = NSSet(objects: savings)
         newTrip.savings?.addingObjects(from: savings)
         newTrip.debts = NSSet(objects: debts)
         newTrip.debts?.addingObjects(from: debts)
