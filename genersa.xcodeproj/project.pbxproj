@@ -44,6 +44,7 @@
 		A7F90749272FDF0C00A84016 /* ExpensePartyDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F90748272FDF0C00A84016 /* ExpensePartyDataSource.swift */; };
 		E8E2ECA8272F80B20019DBCE /* SavingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E2ECA7272F80B20019DBCE /* SavingsDataSource.swift */; };
 		E8E2ECAA272F80C70019DBCE /* SavingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E2ECA9272F80C70019DBCE /* SavingsModel.swift */; };
+		E8ECA1D62733C9A7005C8EFA /* IconComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ECA1D52733C9A7005C8EFA /* IconComponentView.swift */; };
 		E8F9DBEA272F9D5500200DAC /* SavingRecordDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F9DBE9272F9D5500200DAC /* SavingRecordDataSource.swift */; };
 		E8F9DBEC272F9D6200200DAC /* SavingRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F9DBEB272F9D6200200DAC /* SavingRecordModel.swift */; };
 /* End PBXBuildFile section */
@@ -89,6 +90,7 @@
 		A7F90748272FDF0C00A84016 /* ExpensePartyDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePartyDataSource.swift; sourceTree = "<group>"; };
 		E8E2ECA7272F80B20019DBCE /* SavingsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsDataSource.swift; sourceTree = "<group>"; };
 		E8E2ECA9272F80C70019DBCE /* SavingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsModel.swift; sourceTree = "<group>"; };
+		E8ECA1D52733C9A7005C8EFA /* IconComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconComponentView.swift; sourceTree = "<group>"; };
 		E8F9DBE9272F9D5500200DAC /* SavingRecordDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingRecordDataSource.swift; sourceTree = "<group>"; };
 		E8F9DBEB272F9D6200200DAC /* SavingRecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingRecordModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -367,6 +369,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E8ECA1D42733BE91005C8EFA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E8ECA1D52733C9A7005C8EFA /* IconComponentView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		E8F9DBE4272F9CCB00200DAC /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -511,6 +521,7 @@
 				A7394D35272F318B00C65D55 /* TripModel.swift in Sources */,
 				A7394D37272F31B200C65D55 /* TripDataSource.swift in Sources */,
 				A7394D31272F272A00C65D55 /* ExpenseModel.swift in Sources */,
+				E8ECA1D62733C9A7005C8EFA /* IconComponentView.swift in Sources */,
 				A7394D2B272F1F4D00C65D55 /* BudgetDataSource.swift in Sources */,
 				A7394D29272F1F0E00C65D55 /* BudgetModel.swift in Sources */,
 				E8F9DBEA272F9D5500200DAC /* SavingRecordDataSource.swift in Sources */,
