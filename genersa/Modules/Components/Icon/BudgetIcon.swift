@@ -1,28 +1,11 @@
 //
-//  IconComponentView.swift
+//  BudgetIcon.swift
 //  genersa
 //
-//  Created by Kevin Rivaldo  on 04/11/21.
+//  Created by Joanda Febrian on 05/11/21.
 //
 
 import SwiftUI
-
-struct IconComponentView: View {
-    var body: some View {
-        ZStack {
-            HStack{
-                BudgetIcon(color: "grayIcon", icon: Image(systemName: "car.fill"), iconSize: 50)
-            }
-            
-        }
-    }
-}
-
-struct IconComponentView_Previews: PreviewProvider {
-    static var previews: some View {
-        IconComponentView()
-    }
-}
 
 struct BudgetIcon: View {
     
@@ -39,7 +22,16 @@ struct BudgetIcon: View {
                             .resizable()
                             .padding(iconSize * 0.25)
                             .frame(width: iconSize, height: iconSize))
-                
+        }
+    }
+}
+
+struct BudgetIcon_Previews: PreviewProvider {
+    static var previews: some View {
+        ZStack {
+            HStack{
+                BudgetIcon(color: "grayIcon", icon: Image(systemName: "car.fill"), iconSize: 50)
+            }
         }
     }
 }
