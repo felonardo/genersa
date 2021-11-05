@@ -18,6 +18,7 @@
 		7E17114827353AC40086A78F /* BudgetIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E17114727353AC40086A78F /* BudgetIcon.swift */; };
 		7E17114E27353DBE0086A78F /* Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E17114D27353DBE0086A78F /* Overview.swift */; };
 		7E171150273540320086A78F /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E17114F273540320086A78F /* CircularProgressBar.swift */; };
+		7E171152273562930086A78F /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E171151273562930086A78F /* OverviewViewModel.swift */; };
 		7E6100C7273471440084B014 /* DateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100C6273471440084B014 /* DateButton.swift */; };
 		7E6100C9273471620084B014 /* TripDatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100C8273471620084B014 /* TripDatePickerViewModel.swift */; };
 		7E6100CB273472CE0084B014 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100CA273472CE0084B014 /* DateTimePicker.swift */; };
@@ -69,6 +70,7 @@
 		7E17114727353AC40086A78F /* BudgetIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetIcon.swift; sourceTree = "<group>"; };
 		7E17114D27353DBE0086A78F /* Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overview.swift; sourceTree = "<group>"; };
 		7E17114F273540320086A78F /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
+		7E171151273562930086A78F /* OverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OverviewViewModel.swift; path = ../../../../../../OverviewViewModel.swift; sourceTree = "<group>"; };
 		7E6100C6273471440084B014 /* DateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateButton.swift; sourceTree = "<group>"; };
 		7E6100C8273471620084B014 /* TripDatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDatePickerViewModel.swift; sourceTree = "<group>"; };
 		7E6100CA273472CE0084B014 /* DateTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				7E17114C27353CCC0086A78F /* Form */,
 				A7A42D832734D6F600F95D5E /* SavingHistoryComponent.swift */,
 				7E17114D27353DBE0086A78F /* Overview.swift */,
+				7E171151273562930086A78F /* OverviewViewModel.swift */,
 				7E17114B27353CB90086A78F /* Currency */,
 				7E17114F273540320086A78F /* CircularProgressBar.swift */,
 			);
@@ -583,6 +586,7 @@
 				A7E3536D2727CC74004E999A /* Persistance.swift in Sources */,
 				A7394D2F272F272000C65D55 /* ExpenseDataSource.swift in Sources */,
 				7E944D38272BE4D70017EF76 /* DebtsDataSource.swift in Sources */,
+				7E171152273562930086A78F /* OverviewViewModel.swift in Sources */,
 				E8E2ECAA272F80C70019DBCE /* SavingsModel.swift in Sources */,
 				7E6100D22734FFC70084B014 /* NumberFormatter+CurrencyFormatter.swift in Sources */,
 				E8F9DBEC272F9D6200200DAC /* SavingRecordModel.swift in Sources */,
