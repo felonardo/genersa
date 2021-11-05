@@ -23,8 +23,8 @@ class TripDataSource {
     }
     
     func createTrip(currency: String, startDate: Date, endDate: Date,
-                    name: String, totalBudget: Double, settlement: Settlement,
-                    saving: Saving, debts: [Debt], users: [User], budgets: [Budget]) -> Trip {
+                    name: String, totalBudget: Double, settlements: [Settlement],
+                    savings: [Saving], debts: [Debt], users: [User], budgets: [Budget]) -> Trip {
         
         let newTrip = Trip(context: container.viewContext)
         newTrip.id = UUID()
@@ -33,8 +33,10 @@ class TripDataSource {
         newTrip.endDate = endDate
         newTrip.name = name
         newTrip.totalBudget = totalBudget
-        newTrip.settlements = settlement
-        newTrip.savings = saving
+        newTrip.settlements = NSSet(objects: settlements)
+        newTrip.settlements?.addingObjects(from: settlements)
+        newTrip.savings = NSSet(objects: savings)
+        newTrip.savings?.addingObjects(from: savings)
         newTrip.debts = NSSet(objects: debts)
         newTrip.debts?.addingObjects(from: debts)
         newTrip.users = NSSet(objects: users)
