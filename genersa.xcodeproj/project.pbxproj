@@ -34,6 +34,13 @@
 		A7394D31272F272A00C65D55 /* ExpenseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D30272F272A00C65D55 /* ExpenseModel.swift */; };
 		A7394D35272F318B00C65D55 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D34272F318B00C65D55 /* TripModel.swift */; };
 		A7394D37272F31B200C65D55 /* TripDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D36272F31B200C65D55 /* TripDataSource.swift */; };
+		A79B4F7B273511E3004B2F19 /* TextBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79B4F7A273511E3004B2F19 /* TextBinding.swift */; };
+		A79B4F8227353820004B2F19 /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79B4F8127353820004B2F19 /* ButtonPrimary.swift */; };
+		A79B4F842735383B004B2F19 /* ButtonSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79B4F832735383B004B2F19 /* ButtonSecondary.swift */; };
+		A79B4F8627353864004B2F19 /* ButtonTertiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79B4F8527353864004B2F19 /* ButtonTertiary.swift */; };
+		A7A42D802734A18E00F95D5E /* ReusableTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A42D7F2734A18E00F95D5E /* ReusableTitleView.swift */; };
+		A7A42D822734D59600F95D5E /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A42D812734D59600F95D5E /* ButtonComponent.swift */; };
+		A7A42D842734D6F600F95D5E /* SavingHistoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A42D832734D6F600F95D5E /* SavingHistoryComponent.swift */; };
 		A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B7E2652722BA08002B6EF7 /* GenersaApp.swift */; };
 		A7B7E2682722BA08002B6EF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B7E2672722BA08002B6EF7 /* ContentView.swift */; };
 		A7B7E26A2722BA0A002B6EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7B7E2692722BA0A002B6EF7 /* Assets.xcassets */; };
@@ -78,6 +85,13 @@
 		A7394D30272F272A00C65D55 /* ExpenseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseModel.swift; sourceTree = "<group>"; };
 		A7394D34272F318B00C65D55 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
 		A7394D36272F31B200C65D55 /* TripDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataSource.swift; sourceTree = "<group>"; };
+		A79B4F7A273511E3004B2F19 /* TextBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBinding.swift; sourceTree = "<group>"; };
+		A79B4F8127353820004B2F19 /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
+		A79B4F832735383B004B2F19 /* ButtonSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSecondary.swift; sourceTree = "<group>"; };
+		A79B4F8527353864004B2F19 /* ButtonTertiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTertiary.swift; sourceTree = "<group>"; };
+		A7A42D7F2734A18E00F95D5E /* ReusableTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTitleView.swift; sourceTree = "<group>"; };
+		A7A42D812734D59600F95D5E /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
+		A7A42D832734D6F600F95D5E /* SavingHistoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingHistoryComponent.swift; sourceTree = "<group>"; };
 		A7B7E2622722BA08002B6EF7 /* genersa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = genersa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7B7E2652722BA08002B6EF7 /* GenersaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenersaApp.swift; sourceTree = "<group>"; };
 		A7B7E2672722BA08002B6EF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -141,6 +155,7 @@
 				7E08C1592734529400F269BD /* View+CornerRadiusStyle.swift */,
 				7E08C1622734571D00F269BD /* DateFormatter+WithFormat.swift */,
 				7E08C16C27345ED900F269BD /* TimeInterval+CommonIntervals.swift */,
+				A79B4F7A273511E3004B2F19 /* TextBinding.swift */,
 				7E6100D12734FFC70084B014 /* NumberFormatter+CurrencyFormatter.swift */,
 			);
 			path = Extensions;
@@ -149,11 +164,15 @@
 		7E08C16E27345FD900F269BD /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A79B4F8027353808004B2F19 /* Button */,
 				7E171141273538F10086A78F /* IconComponentView.swift */,
 				7E6588DF2734653F003882A4 /* TripDatePicker.swift */,
 				7E6100C8273471620084B014 /* TripDatePickerViewModel.swift */,
 				7E6100C6273471440084B014 /* DateButton.swift */,
 				7E6100CA273472CE0084B014 /* DateTimePicker.swift */,
+				A7A42D7F2734A18E00F95D5E /* ReusableTitleView.swift */,
+				A7A42D812734D59600F95D5E /* ButtonComponent.swift */,
+				A7A42D832734D6F600F95D5E /* SavingHistoryComponent.swift */,
 				7E6100D52735011C0084B014 /* CurrencyPicker.swift */,
 				7E6100D727350A520084B014 /* CurrencyList.swift */,
 			);
@@ -271,6 +290,16 @@
 				A7394D36272F31B200C65D55 /* TripDataSource.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A79B4F8027353808004B2F19 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				A79B4F8127353820004B2F19 /* ButtonPrimary.swift */,
+				A79B4F832735383B004B2F19 /* ButtonSecondary.swift */,
+				A79B4F8527353864004B2F19 /* ButtonTertiary.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 		A7B7E2592722BA08002B6EF7 = {
@@ -503,12 +532,16 @@
 				A7F90747272FDED800A84016 /* ExpensePartyModel.swift in Sources */,
 				7E08C15E2734535900F269BD /* HeaderViewModel.swift in Sources */,
 				7E944D3C272BEDD00017EF76 /* DebtsModel.swift in Sources */,
+				A79B4F8227353820004B2F19 /* ButtonPrimary.swift in Sources */,
 				7E944D43272BFD3B0017EF76 /* SettlementsDataSource.swift in Sources */,
 				A7B7E2682722BA08002B6EF7 /* ContentView.swift in Sources */,
+				A7A42D822734D59600F95D5E /* ButtonComponent.swift in Sources */,
 				E8E2ECA8272F80B20019DBCE /* SavingsDataSource.swift in Sources */,
 				7E6100CE2734FB230084B014 /* Currency.swift in Sources */,
 				7E08C154272F0A9F00F269BD /* UsersDataSource.swift in Sources */,
+				A79B4F7B273511E3004B2F19 /* TextBinding.swift in Sources */,
 				7E08C165273458B500F269BD /* HeaderButton.swift in Sources */,
+				A7A42D842734D6F600F95D5E /* SavingHistoryComponent.swift in Sources */,
 				7E6100D62735011C0084B014 /* CurrencyPicker.swift in Sources */,
 				7E944D41272BFD2B0017EF76 /* SettlementsModel.swift in Sources */,
 				7E08C1632734571D00F269BD /* DateFormatter+WithFormat.swift in Sources */,
@@ -529,7 +562,10 @@
 				E8ECA1D62733C9A7005C8EFA /* IconComponentView.swift in Sources */,
 				A7394D2B272F1F4D00C65D55 /* BudgetDataSource.swift in Sources */,
 				A7394D29272F1F0E00C65D55 /* BudgetModel.swift in Sources */,
+				A79B4F8627353864004B2F19 /* ButtonTertiary.swift in Sources */,
+				A7A42D802734A18E00F95D5E /* ReusableTitleView.swift in Sources */,
 				E8F9DBEA272F9D5500200DAC /* SavingRecordDataSource.swift in Sources */,
+				A79B4F842735383B004B2F19 /* ButtonSecondary.swift in Sources */,
 				A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */,
 				7E6100CB273472CE0084B014 /* DateTimePicker.swift in Sources */,
 				7E08C156272F0E2700F269BD /* UsersModel.swift in Sources */,
