@@ -9,14 +9,14 @@ import SwiftUI
 
 struct BudgetIcon: View {
     
-    let color: String
+    let color: Color
     let icon: Image?
     let iconSize: CGFloat
     
     var body: some View {
         VStack {
             Circle()
-                .fill(Color(color))
+                .fill(color)
                 .frame(width: iconSize, height: iconSize)
                 .overlay(icon?
                             .resizable()
@@ -29,8 +29,8 @@ struct BudgetIcon: View {
 struct BudgetIcon_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            HStack{
-                BudgetIcon(color: "grayIcon", icon: Image(systemName: "car.fill"), iconSize: 50)
+            HStack {
+                BudgetIcon(color: Color("grayIcon"), icon: Image(systemName: "car.fill"), iconSize: 50)
             }
         }
     }

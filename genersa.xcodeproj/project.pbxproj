@@ -16,6 +16,15 @@
 		7E08C165273458B500F269BD /* HeaderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C164273458B500F269BD /* HeaderButton.swift */; };
 		7E08C16D27345ED900F269BD /* TimeInterval+CommonIntervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C16C27345ED900F269BD /* TimeInterval+CommonIntervals.swift */; };
 		7E17114827353AC40086A78F /* BudgetIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E17114727353AC40086A78F /* BudgetIcon.swift */; };
+		7E17114E27353DBE0086A78F /* Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E17114D27353DBE0086A78F /* Overview.swift */; };
+		7E171150273540320086A78F /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E17114F273540320086A78F /* CircularProgressBar.swift */; };
+		7E17115727357E710086A78F /* DailyBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E17115627357E710086A78F /* DailyBudget.swift */; };
+		7E171159273582070086A78F /* Double+FormatToCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E171158273582070086A78F /* Double+FormatToCurrency.swift */; };
+		7E17115B273583360086A78F /* TripSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E17115A273583360086A78F /* TripSettings.swift */; };
+		7E17115C2735846D0086A78F /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E17115427357E030086A78F /* OverviewViewModel.swift */; };
+		7E17115E273586760086A78F /* BudgetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E17115D273586760086A78F /* BudgetCard.swift */; };
+		7E17116027358BA10086A78F /* MainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E17115F27358BA10086A78F /* MainComponent.swift */; };
+		7E17116227358F200086A78F /* BudgetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E17116127358F200086A78F /* BudgetList.swift */; };
 		7E6100C7273471440084B014 /* DateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100C6273471440084B014 /* DateButton.swift */; };
 		7E6100C9273471620084B014 /* TripDatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100C8273471620084B014 /* TripDatePickerViewModel.swift */; };
 		7E6100CB273472CE0084B014 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100CA273472CE0084B014 /* DateTimePicker.swift */; };
@@ -65,6 +74,15 @@
 		7E08C164273458B500F269BD /* HeaderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderButton.swift; sourceTree = "<group>"; };
 		7E08C16C27345ED900F269BD /* TimeInterval+CommonIntervals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+CommonIntervals.swift"; sourceTree = "<group>"; };
 		7E17114727353AC40086A78F /* BudgetIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetIcon.swift; sourceTree = "<group>"; };
+		7E17114D27353DBE0086A78F /* Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overview.swift; sourceTree = "<group>"; };
+		7E17114F273540320086A78F /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
+		7E17115427357E030086A78F /* OverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
+		7E17115627357E710086A78F /* DailyBudget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBudget.swift; sourceTree = "<group>"; };
+		7E171158273582070086A78F /* Double+FormatToCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+FormatToCurrency.swift"; sourceTree = "<group>"; };
+		7E17115A273583360086A78F /* TripSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSettings.swift; sourceTree = "<group>"; };
+		7E17115D273586760086A78F /* BudgetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCard.swift; sourceTree = "<group>"; };
+		7E17115F27358BA10086A78F /* MainComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainComponent.swift; sourceTree = "<group>"; };
+		7E17116127358F200086A78F /* BudgetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetList.swift; sourceTree = "<group>"; };
 		7E6100C6273471440084B014 /* DateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateButton.swift; sourceTree = "<group>"; };
 		7E6100C8273471620084B014 /* TripDatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDatePickerViewModel.swift; sourceTree = "<group>"; };
 		7E6100CA273472CE0084B014 /* DateTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
@@ -153,6 +171,7 @@
 				7E08C16C27345ED900F269BD /* TimeInterval+CommonIntervals.swift */,
 				A79B4F7A273511E3004B2F19 /* TextBinding.swift */,
 				7E6100D12734FFC70084B014 /* NumberFormatter+CurrencyFormatter.swift */,
+				7E171158273582070086A78F /* Double+FormatToCurrency.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -165,7 +184,9 @@
 				7E171145273539F60086A78F /* DatePicker */,
 				7E17114C27353CCC0086A78F /* Form */,
 				A7A42D832734D6F600F95D5E /* SavingHistoryComponent.swift */,
+				7E17115327357E030086A78F /* Overview */,
 				7E17114B27353CB90086A78F /* Currency */,
+				7E17114F273540320086A78F /* CircularProgressBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -211,6 +232,25 @@
 				A7A42D7F2734A18E00F95D5E /* ReusableTitleView.swift */,
 			);
 			name = Form;
+			sourceTree = "<group>";
+		};
+		7E17115327357E030086A78F /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				7E17114D27353DBE0086A78F /* Overview.swift */,
+				7E17115427357E030086A78F /* OverviewViewModel.swift */,
+			);
+			path = Overview;
+			sourceTree = "<group>";
+		};
+		7E17115527357E2E0086A78F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A7E353672727CB6C004E999A /* Header */,
+				7E17115627357E710086A78F /* DailyBudget.swift */,
+				7E17115F27358BA10086A78F /* MainComponent.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		7E6100CC2734FB140084B014 /* Constants */ = {
@@ -269,6 +309,8 @@
 			isa = PBXGroup;
 			children = (
 				A7394D27272F1EF500C65D55 /* Model */,
+				7E17115D273586760086A78F /* BudgetCard.swift */,
+				7E17116127358F200086A78F /* BudgetList.swift */,
 			);
 			path = Budget;
 			sourceTree = "<group>";
@@ -305,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				A7394D33272F317C00C65D55 /* Model */,
+				7E17115A273583360086A78F /* TripSettings.swift */,
 			);
 			path = Trip;
 			sourceTree = "<group>";
@@ -391,11 +434,11 @@
 		A7E353612727CB0C004E999A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7E17115527357E2E0086A78F /* Main */,
 				7E08C16E27345FD900F269BD /* Components */,
 				A7394D32272F317100C65D55 /* Trip */,
 				A7394D26272F1EE100C65D55 /* Budget */,
 				7E08C151272F0A8B00F269BD /* User */,
-				A7E353672727CB6C004E999A /* Header */,
 				A7E353682727CB99004E999A /* Savings */,
 				7E944D34272BE47E0017EF76 /* Expenses */,
 			);
@@ -558,7 +601,9 @@
 				A7F90747272FDED800A84016 /* ExpensePartyModel.swift in Sources */,
 				7E08C15E2734535900F269BD /* HeaderViewModel.swift in Sources */,
 				7E944D3C272BEDD00017EF76 /* DebtsModel.swift in Sources */,
+				7E17114E27353DBE0086A78F /* Overview.swift in Sources */,
 				A79B4F8227353820004B2F19 /* ButtonPrimary.swift in Sources */,
+				7E17115E273586760086A78F /* BudgetCard.swift in Sources */,
 				7E944D43272BFD3B0017EF76 /* SettlementsDataSource.swift in Sources */,
 				A7B7E2682722BA08002B6EF7 /* ContentView.swift in Sources */,
 				E8E2ECA8272F80B20019DBCE /* SavingsDataSource.swift in Sources */,
@@ -574,14 +619,19 @@
 				7E08C15A2734529400F269BD /* View+CornerRadiusStyle.swift in Sources */,
 				A7F90749272FDF0C00A84016 /* ExpensePartyDataSource.swift in Sources */,
 				A7E3536D2727CC74004E999A /* Persistance.swift in Sources */,
+				7E171159273582070086A78F /* Double+FormatToCurrency.swift in Sources */,
+				7E17116027358BA10086A78F /* MainComponent.swift in Sources */,
 				A7394D2F272F272000C65D55 /* ExpenseDataSource.swift in Sources */,
 				7E944D38272BE4D70017EF76 /* DebtsDataSource.swift in Sources */,
+				7E17116227358F200086A78F /* BudgetList.swift in Sources */,
+				7E17115B273583360086A78F /* TripSettings.swift in Sources */,
 				E8E2ECAA272F80C70019DBCE /* SavingsModel.swift in Sources */,
 				7E6100D22734FFC70084B014 /* NumberFormatter+CurrencyFormatter.swift in Sources */,
 				E8F9DBEC272F9D6200200DAC /* SavingRecordModel.swift in Sources */,
 				7E6100C9273471620084B014 /* TripDatePickerViewModel.swift in Sources */,
 				7E6588E02734653F003882A4 /* TripDatePicker.swift in Sources */,
 				A7394D35272F318B00C65D55 /* TripModel.swift in Sources */,
+				7E171150273540320086A78F /* CircularProgressBar.swift in Sources */,
 				A7394D37272F31B200C65D55 /* TripDataSource.swift in Sources */,
 				A7394D31272F272A00C65D55 /* ExpenseModel.swift in Sources */,
 				A7394D2B272F1F4D00C65D55 /* BudgetDataSource.swift in Sources */,
@@ -589,11 +639,13 @@
 				A79B4F8627353864004B2F19 /* ButtonTertiary.swift in Sources */,
 				A7A42D802734A18E00F95D5E /* ReusableTitleView.swift in Sources */,
 				E8F9DBEA272F9D5500200DAC /* SavingRecordDataSource.swift in Sources */,
+				7E17115C2735846D0086A78F /* OverviewViewModel.swift in Sources */,
 				A79B4F842735383B004B2F19 /* ButtonSecondary.swift in Sources */,
 				A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */,
 				7E6100CB273472CE0084B014 /* DateTimePicker.swift in Sources */,
 				7E08C156272F0E2700F269BD /* UsersModel.swift in Sources */,
 				7E08C16D27345ED900F269BD /* TimeInterval+CommonIntervals.swift in Sources */,
+				7E17115727357E710086A78F /* DailyBudget.swift in Sources */,
 				7E08C15827330BB300F269BD /* HeaderView.swift in Sources */,
 				A7E3536B2727CC26004E999A /* genersaDataModel.xcdatamodeld in Sources */,
 				7E6100C7273471440084B014 /* DateButton.swift in Sources */,

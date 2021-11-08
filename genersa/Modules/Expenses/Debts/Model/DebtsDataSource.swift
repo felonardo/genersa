@@ -12,7 +12,9 @@ class DebtsDataSource {
     
     static let shared = DebtsDataSource()
     var debts: [Debt] = []
-    var container: NSPersistentCloudKitContainer
+    
+    #warning("Local Container to be updated as soon as app supports multiple users!")
+    var container: NSPersistentContainer
     
     init() {
         container = PersistenceController.shared.container

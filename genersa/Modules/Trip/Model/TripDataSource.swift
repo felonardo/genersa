@@ -12,7 +12,9 @@ class TripDataSource {
     
     static let shared = TripDataSource()
     var trips: [Trip] = []
-    var container: NSPersistentCloudKitContainer
+    
+    #warning("Local Container to be updated as soon as app supports multiple users!")
+    var container: NSPersistentContainer
     
     init() {
         container = PersistenceController.shared.container
