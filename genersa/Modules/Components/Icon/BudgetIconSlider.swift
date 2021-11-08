@@ -14,7 +14,7 @@ struct Icon{
 
 struct BudgetIconSlider: View {
     
-
+    
     let icons:[Icon] = [
         Icon(id: 0, image: Image("Icon")),
         Icon(id: 1, image: Image("Icon-1")),
