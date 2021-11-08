@@ -12,7 +12,9 @@ class UsersDataSource {
     
     static let shared = UsersDataSource()
     var users: [User] = []
-    var container: NSPersistentCloudKitContainer
+    
+    #warning("Local Container to be updated as soon as app supports multiple users!")
+    var container: NSPersistentContainer
     
     init() {
         container = PersistenceController.shared.container
