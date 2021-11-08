@@ -21,11 +21,13 @@ struct AvatarComponent: View {
             Circle()
                 .fill(color)
                 .frame(width: iconSize, height: iconSize)
+                .shadow(radius: iconSize - 65)
                 .overlay(image?
                             .resizable()
                             .foregroundColor(Color.white)
                             .padding(iconSize * 0.25)
                             .frame(width: iconSize, height: iconSize))
+                        
         })
             
     }
