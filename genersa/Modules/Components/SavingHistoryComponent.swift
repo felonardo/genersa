@@ -9,20 +9,26 @@ import SwiftUI
 
 struct SavingHistoryComponent: View {
     
+    @EnvironmentObject var settings: TripSettings
+    
     var month: Date
     var amountSaved: Double
     var totalAmount: Double
     let formatter = DateFormatter.withFormat("MMMM")
+    var bar: Progress {
+        return Progress(progress: Double(amountSaved / totalAmount), color: .gray)
+    }
     
     var body: some View{
         HStack {
-//            CircularProgressBar(progress: Float(amountSaved/totalAmount))
-//                           .frame(width: 64.0, height: 64.0)
-//                           .padding(20.0)
+            CircularProgressBar(size: 48, bars: [bar]) {
+                Text("\(Int(bar.progress*100))%")
+                    .font(.caption)
+            }
             VStack (alignment: .leading, spacing: 4){
                 Text(formatter.string(from: month))
                     .bold()
-                Text("\(amountSaved) of \(totalAmount)")
+                Text("\(amountSaved.toCurrency(settings.locale)) of \(totalAmount.toCurrency(settings.locale))")
             }
         }
     }
@@ -31,5 +37,6 @@ struct SavingHistoryComponent: View {
 struct SavingHistoryComponent_Previews: PreviewProvider {
     static var previews: some View {
         SavingHistoryComponent( month: Date(), amountSaved: 500000, totalAmount: 1000000)
+            .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
     }
 }

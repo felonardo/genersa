@@ -26,14 +26,13 @@ struct CircularProgressBar<Content: View>: View {
                 .clipShape(Circle())
             Circle()
                 .stroke(lineWidth: size / 8)
-                .foregroundColor(Color.gray)
+                .foregroundColor(Color.gray.opacity(0.4))
             ForEach(bars, id: \.color) { bar in
                 Circle()
                     .trim(from: 0.0, to: CGFloat(min(bar.progress, 1.0)))
                     .stroke(style: StrokeStyle(lineWidth: size / 8, lineCap: .round, lineJoin: .round))
                     .foregroundColor(bar.color)
                     .rotationEffect(Angle(degrees: 270.0))
-                    .animation(.linear)
             }
         }
         .frame(width: size + (size / 8), height: size + (size / 8), alignment: .center)
@@ -71,10 +70,8 @@ struct CircularProgressBar_Previews: PreviewProvider {
             CircularProgressPreview(size: 48, bars: [
                 Progress(progress: 0.8, color: Color.red)
             ]) {
-                VStack {
-                    Text(String(format: "%.0f%%", 80))
-                        .font(.caption)
-                }
+                Text("\(Int(80.5))%")
+                    .font(.caption)
             }
             CircularProgressPreview(size: 48, bars: [
                 Progress(progress: 0.8, color: Color.red)

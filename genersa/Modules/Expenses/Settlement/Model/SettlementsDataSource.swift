@@ -12,7 +12,9 @@ class SettlementsDataSource {
     
     static let shared = SettlementsDataSource()
     var settlements: [Settlement] = []
-    var container: NSPersistentCloudKitContainer
+    
+    #warning("Local Container to be updated as soon as app supports multiple users!")
+    var container: NSPersistentContainer
     
     init() {
         container = PersistenceController.shared.container

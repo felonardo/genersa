@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Overview: View {
     
+    @EnvironmentObject var settings: TripSettings
     @ObservedObject private var viewModel: OverviewViewModel
     
     init(totalUsed: Double, totalSaved: Double, totalBudget: Double) {
@@ -16,16 +17,17 @@ struct Overview: View {
     }
     
     var body: some View {
-        HStack(spacing: 16) {
+        HStack {
             CircularProgressBar(size: 144, bars: viewModel.progresses) {
                 VStack {
                     Text("Current Balance")
                         .foregroundColor(.secondary)
-                    Text(viewModel.currentBalance)
+                    Text(viewModel.currentBalance.toCurrency(settings.locale))
                         .bold()
                         .foregroundColor(.primary)
                 }
             }
+            Spacer(minLength: 0)
             OverviewLegends(totalUsed: viewModel.totalUsed, totalSaved: viewModel.totalSaved, needToSave: viewModel.totalBudget - viewModel.totalSaved)
         }
         .padding(16)
@@ -51,14 +53,15 @@ struct OverviewLegends: View {
 
 struct LegendView: View {
     
+    @EnvironmentObject var settings: TripSettings
+    
     let name: String
-    let amount: String
+    let amount: Double
     let color: Color
     
     init(name: String, amount: Double, color: Color) {
         self.name = name
-        let formatter = NumberFormatter.currency(with: "id_ID")
-        self.amount = formatter.string(from: NSNumber(value: amount))!
+        self.amount = amount
         self.color = color
     }
     
@@ -71,7 +74,7 @@ struct LegendView: View {
             VStack(alignment: .leading) {
                 Text(name)
                     .bold()
-                Text(amount)
+                Text(amount.toCurrency(settings.locale))
                     .font(.caption)
             }
         }
@@ -82,5 +85,6 @@ struct Overview_Previews: PreviewProvider {
     static var previews: some View {
         Overview(totalUsed: 250000, totalSaved: 4000000, totalBudget: 5000000)
             .padding(16)
+            .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
     }
 }

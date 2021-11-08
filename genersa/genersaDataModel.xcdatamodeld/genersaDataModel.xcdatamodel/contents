@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Budget" representedClassName="Budget" syncable="YES" codeGenerationType="class">
         <attribute name="amountSaved" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="amountTotal" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="amountUsed" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="icon" attributeType="String"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String"/>
         <relationship name="expenses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ExpenseParty" inverseName="budget" inverseEntity="ExpenseParty"/>
@@ -87,7 +88,7 @@
         <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="users" inverseEntity="Trip"/>
     </entity>
     <elements>
-        <element name="Budget" positionX="-219.840087890625" positionY="-401.2649536132812" width="128" height="163"/>
+        <element name="Budget" positionX="-219.840087890625" positionY="-401.2649536132812" width="128" height="164"/>
         <element name="Debt" positionX="-744.1543273925781" positionY="-251.6341552734376" width="128" height="103"/>
         <element name="Expense" positionX="138.8309631347656" positionY="-328.6529846191406" width="128" height="148"/>
         <element name="ExpenseParty" positionX="-46.1195068359375" positionY="-313.5655517578124" width="128" height="148"/>

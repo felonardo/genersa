@@ -26,11 +26,11 @@ struct Currency {
 extension Currency {
     
     static let allCurrencies: [Currency] = [
+        Currency(name: "Indonesian Rupiah", code: "IDR", identifier: "id_ID"),
         Currency(name: "United States Dollar", code: "USD", identifier: "en_US"),
         Currency(name: "Euro", code: "EUR", identifier: "nl_NL"),
         Currency(name: "Japanese Yen", code: "JPY", identifier: "ja_JP"),
         Currency(name: "Pound Sterling", code: "GBP", identifier: "en_GB"),
-        Currency(name: "Indonesian Rupiah", code: "IDR", identifier: "id_ID"),
     ]
     
 }
