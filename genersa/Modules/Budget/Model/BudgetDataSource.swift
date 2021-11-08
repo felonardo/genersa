@@ -12,7 +12,9 @@ class BudgetDataSource {
     
     static let shared = BudgetDataSource()
     var budgets: [Budget] = []
-    var container: NSPersistentCloudKitContainer
+    
+    #warning("Local Container to be updated as soon as app supports multiple users!")
+    var container: NSPersistentContainer
     
     init() {
         container = PersistenceController.shared.container
@@ -20,6 +22,10 @@ class BudgetDataSource {
     
     func getBudget(with id: UUID) -> Budget? {
         return budgets.first(where: {$0.id == id})
+    }
+    
+    func getBudgets(tripId: UUID, userId: UUID) -> [Budget] {
+        return budgets.filter({$0.trip?.id == tripId && $0.user?.id == userId})
     }
     
     func createBudget(amountSaved: Double, amountTotal: Double,
@@ -64,6 +70,7 @@ class BudgetDataSource {
             return false
         }
     }
+    
     func deleteBudget(id: UUID) -> Bool {
         
         if let budget = getBudget(with: id) {
@@ -75,5 +82,20 @@ class BudgetDataSource {
             print("Delete budget failed. Budget with id (\(id)), not found")
             return false
         }
+    }
+    
+    static func dummyBudgets() -> [Budget] {
+        var dummyBudgets = [Budget]()
+        let dummyNames = ["Transport","Flight","Accomodation"]
+        for i in 1...3 {
+            let newBudget = Budget(context: PersistenceController.shared.container.viewContext)
+            newBudget.id = UUID()
+            newBudget.amountSaved = Double(250000 * i)
+            newBudget.amountTotal = Double(500000 * i)
+            newBudget.amountUsed = Double(100000 * i)
+            newBudget.name = dummyNames[i-1]
+            dummyBudgets.append(newBudget)
+        }
+        return dummyBudgets
     }
 }

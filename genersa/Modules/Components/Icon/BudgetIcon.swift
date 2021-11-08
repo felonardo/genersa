@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BudgetIcon: View {
     
+
     let icon: Icon
     let color: String
     let iconSize: CGFloat
@@ -19,7 +20,7 @@ struct BudgetIcon: View {
             print()
         }, label: {
             Circle()
-                .fill(Color(color))
+                .fill(color)
                 .frame(width: iconSize, height: iconSize)
                 .overlay(icon.image?
                             .resizable()
@@ -34,11 +35,9 @@ struct BudgetIcon: View {
 struct BudgetIcon_Previews: PreviewProvider {
     
     static var previews: some View {
+
                 VStack{
                     BudgetIcon(icon: Icon(id: 0, image: Image("Icon")), color: "grayIcon", iconSize: 100)
                 }
-        
-        
-        
     }
 }
