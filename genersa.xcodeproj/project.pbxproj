@@ -34,6 +34,7 @@
 		A7394D31272F272A00C65D55 /* ExpenseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D30272F272A00C65D55 /* ExpenseModel.swift */; };
 		A7394D35272F318B00C65D55 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D34272F318B00C65D55 /* TripModel.swift */; };
 		A7394D37272F31B200C65D55 /* TripDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D36272F31B200C65D55 /* TripDataSource.swift */; };
+		A79423AE2737BBA2000573A8 /* CalculatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79423AD2737BBA2000573A8 /* CalculatorComponent.swift */; };
 		A79B4F7B273511E3004B2F19 /* TextBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79B4F7A273511E3004B2F19 /* TextBinding.swift */; };
 		A79B4F8227353820004B2F19 /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79B4F8127353820004B2F19 /* ButtonPrimary.swift */; };
 		A79B4F842735383B004B2F19 /* ButtonSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79B4F832735383B004B2F19 /* ButtonSecondary.swift */; };
@@ -49,6 +50,7 @@
 		A7E3537227280180004E999A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E3537127280180004E999A /* CloudKit.framework */; };
 		A7F90747272FDED800A84016 /* ExpensePartyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F90746272FDED800A84016 /* ExpensePartyModel.swift */; };
 		A7F90749272FDF0C00A84016 /* ExpensePartyDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F90748272FDF0C00A84016 /* ExpensePartyDataSource.swift */; };
+		A7FAE4AF2738FD6E0097793C /* HalfASheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FAE4AE2738FD6E0097793C /* HalfASheet.swift */; };
 		E8E2ECA8272F80B20019DBCE /* SavingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E2ECA7272F80B20019DBCE /* SavingsDataSource.swift */; };
 		E8E2ECAA272F80C70019DBCE /* SavingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E2ECA9272F80C70019DBCE /* SavingsModel.swift */; };
 		E8F9DBEA272F9D5500200DAC /* SavingRecordDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F9DBE9272F9D5500200DAC /* SavingRecordDataSource.swift */; };
@@ -83,6 +85,7 @@
 		A7394D30272F272A00C65D55 /* ExpenseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseModel.swift; sourceTree = "<group>"; };
 		A7394D34272F318B00C65D55 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
 		A7394D36272F31B200C65D55 /* TripDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataSource.swift; sourceTree = "<group>"; };
+		A79423AD2737BBA2000573A8 /* CalculatorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorComponent.swift; sourceTree = "<group>"; };
 		A79B4F7A273511E3004B2F19 /* TextBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBinding.swift; sourceTree = "<group>"; };
 		A79B4F8127353820004B2F19 /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
 		A79B4F832735383B004B2F19 /* ButtonSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSecondary.swift; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		A7E3537127280180004E999A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A7F90746272FDED800A84016 /* ExpensePartyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePartyModel.swift; sourceTree = "<group>"; };
 		A7F90748272FDF0C00A84016 /* ExpensePartyDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePartyDataSource.swift; sourceTree = "<group>"; };
+		A7FAE4AE2738FD6E0097793C /* HalfASheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfASheet.swift; sourceTree = "<group>"; };
 		E8E2ECA7272F80B20019DBCE /* SavingsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsDataSource.swift; sourceTree = "<group>"; };
 		E8E2ECA9272F80C70019DBCE /* SavingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsModel.swift; sourceTree = "<group>"; };
 		E8F9DBE9272F9D5500200DAC /* SavingRecordDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingRecordDataSource.swift; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 				7E17114C27353CCC0086A78F /* Form */,
 				A7A42D832734D6F600F95D5E /* SavingHistoryComponent.swift */,
 				7E17114B27353CB90086A78F /* Currency */,
+				A79423AD2737BBA2000573A8 /* CalculatorComponent.swift */,
+				A7FAE4AE2738FD6E0097793C /* HalfASheet.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -479,6 +485,8 @@
 			dependencies = (
 			);
 			name = genersa;
+			packageProductDependencies = (
+			);
 			productName = genersa;
 			productReference = A7B7E2622722BA08002B6EF7 /* genersa.app */;
 			productType = "com.apple.product-type.application";
@@ -507,6 +515,8 @@
 				Base,
 			);
 			mainGroup = A7B7E2592722BA08002B6EF7;
+			packageReferences = (
+			);
 			productRefGroup = A7B7E2632722BA08002B6EF7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -570,6 +580,8 @@
 				A7A42D842734D6F600F95D5E /* SavingHistoryComponent.swift in Sources */,
 				7E6100D62735011C0084B014 /* CurrencyPicker.swift in Sources */,
 				7E944D41272BFD2B0017EF76 /* SettlementsModel.swift in Sources */,
+				A7FAE4AF2738FD6E0097793C /* HalfASheet.swift in Sources */,
+				A79423AE2737BBA2000573A8 /* CalculatorComponent.swift in Sources */,
 				7E08C1632734571D00F269BD /* DateFormatter+WithFormat.swift in Sources */,
 				7E08C15A2734529400F269BD /* View+CornerRadiusStyle.swift in Sources */,
 				A7F90749272FDF0C00A84016 /* ExpensePartyDataSource.swift in Sources */,
