@@ -8,16 +8,15 @@
 import SwiftUI
 
 struct BudgetIcon: View {
-    
 
     let icon: Icon
-    let color: String
+    let color: Color
     let iconSize: CGFloat
-
+   
     
     var body: some View {
         Button(action: {
-            print()
+            print("Icon")
         }, label: {
             Circle()
                 .fill(color)
@@ -37,7 +36,7 @@ struct BudgetIcon_Previews: PreviewProvider {
     static var previews: some View {
 
                 VStack{
-                    BudgetIcon(icon: Icon(id: 0, image: Image("Icon")), color: "grayIcon", iconSize: 100)
+                    BudgetIcon(icon: Icon(id: 0, image: Image("Icon")), color: Color("grayIcon"), iconSize: 100)
                 }
     }
 }

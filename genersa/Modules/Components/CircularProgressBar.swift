@@ -76,7 +76,8 @@ struct CircularProgressBar_Previews: PreviewProvider {
             CircularProgressPreview(size: 48, bars: [
                 Progress(progress: 0.8, color: Color.red)
             ]) {
-                BudgetIcon(color: Color.green, icon: Image(systemName: "car.fill"), iconSize: 48)
+//                BudgetIcon(color: Color.green, icon: Image(systemName: "car.fill"), iconSize: 48)
+                BudgetIcon(icon: Icon(id: 0, image: Image("Icon")), color: Color.green, iconSize: 48)
             }
             CircularProgressPreview(size: 144, bars: [
                 Progress(progress: 0.8, color: Color.red),

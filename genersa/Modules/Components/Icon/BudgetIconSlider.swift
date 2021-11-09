@@ -10,6 +10,7 @@ import SwiftUI
 struct Icon{
     var id: Int
     let image: Image?
+    
 }
 
 struct BudgetIconSlider: View {
@@ -25,21 +26,22 @@ struct BudgetIconSlider: View {
         Icon(id: 6, image: Image("Icon-6")),
         Icon(id: 7, image: Image("Icon-7")),
         Icon(id: 8, image: Image("Icon-8")),
-        Icon(id: 9, image: Image("Icon-9")),
-        Icon(id: 10, image: Image("Icon-10")),
-        Icon(id: 11, image: Image("Icon-11")),
-        Icon(id: 12, image: Image("Icon-12")),
-        Icon(id: 13, image: Image("Icon-13")),
-        Icon(id: 14, image: Image("Icon-14")),
+        Icon(id: 10, image: Image("Icon-9")),
+        Icon(id: 11, image: Image("Icon-10")),
+        Icon(id: 12, image: Image("Icon-11")),
+        Icon(id: 13, image: Image("Icon-12")),
+        Icon(id: 14, image: Image("Icon-13")),
     ]
     
     var body: some View {
         VStack(spacing: 20){
-            BudgetIcon(icon: Icon(id: 0, image: Image("Icon")), color: "grayIcon", iconSize: 100)
+            BudgetIcon(icon: Icon(id: 0, image: Image("Icon")), color: Color("grayIcon"), iconSize: 100)
             ScrollView(.horizontal, showsIndicators: false ){
                 HStack{
                     ForEach(icons, id: \.id) { icon in
-                        BudgetIcon(icon: icon, color: "grayIcon", iconSize: 50)
+                        BudgetIcon(icon: icon, color: Color("grayIcon"), iconSize: 50).onTapGesture {
+                            print(icon)
+                        }
                     }
                 }
             }
