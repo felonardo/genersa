@@ -36,7 +36,7 @@ struct BudgetIcon_Previews: PreviewProvider {
     static var previews: some View {
 
                 VStack{
-                    BudgetIcon(icon: Icon(id: 0, image: Image("Icon"), url: "Icon"), color: Color("grayIcon"), iconSize: 100)
+                    BudgetIcon(icon: Icon(id: 0, image: Image("Icon")), color: Color("grayIcon"), iconSize: 100)
                 }
     }
 }
