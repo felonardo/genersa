@@ -8,6 +8,27 @@
 
 import SwiftUI
 
+struct CalculatorField: View {
+    @EnvironmentObject var settings: TripSettings
+    
+    @Binding var finalValue: String
+    @Binding var isPresented: Bool
+    
+    var body: some View{
+        VStack(alignment: .leading, spacing: 4) {
+            Text(finalValue.toCurrency(settings.locale))
+//            Text(finalValue)
+                .font(.title3)
+            Divider()
+                .frame(height: 1)
+                .foregroundColor(.black)
+            
+        }.onTapGesture {
+            self.isPresented = true
+        }
+    }
+}
+
 struct CalculatorComponent: View {
     
     let rows = [
@@ -199,23 +220,25 @@ func processExpression(exp:[String]) -> String {
     return String(format: "%.1f", a!)
 }
 
-
 struct CalculatorComponent_Previews: PreviewProvider {
     @State static var isPresented = true
     @State static var finalValue = "0"
     
     static var previews: some View {
-        
         VStack{
-            //            FormField()
-            Button(action: {self.isPresented = true}, label: {
-                Text("show modal")
-            })
+        CalculatorField(finalValue: $finalValue, isPresented: $isPresented)
+                .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
+        
+//        VStack{
+//            //            FormField()
+//            Button(action: {self.isPresented = true}, label: {
+//                Text("show modal")
+//            })
             HalfASheet(isPresented: $isPresented, title: "") {
                 CalculatorComponent(finalValue: $finalValue, isPresented: $isPresented)
             }
-            .disableDragToDismiss
+//            .disableDragToDismiss
+//        }
         }
-        
     }
 }

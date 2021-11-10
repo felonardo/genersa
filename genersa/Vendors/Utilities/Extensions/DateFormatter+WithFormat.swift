@@ -15,3 +15,16 @@ extension DateFormatter {
         return formatter
     }
 }
+
+extension Date {
+
+    func toString(withFormat format: String = "dd/MM/yy") -> String {
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        dateFormatter.dateFormat = format
+        let str = dateFormatter.string(from: self)
+
+        return str
+    }
+}
