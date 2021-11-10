@@ -1,5 +1,5 @@
 //
-//  SettingsView.swift
+//  Settings.swift
 //  genersa
 //
 //  Created by Leo nardo on 10/11/21.
@@ -13,37 +13,34 @@ struct SettingsView: View {
     @State var errorState = false
     
     var body: some View {
+        
+        //        ScrollView {
         NavigationView{
-            VStack{
-                VStack(alignment: .center, spacing: 8){
-                    Circle().frame(width: 128, height: 128, alignment: .center)
-                    Text("Name Name")
-                        .font(.title)
-                        .foregroundColor(.gray)
-                }
-                
+            VStack(){
                 VStack(alignment: .leading, spacing: 4) {
                     
+                    Text("General")
                     
+                    ReusableTitleView(title: "Nickname", description: "", errorState: $errorState){
+                        TextFieldComponent(field: $viewmodel.fieldTrip, placeholder: "My Name", errorState: $errorState)
+                    }
                     ReusableTitleView(title: "Trip Name", description: "", errorState: $errorState){
-                        Text(viewmodel.fieldTrip)
+                        TextFieldComponent(field: $viewmodel.fieldTrip, placeholder: "My Trip", errorState: $errorState)
                     }
                     ReusableTitleView(title: "Trip Date", description: "", errorState: $errorState){
-                        HStack{
-                            Text(viewmodel.startDate.toString())
-                                .foregroundColor(.gray)
-                            Image(systemName: "arrow.right")
-                            Text(viewmodel.startDate.toString())
-                                .foregroundColor(.gray)
-                        }
+                        TripDatePicker(startDate: $viewmodel.startDate, endDate: $viewmodel.endDate)
                     }
                     ReusableTitleView(title: "Currency", description: "", errorState: $errorState){
-                        Text(Currency.allCurrencies.first!.name)
-                            .foregroundColor(.gray)
+                        VStack{
+                            CurrencyPickerSecondary(currency: Currency.allCurrencies.first!)
+                            Divider()
+                                .frame(height:1)
+                                .foregroundColor(.black)
+                        }.padding(4)
                     }
                     
                     Spacer()
-                    ButtonPrimary(title: "Delete Trip", fullWidth: true){
+                    ButtonSecondary(title: "Delete Trip", fullWidth: true){
                         print("Delete clicked")
                     }
                 }
@@ -53,11 +50,7 @@ struct SettingsView: View {
             }
             .padding(.vertical, 8)
             .navigationBarTitle("Settings", displayMode: .inline)
-            .navigationBarItems(trailing: NavigationLink(destination: SettingsViewForm()) {
-                ButtonTertiary(title: "Edit", fullWidth: false){
-                    print("Button Clicked")
-                }
-            }.buttonStyle(.plain))
+            
         }
     }
 }

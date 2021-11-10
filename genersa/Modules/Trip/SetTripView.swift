@@ -26,7 +26,7 @@ struct SetTripView: View {
                         ReusableTitleView(title: "Trip Date", description: "", errorState: $errorState){
                             TripDatePicker(startDate: $viewmodel.startDate, endDate: $viewmodel.endDate)
                         }
-                        ReusableTitleView(title: "Initial Budget", description: "", errorState: $errorState){
+                        ReusableTitleView(title: "Personal Budget", description: "", errorState: $errorState){
                             HStack{
                                 CalculatorField(finalValue: $viewmodel.fieldBudget, isPresented: $viewmodel.isPresented)
 //                                    .environmentObject(settings)

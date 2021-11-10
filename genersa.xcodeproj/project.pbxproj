@@ -38,8 +38,7 @@
 		7E944D41272BFD2B0017EF76 /* SettlementsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D40272BFD2B0017EF76 /* SettlementsModel.swift */; };
 		7E944D43272BFD3B0017EF76 /* SettlementsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D42272BFD3B0017EF76 /* SettlementsDataSource.swift */; };
 		A721B987273B924900FB1291 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A721B986273B924900FB1291 /* SettingsViewModel.swift */; };
-		A721B989273B925400FB1291 /* SettingsViewForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A721B988273B925400FB1291 /* SettingsViewForm.swift */; };
-		A721B98B273BA47300FB1291 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A721B98A273BA47300FB1291 /* SettingsView.swift */; };
+		A721B989273B925400FB1291 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A721B988273B925400FB1291 /* SettingsView.swift */; };
 		A7394D29272F1F0E00C65D55 /* BudgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D28272F1F0E00C65D55 /* BudgetModel.swift */; };
 		A7394D2B272F1F4D00C65D55 /* BudgetDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D2A272F1F4D00C65D55 /* BudgetDataSource.swift */; };
 		A7394D2F272F272000C65D55 /* ExpenseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D2E272F272000C65D55 /* ExpenseDataSource.swift */; };
@@ -110,8 +109,7 @@
 		7E944D40272BFD2B0017EF76 /* SettlementsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettlementsModel.swift; sourceTree = "<group>"; };
 		7E944D42272BFD3B0017EF76 /* SettlementsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettlementsDataSource.swift; sourceTree = "<group>"; };
 		A721B986273B924900FB1291 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
-		A721B988273B925400FB1291 /* SettingsViewForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewForm.swift; sourceTree = "<group>"; };
-		A721B98A273BA47300FB1291 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A721B988273B925400FB1291 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A7394D28272F1F0E00C65D55 /* BudgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetModel.swift; sourceTree = "<group>"; };
 		A7394D2A272F1F4D00C65D55 /* BudgetDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDataSource.swift; sourceTree = "<group>"; };
 		A7394D2E272F272000C65D55 /* ExpenseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDataSource.swift; sourceTree = "<group>"; };
@@ -342,8 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				A721B986273B924900FB1291 /* SettingsViewModel.swift */,
-				A721B988273B925400FB1291 /* SettingsViewForm.swift */,
-				A721B98A273BA47300FB1291 /* SettingsView.swift */,
+				A721B988273B925400FB1291 /* SettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -688,7 +685,6 @@
 				A7A42D842734D6F600F95D5E /* SavingHistoryComponent.swift in Sources */,
 				7E6100D62735011C0084B014 /* CurrencyPicker.swift in Sources */,
 				7E944D41272BFD2B0017EF76 /* SettlementsModel.swift in Sources */,
-				A721B98B273BA47300FB1291 /* SettingsView.swift in Sources */,
 				A7FAE4AF2738FD6E0097793C /* HalfASheet.swift in Sources */,
 				A79423AE2737BBA2000573A8 /* CalculatorComponent.swift in Sources */,
 				7E08C1632734571D00F269BD /* DateFormatter+WithFormat.swift in Sources */,
@@ -722,7 +718,7 @@
 				E8DC4FEA273A488A005E9668 /* AvatarView.swift in Sources */,
 				A79B4F842735383B004B2F19 /* ButtonSecondary.swift in Sources */,
 				A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */,
-				A721B989273B925400FB1291 /* SettingsViewForm.swift in Sources */,
+				A721B989273B925400FB1291 /* SettingsView.swift in Sources */,
 				7E6100CB273472CE0084B014 /* DateTimePicker.swift in Sources */,
 				E8C5D23D2739251B00F504FC /* AvatarPickerComponent.swift in Sources */,
 				E8DC4FE6273A4350005E9668 /* Avatar.swift in Sources */,
