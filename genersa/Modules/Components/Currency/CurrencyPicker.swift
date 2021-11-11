@@ -25,11 +25,36 @@ struct CurrencyPicker: View {
     }
 }
 
+struct CurrencyPickerSecondary: View {
+    
+    @State var currencySelected: Currency
+    
+    init(currency: Currency) {
+        self.currencySelected = currency
+    }
+    
+    var body: some View {
+        NavigationLink {
+            CurrencyList(currencySelected: $currencySelected)
+        } label: {
+            HStack{
+                Text(currencySelected.name)
+                Spacer()
+                Image(systemName: "chevron.right")
+            }
+        }
+        .buttonStyle(.plain)
+    }
+}
+
 struct CurrencyPicker_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CurrencyPicker(currency: Currency.allCurrencies.first!)
-                .navigationBarHidden(true)
+            VStack{
+                CurrencyPicker(currency: Currency.allCurrencies.first!)
+                    .navigationBarHidden(true)
+                CurrencyPickerSecondary(currency: Currency.allCurrencies.first!)
+            }.padding(16)
         }
     }
 }

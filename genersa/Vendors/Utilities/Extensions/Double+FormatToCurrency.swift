@@ -13,3 +13,15 @@ extension Double {
         return formatter.string(from: NSNumber(value: self))!
     }
 }
+extension String {
+    func toCurrency(_ locale: String) -> String {
+        if let value = Double(self) {
+            let formatter = NumberFormatter.currency(with: locale)
+            if let str = formatter.string(for: value) {
+                return str
+            }
+        }
+        return ""
+    }
+}
+

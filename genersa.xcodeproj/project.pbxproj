@@ -40,6 +40,8 @@
 		7E944D3C272BEDD00017EF76 /* DebtsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D3B272BEDD00017EF76 /* DebtsModel.swift */; };
 		7E944D41272BFD2B0017EF76 /* SettlementsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D40272BFD2B0017EF76 /* SettlementsModel.swift */; };
 		7E944D43272BFD3B0017EF76 /* SettlementsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D42272BFD3B0017EF76 /* SettlementsDataSource.swift */; };
+		A721B987273B924900FB1291 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A721B986273B924900FB1291 /* SettingsViewModel.swift */; };
+		A721B989273B925400FB1291 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A721B988273B925400FB1291 /* SettingsView.swift */; };
 		A7394D29272F1F0E00C65D55 /* BudgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D28272F1F0E00C65D55 /* BudgetModel.swift */; };
 		A7394D2B272F1F4D00C65D55 /* BudgetDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D2A272F1F4D00C65D55 /* BudgetDataSource.swift */; };
 		A7394D2F272F272000C65D55 /* ExpenseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D2E272F272000C65D55 /* ExpenseDataSource.swift */; };
@@ -63,6 +65,8 @@
 		A7F90747272FDED800A84016 /* ExpensePartyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F90746272FDED800A84016 /* ExpensePartyModel.swift */; };
 		A7F90749272FDF0C00A84016 /* ExpensePartyDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F90748272FDF0C00A84016 /* ExpensePartyDataSource.swift */; };
 		A7FAE4AF2738FD6E0097793C /* HalfASheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FAE4AE2738FD6E0097793C /* HalfASheet.swift */; };
+		A7FF41FF273B54F9007B271F /* SetTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FF41FE273B54F9007B271F /* SetTripView.swift */; };
+		A7FF4201273B5512007B271F /* SetTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FF4200273B5512007B271F /* SetTripViewModel.swift */; };
 		E88AE02827353F4D001AD969 /* AvatarComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88AE02727353F4D001AD969 /* AvatarComponentView.swift */; };
 		E8C5D23D2739251B00F504FC /* AvatarPickerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C5D23C2739251B00F504FC /* AvatarPickerComponent.swift */; };
 		E8DC4FE2273A1EA9005E9668 /* CreateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DC4FE1273A1EA9005E9668 /* CreateProfileView.swift */; };
@@ -110,6 +114,8 @@
 		7E944D3B272BEDD00017EF76 /* DebtsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtsModel.swift; sourceTree = "<group>"; };
 		7E944D40272BFD2B0017EF76 /* SettlementsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettlementsModel.swift; sourceTree = "<group>"; };
 		7E944D42272BFD3B0017EF76 /* SettlementsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettlementsDataSource.swift; sourceTree = "<group>"; };
+		A721B986273B924900FB1291 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		A721B988273B925400FB1291 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A7394D28272F1F0E00C65D55 /* BudgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetModel.swift; sourceTree = "<group>"; };
 		A7394D2A272F1F4D00C65D55 /* BudgetDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDataSource.swift; sourceTree = "<group>"; };
 		A7394D2E272F272000C65D55 /* ExpenseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDataSource.swift; sourceTree = "<group>"; };
@@ -136,6 +142,8 @@
 		A7F90746272FDED800A84016 /* ExpensePartyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePartyModel.swift; sourceTree = "<group>"; };
 		A7F90748272FDF0C00A84016 /* ExpensePartyDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePartyDataSource.swift; sourceTree = "<group>"; };
 		A7FAE4AE2738FD6E0097793C /* HalfASheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfASheet.swift; sourceTree = "<group>"; };
+		A7FF41FE273B54F9007B271F /* SetTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTripView.swift; sourceTree = "<group>"; };
+		A7FF4200273B5512007B271F /* SetTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTripViewModel.swift; sourceTree = "<group>"; };
 		E88AE02727353F4D001AD969 /* AvatarComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarComponentView.swift; sourceTree = "<group>"; };
 		E8C5D23C2739251B00F504FC /* AvatarPickerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerComponent.swift; sourceTree = "<group>"; };
 		E8DC4FE1273A1EA9005E9668 /* CreateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileView.swift; sourceTree = "<group>"; };
@@ -273,6 +281,7 @@
 		7E17115527357E2E0086A78F /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A721B985273B917600FB1291 /* Settings */,
 				A7E353672727CB6C004E999A /* Header */,
 				7E17115627357E710086A78F /* DailyBudget.swift */,
 				7E17115F27358BA10086A78F /* MainComponent.swift */,
@@ -333,6 +342,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A721B985273B917600FB1291 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A721B986273B924900FB1291 /* SettingsViewModel.swift */,
+				A721B988273B925400FB1291 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		A7394D26272F1EE100C65D55 /* Budget */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +395,8 @@
 			children = (
 				A7394D33272F317C00C65D55 /* Model */,
 				7E17115A273583360086A78F /* TripSettings.swift */,
+				A7FF41FE273B54F9007B271F /* SetTripView.swift */,
+				A7FF4200273B5512007B271F /* SetTripViewModel.swift */,
 			);
 			path = Trip;
 			sourceTree = "<group>";
@@ -655,6 +675,7 @@
 			files = (
 				7E6100D827350A520084B014 /* CurrencyList.swift in Sources */,
 				A7F90747272FDED800A84016 /* ExpensePartyModel.swift in Sources */,
+				A7FF41FF273B54F9007B271F /* SetTripView.swift in Sources */,
 				7E08C15E2734535900F269BD /* HeaderViewModel.swift in Sources */,
 				7E944D3C272BEDD00017EF76 /* DebtsModel.swift in Sources */,
 				7E17114E27353DBE0086A78F /* Overview.swift in Sources */,
@@ -667,6 +688,7 @@
 				7E6100CE2734FB230084B014 /* Currency.swift in Sources */,
 				7E08C154272F0A9F00F269BD /* UsersDataSource.swift in Sources */,
 				A79B4F7B273511E3004B2F19 /* TextBinding.swift in Sources */,
+				A721B987273B924900FB1291 /* SettingsViewModel.swift in Sources */,
 				7E08C165273458B500F269BD /* HeaderButton.swift in Sources */,
 				7E17114827353AC40086A78F /* BudgetIcon.swift in Sources */,
 				A7A42D842734D6F600F95D5E /* SavingHistoryComponent.swift in Sources */,
@@ -708,6 +730,7 @@
 				E8DC4FEA273A488A005E9668 /* AvatarView.swift in Sources */,
 				A79B4F842735383B004B2F19 /* ButtonSecondary.swift in Sources */,
 				A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */,
+				A721B989273B925400FB1291 /* SettingsView.swift in Sources */,
 				7E6100CB273472CE0084B014 /* DateTimePicker.swift in Sources */,
 				E8C5D23D2739251B00F504FC /* AvatarPickerComponent.swift in Sources */,
 				E8DC4FE6273A4350005E9668 /* Avatar.swift in Sources */,
@@ -717,6 +740,7 @@
 				7E08C15827330BB300F269BD /* HeaderView.swift in Sources */,
 				A7E3536B2727CC26004E999A /* genersaDataModel.xcdatamodeld in Sources */,
 				7E6100C7273471440084B014 /* DateButton.swift in Sources */,
+				A7FF4201273B5512007B271F /* SetTripViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
