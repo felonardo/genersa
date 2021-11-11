@@ -23,7 +23,6 @@ struct FormField: View {
     var body: some View {
         NavigationView{
             VStack{
-                
                 ReusableTitleView(title: "Title", description: "This is a sample description that sits", errorState: $errorState){
                     TextFieldComponent(field: $field1.text, placeholder: "Placeholder", errorState: $errorState)
                 }
@@ -37,12 +36,14 @@ struct ReusableTitleView<Content: View>: View {
     let title: String
     let description: String
     let content: Content
+    var warningDescription: Bool = false
     @Binding var errorState: Bool
     
-    init(title: String, description: String, errorState: Binding<Bool>, @ViewBuilder content: @escaping () -> Content) {
+    init(title: String, description: String, errorState: Binding<Bool>, warningDescription: Bool = false, @ViewBuilder content: @escaping () -> Content) {
         self.title = title
         self.description = description
         self._errorState = errorState
+        self.warningDescription = warningDescription
         self.content = content()
     }
     
@@ -50,11 +51,12 @@ struct ReusableTitleView<Content: View>: View {
         VStack(alignment: .leading, spacing: 4) {
             Text(title)
                 .bold()
-                .font(.title2)
+                .font(.headline)
             content
-            Text(description)
+            Text(warningDescription ? (errorState ? description : "") : description)
                 .foregroundColor(errorState ? Color.red :Color.gray)
                 .font(.footnote)
+                .padding(.leading, 4)
         }.padding(8)
     }
 }
@@ -68,21 +70,12 @@ struct TextFieldComponent: View {
     var body: some View {
         VStack(alignment: .leading) {
             TextField(placeholder, text: $field)
-                .foregroundColor(checkError() ? Color.red : Color.black)
+                .foregroundColor(errorState ? Color.red : Color.black)
             Divider()
                 .frame(height: 1)
                 .padding(.horizontal, 30)
                 .background(errorState ? Color.red :Color.black)
         }
-    }
-    
-    func checkError() -> Bool {
-//        if field.contains("@") {
-//            errorState = true
-//            return errorState
-//        }
-        errorState = false
-        return errorState
     }
 }
 

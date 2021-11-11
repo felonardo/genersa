@@ -41,6 +41,7 @@ struct TripDatePicker: View {
             case .end:
                 DatePicker("End Date",
                            selection: viewModel.endDate,
+                           in: viewModel.startDate.wrappedValue...,
                            displayedComponents: [.date])
                     .datePickerStyle(.graphical)
             }

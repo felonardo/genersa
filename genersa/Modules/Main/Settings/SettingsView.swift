@@ -32,7 +32,7 @@ struct SettingsView: View {
                     }
                     ReusableTitleView(title: "Currency", description: "", errorState: $errorState){
                         VStack{
-                            CurrencyPickerSecondary(currency: Currency.allCurrencies.first!)
+                            CurrencyPickerSecondary()
                             Divider()
                                 .frame(height:1)
                                 .foregroundColor(.black)
@@ -40,7 +40,7 @@ struct SettingsView: View {
                     }
                     
                     Spacer()
-                    ButtonSecondary(title: "Delete Trip", fullWidth: true){
+                    CustomButton(title: "Delete Trip", type: .secondary, fullWidth: true){
                         print("Delete clicked")
                     }
                 }

@@ -36,6 +36,7 @@
 		7E8A9437273A51DF00E023DC /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A9436273A51DF00E023DC /* MainPageView.swift */; };
 		7E8A9439273A526700E023DC /* SavingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A9438273A526700E023DC /* SavingsList.swift */; };
 		7E8A943B273A765E00E023DC /* BudgetFormModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A943A273A765D00E023DC /* BudgetFormModal.swift */; };
+		7E8A943D273D001D00E023DC /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A943C273D001D00E023DC /* Defaults.swift */; };
 		7E944D38272BE4D70017EF76 /* DebtsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D37272BE4D70017EF76 /* DebtsDataSource.swift */; };
 		7E944D3C272BEDD00017EF76 /* DebtsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D3B272BEDD00017EF76 /* DebtsModel.swift */; };
 		7E944D41272BFD2B0017EF76 /* SettlementsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E944D40272BFD2B0017EF76 /* SettlementsModel.swift */; };
@@ -50,9 +51,7 @@
 		A7394D37272F31B200C65D55 /* TripDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D36272F31B200C65D55 /* TripDataSource.swift */; };
 		A79423AE2737BBA2000573A8 /* CalculatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79423AD2737BBA2000573A8 /* CalculatorComponent.swift */; };
 		A79B4F7B273511E3004B2F19 /* TextBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79B4F7A273511E3004B2F19 /* TextBinding.swift */; };
-		A79B4F8227353820004B2F19 /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79B4F8127353820004B2F19 /* ButtonPrimary.swift */; };
-		A79B4F842735383B004B2F19 /* ButtonSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79B4F832735383B004B2F19 /* ButtonSecondary.swift */; };
-		A79B4F8627353864004B2F19 /* ButtonTertiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79B4F8527353864004B2F19 /* ButtonTertiary.swift */; };
+		A79B4F8227353820004B2F19 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79B4F8127353820004B2F19 /* CustomButton.swift */; };
 		A7A42D802734A18E00F95D5E /* ReusableTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A42D7F2734A18E00F95D5E /* ReusableTitleView.swift */; };
 		A7A42D842734D6F600F95D5E /* SavingHistoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A42D832734D6F600F95D5E /* SavingHistoryComponent.swift */; };
 		A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B7E2652722BA08002B6EF7 /* GenersaApp.swift */; };
@@ -70,9 +69,8 @@
 		E88AE02827353F4D001AD969 /* AvatarComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88AE02727353F4D001AD969 /* AvatarComponentView.swift */; };
 		E8C5D23D2739251B00F504FC /* AvatarPickerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C5D23C2739251B00F504FC /* AvatarPickerComponent.swift */; };
 		E8DC4FE2273A1EA9005E9668 /* CreateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DC4FE1273A1EA9005E9668 /* CreateProfileView.swift */; };
-		E8DC4FE6273A4350005E9668 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DC4FE5273A4350005E9668 /* Avatar.swift */; };
 		E8DC4FE8273A437D005E9668 /* AvatarListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DC4FE7273A437D005E9668 /* AvatarListViewModel.swift */; };
-		E8DC4FEA273A488A005E9668 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DC4FE9273A488A005E9668 /* AvatarView.swift */; };
+		E8DC4FEA273A488A005E9668 /* AvatarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DC4FE9273A488A005E9668 /* AvatarIcon.swift */; };
 		E8E2ECA8272F80B20019DBCE /* SavingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E2ECA7272F80B20019DBCE /* SavingsDataSource.swift */; };
 		E8E2ECAA272F80C70019DBCE /* SavingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E2ECA9272F80C70019DBCE /* SavingsModel.swift */; };
 		E8F833662738D8C200A0A0F9 /* BudgetIconSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F833652738D8C200A0A0F9 /* BudgetIconSlider.swift */; };
@@ -110,6 +108,7 @@
 		7E8A9436273A51DF00E023DC /* MainPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
 		7E8A9438273A526700E023DC /* SavingsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsList.swift; sourceTree = "<group>"; };
 		7E8A943A273A765D00E023DC /* BudgetFormModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetFormModal.swift; sourceTree = "<group>"; };
+		7E8A943C273D001D00E023DC /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		7E944D37272BE4D70017EF76 /* DebtsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtsDataSource.swift; sourceTree = "<group>"; };
 		7E944D3B272BEDD00017EF76 /* DebtsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtsModel.swift; sourceTree = "<group>"; };
 		7E944D40272BFD2B0017EF76 /* SettlementsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettlementsModel.swift; sourceTree = "<group>"; };
@@ -124,9 +123,7 @@
 		A7394D36272F31B200C65D55 /* TripDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataSource.swift; sourceTree = "<group>"; };
 		A79423AD2737BBA2000573A8 /* CalculatorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorComponent.swift; sourceTree = "<group>"; };
 		A79B4F7A273511E3004B2F19 /* TextBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBinding.swift; sourceTree = "<group>"; };
-		A79B4F8127353820004B2F19 /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
-		A79B4F832735383B004B2F19 /* ButtonSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSecondary.swift; sourceTree = "<group>"; };
-		A79B4F8527353864004B2F19 /* ButtonTertiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTertiary.swift; sourceTree = "<group>"; };
+		A79B4F8127353820004B2F19 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A7A42D7F2734A18E00F95D5E /* ReusableTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTitleView.swift; sourceTree = "<group>"; };
 		A7A42D832734D6F600F95D5E /* SavingHistoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingHistoryComponent.swift; sourceTree = "<group>"; };
 		A7B7E2622722BA08002B6EF7 /* genersa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = genersa.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,9 +144,8 @@
 		E88AE02727353F4D001AD969 /* AvatarComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarComponentView.swift; sourceTree = "<group>"; };
 		E8C5D23C2739251B00F504FC /* AvatarPickerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerComponent.swift; sourceTree = "<group>"; };
 		E8DC4FE1273A1EA9005E9668 /* CreateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileView.swift; sourceTree = "<group>"; };
-		E8DC4FE5273A4350005E9668 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		E8DC4FE7273A437D005E9668 /* AvatarListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListViewModel.swift; sourceTree = "<group>"; };
-		E8DC4FE9273A488A005E9668 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		E8DC4FE9273A488A005E9668 /* AvatarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarIcon.swift; sourceTree = "<group>"; };
 		E8E2ECA7272F80B20019DBCE /* SavingsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsDataSource.swift; sourceTree = "<group>"; };
 		E8E2ECA9272F80C70019DBCE /* SavingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsModel.swift; sourceTree = "<group>"; };
 		E8F833652738D8C200A0A0F9 /* BudgetIconSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetIconSlider.swift; sourceTree = "<group>"; };
@@ -212,7 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				E88AE02627353F2C001AD969 /* Avatar */,
-				A79B4F8027353808004B2F19 /* Button */,
+				A79B4F8127353820004B2F19 /* CustomButton.swift */,
 				7E17114627353A090086A78F /* Icon */,
 				7E171145273539F60086A78F /* DatePicker */,
 				7E17114C27353CCC0086A78F /* Form */,
@@ -294,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				7E6100CD2734FB230084B014 /* Currency.swift */,
+				7E8A943C273D001D00E023DC /* Defaults.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -408,16 +405,6 @@
 				A7394D36272F31B200C65D55 /* TripDataSource.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		A79B4F8027353808004B2F19 /* Button */ = {
-			isa = PBXGroup;
-			children = (
-				A79B4F8127353820004B2F19 /* ButtonPrimary.swift */,
-				A79B4F832735383B004B2F19 /* ButtonSecondary.swift */,
-				A79B4F8527353864004B2F19 /* ButtonTertiary.swift */,
-			);
-			path = Button;
 			sourceTree = "<group>";
 		};
 		A7B7E2592722BA08002B6EF7 = {
@@ -544,9 +531,8 @@
 			isa = PBXGroup;
 			children = (
 				E8DC4FE1273A1EA9005E9668 /* CreateProfileView.swift */,
-				E8DC4FE9273A488A005E9668 /* AvatarView.swift */,
+				E8DC4FE9273A488A005E9668 /* AvatarIcon.swift */,
 				E8DC4FE7273A437D005E9668 /* AvatarListViewModel.swift */,
-				E8DC4FE5273A4350005E9668 /* Avatar.swift */,
 			);
 			path = CreateProfile;
 			sourceTree = "<group>";
@@ -676,10 +662,11 @@
 				7E6100D827350A520084B014 /* CurrencyList.swift in Sources */,
 				A7F90747272FDED800A84016 /* ExpensePartyModel.swift in Sources */,
 				A7FF41FF273B54F9007B271F /* SetTripView.swift in Sources */,
+				7E8A943D273D001D00E023DC /* Defaults.swift in Sources */,
 				7E08C15E2734535900F269BD /* HeaderViewModel.swift in Sources */,
 				7E944D3C272BEDD00017EF76 /* DebtsModel.swift in Sources */,
 				7E17114E27353DBE0086A78F /* Overview.swift in Sources */,
-				A79B4F8227353820004B2F19 /* ButtonPrimary.swift in Sources */,
+				A79B4F8227353820004B2F19 /* CustomButton.swift in Sources */,
 				7E17115E273586760086A78F /* BudgetCard.swift in Sources */,
 				7E944D43272BFD3B0017EF76 /* SettlementsDataSource.swift in Sources */,
 				A7B7E2682722BA08002B6EF7 /* ContentView.swift in Sources */,
@@ -722,18 +709,15 @@
 				A7394D2B272F1F4D00C65D55 /* BudgetDataSource.swift in Sources */,
 				A7394D29272F1F0E00C65D55 /* BudgetModel.swift in Sources */,
 				7E8A943B273A765E00E023DC /* BudgetFormModal.swift in Sources */,
-				A79B4F8627353864004B2F19 /* ButtonTertiary.swift in Sources */,
 				7E8A9439273A526700E023DC /* SavingsList.swift in Sources */,
 				A7A42D802734A18E00F95D5E /* ReusableTitleView.swift in Sources */,
 				E8F9DBEA272F9D5500200DAC /* SavingRecordDataSource.swift in Sources */,
 				7E17115C2735846D0086A78F /* OverviewViewModel.swift in Sources */,
-				E8DC4FEA273A488A005E9668 /* AvatarView.swift in Sources */,
-				A79B4F842735383B004B2F19 /* ButtonSecondary.swift in Sources */,
+				E8DC4FEA273A488A005E9668 /* AvatarIcon.swift in Sources */,
 				A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */,
 				A721B989273B925400FB1291 /* SettingsView.swift in Sources */,
 				7E6100CB273472CE0084B014 /* DateTimePicker.swift in Sources */,
 				E8C5D23D2739251B00F504FC /* AvatarPickerComponent.swift in Sources */,
-				E8DC4FE6273A4350005E9668 /* Avatar.swift in Sources */,
 				7E08C156272F0E2700F269BD /* UsersModel.swift in Sources */,
 				7E08C16D27345ED900F269BD /* TimeInterval+CommonIntervals.swift in Sources */,
 				7E17115727357E710086A78F /* DailyBudget.swift in Sources */,
