@@ -7,7 +7,6 @@
 
 
 import SwiftUI
-import HalfASheet
 
 struct CalculatorComponent: View {
     

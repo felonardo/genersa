@@ -25,7 +25,6 @@ struct MainComponent<Content: View>: View {
         VStack {
             HStack {
                 Text(title)
-                    .foregroundColor(.secondary)
                     .bold()
                 Spacer()
                 if let buttonTitle = buttonTitle {
