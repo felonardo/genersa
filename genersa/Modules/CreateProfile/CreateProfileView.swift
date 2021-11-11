@@ -48,7 +48,14 @@ struct CreateProfileView: View {
                 
             }
             .padding()
-            .navigationTitle("Hello There")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Hello There")
+                        .font(.largeTitle.bold())
+                        .accessibilityAddTraits(.isStaticText)
+                }
+            }
         }.onAppear{
             avatarListVM.fetch()
         }
