@@ -8,30 +8,22 @@
 import Foundation
 import SwiftUI
 
-class AvatarListViewModel: ObservableObject {
-    @Published var avatars:[Avatar] = []
-    @Published var selectedAvatarId:UUID?
-    @Published var fieldNickname: String = ""
+final class AvatarListViewModel: ObservableObject {
     
+    @Published var selectedAvatar: String = "Avatar-0"
+    @Published var nickname: String = "" {
+        willSet {
+            nicknameError = nicknameError(nickname: newValue)
+        }
+    }
+    @Published var nicknameError: Bool = false
     
-    func fetch() {
-        avatars = [
-            Avatar(imageName: "Avatar"),
-            Avatar(imageName: "Avatar-1"),
-            Avatar(imageName: "Avatar-2"),
-            Avatar(imageName: "Avatar-3"),
-            Avatar(imageName: "Avatar-4"),
-            Avatar(imageName: "Avatar-5"),
-            Avatar(imageName: "Avatar-6"),
-            Avatar(imageName: "Avatar-7"),
-           
-           
-        ]
-        selectedAvatarId = avatars[0].id
+    func nicknameError(nickname: String) -> Bool {
+        if nickname.count > 12 {
+            return true
+        } else {
+            return false
+        }
     }
     
-    
-    func selectedAvatar(id: UUID?) -> Avatar? {
-        return avatars.first(where: {$0.id == id})
-    }
 }

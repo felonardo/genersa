@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct CalculatorField: View {
+    
     @EnvironmentObject var settings: TripSettings
     
     @Binding var finalValue: String
@@ -17,13 +18,14 @@ struct CalculatorField: View {
     var body: some View{
         VStack(alignment: .leading, spacing: 4) {
             Text(finalValue.toCurrency(settings.locale))
-//            Text(finalValue)
                 .font(.title3)
             Divider()
                 .frame(height: 1)
                 .foregroundColor(.black)
             
-        }.onTapGesture {
+        }
+        .contentShape(Rectangle())
+        .onTapGesture {
             self.isPresented = true
         }
     }
