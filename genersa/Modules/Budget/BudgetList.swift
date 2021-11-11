@@ -26,7 +26,7 @@ struct BudgetList: View {
                 ForEach(viewModel.budgets, id:\.name) { budget in
                     if let icon = budget.icon, let name = budget.name {
                         BudgetCard(iconName: icon, name: name, amountUsed: budget.amountUsed, budgetAmount: budget.amountTotal)
-                            .padding(.leading, 16)
+                            .padding(budget.name == viewModel.budgets.last?.name ? .horizontal : .leading, 16)
                     }
                 }
             }
