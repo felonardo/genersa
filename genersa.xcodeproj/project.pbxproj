@@ -71,6 +71,9 @@
 		E8DC4FE2273A1EA9005E9668 /* CreateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DC4FE1273A1EA9005E9668 /* CreateProfileView.swift */; };
 		E8DC4FE8273A437D005E9668 /* AvatarListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DC4FE7273A437D005E9668 /* AvatarListViewModel.swift */; };
 		E8DC4FEA273A488A005E9668 /* AvatarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DC4FE9273A488A005E9668 /* AvatarIcon.swift */; };
+		E8DF848527416539004C5BA2 /* BudgetIconViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DF848427416539004C5BA2 /* BudgetIconViewModel.swift */; };
+		E8DF848727416AD9004C5BA2 /* BudgetDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DF848627416AD9004C5BA2 /* BudgetDefaults.swift */; };
+		E8DF848927417094004C5BA2 /* EditBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DF848827417094004C5BA2 /* EditBudgetView.swift */; };
 		E8E2ECA8272F80B20019DBCE /* SavingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E2ECA7272F80B20019DBCE /* SavingsDataSource.swift */; };
 		E8E2ECAA272F80C70019DBCE /* SavingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E2ECA9272F80C70019DBCE /* SavingsModel.swift */; };
 		E8F833662738D8C200A0A0F9 /* BudgetIconSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F833652738D8C200A0A0F9 /* BudgetIconSlider.swift */; };
@@ -146,6 +149,9 @@
 		E8DC4FE1273A1EA9005E9668 /* CreateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileView.swift; sourceTree = "<group>"; };
 		E8DC4FE7273A437D005E9668 /* AvatarListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListViewModel.swift; sourceTree = "<group>"; };
 		E8DC4FE9273A488A005E9668 /* AvatarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarIcon.swift; sourceTree = "<group>"; };
+		E8DF848427416539004C5BA2 /* BudgetIconViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetIconViewModel.swift; sourceTree = "<group>"; };
+		E8DF848627416AD9004C5BA2 /* BudgetDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDefaults.swift; sourceTree = "<group>"; };
+		E8DF848827417094004C5BA2 /* EditBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBudgetView.swift; sourceTree = "<group>"; };
 		E8E2ECA7272F80B20019DBCE /* SavingsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsDataSource.swift; sourceTree = "<group>"; };
 		E8E2ECA9272F80C70019DBCE /* SavingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsModel.swift; sourceTree = "<group>"; };
 		E8F833652738D8C200A0A0F9 /* BudgetIconSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetIconSlider.swift; sourceTree = "<group>"; };
@@ -244,6 +250,7 @@
 			children = (
 				7E17114727353AC40086A78F /* BudgetIcon.swift */,
 				E8F833652738D8C200A0A0F9 /* BudgetIconSlider.swift */,
+				E8DF848427416539004C5BA2 /* BudgetIconViewModel.swift */,
 			);
 			path = Icon;
 			sourceTree = "<group>";
@@ -291,6 +298,7 @@
 			children = (
 				7E6100CD2734FB230084B014 /* Currency.swift */,
 				7E8A943C273D001D00E023DC /* Defaults.swift */,
+				E8DF848627416AD9004C5BA2 /* BudgetDefaults.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -470,6 +478,7 @@
 		A7E353612727CB0C004E999A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E8DF848127413B62004C5BA2 /* Create&EditBudget */,
 				E8DC4FEB273A4BA6005E9668 /* CreateProfile */,
 				7E08C16E27345FD900F269BD /* Components */,
 				7E17115527357E2E0086A78F /* Main */,
@@ -535,6 +544,14 @@
 				E8DC4FE7273A437D005E9668 /* AvatarListViewModel.swift */,
 			);
 			path = CreateProfile;
+			sourceTree = "<group>";
+		};
+		E8DF848127413B62004C5BA2 /* Create&EditBudget */ = {
+			isa = PBXGroup;
+			children = (
+				E8DF848827417094004C5BA2 /* EditBudgetView.swift */,
+			);
+			path = "Create&EditBudget";
 			sourceTree = "<group>";
 		};
 		E8F9DBE4272F9CCB00200DAC /* Model */ = {
@@ -665,6 +682,7 @@
 				7E8A943D273D001D00E023DC /* Defaults.swift in Sources */,
 				7E08C15E2734535900F269BD /* HeaderViewModel.swift in Sources */,
 				7E944D3C272BEDD00017EF76 /* DebtsModel.swift in Sources */,
+				E8DF848727416AD9004C5BA2 /* BudgetDefaults.swift in Sources */,
 				7E17114E27353DBE0086A78F /* Overview.swift in Sources */,
 				A79B4F8227353820004B2F19 /* CustomButton.swift in Sources */,
 				7E17115E273586760086A78F /* BudgetCard.swift in Sources */,
@@ -695,6 +713,7 @@
 				7E944D38272BE4D70017EF76 /* DebtsDataSource.swift in Sources */,
 				7E17116227358F200086A78F /* BudgetList.swift in Sources */,
 				7E17115B273583360086A78F /* TripSettings.swift in Sources */,
+				E8DF848927417094004C5BA2 /* EditBudgetView.swift in Sources */,
 				E8E2ECAA272F80C70019DBCE /* SavingsModel.swift in Sources */,
 				7E6100D22734FFC70084B014 /* NumberFormatter+CurrencyFormatter.swift in Sources */,
 				E8F9DBEC272F9D6200200DAC /* SavingRecordModel.swift in Sources */,
@@ -704,6 +723,7 @@
 				A7394D35272F318B00C65D55 /* TripModel.swift in Sources */,
 				7E171150273540320086A78F /* CircularProgressBar.swift in Sources */,
 				A7394D37272F31B200C65D55 /* TripDataSource.swift in Sources */,
+				E8DF848527416539004C5BA2 /* BudgetIconViewModel.swift in Sources */,
 				E8DC4FE2273A1EA9005E9668 /* CreateProfileView.swift in Sources */,
 				A7394D31272F272A00C65D55 /* ExpenseModel.swift in Sources */,
 				A7394D2B272F1F4D00C65D55 /* BudgetDataSource.swift in Sources */,

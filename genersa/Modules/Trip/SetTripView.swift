@@ -33,6 +33,7 @@ struct SetTripView: View {
                                 CurrencyPicker()
                             }
                         }
+                        //final value, is presented
                     }
                     .ignoresSafeArea(.keyboard, edges: .bottom)
                 }
