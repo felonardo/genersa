@@ -22,7 +22,7 @@ final class BudgetIconViewModel: ObservableObject {
 //    @Published var finalvalue: String
 
     func budgetNameError(budgetName: String) -> Bool {
-        if budgetName.count > 24 {
+        if budgetName.count > 16 {
             return true
         } else {
             return false

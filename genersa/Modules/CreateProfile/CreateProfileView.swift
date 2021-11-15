@@ -46,7 +46,7 @@ struct AvatarIconSelector: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 20) {
                 ForEach(Defaults.avatars, id:\.self) { avatar in
-                    AvatarIcon(imageName: avatar, size: 63)
+                    AvatarIcon(imageName: avatar, size: 63, selected: avatar == selectedAvatar)
                         .onTapGesture {
                             selectedAvatar = avatar
                         }

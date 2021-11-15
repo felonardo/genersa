@@ -25,14 +25,14 @@ struct BudgetFormModal: View {
         NavigationView {
             ZStack {
                 
-                VStack {
+                VStack(spacing: 10){
                     ScrollView {
                         //Icon Picker
                         VStack(spacing:24) {
                             BudgetIcon(image: budgetIconVM.selectedBudget, iconSize: 117)
                             BudgetIconSelector(selectedBudget: $budgetIconVM.selectedBudget)
                         }
-                        ReusableTitleView(title: "Budget Name", description: "Maximum character for nickname is 12 characters.", errorState: $budgetIconVM.budgetNameError, warningDescription: true) {
+                        ReusableTitleView(title: "Budget Name", description: "Maximum character for nickname is 16 characters.", errorState: $budgetIconVM.budgetNameError, warningDescription: true) {
                             TextFieldComponent(field: $budgetIconVM.budgetName , placeholder: "Transportation", errorState: $budgetIconVM.budgetNameError)
                         }
                         ReusableTitleView(title: "Personal Budget", description: "", errorState: .constant(false)){
@@ -63,7 +63,7 @@ struct BudgetFormModal: View {
                     } label: {
                         Text("Save")
                             .bold()
-                    }
+                    }.disabled(budgetIconVM.budgetName.description.isEmpty || budgetIconVM.budgetNameError)
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -87,7 +87,7 @@ struct BudgetIconSelector: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
                 ForEach(BudgetDefaults.icons, id:\.self) { budgeticon in
-                    BudgetIcon(image: budgeticon, iconSize: 50)
+                    BudgetIcon(image: budgeticon, iconSize: 50, selected: budgeticon == selectedBudget)
                         .onTapGesture {
                             selectedBudget = budgeticon
                         }
