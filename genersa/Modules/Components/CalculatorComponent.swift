@@ -48,19 +48,22 @@ struct CalculatorComponent: View {
     var body: some View {
         
         VStack {
-            
             VStack {
                 Spacer(minLength: 16)
-                VStack {
-                    HStack{
+                VStack(spacing: 0) {
+                    HStack(alignment: .center){
                         Text(flattenTheExpression(exps: calExpression))
+                            .font(.headline)
                             .frame(alignment: Alignment.bottomTrailing)
-                            .foregroundColor(Color.blue)
+                            .foregroundColor(.three)
                         Spacer()
                         Button(action: {
                             self.isPresented = false
-                        }, label: { Text("Done")})
+                        }, label: { Text("Done")
+                                        .bold()
+                        })
                     }
+                    .padding(16)
                     ForEach(rows, id: \.self) { row in
                         HStack(alignment: .top, spacing: 0) {
                             Spacer(minLength: 13)
@@ -68,7 +71,7 @@ struct CalculatorComponent: View {
                                 Button(action: {
                                     if column == "Delete" {
                                         if !self.noBeingEntered.isEmpty{
-                                            print("test 0")
+//                                            print("test 0")
                                             self.noBeingEntered.removeLast()
                                             if !self.calExpression.isEmpty {
                                                 self.calExpression.removeLast()
@@ -76,49 +79,49 @@ struct CalculatorComponent: View {
                                             self.calExpression.append(self.noBeingEntered)
                                             if self.calExpression.count > 2 {
                                                 if checkIfOperator(str: self.calExpression.last ?? "0"){
-                                                    print("masuk")
+//                                                    print("masuk")
                                                     self.calExpression.removeLast()
                                                 } else if self.calExpression.last == "" {
-                                                    print("masuk3")
+//                                                    print("masuk3")
                                                     self.calExpression.removeLast()
                                                 }
-                                                print("masuk2")
-                                                print("cal:\(calExpression)")
-                                                print("noenter:\(noBeingEntered)")
+//                                                print("masuk2")
+//                                                print("cal:\(calExpression)")
+//                                                print("noenter:\(noBeingEntered)")
                                                 self.finalValue = processExpression(exp: self.calExpression)
                                             }
                                         } else {
                                             if !self.calExpression.isEmpty{
                                                 self.calExpression.removeLast()
-                                                print("test 2")
+//                                                print("test 2")
                                             }
                                             if !self.calExpression.isEmpty{
                                                 self.calExpression.removeLast()
-                                                print("test 2")
+//                                                print("test 2")
                                             }
                                             self.finalValue = processExpression(exp: self.calExpression)
                                             //                                            self.finalValue =  self.calExpression.first ?? "0"
-                                            print("test 4")
+//                                            print("test 4")
                                         }
                                         
-                                        print("cal:\(calExpression)")
-                                        print("noenter:\(noBeingEntered)")
-                                        print("tes 0")
+//                                        print("cal:\(calExpression)")
+//                                        print("noenter:\(noBeingEntered)")
+//                                        print("tes 0")
                                         return
                                     }
                                     else if checkIfOperator(str: column)  {
                                         if !self.calExpression.isEmpty && !checkIfOperator(str: self.calExpression.last ?? ""){
                                             self.calExpression.append(column)
                                             self.noBeingEntered = ""
-                                            print("cal:\(calExpression)")
-                                            print("noenter:\(noBeingEntered)")
-                                            print("tes 1")
+//                                            print("cal:\(calExpression)")
+//                                            print("noenter:\(noBeingEntered)")
+//                                            print("tes 1")
                                         } else if checkIfOperator(str: self.calExpression.last ?? ""){
-                                            print("tes 1 alt")
+//                                            print("tes 1 alt")
                                         }
-                                        print("cal:\(calExpression)")
-                                        print("noenter:\(noBeingEntered)")
-                                        print("tes 1 not")
+//                                        print("cal:\(calExpression)")
+//                                        print("noenter:\(noBeingEntered)")
+//                                        print("tes 1 not")
                                     }
                                     else {
                                         self.noBeingEntered.append(column)
@@ -126,24 +129,24 @@ struct CalculatorComponent: View {
                                         if self.calExpression.count == 0 {
                                             self.calExpression.append(self.noBeingEntered)
                                             
-                                            print("cal:\(calExpression)")
-                                            print("noenter:\(noBeingEntered)")
-                                            print("tes 2")
+//                                            print("cal:\(calExpression)")
+//                                            print("noenter:\(noBeingEntered)")
+//                                            print("tes 2")
                                         }
                                         else {
                                             if !checkIfOperator(str: self.calExpression[self.calExpression.count-1]) {
                                                 self.calExpression.remove(at: self.calExpression.count-1)
                                                 
-                                                print("cal:\(calExpression)")
-                                                print("noenter:\(noBeingEntered)")
-                                                print("tes 3")
+//                                                print("cal:\(calExpression)")
+//                                                print("noenter:\(noBeingEntered)")
+//                                                print("tes 3")
                                             }
                                             
                                             self.calExpression.append(self.noBeingEntered)
                                             
-                                            print("cal:\(calExpression)")
-                                            print("noenter:\(noBeingEntered)")
-                                            print("tes 4")
+//                                            print("cal:\(calExpression)")
+//                                            print("noenter:\(noBeingEntered)")
+//                                            print("tes 4")
                                         }
                                     }
                                     
@@ -154,11 +157,18 @@ struct CalculatorComponent: View {
                                     }
                                     
                                 }, label: {
-                                    Text(column)
-                                        .frame(idealWidth: 100, maxWidth: .infinity, idealHeight: 100, maxHeight: .infinity, alignment: .center)
+                                    if column == "Delete" {
+                                        Image(systemName: "delete.backward")
+                                            .font(.title2)
+                                            .frame(idealWidth: 100, maxWidth: .infinity, idealHeight: 100, maxHeight: .infinity, alignment: .center)
+                                    } else {
+                                        Text(column)
+                                            .font(.title2)
+                                            .frame(idealWidth: 100, maxWidth: .infinity, idealHeight: 100, maxHeight: .infinity, alignment: .center)
+                                    }
                                 }
                                 )
-                                    .foregroundColor(Color.blue)
+                                    .foregroundColor(column.isNumeric ? .primary : .customPrimary)
                             }
                         }
                     }
@@ -215,12 +225,14 @@ func processExpression(exp:[String]) -> String {
         case "÷":
             a! /= c!
         default:
-            print("skipping the rest")
+//            print("skipping the rest")
+            break
         }
     }
     
     return String(format: "%.1f", a!)
 }
+
 
 struct CalculatorComponent_Previews: PreviewProvider {
     @State static var isPresented = true
@@ -228,19 +240,28 @@ struct CalculatorComponent_Previews: PreviewProvider {
     
     static var previews: some View {
         VStack{
-        CalculatorField(finalValue: $finalValue, isPresented: $isPresented)
+            CalculatorField(finalValue: $finalValue, isPresented: $isPresented)
                 .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
-        
-//        VStack{
-//            //            FormField()
-//            Button(action: {self.isPresented = true}, label: {
-//                Text("show modal")
-//            })
+            
+            //        VStack{
+            //            //            FormField()
+            //            Button(action: {self.isPresented = true}, label: {
+            //                Text("show modal")
+            //            })
             HalfASheet(isPresented: $isPresented, title: "") {
                 CalculatorComponent(finalValue: $finalValue, isPresented: $isPresented)
             }
-//            .disableDragToDismiss
-//        }
+            //            .disableDragToDismiss
+            //        }
         }
     }
 }
+
+extension String {
+
+    var isNumeric : Bool {
+        return NumberFormatter().number(from: self) != nil
+    }
+
+}
+

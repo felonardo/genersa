@@ -21,10 +21,12 @@ struct SavingsList: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(spacing: 4) {
             ForEach(viewModel.savings.prefix(3), id:\.date) { record in
                 SavingHistoryComponent(month: record.date, amountSaved: record.amountSaved, totalAmount: record.goal)
                 Divider()
+                    .padding(.leading, 64)
+                    .padding(.trailing, -16)
             }
         }
     }

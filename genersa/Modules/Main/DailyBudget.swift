@@ -18,10 +18,11 @@ struct DailyBudget: View {
         VStack(alignment: .center) {
             Text(dailyExpense.toCurrency(settings.locale))
                 .font(.largeTitle)
+                .foregroundColor(.three)
                 .bold()
             Text("Daily Remaining of \(dailyBudget.toCurrency( settings.locale))")
                 .font(.caption)
-                .foregroundColor(.secondary)
+                .foregroundColor(.four.opacity(0.5))
         }
     }
     

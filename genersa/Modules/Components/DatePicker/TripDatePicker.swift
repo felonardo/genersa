@@ -20,13 +20,12 @@ struct TripDatePicker: View {
     var body: some View {
         VStack {
             HStack {
-                DateButton(date: viewModel.startDate, format: "d MMM yyyy") {
+                CustomButton(title: viewModel.startDate.wrappedValue.toString(withFormat: "d MMM yyyy"), type: .secondary, fullWidth: true) {
                     viewModel.showPicker = viewModel.showPicker == .start ? .none : .start
                 }
-                Spacer()
                 Image(systemName: "arrow.right")
-                Spacer()
-                DateButton(date: viewModel.endDate, format: "d MMM yyyy") {
+                    .foregroundColor(.customPrimary)
+                CustomButton(title: viewModel.endDate.wrappedValue.toString(withFormat: "d MMM yyyy"), type: .secondary, fullWidth: true) {
                     viewModel.showPicker = viewModel.showPicker == .end ? .none : .end
                 }
             }
