@@ -33,6 +33,7 @@ struct MainPageView: View {
                             .padding(.horizontal, -16)
                     }
                     .padding(16)
+#warning("Input empty state condition")
                     MainComponent(title: "Expenses", buttonTitle: "New Expense") {
                         VStack {
                             ExpensesList(expenses: viewModel.expenses, recents: true)
