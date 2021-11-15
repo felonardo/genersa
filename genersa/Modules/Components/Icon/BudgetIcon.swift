@@ -11,9 +11,21 @@ struct BudgetIcon: View {
 
     let image: String
     let iconSize: CGFloat
+    let selected: Bool
+   
+    init(image: String, iconSize: CGFloat, selected: Bool = false) {
+        self.image = image
+        self.iconSize = iconSize
+        self.selected = selected
+    }
     
     var body: some View {
         ZStack {
+            if selected {
+                Circle()
+                    .fill(Color.three)
+                    .frame(width: iconSize * 1.1, height: iconSize * 1.1)
+            }
             Circle()
                 .fill(Color.customPrimary)
                 .frame(width: iconSize, height: iconSize)
@@ -33,7 +45,7 @@ struct BudgetIcon_Previews: PreviewProvider {
     static var previews: some View {
 
                 VStack{
-                   BudgetIcon(image: "car.fill", iconSize: 100)
+                   BudgetIcon(image: "car.fill", iconSize: 100, selected: true)
                 }
     }
 }

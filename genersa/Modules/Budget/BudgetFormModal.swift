@@ -57,7 +57,7 @@ struct BudgetFormModal: View {
                     } label: {
                         Text("Save")
                             .bold()
-                    }
+                    }.disabled(budgetIconVM.budgetName.description.isEmpty || budgetIconVM.budgetNameError)
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -79,7 +79,7 @@ struct BudgetIconSelector: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
                 ForEach(BudgetDefaults.icons, id:\.self) { budgeticon in
-                    BudgetIcon(image: budgeticon, iconSize: 50)
+                    BudgetIcon(image: budgeticon, iconSize: 50, selected: budgeticon == selectedBudget)
                         .onTapGesture {
                             selectedBudget = budgeticon
                         }

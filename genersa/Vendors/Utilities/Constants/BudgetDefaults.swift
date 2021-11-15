@@ -9,6 +9,6 @@ import Foundation
 
 struct BudgetDefaults {
     static let icons: [String] = [
-        "car.fill", "airplane", "ferry.fill", "ticket.fill", "tram.fill", "house.fill", "bed.double.fill", "fork.knife"
+        "car.fill", "airplane", "ferry.fill", "ticket.fill", "tram.fill", "house.fill", "bed.double.fill", "fork.knife", "cup.and.saucer.fill", "creditcard.fill", "cart.fill", "bag.fill", "cross.case.fill", "gamecontroller.fill"
     ]
 }
