@@ -41,6 +41,7 @@ struct DummyBudget {
     let amountTotal: Double
 }
 
+
 final class BudgetListViewModel: ObservableObject {
     
     @Published var budgets: [DummyBudget]
