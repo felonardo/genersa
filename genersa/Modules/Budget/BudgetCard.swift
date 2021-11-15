@@ -24,9 +24,9 @@ struct BudgetCard: View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(alignment: .top) {
                 CircularProgressPreview(size: 48, bars: [
-                    Progress(progress: budgetUsed, color: Color.black)
+                    Progress(progress: budgetUsed, color: .five)
                 ]) {
-                    BudgetIcon(icon: Icon(id: 0, image: Image("Icon")), color: Color.gray, iconSize: 48)
+                    BudgetIcon(image: "car.fill", iconSize: 48)
                 }
                 Spacer()
                 Text("\(Int(budgetUsed*100))%")
@@ -41,10 +41,11 @@ struct BudgetCard: View {
             }
             .padding(.leading, 8)
         }
+        .foregroundColor(.three)
         .padding(12)
         .frame(width: 192)
         .background(RoundedRectangle(cornerRadius: 20)
-                        .fill(.gray.opacity(0.2)))
+                        .fill(Color.customPrimary.opacity(0.1)))
     }
 }
 

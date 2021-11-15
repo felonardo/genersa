@@ -16,19 +16,30 @@ struct SavingHistoryComponent: View {
     var totalAmount: Double
     let formatter = DateFormatter.withFormat("MMMM")
     var bar: Progress {
-        return Progress(progress: Double(amountSaved / totalAmount), color: .gray)
+        return Progress(progress: Double(amountSaved / totalAmount), color: .customPrimary)
     }
     
     var body: some View{
         HStack {
             CircularProgressBar(size: 48, bars: [bar]) {
-                Text("\(Int(bar.progress*100))%")
-                    .font(.caption)
+                ZStack {
+                    Color.customPrimary.opacity(0.1)
+                    Text("\(Int(bar.progress*100))%")
+                        .foregroundColor(.three)
+                        .font(.caption)
+                        .bold()
+                }
             }
             VStack (alignment: .leading, spacing: 4){
                 Text(formatter.string(from: month))
                     .bold()
-                Text("\(amountSaved.toCurrency(settings.locale)) of \(totalAmount.toCurrency(settings.locale))")
+                    .foregroundColor(.three)
+                HStack(spacing: 4) {
+                    Text("\(amountSaved.toCurrency(settings.locale))")
+                        .foregroundColor(.three)
+                    Text("of \(totalAmount.toCurrency(settings.locale))")
+                        .foregroundColor(.gray)
+                }
             }
             Spacer()
         }

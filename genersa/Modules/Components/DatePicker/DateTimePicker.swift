@@ -22,7 +22,7 @@ struct DateTimePicker: View {
             HStack {
                 Text(viewModel.text)
                 Spacer()
-                DateButton(date: viewModel.date, format: "MMM d, yyyy, HH:mm") {
+                CustomButton(title: viewModel.date.wrappedValue.toString(withFormat: "MMM d, yyyy, HH:mm"), type: .secondary, fullWidth: false) {
                     viewModel.showPicker.toggle()
                 }
             }

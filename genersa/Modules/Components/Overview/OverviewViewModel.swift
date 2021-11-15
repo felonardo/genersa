@@ -19,8 +19,8 @@ final class OverviewViewModel: ObservableObject {
     
     var progresses: [Progress] {
         var progresses = [Progress]()
-        progresses.append(Progress(progress: totalSaved / totalBudget, color: Color.green))
-        progresses.append(Progress(progress: totalUsed / totalBudget, color: Color.blue))
+        progresses.append(Progress(progress: totalSaved / totalBudget, color: .five))
+        progresses.append(Progress(progress: totalUsed / totalBudget, color: .nine))
         return progresses
     }
     

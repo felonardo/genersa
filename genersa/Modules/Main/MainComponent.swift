@@ -30,6 +30,7 @@ struct MainComponent<Content: View>: View {
                 if let buttonTitle = buttonTitle {
                     Text(buttonTitle)
                         .font(.callout)
+                        .foregroundColor(.customPrimary)
                 }
             }
             content

@@ -9,57 +9,52 @@ import SwiftUI
 
 struct CreateProfileView: View {
     
-    @StateObject var avatarListVM = AvatarListViewModel()
-    @State private var selectedAvatarId: UUID?
-    @State var nicknameError: Bool
+    @ObservedObject private var viewModel: AvatarListViewModel
     
+    init() {
+        self.viewModel = AvatarListViewModel()
+    }
     
     var body: some View {
-        NavigationView{
-            VStack(spacing:25){
-                if selectedAvatarId == nil {
-                    Image("Avatar")
-                        .resizable()
-                        .frame(width: 117, height: 117)
-                }else{
-                    AvatarView(id: selectedAvatarId, vm: avatarListVM)
-                }
-                ScrollView(.horizontal) {
-                    HStack(spacing:20) {
-                        ForEach(avatarListVM.avatars) { avatar in
-                            Image(avatar.imageName)
-                                .resizable()
-                                .frame(width: 63, height: 63)
-                                .onTapGesture {
-                                    selectedAvatarId = avatar.id
-                                }
-                        }
-                    }
-                }
-                
-                ReusableTitleView(title: "Nickname", description: "Maximum character for nickname is 12 characters. ", errorState: $nicknameError){
-                    TextFieldComponent(field: $avatarListVM.fieldNickname , placeholder: "Your Nickname", errorState: $nicknameError)
-                }
-                Spacer()
-                ButtonPrimary(title: "Continue",
-                              fullWidth: true){
-                    print("Clicked!")
-                }
-                
-            }
-            .padding()
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("Hello There")
-                        .font(.largeTitle.bold())
-                        .accessibilityAddTraits(.isStaticText)
+        VStack {
+            Text("Welcome!")
+                .font(.largeTitle)
+                .bold()
+                .padding(.bottom, 40)
+            VStack(spacing: 24) {
+                AvatarIcon(imageName: viewModel.selectedAvatar, size: 117)
+                AvatarIconSelector(selectedAvatar: $viewModel.selectedAvatar)
+                ReusableTitleView(title: "Nickname", description: "Maximum character for nickname is 12 characters.", errorState: $viewModel.nicknameError, warningDescription: true) {
+                    TextFieldComponent(field: $viewModel.nickname , placeholder: "Your Nickname", errorState: $viewModel.nicknameError)
                 }
             }
-        }.onAppear{
-            avatarListVM.fetch()
+            Spacer()
+            CustomNavigationLink(title: "Continue", type: .primary, fullWidth: true, destination: SetTripView())
+                .disabled(viewModel.nickname.isEmpty || viewModel.nicknameError)
+
         }
-            
+        .padding()
+        .navigationBarHidden(true)
+    }
+}
+
+struct AvatarIconSelector: View {
+    
+    @Binding var selectedAvatar: String
+    
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 16) {
+                ForEach(Defaults.avatars, id:\.self) { avatar in
+                    AvatarIcon(imageName: avatar, size: 63, selected: avatar == selectedAvatar)
+                        .onTapGesture {
+                            selectedAvatar = avatar
+                        }
+                }
+            }
+            .padding(.horizontal, 16)
+        }
+        .padding(.horizontal, -16)
     }
 }
 
@@ -68,7 +63,9 @@ struct CreateProfileView_Previews: PreviewProvider {
     @State static var nicknameError = false
     
     static var previews: some View {
-        CreateProfileView(nicknameError: nicknameError)
+        NavigationView {
+            CreateProfileView()
+        }
     }
 }
 
