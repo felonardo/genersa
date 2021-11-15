@@ -9,25 +9,23 @@ import SwiftUI
 
 struct BudgetIcon: View {
 
-    let icon: Icon
-    let color: Color
+    let image: String
     let iconSize: CGFloat
    
     
     var body: some View {
-        Button(action: {
-            print("Icon")
-        }, label: {
+        ZStack {
             Circle()
-                .fill(color)
+                .fill(Color("circleBudget"))
                 .frame(width: iconSize, height: iconSize)
-                .overlay(icon.image?
+                .overlay(Image(systemName: image)
                             .resizable()
+                            .scaledToFit()
                             .foregroundColor(Color("iconColor"))
                             .padding(iconSize * 0.25)
-                            .frame(width: iconSize, height: iconSize))
-        })
-            
+                            .frame(width: iconSize, height: iconSize)
+                            .clipShape(Circle()))
+        }
     }
 }
 
@@ -36,7 +34,7 @@ struct BudgetIcon_Previews: PreviewProvider {
     static var previews: some View {
 
                 VStack{
-                    BudgetIcon(icon: Icon(id: 0, image: Image("Icon")), color: Color("grayIcon"), iconSize: 100)
+                   BudgetIcon(image: "car.fill", iconSize: 100)
                 }
     }
 }

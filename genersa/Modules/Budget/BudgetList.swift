@@ -4,7 +4,7 @@
 //
 //  Created by Joanda Febrian on 05/11/21.
 //
-
+import Foundation
 import SwiftUI
 
 struct BudgetList: View {
@@ -45,6 +45,19 @@ struct DummyBudget {
 final class BudgetListViewModel: ObservableObject {
     
     @Published var budgets: [DummyBudget]
+
+//    @Published var selectedBudget: String = "car.fill"
+//    @Published var budgetName: String = ""
+//    @Published var budgetNameError: Bool = false
+//
+//    func budgetNameError(title:String) -> Bool {
+//        if title.count > 12 {
+//            return true
+//        } else {
+//            return false
+//        }
+//    }
+    // -> pindah ke BudgetIconViewModel
 //    @Published var budgets: [Budget]
     
 //    init(budgets: [Budget]) {
