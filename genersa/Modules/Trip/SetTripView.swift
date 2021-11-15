@@ -25,7 +25,12 @@ struct SetTripView: View {
                             TextFieldComponent(field: $viewModel.fieldTrip, placeholder: "My Trip", errorState: $viewModel.errorState)
                         }
                         ReusableTitleView(title: "Trip Date", description: "", errorState: .constant(false)){
-                            TripDatePicker(startDate: $viewModel.startDate, endDate: $viewModel.endDate)
+                            HStack {
+                                Spacer()
+                                TripDatePicker(startDate: $viewModel.startDate, endDate: $viewModel.endDate)
+                                Spacer()
+                            }
+                            .padding(.top, 16)
                         }
                         ReusableTitleView(title: "Personal Budget", description: "", errorState: .constant(false)){
                             HStack{
@@ -37,7 +42,7 @@ struct SetTripView: View {
                     .ignoresSafeArea(.keyboard, edges: .bottom)
                 }
                 Spacer()
-                CustomNavigationLink(title: "Continue", type: .primary, fullWidth: true, destination: MainPageView())
+                CustomNavigationLink(title: "Continue", type: .primary, fullWidth: true, destination: MainPageView(budgets: [], expenses: [], savingRecords: []))
                     .disabled(viewModel.fieldTrip.isEmpty || viewModel.errorState )
             }
             .padding(.horizontal, 16)
