@@ -11,17 +11,16 @@ struct BudgetIcon: View {
 
     let image: String
     let iconSize: CGFloat
-   
     
     var body: some View {
         ZStack {
             Circle()
-                .fill(Color("circleBudget"))
+                .fill(Color.customPrimary)
                 .frame(width: iconSize, height: iconSize)
                 .overlay(Image(systemName: image)
                             .resizable()
                             .scaledToFit()
-                            .foregroundColor(Color("iconColor"))
+                            .foregroundColor(.white)
                             .padding(iconSize * 0.25)
                             .frame(width: iconSize, height: iconSize)
                             .clipShape(Circle()))

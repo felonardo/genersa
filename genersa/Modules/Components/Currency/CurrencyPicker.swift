@@ -16,6 +16,7 @@ struct CurrencyPicker: View {
             CurrencyList(currencySelected: $settings.currency)
         } label: {
             Text(settings.currency.code)
+                .foregroundColor(.customPrimary)
         }
         .buttonStyle(.plain)
     }

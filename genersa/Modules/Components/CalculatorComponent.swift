@@ -21,7 +21,7 @@ struct CalculatorField: View {
                 .font(.title3)
             Divider()
                 .frame(height: 1)
-                .foregroundColor(.black)
+                .foregroundColor(.gray)
             
         }
         .contentShape(Rectangle())
