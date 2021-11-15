@@ -19,9 +19,10 @@ final class BudgetIconViewModel: ObservableObject {
     @Published var budgetNameError: Bool = false
     @Published var isPresented: Bool = false
     @Published var fieldBudget: String = "0"
+//    @Published var finalvalue: String
 
     func budgetNameError(budgetName: String) -> Bool {
-        if budgetName.count > 12 {
+        if budgetName.count > 24 {
             return true
         } else {
             return false

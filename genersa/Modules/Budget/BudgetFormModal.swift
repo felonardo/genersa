@@ -11,7 +11,7 @@ struct BudgetFormModal: View {
     
     @EnvironmentObject var settings: TripSettings
     @ObservedObject private var budgetIconVM: BudgetIconViewModel
-
+    
     init(title: String) {
         self.title = title
         self.budgetIconVM = BudgetIconViewModel()
@@ -23,26 +23,38 @@ struct BudgetFormModal: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                VStack(spacing:24) {
-                    BudgetIcon(image: budgetIconVM.selectedBudget, iconSize: 117)
-                    BudgetIconSelector(selectedBudget: $budgetIconVM.selectedBudget)
-                }
-                // Icon Picker
-                ReusableTitleView(title: "Budget Name", description: "Maximum character for nickname is 12 characters.", errorState: $budgetIconVM.budgetNameError, warningDescription: true) {
-                    TextFieldComponent(field: $budgetIconVM.budgetName , placeholder: "Transportation", errorState: $budgetIconVM.budgetNameError)
-                }
-                ReusableTitleView(title: "Personal Budget", description: "", errorState: .constant(false)){
-                    HStack{
-                        CalculatorField(finalValue: $budgetIconVM.fieldBudget, isPresented: $budgetIconVM.isPresented)
-                        CurrencyPicker()
+            ZStack {
+                
+                VStack {
+                    ScrollView {
+                        //Icon Picker
+                        VStack(spacing:24) {
+                            BudgetIcon(image: budgetIconVM.selectedBudget, iconSize: 117)
+                            BudgetIconSelector(selectedBudget: $budgetIconVM.selectedBudget)
+                        }
+                        ReusableTitleView(title: "Budget Name", description: "Maximum character for nickname is 12 characters.", errorState: $budgetIconVM.budgetNameError, warningDescription: true) {
+                            TextFieldComponent(field: $budgetIconVM.budgetName , placeholder: "Transportation", errorState: $budgetIconVM.budgetNameError)
+                        }
+                        ReusableTitleView(title: "Personal Budget", description: "", errorState: .constant(false)){
+                            HStack{
+                                CalculatorField(finalValue: $budgetIconVM.fieldBudget, isPresented: $budgetIconVM.isPresented)
+                                CurrencyPicker()
+                            }
+                        }
                     }
+                    Spacer()
+                    
                 }
-                Spacer()
+                
+                .ignoresSafeArea(.keyboard, edges: .bottom)
+                .navigationTitle(title)
+                .padding()
+                .navigationBarTitleDisplayMode(.inline)
+                
+                HalfASheet(isPresented: $budgetIconVM.isPresented){
+                    CalculatorComponent(finalValue: $budgetIconVM.fieldBudget, isPresented: $budgetIconVM.isPresented)
+                }.disableDragToDismiss
             }
-            .navigationTitle(title)
-            .padding()
-            .navigationBarTitleDisplayMode(.inline)
             
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -61,6 +73,8 @@ struct BudgetFormModal: View {
                     }
                 }
             }
+            
+            
         }
     }
 }
@@ -71,7 +85,7 @@ struct BudgetIconSelector: View {
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 20) {
+            HStack(spacing: 10) {
                 ForEach(BudgetDefaults.icons, id:\.self) { budgeticon in
                     BudgetIcon(image: budgeticon, iconSize: 50)
                         .onTapGesture {

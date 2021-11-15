@@ -20,6 +20,7 @@ struct BudgetIcon: View {
                 .frame(width: iconSize, height: iconSize)
                 .overlay(Image(systemName: image)
                             .resizable()
+                            .scaledToFit()
                             .foregroundColor(Color("iconColor"))
                             .padding(iconSize * 0.25)
                             .frame(width: iconSize, height: iconSize)
