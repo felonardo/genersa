@@ -53,7 +53,12 @@
 		A7394D31272F272A00C65D55 /* ExpenseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D30272F272A00C65D55 /* ExpenseModel.swift */; };
 		A7394D35272F318B00C65D55 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D34272F318B00C65D55 /* TripModel.swift */; };
 		A7394D37272F31B200C65D55 /* TripDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D36272F31B200C65D55 /* TripDataSource.swift */; };
+		A779EA9527422CB80060D7B1 /* AddExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A779EA9427422CB80060D7B1 /* AddExpenses.swift */; };
+		A779EA97274234660060D7B1 /* BudgetSelectedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A779EA96274234660060D7B1 /* BudgetSelectedButton.swift */; };
+		A779EA99274239BD0060D7B1 /* AddExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A779EA98274239BD0060D7B1 /* AddExpensesViewModel.swift */; };
 		A79423AE2737BBA2000573A8 /* CalculatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79423AD2737BBA2000573A8 /* CalculatorComponent.swift */; };
+		A795BD5E2742653900E97016 /* AddSavingRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A795BD5D2742653900E97016 /* AddSavingRecord.swift */; };
+		A795BD602742664E00E97016 /* AddSavingRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A795BD5F2742664E00E97016 /* AddSavingRecordViewModel.swift */; };
 		A79B4F7B273511E3004B2F19 /* TextBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79B4F7A273511E3004B2F19 /* TextBinding.swift */; };
 		A79B4F8227353820004B2F19 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79B4F8127353820004B2F19 /* CustomButton.swift */; };
 		A7A42D802734A18E00F95D5E /* ReusableTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A42D7F2734A18E00F95D5E /* ReusableTitleView.swift */; };
@@ -131,7 +136,12 @@
 		A7394D30272F272A00C65D55 /* ExpenseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseModel.swift; sourceTree = "<group>"; };
 		A7394D34272F318B00C65D55 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
 		A7394D36272F31B200C65D55 /* TripDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataSource.swift; sourceTree = "<group>"; };
+		A779EA9427422CB80060D7B1 /* AddExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenses.swift; sourceTree = "<group>"; };
+		A779EA96274234660060D7B1 /* BudgetSelectedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetSelectedButton.swift; sourceTree = "<group>"; };
+		A779EA98274239BD0060D7B1 /* AddExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensesViewModel.swift; sourceTree = "<group>"; };
 		A79423AD2737BBA2000573A8 /* CalculatorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorComponent.swift; sourceTree = "<group>"; };
+		A795BD5D2742653900E97016 /* AddSavingRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSavingRecord.swift; sourceTree = "<group>"; };
+		A795BD5F2742664E00E97016 /* AddSavingRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSavingRecordViewModel.swift; sourceTree = "<group>"; };
 		A79B4F7A273511E3004B2F19 /* TextBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBinding.swift; sourceTree = "<group>"; };
 		A79B4F8127353820004B2F19 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A7A42D7F2734A18E00F95D5E /* ReusableTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTitleView.swift; sourceTree = "<group>"; };
@@ -230,6 +240,7 @@
 				A79423AD2737BBA2000573A8 /* CalculatorComponent.swift */,
 				A7FAE4AE2738FD6E0097793C /* HalfASheet.swift */,
 				7E17114F273540320086A78F /* CircularProgressBar.swift */,
+				A779EA96274234660060D7B1 /* BudgetSelectedButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -389,6 +400,8 @@
 			isa = PBXGroup;
 			children = (
 				A7394D2D272F271100C65D55 /* Model */,
+				A779EA9427422CB80060D7B1 /* AddExpenses.swift */,
+				A779EA98274239BD0060D7B1 /* AddExpensesViewModel.swift */,
 			);
 			path = Expense;
 			sourceTree = "<group>";
@@ -524,6 +537,8 @@
 				E8F9DBE4272F9CCB00200DAC /* Model */,
 				A7A42D832734D6F600F95D5E /* SavingHistoryComponent.swift */,
 				7E8A9438273A526700E023DC /* SavingsList.swift */,
+				A795BD5D2742653900E97016 /* AddSavingRecord.swift */,
+				A795BD5F2742664E00E97016 /* AddSavingRecordViewModel.swift */,
 			);
 			path = Savings;
 			sourceTree = "<group>";
@@ -692,6 +707,7 @@
 				7E1EC37D2741716200938713 /* BudgetSlider.swift in Sources */,
 				7E08C15E2734535900F269BD /* HeaderViewModel.swift in Sources */,
 				7E944D3C272BEDD00017EF76 /* DebtsModel.swift in Sources */,
+				A779EA97274234660060D7B1 /* BudgetSelectedButton.swift in Sources */,
 				E8DF848727416AD9004C5BA2 /* BudgetDefaults.swift in Sources */,
 				7E17114E27353DBE0086A78F /* Overview.swift in Sources */,
 				A79B4F8227353820004B2F19 /* CustomButton.swift in Sources */,
@@ -702,7 +718,9 @@
 				7E6100CE2734FB230084B014 /* Currency.swift in Sources */,
 				7E08C154272F0A9F00F269BD /* UsersDataSource.swift in Sources */,
 				A79B4F7B273511E3004B2F19 /* TextBinding.swift in Sources */,
+				A795BD5E2742653900E97016 /* AddSavingRecord.swift in Sources */,
 				A721B987273B924900FB1291 /* SettingsViewModel.swift in Sources */,
+				A779EA9527422CB80060D7B1 /* AddExpenses.swift in Sources */,
 				7E08C165273458B500F269BD /* HeaderButton.swift in Sources */,
 				7E17114827353AC40086A78F /* BudgetIcon.swift in Sources */,
 				A7A42D842734D6F600F95D5E /* SavingHistoryComponent.swift in Sources */,
@@ -716,6 +734,7 @@
 				E88AE02827353F4D001AD969 /* AvatarComponentView.swift in Sources */,
 				7E08C15A2734529400F269BD /* View+CornerRadiusStyle.swift in Sources */,
 				A7F90749272FDF0C00A84016 /* ExpensePartyDataSource.swift in Sources */,
+				A795BD602742664E00E97016 /* AddSavingRecordViewModel.swift in Sources */,
 				A7E3536D2727CC74004E999A /* Persistance.swift in Sources */,
 				7E171159273582070086A78F /* Double+FormatToCurrency.swift in Sources */,
 				7E17116027358BA10086A78F /* MainComponent.swift in Sources */,
@@ -747,6 +766,7 @@
 				7E17115C2735846D0086A78F /* OverviewViewModel.swift in Sources */,
 				E8DC4FEA273A488A005E9668 /* AvatarIcon.swift in Sources */,
 				A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */,
+				A779EA99274239BD0060D7B1 /* AddExpensesViewModel.swift in Sources */,
 				A721B989273B925400FB1291 /* SettingsView.swift in Sources */,
 				7E6100CB273472CE0084B014 /* DateTimePicker.swift in Sources */,
 				E8C5D23D2739251B00F504FC /* AvatarPickerComponent.swift in Sources */,
