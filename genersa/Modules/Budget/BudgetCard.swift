@@ -26,7 +26,7 @@ struct BudgetCard: View {
                 CircularProgressPreview(size: 48, bars: [
                     Progress(progress: budgetUsed, color: .five)
                 ]) {
-                    BudgetIcon(image: "car.fill", iconSize: 48)
+                    BudgetIcon(image: iconName, iconSize: 48)
                 }
                 Spacer()
                 Text("\(Int(budgetUsed*100))%")

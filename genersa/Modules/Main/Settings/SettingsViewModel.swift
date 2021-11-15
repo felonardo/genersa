@@ -18,7 +18,7 @@ final class SettingsViewModel: ObservableObject {
             errorState = tripNameError(tripName: newValue)
         }
     }
-    @Published var selectedAvatar: String = "Avatar-0"
+    @Published var selectedAvatar: String = "Avatar 1"
     @Published var startDate: Date = Date()
     @Published var endDate: Date = Date()
     @Published var errorState: Bool = false

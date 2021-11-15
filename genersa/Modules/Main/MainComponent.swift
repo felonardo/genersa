@@ -27,10 +27,15 @@ struct MainComponent<Content: View>: View {
                 Text(title)
                     .bold()
                 Spacer()
-                if let buttonTitle = buttonTitle {
-                    Text(buttonTitle)
-                        .font(.callout)
-                        .foregroundColor(.customPrimary)
+                if let buttonTitle = buttonTitle, let action = action {
+                    Button {
+                        action()
+                    } label: {
+                        Text(buttonTitle)
+                            .font(.callout)
+                            .foregroundColor(.customPrimary)
+                    }
+                    .buttonStyle(.plain)
                 }
             }
             content
@@ -42,7 +47,9 @@ struct MainComponent_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             MainComponent(title: "Overview") {
-                Overview(totalUsed: 1000000, totalSaved: 3000000, totalBudget: 5000000)
+                Overview(budgets: [
+                    
+                ], totalUsed: 1000000, totalSaved: 3000000, totalBudget: 5000000)
             }
             .padding(16)
             MainComponent(title: "Budgets", buttonTitle: "+ New Budget") {
@@ -53,7 +60,7 @@ struct MainComponent_Previews: PreviewProvider {
                     DummyBudget(icon: "car", name: "Transport", amountUsed: 1300000, amountTotal: 2000000),
                     DummyBudget(icon: "car", name: "Transport", amountUsed: 1300000, amountTotal: 2000000),
                     DummyBudget(icon: "car", name: "Transport", amountUsed: 1300000, amountTotal: 2000000),
-                ])
+                ], isPresented: .constant(false))
                 .padding(.horizontal, -16)
             }
             .padding(16)

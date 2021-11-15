@@ -30,7 +30,8 @@ struct ButtonView: View {
                         .fontWeight(.semibold)
                 }
             }
-            .padding(16)
+            .padding(.vertical, 8)
+            .padding(.horizontal, 16)
             .frame(maxWidth: fullWidth ? .infinity : .none, minHeight: 44)
             .foregroundColor(Color.white)
             .background(
@@ -47,7 +48,8 @@ struct ButtonView: View {
                         .fontWeight(.semibold)
                 }
             }
-            .padding(16)
+            .padding(.vertical, 8)
+            .padding(.horizontal, 16)
             .frame(maxWidth: fullWidth ? .infinity : .none, minHeight: 44)
             .foregroundColor(.customPrimary)
             .overlay(

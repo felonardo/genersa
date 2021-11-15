@@ -27,10 +27,10 @@ struct SettingsView: View {
                     }
                     AvatarIconSelector(selectedAvatar: $viewModel.selectedAvatar)
                     ReusableTitleView(title: "Nickname", description: "Maximum character for nickname is 12 characters.", errorState: $viewModel.nicknameError, warningDescription: true) {
-                        TextFieldComponent(field: $viewModel.nickname , placeholder: "Your Nickname", errorState: $viewModel.nicknameError)
+                        TextFieldComponent(field: $viewModel.nickname , placeholder: "Your Nickname", errorState: $viewModel.nicknameError, isEditing: true)
                     }
                     ReusableTitleView(title: "Trip Name", description: "Maximum character for trip name is 12 characters.", errorState: $viewModel.errorState, warningDescription: true){
-                        TextFieldComponent(field: $viewModel.fieldTrip, placeholder: "My Trip", errorState: $viewModel.errorState)
+                        TextFieldComponent(field: $viewModel.fieldTrip, placeholder: "My Trip", errorState: $viewModel.errorState, isEditing: true)
                     }
                     ReusableTitleView(title: "Trip Date", description: "", errorState: .constant(false)){
                         HStack {

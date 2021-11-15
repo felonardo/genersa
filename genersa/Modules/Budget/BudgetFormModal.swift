@@ -10,32 +10,38 @@ import SwiftUI
 struct BudgetFormModal: View {
     
     @EnvironmentObject var settings: TripSettings
-    @ObservedObject private var budgetIconVM: BudgetIconViewModel
+    @ObservedObject private var viewModel: BudgetFormViewModel
     
-    init(title: String) {
+    init(title: String, isPresented: Binding<Bool>, budget: DummyBudget? = nil) {
         self.title = title
-        self.budgetIconVM = BudgetIconViewModel()
+        if let budget = budget {
+            self.viewModel = BudgetFormViewModel(budget: budget, isPresented: isPresented)
+        } else {
+            self.viewModel = BudgetFormViewModel(isPresented: isPresented)
+        }
     }
     
     let title: String
-    @State var nameValidation: Bool = false
-    @State var name: String = ""
     
     var body: some View {
         NavigationView {
             ZStack {
                 ScrollView {
-                    VStack(spacing: 16) {
-                        BudgetIcon(image: budgetIconVM.selectedBudget, iconSize: 117)
-                        BudgetIconSelector(selectedBudget: $budgetIconVM.selectedBudget)
+                    VStack(alignment: .leading, spacing: 16) {
+                        HStack {
+                            Spacer()
+                            BudgetIcon(image: viewModel.budgetIcon, iconSize: 117)
+                            Spacer()
+                        }
+                        BudgetIconSelector(selectedBudget: $viewModel.budgetIcon)
                             .padding(.bottom, 16)
-                        ReusableTitleView(title: "Budget Name", description: "Maximum character for budget name is 12 characters.", errorState: $budgetIconVM.budgetNameError, warningDescription: true) {
-                            TextFieldComponent(field: $budgetIconVM.budgetName , placeholder: "Transportation", errorState: $budgetIconVM.budgetNameError)
+                        ReusableTitleView(title: "Budget Name", description: "Maximum character for budget name is 12 characters.", errorState: $viewModel.budgetNameError, warningDescription: true) {
+                            TextFieldComponent(field: $viewModel.budgetName , placeholder: "Transportation", errorState: $viewModel.budgetNameError)
                         }
                         .padding(.horizontal, 16)
-                        ReusableTitleView(title: "Personal Budget", description: "", errorState: .constant(false)){
+                        ReusableTitleView(title: "Budget Amount", description: "", errorState: .constant(false)){
                             HStack{
-                                CalculatorField(finalValue: $budgetIconVM.fieldBudget, isPresented: $budgetIconVM.isPresented)
+                                CalculatorField(finalValue: $viewModel.fieldBudget, isPresented: $viewModel.presentingCalculator)
                                 CurrencyPicker()
                             }
                         }
@@ -46,8 +52,8 @@ struct BudgetFormModal: View {
                 .ignoresSafeArea(.keyboard, edges: .bottom)
                 .navigationTitle(title)
                 .navigationBarTitleDisplayMode(.inline)
-                HalfASheet(isPresented: $budgetIconVM.isPresented){
-                    CalculatorComponent(finalValue: $budgetIconVM.fieldBudget, isPresented: $budgetIconVM.isPresented)
+                HalfASheet(isPresented: $viewModel.presentingCalculator){
+                    CalculatorComponent(finalValue: $viewModel.fieldBudget, isPresented: $viewModel.presentingCalculator)
                 }.disableDragToDismiss
             }
             .toolbar {
@@ -57,11 +63,11 @@ struct BudgetFormModal: View {
                     } label: {
                         Text("Save")
                             .bold()
-                    }.disabled(budgetIconVM.budgetName.description.isEmpty || budgetIconVM.budgetNameError)
+                    }.disabled(viewModel.budgetName.description.isEmpty || viewModel.budgetNameError)
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        print("cancel category")
+                        viewModel.isPresented.toggle()
                     } label: {
                         Text("Cancel")
                     }
@@ -78,7 +84,7 @@ struct BudgetIconSelector: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
-                ForEach(BudgetDefaults.icons, id:\.self) { budgeticon in
+                ForEach(Defaults.budgets, id:\.self) { budgeticon in
                     BudgetIcon(image: budgeticon, iconSize: 50, selected: budgeticon == selectedBudget)
                         .onTapGesture {
                             selectedBudget = budgeticon
@@ -95,7 +101,7 @@ struct BudgetFormModal_Previews: PreviewProvider {
     @State static var budgetnameError = false
     
     static var previews: some View {
-        BudgetFormModal(title: "Edit Budget")
+        BudgetFormModal(title: "Edit Budget", isPresented: .constant(true))
             .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
     }
 }

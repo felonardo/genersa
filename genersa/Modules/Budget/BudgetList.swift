@@ -16,8 +16,8 @@ struct BudgetList: View {
 //    }
     
     #warning("to be removed, only for dummy testing")
-    init(budgets: [DummyBudget]) {
-        self.viewModel = BudgetListViewModel(budgets: budgets)
+    init(budgets: [DummyBudget], isPresented: Binding<Bool>) {
+        self.viewModel = BudgetListViewModel(budgets: budgets, isPresented: isPresented)
     }
     
     var body: some View {
@@ -25,8 +25,15 @@ struct BudgetList: View {
             HStack(spacing: 0) {
                 ForEach(viewModel.budgets, id:\.name) { budget in
                     if let icon = budget.icon, let name = budget.name {
-                        BudgetCard(iconName: icon, name: name, amountUsed: budget.amountUsed, budgetAmount: budget.amountTotal)
-                            .padding(budget.name == viewModel.budgets.last?.name ? .horizontal : .leading, 16)
+                        Button {
+                            viewModel.isPresented.toggle()
+                        } label: {
+                            BudgetCard(iconName: icon, name: name, amountUsed: budget.amountUsed, budgetAmount: budget.amountTotal)
+                                .padding(budget.name == viewModel.budgets.last?.name ? .horizontal : .leading, 16)
+                                .sheet(isPresented: $viewModel.isPresented, onDismiss: nil) {
+                                    BudgetFormModal(title: "Edit Budget", isPresented: $viewModel.isPresented, budget: budget)
+                                }
+                        }
                     }
                 }
             }
@@ -45,6 +52,7 @@ struct DummyBudget {
 final class BudgetListViewModel: ObservableObject {
     
     @Published var budgets: [DummyBudget]
+    @Binding var isPresented: Bool
 
 //    @Published var selectedBudget: String = "car.fill"
 //    @Published var budgetName: String = ""
@@ -65,8 +73,9 @@ final class BudgetListViewModel: ObservableObject {
 //    }
     
     #warning("to be removed, only for dummy testing")
-    init(budgets: [DummyBudget]) {
+    init(budgets: [DummyBudget], isPresented: Binding<Bool>) {
         self.budgets = budgets
+        self._isPresented = isPresented
     }
 }
 
@@ -77,7 +86,7 @@ struct BudgetList_Previews: PreviewProvider {
             DummyBudget(icon: "car.fill", name: "Transport", amountUsed: 1300000, amountTotal: 2000000),
             DummyBudget(icon: "leaf.fill", name: "Food", amountUsed: 275000, amountTotal: 1700000),
             DummyBudget(icon: "house.fill", name: "Accomodation", amountUsed: 675000, amountTotal: 1850000),
-        ])
+        ], isPresented: .constant(true))
         .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
     }
 }
