@@ -91,8 +91,8 @@ struct MainPageView_Previews: PreviewProvider {
                         Button {
                             print("Settings")
                         } label: {
-                            Image(systemName: "gear")
-                                .foregroundColor(.gray)
+                            Image(systemName: "gearshape.fill")
+                                .foregroundColor(.customPrimary)
                         }
 
                     }

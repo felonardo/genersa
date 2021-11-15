@@ -9,28 +9,38 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @ObservedObject var viewmodel = SettingsViewModel()
-    @State var errorState = false
+    @EnvironmentObject var settings: TripSettings
+    @ObservedObject var viewModel: SettingsViewModel
+    
+    init() {
+        self.viewModel = SettingsViewModel()
+    }
     
     var body: some View {
-        
-        //        ScrollView {
         NavigationView{
             VStack(){
-                VStack(alignment: .leading, spacing: 4) {
-                    
-                    Text("General")
-                    
-                    ReusableTitleView(title: "Nickname", description: "", errorState: $errorState){
-                        TextFieldComponent(field: $viewmodel.fieldTrip, placeholder: "My Name", errorState: $errorState)
+                VStack(alignment: .leading, spacing: 16) {
+                    HStack {
+                        Spacer()
+                        AvatarIcon(imageName: viewModel.selectedAvatar, size: 117)
+                        Spacer()
                     }
-                    ReusableTitleView(title: "Trip Name", description: "", errorState: $errorState){
-                        TextFieldComponent(field: $viewmodel.fieldTrip, placeholder: "My Trip", errorState: $errorState)
+                    AvatarIconSelector(selectedAvatar: $viewModel.selectedAvatar)
+                    ReusableTitleView(title: "Nickname", description: "Maximum character for nickname is 12 characters.", errorState: $viewModel.nicknameError, warningDescription: true) {
+                        TextFieldComponent(field: $viewModel.nickname , placeholder: "Your Nickname", errorState: $viewModel.nicknameError)
                     }
-                    ReusableTitleView(title: "Trip Date", description: "", errorState: $errorState){
-                        TripDatePicker(startDate: $viewmodel.startDate, endDate: $viewmodel.endDate)
+                    ReusableTitleView(title: "Trip Name", description: "Maximum character for trip name is 12 characters.", errorState: $viewModel.errorState, warningDescription: true){
+                        TextFieldComponent(field: $viewModel.fieldTrip, placeholder: "My Trip", errorState: $viewModel.errorState)
                     }
-                    ReusableTitleView(title: "Currency", description: "", errorState: $errorState){
+                    ReusableTitleView(title: "Trip Date", description: "", errorState: .constant(false)){
+                        HStack {
+                            Spacer()
+                            TripDatePicker(startDate: $viewModel.startDate, endDate: $viewModel.endDate)
+                            Spacer()
+                        }
+                        .padding(.top, 16)
+                    }
+                    ReusableTitleView(title: "Currency", description: "", errorState: .constant(false)){
                         VStack{
                             CurrencyPickerSecondary()
                             Divider()
@@ -38,7 +48,6 @@ struct SettingsView: View {
                                 .foregroundColor(.black)
                         }.padding(4)
                     }
-                    
                     Spacer()
                     CustomButton(title: "Delete Trip", type: .secondary, fullWidth: true){
                         print("Delete clicked")
@@ -58,5 +67,6 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
+            .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
     }
 }

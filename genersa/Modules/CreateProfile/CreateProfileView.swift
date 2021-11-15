@@ -44,7 +44,7 @@ struct AvatarIconSelector: View {
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 20) {
+            HStack(spacing: 16) {
                 ForEach(Defaults.avatars, id:\.self) { avatar in
                     AvatarIcon(imageName: avatar, size: 63, selected: avatar == selectedAvatar)
                         .onTapGesture {
@@ -52,7 +52,9 @@ struct AvatarIconSelector: View {
                         }
                 }
             }
+            .padding(.horizontal, 16)
         }
+        .padding(.horizontal, -16)
     }
 }
 
