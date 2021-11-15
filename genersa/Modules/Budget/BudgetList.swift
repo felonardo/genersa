@@ -39,6 +39,7 @@ struct DummyBudget {
     let name: String
     let amountUsed: Double
     let amountTotal: Double
+    var amountSaved: Double = 0
 }
 
 final class BudgetListViewModel: ObservableObject {

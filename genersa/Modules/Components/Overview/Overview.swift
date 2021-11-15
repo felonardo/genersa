@@ -17,22 +17,27 @@ struct Overview: View {
     }
     
     var body: some View {
-        HStack {
-            CircularProgressBar(size: 144, bars: viewModel.progresses) {
-                VStack {
-                    Text("Current Balance")
-                        .foregroundColor(.secondary)
-                    Text(viewModel.currentBalance.toCurrency(settings.locale))
-                        .bold()
-                        .foregroundColor(.primary)
+        NavigationLink {
+            CompleteOverview(budgets: [])
+        } label: {
+            HStack {
+                CircularProgressBar(size: 144, bars: viewModel.progresses) {
+                    VStack {
+                        Text("Current Balance")
+                            .foregroundColor(.secondary)
+                        Text(viewModel.currentBalance.toCurrency(settings.locale))
+                            .bold()
+                            .foregroundColor(.primary)
+                    }
                 }
+                Spacer(minLength: 0)
+                OverviewLegends(totalUsed: viewModel.totalUsed, totalSaved: viewModel.totalSaved, needToSave: viewModel.totalBudget - viewModel.totalSaved)
             }
-            Spacer(minLength: 0)
-            OverviewLegends(totalUsed: viewModel.totalUsed, totalSaved: viewModel.totalSaved, needToSave: viewModel.totalBudget - viewModel.totalSaved)
+            .padding(16)
+            .background(RoundedRectangle(cornerRadius: 20)
+                            .foregroundColor(.customPrimary.opacity(0.1)))
         }
-        .padding(16)
-        .background(RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.gray.opacity(0.3)))
+        .buttonStyle(.plain)
     }
 }
 
@@ -44,8 +49,8 @@ struct OverviewLegends: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            LegendView(name: "Total Used", amount: totalUsed, color: .blue)
-            LegendView(name: "Total Saved", amount: totalSaved, color: .green)
+            LegendView(name: "Total Used", amount: totalUsed, color: .five)
+            LegendView(name: "Total Saved", amount: totalSaved, color: .nine)
             LegendView(name: "Need to Save", amount: needToSave, color: .gray)
         }
     }
@@ -83,8 +88,10 @@ struct LegendView: View {
 
 struct Overview_Previews: PreviewProvider {
     static var previews: some View {
-        Overview(totalUsed: 250000, totalSaved: 4000000, totalBudget: 5000000)
-            .padding(16)
-            .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
+        NavigationView {
+            Overview(totalUsed: 250000, totalSaved: 4000000, totalBudget: 5000000)
+                .padding(16)
+                .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
+        }
     }
 }

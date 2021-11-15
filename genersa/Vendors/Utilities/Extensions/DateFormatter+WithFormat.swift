@@ -27,4 +27,9 @@ extension Date {
 
         return str
     }
+    
+    func dateOnly() -> Date {
+        let date = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: self)!
+        return date
+    }
 }

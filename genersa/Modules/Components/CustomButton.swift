@@ -34,8 +34,8 @@ struct ButtonView: View {
             .frame(maxWidth: fullWidth ? .infinity : .none, minHeight: 44)
             .foregroundColor(Color.white)
             .background(
-                RoundedRectangle(cornerRadius: 16)
-                    .foregroundColor(.black.opacity(0.8))
+                Capsule()
+                    .foregroundColor(.customPrimary)
             )
         case .secondary:
             HStack {
@@ -49,11 +49,10 @@ struct ButtonView: View {
             }
             .padding(16)
             .frame(maxWidth: fullWidth ? .infinity : .none, minHeight: 44)
-            .foregroundColor(Color.black)
-            .background(Color.white)
+            .foregroundColor(.customPrimary)
             .overlay(
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color.black, lineWidth: 1)
+                Capsule()
+                    .stroke(Color.customPrimary, lineWidth: 1)
             )
         case .tertiary:
             HStack {
@@ -63,6 +62,8 @@ struct ButtonView: View {
                 if let title = title {
                     Text(title)
                         .fontWeight(.semibold)
+                        .foregroundColor(.customPrimary)
+                        .padding(16)
                 }
             }
         }
@@ -106,16 +107,27 @@ struct CustomButton: View {
     }
 }
 
-//struct ButtonPrimary_Previews: PreviewProvider {
-//    static var previews: some View {
-////        ButtonPrimary(title: "Button 1",
-////                      icon: Image(systemName: "trash"),
-////                      fullWidth: false){
-////            print("Clicked!")
-////        }
-////        ButtonPrimary(title: "Button 1",
-////                      fullWidth: true){
-////            print("Clicked!")
-////        }
-//    }
-//}
+struct ButtonPrimary_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            CustomButton(title: "Primary", type: .primary, fullWidth: false) {
+                print("primary")
+            }
+            CustomButton(title: "Primary Full Width", type: .primary, fullWidth: true) {
+                print("primary full width")
+            }
+            CustomButton(title: "Secondary", type: .secondary, fullWidth: false) {
+                print("secondary")
+            }
+            CustomButton(title: "Secondary Full Width", type: .secondary, fullWidth: true) {
+                print("secondary full width")
+            }
+            CustomButton(title: "Tertiary", type: .tertiary, fullWidth: false) {
+                print("tertiary")
+            }
+            CustomButton(title: "Tertiary Full Width", type: .tertiary, fullWidth: true) {
+                print("tertiary full width")
+            }
+        }
+    }
+}
