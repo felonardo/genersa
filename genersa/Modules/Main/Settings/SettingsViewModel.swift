@@ -8,11 +8,36 @@
 import Foundation
 
 final class SettingsViewModel: ObservableObject {
-    @Published var fieldTrip: String = ""
+    @Published var nickname: String = "" {
+        willSet {
+            nicknameError = nicknameError(nickname: newValue)
+        }
+    }
+    @Published var fieldTrip: String = "" {
+        willSet {
+            errorState = tripNameError(tripName: newValue)
+        }
+    }
+    @Published var selectedAvatar: String = "Avatar-0"
     @Published var startDate: Date = Date()
     @Published var endDate: Date = Date()
     @Published var errorState: Bool = false
-//    @Published var currency: Currency = Currency.allCurrencies.first!
-//    @Published var profileName: String = ""
-//    @Published var avatar: String = ""
+    @Published var nicknameError: Bool = false
+    
+    
+    func tripNameError(tripName: String) -> Bool {
+        if tripName.count > 12 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func nicknameError(nickname: String) -> Bool {
+        if nickname.count > 12 {
+            return true
+        } else {
+            return false
+        }
+    }
 }

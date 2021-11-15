@@ -45,6 +45,7 @@ struct BudgetOverview: View {
             HStack {
                 Text("Budget Name")
                     .bold()
+                    .foregroundColor(.three)
                 Spacer()
                 Button {
                     isActive.toggle()
@@ -54,11 +55,11 @@ struct BudgetOverview: View {
             }
             HStack(spacing: 4) {
                 Text("\(amountUsed.toCurrency(settings.locale))")
-                    .foregroundColor(.red)
+                    .foregroundColor(.three)
                 Text("of")
                     .foregroundColor(.gray)
                 Text("\(amountSaved.toCurrency(settings.locale))")
-                    .foregroundColor(.blue)
+                    .foregroundColor(.customPrimary)
                 Spacer()
                 Text("\(budgetAmount.toCurrency(settings.locale))")
                     .foregroundColor(.gray)
@@ -70,25 +71,25 @@ struct BudgetOverview: View {
                         .frame(height: 16)
                     if amountUsed < amountSaved {
                         Capsule()
-                            .fill(.blue)
+                            .fill(Color.customPrimary)
                             .frame(width: geometry.size.width * (amountSaved/budgetAmount), height: 16)
                         Capsule()
-                            .fill(.red)
+                            .fill(Color.three)
                             .frame(width: geometry.size.width * (amountUsed/budgetAmount), height: 16)
                     } else {
                         Capsule()
-                            .fill(.red)
+                            .fill(Color.three)
                             .frame(width: geometry.size.width * (amountUsed/budgetAmount), height: 16)
                         Capsule()
-                            .fill(.blue)
+                            .fill(Color.customPrimary)
                             .frame(width: geometry.size.width * (amountSaved/budgetAmount), height: 16)
                     }
                 }
             }
             if isActive {
-                OverviewLegend(title: "Total Used", color: .red, amount: amountUsed)
+                OverviewLegend(title: "Total Used", color: .three, amount: amountUsed)
                     .padding(.top, 8)
-                OverviewLegend(title: "Total Saved", color: .blue, amount: amountSaved)
+                OverviewLegend(title: "Total Saved", color: .customPrimary, amount: amountSaved)
                 OverviewLegend(title: "Total Budget", color: .gray, amount: budgetAmount)
             }
         }
@@ -111,6 +112,7 @@ struct OverviewLegend: View {
             Text(title)
             Spacer()
             Text(amount.toCurrency(settings.locale))
+                .foregroundColor(.three)
         }
     }
     

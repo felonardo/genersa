@@ -56,8 +56,7 @@ struct ReusableTitleView<Content: View>: View {
             Text(warningDescription ? (errorState ? description : "") : description)
                 .foregroundColor(errorState ? Color.red :Color.gray)
                 .font(.footnote)
-                .padding(.leading, 4)
-        }.padding(8)
+        }
     }
 }
 
@@ -73,8 +72,7 @@ struct TextFieldComponent: View {
                 .foregroundColor(errorState ? Color.red : Color.black)
             Divider()
                 .frame(height: 1)
-                .padding(.horizontal, 30)
-                .background(errorState ? Color.red :Color.black)
+                .foregroundColor(errorState ? .red : .gray)
         }
     }
 }

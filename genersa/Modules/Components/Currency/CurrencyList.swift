@@ -15,7 +15,7 @@ struct CurrencyList: View {
     var body: some View {
         VStack {
             ScrollView {
-                LazyVStack(alignment: .leading) {
+                LazyVStack(alignment: .leading, spacing: 16) {
                     ForEach(allCurrencies, id: \.code) { currency in
                         CurrencyListCell(currencySelected: $currencySelected,
                                          currency: currency)
@@ -52,6 +52,8 @@ struct CurrencyListCell: View {
                 Spacer()
                 if currencySelected.code == currency.code {
                     Image(systemName: "checkmark")
+                        .font(.title2)
+                        .foregroundColor(.customPrimary)
                         .padding(.horizontal, 16)
                 }
             }

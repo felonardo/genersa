@@ -24,38 +24,32 @@ struct BudgetFormModal: View {
     var body: some View {
         NavigationView {
             ZStack {
-                
-                VStack {
-                    ScrollView {
-                        //Icon Picker
-                        VStack(spacing:24) {
-                            BudgetIcon(image: budgetIconVM.selectedBudget, iconSize: 117)
-                            BudgetIconSelector(selectedBudget: $budgetIconVM.selectedBudget)
-                        }
-                        ReusableTitleView(title: "Budget Name", description: "Maximum character for nickname is 12 characters.", errorState: $budgetIconVM.budgetNameError, warningDescription: true) {
+                ScrollView {
+                    VStack(spacing: 16) {
+                        BudgetIcon(image: budgetIconVM.selectedBudget, iconSize: 117)
+                        BudgetIconSelector(selectedBudget: $budgetIconVM.selectedBudget)
+                            .padding(.bottom, 16)
+                        ReusableTitleView(title: "Budget Name", description: "Maximum character for budget name is 12 characters.", errorState: $budgetIconVM.budgetNameError, warningDescription: true) {
                             TextFieldComponent(field: $budgetIconVM.budgetName , placeholder: "Transportation", errorState: $budgetIconVM.budgetNameError)
                         }
+                        .padding(.horizontal, 16)
                         ReusableTitleView(title: "Personal Budget", description: "", errorState: .constant(false)){
                             HStack{
                                 CalculatorField(finalValue: $budgetIconVM.fieldBudget, isPresented: $budgetIconVM.isPresented)
                                 CurrencyPicker()
                             }
                         }
+                        .padding(.horizontal, 16)
                     }
                     Spacer()
-                    
                 }
-                
                 .ignoresSafeArea(.keyboard, edges: .bottom)
                 .navigationTitle(title)
-                .padding()
                 .navigationBarTitleDisplayMode(.inline)
-                
                 HalfASheet(isPresented: $budgetIconVM.isPresented){
                     CalculatorComponent(finalValue: $budgetIconVM.fieldBudget, isPresented: $budgetIconVM.isPresented)
                 }.disableDragToDismiss
             }
-            
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -73,8 +67,6 @@ struct BudgetFormModal: View {
                     }
                 }
             }
-            
-            
         }
     }
 }
@@ -93,6 +85,7 @@ struct BudgetIconSelector: View {
                         }
                 }
             }
+            .padding(.horizontal, 16)
         }
     }
 }
@@ -104,6 +97,5 @@ struct BudgetFormModal_Previews: PreviewProvider {
     static var previews: some View {
         BudgetFormModal(title: "Edit Budget")
             .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
-            .padding()
     }
 }
