@@ -62,8 +62,11 @@ struct NewRecord: View {
                                 switch type {
                                 case .expense:
                                     print("saved new expense")
+                                    viewModel.addExpense()
+                                    
                                 case .saving:
                                     print("saved new saving")
+                                    viewModel.addSaving()
                                 }
                                 isPresented.toggle()
                             }) {
@@ -102,6 +105,17 @@ final class NewRecordViewModel: ObservableObject {
         DummyBudget(icon: "bag.fill", name: "Shopping", amountUsed: 275000, amountTotal: 1700000),
         DummyBudget(icon: "cross.case.fill", name: "Other", amountUsed: 675000, amountTotal: 1850000)
     ]
+    
+    func addExpense(){
+        ExpenseDataSource.shared.createExpense(amount: Double(amount) ?? 0, date: selectedDate, notes: fieldNote, budget: budgetSelected)
+        
+        print("add expense \(amount),\(selectedDate),\(fieldNote),\(budgetSelected)")
+        
+    }
+    
+    func addSaving(){
+        SavingRecordDataSource.shared.createSavingRecord(amountSaved: Double(amount) ?? 0, goal: 0, date: selectedDate)
+    }
 }
 
 

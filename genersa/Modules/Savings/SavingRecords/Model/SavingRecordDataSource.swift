@@ -8,18 +8,18 @@
 import Foundation
 import CoreData
 
-//class SavingRecordDataSource {
-//    static let shared = SavingRecordDataSource()
+class SavingRecordDataSource {
+    static let shared = SavingRecordDataSource()
 //    var records: [SavingRecord] = []
-//    var container: NSPersistentContainer
-//    init() {
-//        container = PersistenceController.shared.container
-//    }
-//    
+    var container: NSPersistentContainer
+    init() {
+        container = PersistenceController.shared.container
+    }
+    
 //    func getRecord(with id: UUID) -> SavingRecord? {
 //        return records.first(where: {$0.id == id})
 //    }
-//    
+//
 //    func createRecord(amountSaved: Double, goal: Double, date: Date, saving: Saving) -> SavingRecord{
 //        let newRecord = SavingRecord(context: container.viewContext)
 //        newRecord.id = UUID()
@@ -30,7 +30,19 @@ import CoreData
 //        records.append(newRecord)
 //        return newRecord
 //    }
-//    
+
+    
+    func createSavingRecord(amountSaved: Double, goal: Double, date: Date) -> SavingRecord{
+        let newRecord = SavingRecord(context: container.viewContext)
+        newRecord.id = UUID()
+        newRecord.amountSaved = amountSaved
+        newRecord.goal = goal
+        newRecord.date = date
+        PersistenceController.shared.save()
+//        records.append(newRecord)
+        return newRecord
+    }
+    
 //    func readRecord() -> Bool{
 //        let request = SavingRecord.fetchRequest()
 //        do{
@@ -65,4 +77,4 @@ import CoreData
 //            return false
 //        }
 //    }
-//}
+}

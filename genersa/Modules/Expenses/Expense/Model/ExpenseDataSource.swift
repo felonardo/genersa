@@ -40,6 +40,20 @@ class ExpenseDataSource {
 //        return newExpense
 //    }
     
+    func createExpense(amount: Double, date: Date, notes: String, budget: String) -> Expense{
+        let newExpense = Expense(context: container.viewContext)
+        newExpense.id = UUID()
+        newExpense.amount = amount
+        newExpense.date = date
+        newExpense.notes = notes
+        BudgetDataSource.shared.readBudgets()
+        newExpense.budget = BudgetDataSource.shared.getBudget(name: budget)
+        expenses.append(newExpense)
+        PersistenceController.shared.save()
+        print(newExpense)
+        return newExpense
+    }
+    
     func readExpenses() -> Bool {
         
         let request = Expense.fetchRequest()

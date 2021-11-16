@@ -16,8 +16,15 @@
         <attribute name="notes" optional="YES" attributeType="String"/>
         <relationship name="budget" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Budget" inverseName="expenses" inverseEntity="Budget"/>
     </entity>
+    <entity name="SavingRecord" representedClassName="SavingRecord" syncable="YES" codeGenerationType="class">
+        <attribute name="amountSaved" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="goal" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+    </entity>
     <elements>
         <element name="Budget" positionX="-219.840087890625" positionY="-401.2649536132812" width="128" height="148"/>
         <element name="Expense" positionX="138.8309631347656" positionY="-328.6529846191406" width="128" height="118"/>
+        <element name="SavingRecord" positionX="118.4638061523438" positionY="-510.7171020507812" width="128" height="103"/>
     </elements>
 </model>
