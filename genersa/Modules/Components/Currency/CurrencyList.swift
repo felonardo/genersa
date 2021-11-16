@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CurrencyList: View {
     
-    @Binding var currencySelected: Currency
+    @Binding var currencySelected: String
     let allCurrencies: [Currency] = Currency.allCurrencies
     
     var body: some View {
@@ -34,13 +34,13 @@ struct CurrencyList: View {
 
 struct CurrencyListCell: View {
     
-    @Binding var currencySelected: Currency
+    @Binding var currencySelected: String
     let currency: Currency
     
     var body: some View {
         Button {
             withAnimation {
-                currencySelected = currency
+                currencySelected = currency.identifier
             }
         } label: {
             HStack {
@@ -50,7 +50,7 @@ struct CurrencyListCell: View {
                         .font(.caption)
                 }
                 Spacer()
-                if currencySelected.code == currency.code {
+                if currencySelected == currency.identifier {
                     Image(systemName: "checkmark")
                         .font(.title2)
                         .foregroundColor(.customPrimary)
@@ -65,7 +65,7 @@ struct CurrencyListCell: View {
 
 struct CurrencyListPreview: View {
     
-    @State var currencySelected: Currency = Currency.allCurrencies.first!
+    @State var currencySelected: String = Currency.allCurrencies.first!.identifier
     
     var body: some View {
         CurrencyList(currencySelected: $currencySelected)

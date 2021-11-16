@@ -47,9 +47,7 @@ struct MainComponent_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             MainComponent(title: "Overview") {
-                Overview(budgets: [
-                    
-                ], totalUsed: 1000000, totalSaved: 3000000, totalBudget: 5000000)
+                Overview(budgets: [])
             }
             .padding(16)
             MainComponent(title: "Budgets", buttonTitle: "+ New Budget") {
@@ -65,6 +63,5 @@ struct MainComponent_Previews: PreviewProvider {
             }
             .padding(16)
         }
-        .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
     }
 }

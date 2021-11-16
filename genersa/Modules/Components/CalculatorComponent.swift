@@ -9,15 +9,14 @@
 import SwiftUI
 
 struct CalculatorField: View {
-    
-    @EnvironmentObject var settings: TripSettings
+    @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     
     @Binding var finalValue: String
     @Binding var isPresented: Bool
     
     var body: some View{
         VStack(alignment: .leading, spacing: 4) {
-            Text(finalValue.toCurrency(settings.locale))
+            Text(finalValue.toCurrency(currency))
                 .font(.title3)
             Divider()
                 .frame(height: 1)
@@ -241,7 +240,6 @@ struct CalculatorComponent_Previews: PreviewProvider {
     static var previews: some View {
         VStack{
             CalculatorField(finalValue: $finalValue, isPresented: $isPresented)
-                .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
             
             //        VStack{
             //            //            FormField()

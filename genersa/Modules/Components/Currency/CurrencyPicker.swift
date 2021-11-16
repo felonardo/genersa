@@ -9,13 +9,13 @@ import SwiftUI
 
 struct CurrencyPicker: View {
     
-    @EnvironmentObject var settings: TripSettings
+    @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     
     var body: some View {
         NavigationLink {
-            CurrencyList(currencySelected: $settings.currency)
+            CurrencyList(currencySelected: $currency)
         } label: {
-            Text(settings.currency.code)
+            Text(Currency.allCurrencies.first(where: {$0.identifier == currency})!.code)
                 .foregroundColor(.customPrimary)
         }
         .buttonStyle(.plain)
@@ -24,17 +24,18 @@ struct CurrencyPicker: View {
 
 struct CurrencyPickerSecondary: View {
     
-    @EnvironmentObject var settings: TripSettings
+    @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     
     var body: some View {
         NavigationLink {
-            CurrencyList(currencySelected: $settings.currency)
+            CurrencyList(currencySelected: $currency)
         } label: {
             HStack{
-                Text(settings.currency.name)
+                Text(Currency.allCurrencies.first(where: {$0.identifier == currency})!.name)
                 Spacer()
                 Image(systemName: "chevron.right")
             }
+            .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
     }

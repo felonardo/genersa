@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainPageView: View {
     
-    @EnvironmentObject var settings: TripSettings
+    @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     @ObservedObject private var viewModel: MainPageViewModel
     
     init(budgets: [DummyBudget], expenses: [DummyExpense], savingRecords: [DummySavingRecord]) {
@@ -24,7 +24,7 @@ struct MainPageView: View {
                     DailyBudgetPreview(dailyExpense: 0, dailyBudget: 100000)
                         .padding(16)
                     MainComponent(title: "Overview") {
-                        Overview(budgets: viewModel.budgets, totalUsed: 1000000, totalSaved: 3000000, totalBudget: 5000000)
+                        Overview(budgets: viewModel.budgets)
                     }
                     .padding(16)
                     MainComponent(title: "Budgets", buttonTitle: "New Budget") {
@@ -48,12 +48,10 @@ struct MainPageView: View {
                                     type: .secondary,
                                     fullWidth: false,
                                     destination:
-                                        ExpensesList(budgets: viewModel.budgets, expenses: viewModel.expenses, recents: false)
-                                        .environmentObject(settings))
+                                        ExpensesList(budgets: viewModel.budgets, expenses: viewModel.expenses, recents: false))
                             }
                         }
                         .sheet(isPresented: $viewModel.presentingAddExpense, onDismiss: nil) {
-//                            AddExpenses(isPresented: $viewModel.presentingAddExpense)
                             NewRecord(isPresented: $viewModel.presentingAddExpense, type: .expense)
                         }
                     }
@@ -69,15 +67,26 @@ struct MainPageView: View {
                                     type: .secondary,
                                     fullWidth: false,
                                     destination:
-                                        SavingsList(savings: viewModel.savingRecords).environmentObject(settings))
+                                        SavingsList(savings: viewModel.savingRecords))
                             }
                         }
                         .sheet(isPresented: $viewModel.presentingAddSavingRecord, onDismiss: nil) {
-//                            AddSavingRecord(isPresented: $viewModel.presentingAddSavingRecord)
                             NewRecord(isPresented: $viewModel.presentingAddSavingRecord, type: .saving)
                         }
                     }
                     .padding(16)
+                }
+            }
+            .navigationTitle(viewModel.tripName)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink {
+                        SettingsView()
+                    } label: {
+                        Image(systemName: "gearshape.fill")
+                            .foregroundColor(.customPrimary)
+                    }
+
                 }
             }
         }
@@ -108,37 +117,10 @@ struct DummyMainPageView: View {
                         DummySavingRecord(amountSaved: 2000000, goal: 2000000, date: Date().addingTimeInterval(-(.day * 90))),
                      ])
             .navigationTitle("Bali 2022")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        print("Settings")
-                    } label: {
-                        Image(systemName: "gearshape.fill")
-                            .foregroundColor(.customPrimary)
-                    }
-
-                }
-            }
             .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-final class MainPageViewModel: ObservableObject {
-    
-    @Published var presentingNewBudget: Bool = false
-    @Published var presentingEditBudget: Bool = false
-    @Published var presentingAddExpense: Bool = false
-    @Published var presentingAddSavingRecord: Bool = false
-    @Published var budgets: [DummyBudget]
-    @Published var expenses: [DummyExpense]
-    @Published var savingRecords: [DummySavingRecord]
-    
-    init(budgets: [DummyBudget], expenses: [DummyExpense], savingRecords: [DummySavingRecord]) {
-        self.budgets = budgets
-        self.expenses = expenses
-        self.savingRecords = savingRecords
-    }
-}
 
 struct MainPageView_Previews: PreviewProvider {
     static var previews: some View {
@@ -164,20 +146,7 @@ struct MainPageView_Previews: PreviewProvider {
                             DummySavingRecord(amountSaved: 2000000, goal: 2000000, date: Date().addingTimeInterval(-(.day * 60))),
                             DummySavingRecord(amountSaved: 2000000, goal: 2000000, date: Date().addingTimeInterval(-(.day * 90))),
                          ])
-                .navigationTitle("Bali 2022")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            print("Settings")
-                        } label: {
-                            Image(systemName: "gearshape.fill")
-                                .foregroundColor(.customPrimary)
-                        }
-
-                    }
-                }
                 .navigationBarTitleDisplayMode(.inline)
-                .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
         }
     }
 }

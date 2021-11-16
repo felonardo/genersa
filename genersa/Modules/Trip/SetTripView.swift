@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SetTripView: View {
     
-    @EnvironmentObject var settings: TripSettings
     @ObservedObject private var viewModel: SetTripViewModel
     
     init() {
@@ -44,10 +43,10 @@ struct SetTripView: View {
                 }
                 Spacer()
                 CustomButton(title: "Continue", type: .primary, fullWidth: true) {
-                    settings.tripSet.toggle()
+                    viewModel.tripSet = true
                 }
+                .disabled(viewModel.fieldTrip.isEmpty || viewModel.errorState )
 //                CustomNavigationLink(title: "Continue", type: .primary, fullWidth: true, destination: DummyMainPageView())
-//                    .disabled(viewModel.fieldTrip.isEmpty || viewModel.errorState )
             }
             .padding(.horizontal, 16)
             HalfASheet(isPresented: $viewModel.isPresented){
@@ -65,7 +64,6 @@ struct SetTripView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             SetTripView()
-                .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
         }
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SavingHistoryComponent: View {
     
-    @EnvironmentObject var settings: TripSettings
+    @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     
     var month: Date
     var amountSaved: Double
@@ -35,9 +35,9 @@ struct SavingHistoryComponent: View {
                     .bold()
                     .foregroundColor(.three)
                 HStack(spacing: 4) {
-                    Text("\(amountSaved.toCurrency(settings.locale))")
+                    Text("\(amountSaved.toCurrency(currency))")
                         .foregroundColor(.three)
-                    Text("of \(totalAmount.toCurrency(settings.locale))")
+                    Text("of \(totalAmount.toCurrency(currency))")
                         .foregroundColor(.gray)
                 }
             }
@@ -49,6 +49,5 @@ struct SavingHistoryComponent: View {
 struct SavingHistoryComponent_Previews: PreviewProvider {
     static var previews: some View {
         SavingHistoryComponent( month: Date(), amountSaved: 500000, totalAmount: 1000000)
-            .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
     }
 }

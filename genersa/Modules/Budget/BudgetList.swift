@@ -88,6 +88,5 @@ struct BudgetList_Previews: PreviewProvider {
             DummyBudget(icon: "leaf.fill", name: "Food", amountUsed: 275000, amountTotal: 1700000),
             DummyBudget(icon: "house.fill", name: "Accomodation", amountUsed: 675000, amountTotal: 1850000),
         ], isPresented: .constant(true))
-        .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
     }
 }

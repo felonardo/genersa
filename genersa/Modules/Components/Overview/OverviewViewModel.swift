@@ -9,10 +9,11 @@ import SwiftUI
 
 final class OverviewViewModel: ObservableObject {
     
+    @AppStorage("totalBudget") var totalBudget: Double = 0
+    @AppStorage("totalUsed") var totalUsed: Double = 0
+    @AppStorage("totalSaved") var totalSaved: Double = 0
+    
     @Published var budgets: [DummyBudget]
-    @Published var totalUsed: Double
-    @Published var totalSaved: Double
-    @Published var totalBudget: Double
     
     var currentBalance: Double {
         return totalSaved - totalUsed
@@ -25,10 +26,7 @@ final class OverviewViewModel: ObservableObject {
         return progresses
     }
     
-    init(budgets: [DummyBudget], totalUsed: Double, totalSaved: Double, totalBudget: Double) {
+    init(budgets: [DummyBudget]) {
         self.budgets = budgets
-        self.totalUsed = totalUsed
-        self.totalSaved = totalSaved
-        self.totalBudget = totalBudget
     }
 }

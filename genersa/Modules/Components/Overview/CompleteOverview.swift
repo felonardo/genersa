@@ -27,9 +27,9 @@ struct CompleteOverview: View {
 
 struct BudgetOverview: View {
     
-    @EnvironmentObject var settings: TripSettings
-    
+    @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     @State var isActive: Bool = false
+    
     let amountUsed: Double
     let amountSaved: Double
     let budgetAmount: Double
@@ -54,14 +54,14 @@ struct BudgetOverview: View {
                 }
             }
             HStack(spacing: 4) {
-                Text("\(amountUsed.toCurrency(settings.locale))")
+                Text("\(amountUsed.toCurrency(currency))")
                     .foregroundColor(.three)
                 Text("of")
                     .foregroundColor(.gray)
-                Text("\(amountSaved.toCurrency(settings.locale))")
+                Text("\(amountSaved.toCurrency(currency))")
                     .foregroundColor(.customPrimary)
                 Spacer()
-                Text("\(budgetAmount.toCurrency(settings.locale))")
+                Text("\(budgetAmount.toCurrency(currency))")
                     .foregroundColor(.gray)
             }
             GeometryReader { geometry in
@@ -98,7 +98,7 @@ struct BudgetOverview: View {
 
 struct OverviewLegend: View {
     
-    @EnvironmentObject var settings: TripSettings
+    @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     
     let title: String
     let color: Color
@@ -111,7 +111,7 @@ struct OverviewLegend: View {
                 .frame(width: 12, height: 12)
             Text(title)
             Spacer()
-            Text(amount.toCurrency(settings.locale))
+            Text(amount.toCurrency(currency))
                 .foregroundColor(.three)
         }
     }
@@ -127,6 +127,5 @@ struct CompleteOverview_Previews: PreviewProvider {
                 DummyBudget(icon: "house.fill", name: "Accomodation", amountUsed: 675000, amountTotal: 1850000, amountSaved: 800000),
             ])
         }
-        .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
     }
 }

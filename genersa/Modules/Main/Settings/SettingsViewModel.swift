@@ -5,22 +5,23 @@
 //  Created by Leo nardo on 10/11/21.
 //
 
-import Foundation
+import SwiftUI
 
 final class SettingsViewModel: ObservableObject {
-    @Published var nickname: String = "" {
+    @AppStorage("userNickName") var nickname: String = "" {
         willSet {
             nicknameError = nicknameError(nickname: newValue)
         }
     }
-    @Published var fieldTrip: String = "" {
+    @AppStorage("tripName") var fieldTrip: String = "" {
         willSet {
             errorState = tripNameError(tripName: newValue)
         }
     }
-    @Published var selectedAvatar: String = "Avatar 1"
-    @Published var startDate: Date = Date()
-    @Published var endDate: Date = Date()
+    @AppStorage("tripStartDate") var startDate: Date = Date()
+    @AppStorage("tripEndDate") var endDate: Date = Date()
+    @AppStorage("selectedAvatar") var selectedAvatar: String = "Avatar 1"
+    
     @Published var errorState: Bool = false
     @Published var nicknameError: Bool = false
     

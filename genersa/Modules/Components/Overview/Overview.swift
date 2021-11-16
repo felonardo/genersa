@@ -9,24 +9,23 @@ import SwiftUI
 
 struct Overview: View {
     
-    @EnvironmentObject var settings: TripSettings
+    @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     @ObservedObject private var viewModel: OverviewViewModel
     
-    init(budgets: [DummyBudget], totalUsed: Double, totalSaved: Double, totalBudget: Double) {
-        self.viewModel = OverviewViewModel(budgets: budgets, totalUsed: totalUsed, totalSaved: totalSaved, totalBudget: totalBudget)
+    init(budgets: [DummyBudget]) {
+        self.viewModel = OverviewViewModel(budgets: budgets)
     }
     
     var body: some View {
         NavigationLink {
             CompleteOverview(budgets: viewModel.budgets)
-                .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
         } label: {
             HStack {
                 CircularProgressBar(size: 144, bars: viewModel.progresses) {
                     VStack {
                         Text("Current Balance")
                             .foregroundColor(.secondary)
-                        Text(viewModel.currentBalance.toCurrency(settings.locale))
+                        Text(viewModel.currentBalance.toCurrency(currency))
                             .bold()
                             .foregroundColor(.primary)
                     }
@@ -59,7 +58,7 @@ struct OverviewLegends: View {
 
 struct LegendView: View {
     
-    @EnvironmentObject var settings: TripSettings
+    @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     
     let name: String
     let amount: Double
@@ -80,7 +79,7 @@ struct LegendView: View {
             VStack(alignment: .leading) {
                 Text(name)
                     .bold()
-                Text(amount.toCurrency(settings.locale))
+                Text(amount.toCurrency(currency))
                     .font(.caption)
             }
         }
@@ -94,9 +93,8 @@ struct Overview_Previews: PreviewProvider {
                 DummyBudget(icon: "car.fill", name: "Transport", amountUsed: 1300000, amountTotal: 2000000, amountSaved: 1500000),
                 DummyBudget(icon: "leaf.fill", name: "Food", amountUsed: 275000, amountTotal: 1700000, amountSaved: 500000),
                 DummyBudget(icon: "house.fill", name: "Accomodation", amountUsed: 675000, amountTotal: 1850000, amountSaved: 800000),
-            ], totalUsed: 250000, totalSaved: 4000000, totalBudget: 5000000)
+            ])
                 .padding(16)
-                .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
         }
     }
 }

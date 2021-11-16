@@ -79,7 +79,7 @@ struct ExpensesListDayComponent: View {
 
 struct ExpensesCell: View {
     
-    @EnvironmentObject var settings: TripSettings
+    @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     
     let expense: DummyExpense
     
@@ -100,7 +100,7 @@ struct ExpensesCell: View {
                         .foregroundColor(.gray)
                     }
                     Spacer()
-                    Text(expense.amount.toCurrency(settings.locale))
+                    Text(expense.amount.toCurrency(currency))
                     Image(systemName: "chevron.right")
                 }
                 Divider()
@@ -136,7 +136,7 @@ struct ExpensesList_Previews: PreviewProvider {
                               budget: DummyBudget(icon: "car.fill", name: "Transport", amountUsed: 1, amountTotal: 1, amountSaved: 1)),
                 DummyExpense(amount: 1000000, date: Date().addingTimeInterval(-100000), notes: "Capsule Hotel Korea",
                               budget: DummyBudget(icon: "house.fill", name: "Accommodation", amountUsed: 1, amountTotal: 1, amountSaved: 1)),
-            ]).environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
+            ])
         }
     }
 }

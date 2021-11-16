@@ -13,7 +13,8 @@ enum RecordType {
 
 struct NewRecord: View {
     
-    @EnvironmentObject var settings: TripSettings
+    @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
+    
     @ObservedObject private var viewModel: NewRecordViewModel
     @Binding var isPresented: Bool
     @State var errorState = false
@@ -31,7 +32,7 @@ struct NewRecord: View {
             ZStack{
                 ScrollView {
                     VStack{
-                        Text("\(viewModel.amount.toCurrency(settings.locale))")
+                        Text("\(viewModel.amount.toCurrency(currency))")
                             .font(.largeTitle)
                             .bold()
                             .padding(16)
@@ -108,6 +109,5 @@ final class NewRecordViewModel: ObservableObject {
 struct NewRecord_Previews: PreviewProvider {
     static var previews: some View {
         NewRecord(isPresented: .constant(true), type: .expense)
-            .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
     }
 }

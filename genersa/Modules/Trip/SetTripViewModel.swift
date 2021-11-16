@@ -6,19 +6,27 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class SetTripViewModel: ObservableObject {
     
-    @Published var errorState: Bool = false
-    @Published var fieldTrip: String = "" {
+    @AppStorage("tripName") var fieldTrip: String = "" {
         willSet {
             errorState = tripNameError(tripName: newValue)
         }
     }
-    @Published var startDate: Date = Date()
-    @Published var endDate: Date = Date()
+    @AppStorage("tripStartDate") var startDate: Date = Date()
+    @AppStorage("tripEndDate") var endDate: Date = Date()
+    @AppStorage("totalBudget") var totalBudget: Double = 0
+    @AppStorage("tripSet") var tripSet: Bool = false
+    
+    @Published var errorState: Bool = false
     @Published var isPresented: Bool = false
-    @Published var fieldBudget: String = "0"
+    @Published var fieldBudget: String = "0" {
+        willSet {
+            totalBudget = Double(fieldBudget)!
+        }
+    }
     
 //    @Published var field1 = TextBindingManager(limit: 28)
 //    init(fieldTrip: String, errorState: Bool, startDate: Date, endDate: Date, isPresented: Bool, fieldBudget: String){

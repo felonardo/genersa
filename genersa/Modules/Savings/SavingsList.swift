@@ -75,6 +75,5 @@ struct SavingsList_Previews: PreviewProvider {
                 DummySavingRecord(amountSaved: 2000000, goal: 2000000, date: Date().addingTimeInterval(-(.day * 60))),
             ])
         }
-        .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
     }
 }

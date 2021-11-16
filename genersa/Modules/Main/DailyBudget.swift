@@ -9,18 +9,18 @@ import SwiftUI
 
 struct DailyBudget: View {
     
-    @EnvironmentObject var settings: TripSettings
+    @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     
     @Binding var dailyExpense: Double
     @Binding var dailyBudget: Double
     
     var body: some View {
         VStack(alignment: .center) {
-            Text(dailyExpense.toCurrency(settings.locale))
+            Text(dailyExpense.toCurrency(currency))
                 .font(.largeTitle)
                 .foregroundColor(.three)
                 .bold()
-            Text("Daily Remaining of \(dailyBudget.toCurrency( settings.locale))")
+            Text("Daily Remaining of \(dailyBudget.toCurrency(currency))")
                 .font(.caption)
                 .foregroundColor(.four.opacity(0.5))
         }
@@ -41,6 +41,5 @@ struct DailyBudgetPreview: View {
 struct DailyBudget_Previews: PreviewProvider {
     static var previews: some View {
         DailyBudgetPreview(dailyExpense: 0, dailyBudget: 100000)
-            .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
     }
 }

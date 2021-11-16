@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BudgetCard: View {
     
-    @EnvironmentObject var settings: TripSettings
+    @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     
     var iconName: String
     var name: String
@@ -36,7 +36,7 @@ struct BudgetCard: View {
             Group {
                 Text(name)
                     .bold()
-                Text("\(amountUsed.toCurrency(settings.locale)) / \(budgetAmount.toCurrency(settings.locale))")
+                Text("\(amountUsed.toCurrency(currency)) / \(budgetAmount.toCurrency(currency))")
                     .font(.caption)
             }
             .padding(.leading, 8)
@@ -52,6 +52,5 @@ struct BudgetCard: View {
 struct BudgetCard_Previews: PreviewProvider {
     static var previews: some View {
         BudgetCard(iconName: "car.fill", name: "Transport", amountUsed: 1500000, budgetAmount: 5500000)
-            .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
     }
 }

@@ -9,11 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @EnvironmentObject var settings: TripSettings
+    @AppStorage("tripSet") var tripSet: Bool = false
     
     var body: some View {
         NavigationView {
-            if settings.tripSet {
+            if tripSet {
                 DummyMainPageView()
             } else {
                 CreateProfileView()
@@ -25,6 +25,5 @@ struct ContentView: View {
  struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
     }
  }

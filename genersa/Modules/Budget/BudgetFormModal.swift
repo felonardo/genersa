@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BudgetFormModal: View {
     
-    @EnvironmentObject var settings: TripSettings
+    @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     @ObservedObject private var viewModel: BudgetFormViewModel
     
     init(title: String, isPresented: Binding<Bool>, budget: DummyBudget? = nil) {
@@ -103,6 +103,5 @@ struct BudgetFormModal_Previews: PreviewProvider {
     
     static var previews: some View {
         BudgetFormModal(title: "Edit Budget", isPresented: .constant(true))
-            .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
     }
 }

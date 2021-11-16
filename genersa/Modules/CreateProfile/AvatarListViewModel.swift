@@ -10,8 +10,8 @@ import SwiftUI
 
 final class AvatarListViewModel: ObservableObject {
     
-    @Published var selectedAvatar: String = "Avatar 1"
-    @Published var nickname: String = "" {
+    @AppStorage("selectedAvatar") var selectedAvatar: String = "Avatar 1"
+    @AppStorage("userNickName") var nickname: String = "" {
         willSet {
             nicknameError = nicknameError(nickname: newValue)
         }
