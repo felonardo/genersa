@@ -12,7 +12,7 @@ struct CompleteOverview: View {
     @FetchRequest(
         entity: Budget.entity(),
         sortDescriptors: [
-            
+            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
         ]) var budgets: FetchedResults<Budget>
     
     var body: some View {

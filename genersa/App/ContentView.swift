@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @Environment(\.managedObjectContext) var managedObjectContext
     @AppStorage("tripSet") var tripSet: Bool = false
     
     var body: some View {

@@ -9,11 +9,10 @@ import SwiftUI
 
 struct BudgetSlider: View {
     
-    
     @FetchRequest(
         entity: Budget.entity(),
         sortDescriptors: [
-            
+            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
         ]) var budgets: FetchedResults<Budget>
     
     @Binding var selectedBudget: String

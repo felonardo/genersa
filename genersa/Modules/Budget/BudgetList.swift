@@ -11,10 +11,6 @@ struct BudgetList: View {
     
     @ObservedObject private var viewModel: BudgetListViewModel
     
-//    init(budgets: [Budget]) {
-//        self.viewModel = BudgetListViewModel(budgets: budgets)
-//    }
-    
     init(isPresented: Binding<Bool>) {
         self.viewModel = BudgetListViewModel(isPresented: isPresented)
     }
@@ -22,17 +18,16 @@ struct BudgetList: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 0) {
+                #warning("ini gak muncul")
                 ForEach(viewModel.budgets, id:\.name) { budget in
-                    if let icon = budget.icon, let name = budget.name {
-                        Button {
-                            viewModel.isPresented.toggle()
-                        } label: {
-                            BudgetCard(iconName: icon, name: name, amountUsed: budget.amountUsed, budgetAmount: budget.amountTotal)
-                                .padding(budget.name == viewModel.budgets.last?.name ? .horizontal : .leading, 16)
-                                .sheet(isPresented: $viewModel.isPresented, onDismiss: nil) {
-                                    BudgetFormModal(title: "Edit Budget", isPresented: $viewModel.isPresented, budget: budget)
-                                }
-                        }
+                    Button {
+                        viewModel.isPresented.toggle()
+                    } label: {
+                        BudgetCard(iconName: budget.icon!, name: budget.name!, amountUsed: budget.amountUsed, budgetAmount: budget.amountTotal)
+                            .padding(budget.name == viewModel.budgets.last?.name ? .horizontal : .leading, 16)
+                            .sheet(isPresented: $viewModel.isPresented, onDismiss: nil) {
+                                BudgetFormModal(title: "Edit Budget", isPresented: $viewModel.isPresented, budget: budget)
+                            }
                     }
                 }
             }
@@ -43,11 +38,10 @@ struct BudgetList: View {
 
 final class BudgetListViewModel: ObservableObject {
     
-    
     @FetchRequest(
         entity: Budget.entity(),
         sortDescriptors: [
-            
+            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
         ]) var budgets: FetchedResults<Budget>
     
     @Binding var isPresented: Bool

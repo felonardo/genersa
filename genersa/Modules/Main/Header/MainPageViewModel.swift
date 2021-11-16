@@ -12,7 +12,7 @@ final class MainPageViewModel: ObservableObject {
     @FetchRequest(
         entity: Budget.entity(),
         sortDescriptors: [
-            
+            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
         ]) var budgets: FetchedResults<Budget>
     
     @FetchRequest(

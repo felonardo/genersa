@@ -12,7 +12,7 @@ struct BudgetSelectedButton: View {
     @FetchRequest(
         entity: Budget.entity(),
         sortDescriptors: [
-            
+            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
         ]) var budgets: FetchedResults<Budget>
     
     @Binding var budgetSelected: String

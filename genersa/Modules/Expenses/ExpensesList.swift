@@ -12,9 +12,8 @@ struct ExpensesList: View {
     @FetchRequest(
         entity: Budget.entity(),
         sortDescriptors: [
-            
+            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
         ]) var budgets: FetchedResults<Budget>
-    
     
     @FetchRequest(
         entity: Expense.entity(),

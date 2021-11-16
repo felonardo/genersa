@@ -16,7 +16,7 @@ final class OverviewViewModel: ObservableObject {
     @FetchRequest(
         entity: Budget.entity(),
         sortDescriptors: [
-            
+            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
         ]) var budgets: FetchedResults<Budget>
     
     var currentBalance: Double {
