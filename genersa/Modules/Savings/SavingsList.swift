@@ -12,6 +12,13 @@ struct SavingsList: View {
     @ObservedObject private var viewModel: SavingsListViewModel
     let recents: Bool
     
+    @FetchRequest(
+        entity: SavingRecord.entity(),
+        sortDescriptors: [
+            
+        ]) var savings: FetchedResults<SavingRecord>
+    
+    
 //    init(savingRecords: [SavingRecord]) {
 //        self.viewModel = SavingsListViewModel(savings: savingRecords)
 //    }
@@ -24,7 +31,7 @@ struct SavingsList: View {
     var body: some View {
         if recents {
             VStack(spacing: 4) {
-                ForEach(viewModel.savings, id:\.date) { record in
+                ForEach(savings, id:\.date) { record in
                     SavingHistoryComponent(month: record.date!, amountSaved: record.amountSaved, totalAmount: record.goal)
                     Divider()
                         .padding(.leading, 64)
@@ -34,7 +41,7 @@ struct SavingsList: View {
         } else {
             ScrollView {
                 LazyVStack(spacing: 4) {
-                    ForEach(viewModel.savings, id:\.date) { record in
+                    ForEach(savings, id:\.date) { record in
                         SavingHistoryComponent(month: record.date!, amountSaved: record.amountSaved, totalAmount: record.goal)
                         Divider()
                             .padding(.leading, 64)
@@ -51,12 +58,12 @@ struct SavingsList: View {
 
 final class SavingsListViewModel: ObservableObject {
     
-    @FetchRequest(
-        entity: SavingRecord.entity(),
-        sortDescriptors: [
-            
-        ]) var savings: FetchedResults<SavingRecord>
-    
+//    @FetchRequest(
+//        entity: SavingRecord.entity(),
+//        sortDescriptors: [
+//
+//        ]) var savings: FetchedResults<SavingRecord>
+//
 }
 
 struct SavingsList_Previews: PreviewProvider {

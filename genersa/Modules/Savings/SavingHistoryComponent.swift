@@ -24,7 +24,9 @@ struct SavingHistoryComponent: View {
             CircularProgressBar(size: 48, bars: [bar]) {
                 ZStack {
                     Color.customPrimary.opacity(0.1)
-                    Text("\(Int(bar.progress*100))%")
+                    #warning("convert ke int gagal karena infinit")
+                    Text("\(bar.progress*100)%")
+//                    Text("\(Int(bar.progress*100))%")
                         .foregroundColor(.three)
                         .font(.caption)
                         .bold()

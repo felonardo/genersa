@@ -47,17 +47,20 @@ class BudgetDataSource {
     //        return newBudget
     //    }
     
-    func createPersonalBudget(amountSaved: Double, amountTotal: Double, amountUsed: Double, name: String, icon: String) -> Budget {
-        let newBudget = Budget(context: container.viewContext)
-        newBudget.id = UUID()
-        newBudget.amountSaved = amountSaved
-        newBudget.amountTotal = amountTotal
-        newBudget.amountUsed = amountUsed
-        newBudget.name = name
-        newBudget.icon = icon
-        budgets.append(newBudget)
-        PersistenceController.shared.save()
-        return newBudget
+    func createPersonalBudget(amountSaved: Double, amountTotal: Double, amountUsed: Double, name: String, icon: String) -> Bool {
+//        if getBudget(name: name) == nil {
+            let newBudget = Budget(context: container.viewContext)
+            newBudget.id = UUID()
+            newBudget.amountSaved = amountSaved
+            newBudget.amountTotal = amountTotal
+            newBudget.amountUsed = amountUsed
+            newBudget.name = name
+            newBudget.icon = icon
+            budgets.append(newBudget)
+            PersistenceController.shared.save()
+            return true
+//        }
+//        return false
     }
     
     func readBudgets() -> Bool{

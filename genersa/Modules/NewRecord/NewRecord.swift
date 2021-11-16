@@ -106,9 +106,7 @@ final class NewRecordViewModel: ObservableObject {
     @Published var budgetSelected: String = ""
     
     func addExpense(){
-        ExpenseDataSource.shared.createExpense(amount: Double(amount) ?? 0, date: selectedDate, notes: fieldNote, budget: budgetSelected)
-        
-        print("add expense \(amount),\(selectedDate),\(fieldNote),\(budgetSelected)")
+         ExpenseDataSource.shared.createExpense(amount: Double(amount) ?? 0, date: selectedDate, notes: fieldNote, budget: budgetSelected)
         
     }
     
