@@ -261,7 +261,6 @@
 			isa = PBXGroup;
 			children = (
 				7E17114727353AC40086A78F /* BudgetIcon.swift */,
-				E8DF848427416539004C5BA2 /* BudgetFormViewModel.swift */,
 			);
 			path = Icon;
 			sourceTree = "<group>";
@@ -384,6 +383,7 @@
 				7E17115D273586760086A78F /* BudgetCard.swift */,
 				7E17116127358F200086A78F /* BudgetList.swift */,
 				7E8A943A273A765D00E023DC /* BudgetFormModal.swift */,
+				E8DF848427416539004C5BA2 /* BudgetFormViewModel.swift */,
 				7E1EC37C2741716200938713 /* BudgetSlider.swift */,
 			);
 			path = Budget;
