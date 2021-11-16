@@ -13,7 +13,7 @@ class BudgetDataSource {
     static let shared = BudgetDataSource()
     var budgets: [Budget] = []
     
-    #warning("Local Container to be updated as soon as app supports multiple users!")
+#warning("Local Container to be updated as soon as app supports multiple users!")
     var container: NSPersistentContainer
     
     init() {
@@ -24,21 +24,33 @@ class BudgetDataSource {
         return budgets.first(where: {$0.id == id})
     }
     
-    func getBudgets(tripId: UUID, userId: UUID) -> [Budget] {
-        return budgets.filter({$0.trip?.id == tripId && $0.user?.id == userId})
-    }
+    //    func getBudgets(tripId: UUID, userId: UUID) -> [Budget] {
+    //        return budgets.filter({$0.trip?.id == tripId && $0.user?.id == userId})
+    //    }
     
-    func createBudget(amountSaved: Double, amountTotal: Double,
-                      amountUsed: Double, name: String, user: User, trip: Trip) -> Budget {
-        
+    //    func createBudget(amountSaved: Double, amountTotal: Double,
+    //                      amountUsed: Double, name: String, user: User, trip: Trip) -> Budget {
+    //
+    //        let newBudget = Budget(context: container.viewContext)
+    //        newBudget.id = UUID()
+    //        newBudget.amountSaved = amountSaved
+    //        newBudget.amountTotal = amountTotal
+    //        newBudget.amountUsed = amountUsed
+    //        newBudget.name = name
+    //        newBudget.user = user
+    //        newBudget.trip = trip
+    //        budgets.append(newBudget)
+    //        PersistenceController.shared.save()
+    //        return newBudget
+    //    }
+    func createPersonalBudget(amountSaved: Double, amountTotal: Double, amountUsed: Double, name: String, icon: String) -> Budget {
         let newBudget = Budget(context: container.viewContext)
         newBudget.id = UUID()
         newBudget.amountSaved = amountSaved
         newBudget.amountTotal = amountTotal
         newBudget.amountUsed = amountUsed
         newBudget.name = name
-        newBudget.user = user
-        newBudget.trip = trip
+        newBudget.icon = icon
         budgets.append(newBudget)
         PersistenceController.shared.save()
         return newBudget

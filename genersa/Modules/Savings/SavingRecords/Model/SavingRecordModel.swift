@@ -8,8 +8,8 @@
 import Foundation
 import CoreData
 
-extension SavingRecord {
-    var savedPercentage: Double {
-        return amountSaved / goal
-    }
-}
+//extension SavingRecord {
+//    var savedPercentage: Double {
+//        return amountSaved / goal
+//    }
+//}

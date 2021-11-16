@@ -7,5 +7,5 @@
 
 import Foundation
 
-extension Trip {
-}
+//extension Trip {
+//}

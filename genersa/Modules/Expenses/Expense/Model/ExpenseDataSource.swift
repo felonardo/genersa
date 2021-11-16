@@ -25,20 +25,20 @@ class ExpenseDataSource {
         return expenses.first(where: {$0.id == id})
     }
     
-    func createExpense(amount: Double, isPayer: Bool,
-                       isReceiver: Bool, budget: Budget, user: User,
-                       title: String, notes: String, photoBill: Data) -> Expense {
-        
-        let newExpense = Expense(context: container.viewContext)
-        newExpense.id = UUID()
-        newExpense.amount = amount
-        newExpense.notes = notes
-        newExpense.title = title
-        newExpense.photoBill = photoBill
-        expenses.append(newExpense)
-        PersistenceController.shared.save()
-        return newExpense
-    }
+//    func createExpense(amount: Double, isPayer: Bool,
+//                       isReceiver: Bool, budget: Budget, user: User,
+//                       title: String, notes: String, photoBill: Data) -> Expense {
+//        
+//        let newExpense = Expense(context: container.viewContext)
+//        newExpense.id = UUID()
+//        newExpense.amount = amount
+//        newExpense.notes = notes
+//        newExpense.title = title
+//        newExpense.photoBill = photoBill
+//        expenses.append(newExpense)
+//        PersistenceController.shared.save()
+//        return newExpense
+//    }
     
     func readExpenses() -> Bool {
         
@@ -56,7 +56,6 @@ class ExpenseDataSource {
         
         if let expense = getExpense(with: id) {
             expense.amount = amount ?? expense.amount
-            expense.title = title ?? expense.title
             PersistenceController.shared.save()
             return true
         } else {
