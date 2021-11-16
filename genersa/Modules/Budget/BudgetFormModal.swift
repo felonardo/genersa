@@ -12,7 +12,7 @@ struct BudgetFormModal: View {
     @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     @ObservedObject private var viewModel: BudgetFormViewModel
     
-    init(title: String, isPresented: Binding<Bool>, budget: DummyBudget? = nil) {
+    init(title: String, isPresented: Binding<Bool>, budget: Budget? = nil) {
         self.title = title
         if let budget = budget {
             self.viewModel = BudgetFormViewModel(budget: budget, isPresented: isPresented)

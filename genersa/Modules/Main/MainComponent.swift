@@ -47,18 +47,13 @@ struct MainComponent_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             MainComponent(title: "Overview") {
-                Overview(budgets: [])
+                Overview()
             }
             .padding(16)
             MainComponent(title: "Budgets", buttonTitle: "+ New Budget") {
                 print("New Budget")
             } content: {
-                BudgetList(budgets: [
-                    DummyBudget(icon: "car", name: "Transport", amountUsed: 1300000, amountTotal: 2000000),
-                    DummyBudget(icon: "car", name: "Transport", amountUsed: 1300000, amountTotal: 2000000),
-                    DummyBudget(icon: "car", name: "Transport", amountUsed: 1300000, amountTotal: 2000000),
-                    DummyBudget(icon: "car", name: "Transport", amountUsed: 1300000, amountTotal: 2000000),
-                ], isPresented: .constant(false))
+                BudgetList(isPresented: .constant(false))
                 .padding(.horizontal, -16)
             }
             .padding(16)

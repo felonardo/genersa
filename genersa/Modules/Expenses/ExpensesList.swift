@@ -9,25 +9,34 @@ import SwiftUI
 
 struct ExpensesList: View {
     
-    let budgets: [DummyBudget]
-    let expenses: [DummyExpense]
+    @FetchRequest(
+        entity: Budget.entity(),
+        sortDescriptors: [
+            
+        ]) var budgets: FetchedResults<Budget>
+    
+    
+    @FetchRequest(
+        entity: Expense.entity(),
+        sortDescriptors: [
+            
+        ]) var expenses: FetchedResults<Expense>
+    
     let recents: Bool
     
     @State var selectedBudget: String = ""
     
-    init(budgets: [DummyBudget] = [], expenses: [DummyExpense] = [], recents: Bool = false) {
-        self.budgets = budgets
-        self.expenses = expenses
+    init(recents: Bool = false) {
         self.recents = recents
     }
     
-    var mappedExpenses: [Date:[DummyExpense]] {
-        var groupedExpenses = [Date:[DummyExpense]]()
+    var mappedExpenses: [Date:[Expense]] {
+        var groupedExpenses = [Date:[Expense]]()
         for expense in expenses {
-            if groupedExpenses[expense.date.dateOnly()] != nil {
-                groupedExpenses[expense.date.dateOnly()]!.append(expense)
+            if groupedExpenses[expense.date!.dateOnly()] != nil {
+                groupedExpenses[expense.date!.dateOnly()]!.append(expense)
             } else {
-                groupedExpenses[expense.date.dateOnly()] = [expense]
+                groupedExpenses[expense.date!.dateOnly()] = [expense]
             }
         }
         return groupedExpenses
@@ -43,9 +52,9 @@ struct ExpensesList: View {
         } else {
             ScrollView {
                 LazyVStack {
-                    BudgetSlider(selectedBudget: $selectedBudget, budgets: budgets)
+                    BudgetSlider(selectedBudget: $selectedBudget)
                     ForEach(mappedExpenses.sorted(by: {$0.key > $1.key}), id: \.key) { key, value in
-                        let filteredValue = value.filter { $0.budget.name.contains(selectedBudget) || selectedBudget == "" }
+                        let filteredValue = value.filter { $0.budget!.name!.contains(selectedBudget) || selectedBudget == "" }
                         if !filteredValue.isEmpty {
                             ExpensesListDayComponent(
                                 date: key,
@@ -64,7 +73,8 @@ struct ExpensesList: View {
 struct ExpensesListDayComponent: View {
     
     let date: Date
-    let expenses: [DummyExpense]
+    
+    var expenses: [Expense]
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -81,20 +91,20 @@ struct ExpensesCell: View {
     
     @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     
-    let expense: DummyExpense
+    let expense: Expense
     
     var body: some View {
         HStack {
-            Image(systemName: expense.budget.icon)
+            Image(systemName: expense.budget!.icon!)
                 .padding(12)
             VStack(spacing: 8) {
                 HStack {
                     VStack(alignment: .leading, spacing: 6) {
-                        Text(expense.budget.name)
+                        Text(expense.budget!.name!)
                             .bold()
                         HStack(spacing: 4) {
-                            Text(expense.date.toString(withFormat: "HH.mm"))
-                            Text(expense.notes)
+                            Text(expense.date!.toString(withFormat: "HH.mm"))
+                            Text(expense.notes!)
                         }
                         .font(.caption)
                         .foregroundColor(.gray)
@@ -111,32 +121,10 @@ struct ExpensesCell: View {
     }
 }
 
-struct DummyExpense {
-    let id = UUID()
-    let amount: Double
-    let date: Date
-    let notes: String
-    let budget: DummyBudget
-}
-
 struct ExpensesList_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ExpensesList(budgets: [
-                DummyBudget(icon: "car.fill", name: "Transport", amountUsed: 1300000, amountTotal: 2000000, amountSaved: 1500000),
-                DummyBudget(icon: "leaf.fill", name: "Food", amountUsed: 275000, amountTotal: 1700000, amountSaved: 500000),
-                DummyBudget(icon: "house.fill", name: "Accommodation", amountUsed: 675000, amountTotal: 1850000, amountSaved: 800000),
-                DummyBudget(icon: "car.fill", name: "Flight", amountUsed: 1300000, amountTotal: 2000000, amountSaved: 1500000),
-                DummyBudget(icon: "leaf.fill", name: "Entertainment", amountUsed: 275000, amountTotal: 1700000, amountSaved: 500000),
-                DummyBudget(icon: "house.fill", name: "Shopping", amountUsed: 675000, amountTotal: 1850000, amountSaved: 800000),
-            ], expenses: [
-                DummyExpense(amount: 50000, date: Date().addingTimeInterval(-2000), notes: "McD Korea",
-                              budget: DummyBudget(icon: "leaf.fill", name: "Food", amountUsed: 1, amountTotal: 1, amountSaved: 1)),
-                DummyExpense(amount: 2000000, date: Date().addingTimeInterval(-90000), notes: "Berangkat Ke Korea",
-                              budget: DummyBudget(icon: "car.fill", name: "Transport", amountUsed: 1, amountTotal: 1, amountSaved: 1)),
-                DummyExpense(amount: 1000000, date: Date().addingTimeInterval(-100000), notes: "Capsule Hotel Korea",
-                              budget: DummyBudget(icon: "house.fill", name: "Accommodation", amountUsed: 1, amountTotal: 1, amountSaved: 1)),
-            ])
+            ExpensesList()
         }
     }
 }

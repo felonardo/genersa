@@ -9,8 +9,14 @@ import SwiftUI
 
 struct BudgetSlider: View {
     
+    
+    @FetchRequest(
+        entity: Budget.entity(),
+        sortDescriptors: [
+            
+        ]) var budgets: FetchedResults<Budget>
+    
     @Binding var selectedBudget: String
-    let budgets: [DummyBudget]
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -23,7 +29,8 @@ struct BudgetSlider: View {
                 ForEach(budgets, id: \.name) { budget in
                     CustomButton(title: budget.name, type: selectedBudget == budget.name ? .primary : .secondary, fullWidth: false) {
                         withAnimation {
-                            selectedBudget = budget.name
+                            guard let name = budget.name else { fatalError() }
+                            selectedBudget = name
                         }
                     }
                 }

@@ -9,7 +9,11 @@ import SwiftUI
 
 struct BudgetSelectedButton: View {
     
-    let budgets: [DummyBudget]
+    @FetchRequest(
+        entity: Budget.entity(),
+        sortDescriptors: [
+            
+        ]) var budgets: FetchedResults<Budget>
     
     @Binding var budgetSelected: String
     
@@ -25,9 +29,9 @@ struct BudgetSelectedButton: View {
         
         return ZStack(alignment: .topLeading) {
             ForEach(budgets, id:\.name) { budget in
-                CustomButton(title: budget.name, icon: Image(systemName: budget.icon), type: budgetSelected == budget.name ? .primary : .secondary, fullWidth: false) {
+                CustomButton(title: budget.name, icon: Image(systemName: budget.icon!), type: budgetSelected == budget.name ? .primary : .secondary, fullWidth: false) {
                     withAnimation {
-                        budgetSelected = budget.name
+                        budgetSelected = budget.name!
                     }
                 }
                 .padding(4)

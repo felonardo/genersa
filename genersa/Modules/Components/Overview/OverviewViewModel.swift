@@ -13,7 +13,11 @@ final class OverviewViewModel: ObservableObject {
     @AppStorage("totalUsed") var totalUsed: Double = 0
     @AppStorage("totalSaved") var totalSaved: Double = 0
     
-    @Published var budgets: [DummyBudget]
+    @FetchRequest(
+        entity: Budget.entity(),
+        sortDescriptors: [
+            
+        ]) var budgets: FetchedResults<Budget>
     
     var currentBalance: Double {
         return totalSaved - totalUsed
@@ -26,7 +30,7 @@ final class OverviewViewModel: ObservableObject {
         return progresses
     }
     
-    init(budgets: [DummyBudget]) {
-        self.budgets = budgets
+    init() {
+        
     }
 }

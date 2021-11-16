@@ -22,11 +22,14 @@ final class BudgetFormViewModel: ObservableObject {
     @Published var fieldBudget: String = "0"
 //    @Published var finalvalue: String
     
-    init(budget: DummyBudget? = nil, isPresented: Binding<Bool>) {
+    init(budget: Budget? = nil, isPresented: Binding<Bool>) {
         self._isPresented = isPresented
         if let budget = budget {
-            self.budgetIcon = budget.icon
-            self.budgetName = budget.name
+            guard let icon = budget.icon, let name = budget.name else {
+                fatalError()
+            }
+            self.budgetIcon = icon
+            self.budgetName = name
         }
     }
 
