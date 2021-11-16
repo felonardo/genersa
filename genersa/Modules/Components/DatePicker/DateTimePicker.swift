@@ -21,6 +21,7 @@ struct DateTimePicker: View {
         VStack {
             HStack {
                 Text(viewModel.text)
+                    .bold()
                 Spacer()
                 CustomButton(title: viewModel.date.wrappedValue.toString(withFormat: "MMM d, yyyy, HH:mm"), type: .secondary, fullWidth: false) {
                     viewModel.showPicker.toggle()

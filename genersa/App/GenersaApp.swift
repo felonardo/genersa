@@ -17,6 +17,7 @@ struct GenersaApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
         }
         .onChange(of: scenePhase) { _ in
             persistenceController.save()

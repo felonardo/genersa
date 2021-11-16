@@ -13,6 +13,8 @@ struct ExpensesList: View {
     let expenses: [DummyExpense]
     let recents: Bool
     
+    @State var selectedBudget: String = ""
+    
     init(budgets: [DummyBudget] = [], expenses: [DummyExpense] = [], recents: Bool = false) {
         self.budgets = budgets
         self.expenses = expenses
@@ -41,10 +43,15 @@ struct ExpensesList: View {
         } else {
             ScrollView {
                 LazyVStack {
-                    BudgetSlider(budgets: budgets)
+                    BudgetSlider(selectedBudget: $selectedBudget, budgets: budgets)
                     ForEach(mappedExpenses.sorted(by: {$0.key > $1.key}), id: \.key) { key, value in
-                        ExpensesListDayComponent(date: key, expenses: value)
-                            .padding(16)
+                        let filteredValue = value.filter { $0.budget.name.contains(selectedBudget) || selectedBudget == "" }
+                        if !filteredValue.isEmpty {
+                            ExpensesListDayComponent(
+                                date: key,
+                                expenses: filteredValue)
+                                .padding(16)
+                        }
                     }
                 }
             }

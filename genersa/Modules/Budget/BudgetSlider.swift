@@ -9,32 +9,27 @@ import SwiftUI
 
 struct BudgetSlider: View {
     
+    @Binding var selectedBudget: String
     let budgets: [DummyBudget]
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                BudgetCapsule(name: "All")
+                CustomButton(title: "All", type: selectedBudget == "" ? .primary : .secondary, fullWidth: false) {
+                    withAnimation {
+                        selectedBudget = ""
+                    }
+                }
                 ForEach(budgets, id: \.name) { budget in
-                    BudgetCapsule(name: budget.name)
+                    CustomButton(title: budget.name, type: selectedBudget == budget.name ? .primary : .secondary, fullWidth: false) {
+                        withAnimation {
+                            selectedBudget = budget.name
+                        }
+                    }
                 }
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 8)
         }
-    }
-}
-
-struct BudgetCapsule: View {
-    
-    let name: String
-    
-    var body: some View {
-        Text(name)
-            .foregroundColor(.customPrimary)
-            .padding(.horizontal, 16)
-            .padding(.vertical, 8)
-            .overlay(Capsule()
-                        .stroke(Color.customPrimary, lineWidth: 1))
     }
 }

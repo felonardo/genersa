@@ -38,6 +38,8 @@ struct MainPageView: View {
                     }
                     .padding(16)
                     MainComponent(title: "Expenses", buttonTitle: "New Expense") {
+                        viewModel.presentingAddExpense.toggle()
+                    } content: {
                         VStack(spacing: 16) {
                             ExpensesList(expenses: Array(viewModel.expenses.prefix(3)), recents: true)
                             if viewModel.expenses.count > 3 {
@@ -49,12 +51,15 @@ struct MainPageView: View {
                                         ExpensesList(budgets: viewModel.budgets, expenses: viewModel.expenses, recents: false)
                                         .environmentObject(settings))
                             }
-                            
+                        }
+                        .sheet(isPresented: $viewModel.presentingAddExpense, onDismiss: nil) {
+//                            AddExpenses(isPresented: $viewModel.presentingAddExpense)
+                            NewRecord(isPresented: $viewModel.presentingAddExpense, type: .expense)
                         }
                     }
                     .padding(16)
                     MainComponent(title: "Savings", buttonTitle: "New Saving") {
-                        print("New Savings")
+                        viewModel.presentingAddSavingRecord.toggle()
                     } content: {
                         VStack(spacing: 16) {
                             SavingsList(savings: Array(viewModel.savingRecords.prefix(3)), recents: true)
@@ -67,6 +72,10 @@ struct MainPageView: View {
                                         SavingsList(savings: viewModel.savingRecords).environmentObject(settings))
                             }
                         }
+                        .sheet(isPresented: $viewModel.presentingAddSavingRecord, onDismiss: nil) {
+//                            AddSavingRecord(isPresented: $viewModel.presentingAddSavingRecord)
+                            NewRecord(isPresented: $viewModel.presentingAddSavingRecord, type: .saving)
+                        }
                     }
                     .padding(16)
                 }
@@ -75,10 +84,51 @@ struct MainPageView: View {
     }
 }
 
+struct DummyMainPageView: View {
+    var body: some View {
+        MainPageView(budgets: [
+                        DummyBudget(icon: "car.fill", name: "Transport", amountUsed: 1300000, amountTotal: 2000000),
+                        DummyBudget(icon: "leaf.fill", name: "Food", amountUsed: 275000, amountTotal: 1700000),
+                        DummyBudget(icon: "house.fill", name: "Accomodation", amountUsed: 675000, amountTotal: 1850000),
+                     ],
+                     expenses: [
+                        DummyExpense(amount: 50000, date: Date().addingTimeInterval(-2000), notes: "McD Korea",
+                                      budget: DummyBudget(icon: "leaf.fill", name: "Food", amountUsed: 1, amountTotal: 1, amountSaved: 1)),
+                        DummyExpense(amount: 2000000, date: Date().addingTimeInterval(-90000), notes: "Berangkat Ke Korea",
+                                      budget: DummyBudget(icon: "car.fill", name: "Transport", amountUsed: 1, amountTotal: 1, amountSaved: 1)),
+                        DummyExpense(amount: 1000000, date: Date().addingTimeInterval(-100000), notes: "Capsule Hotel Korea",
+                                      budget: DummyBudget(icon: "house.fill", name: "Accommodation", amountUsed: 1, amountTotal: 1, amountSaved: 1)),
+                        DummyExpense(amount: 1000000, date: Date().addingTimeInterval(-100000), notes: "Capsule Hotel Korea",
+                                      budget: DummyBudget(icon: "house.fill", name: "Accommodation", amountUsed: 1, amountTotal: 1, amountSaved: 1)),
+                     ],
+                     savingRecords: [
+                        DummySavingRecord(amountSaved: 1500000, goal: 2000000, date: Date()),
+                        DummySavingRecord(amountSaved: 2000000, goal: 2000000, date: Date().addingTimeInterval(-(.day * 30))),
+                        DummySavingRecord(amountSaved: 2000000, goal: 2000000, date: Date().addingTimeInterval(-(.day * 60))),
+                        DummySavingRecord(amountSaved: 2000000, goal: 2000000, date: Date().addingTimeInterval(-(.day * 90))),
+                     ])
+            .navigationTitle("Bali 2022")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        print("Settings")
+                    } label: {
+                        Image(systemName: "gearshape.fill")
+                            .foregroundColor(.customPrimary)
+                    }
+
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
 final class MainPageViewModel: ObservableObject {
     
     @Published var presentingNewBudget: Bool = false
     @Published var presentingEditBudget: Bool = false
+    @Published var presentingAddExpense: Bool = false
+    @Published var presentingAddSavingRecord: Bool = false
     @Published var budgets: [DummyBudget]
     @Published var expenses: [DummyExpense]
     @Published var savingRecords: [DummySavingRecord]

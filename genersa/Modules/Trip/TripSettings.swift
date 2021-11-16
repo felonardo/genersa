@@ -10,6 +10,7 @@ import Foundation
 final class TripSettings: ObservableObject {
     
     @Published var currency: Currency
+    @Published var tripSet: Bool
     
     var locale: String {
         return currency.identifier
@@ -17,6 +18,7 @@ final class TripSettings: ObservableObject {
     
     init(currency: Currency) {
         self.currency = currency
+        self.tripSet = false
     }
     
 }

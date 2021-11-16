@@ -10,40 +10,42 @@ import SwiftUI
 struct AddSavingRecord: View {
     
     @EnvironmentObject var settings: TripSettings
-    @ObservedObject var viewmodel = AddSavingRecordViewModel()
-    @Environment(\.presentationMode) var presentationMode
+    @ObservedObject private var viewModel: AddSavingRecordViewModel
+    @Binding var isPresented: Bool
     @State var errorState = false
+    
+    init(isPresented: Binding<Bool>) {
+        self._isPresented = isPresented
+        self.viewModel = AddSavingRecordViewModel()
+    }
     
     var body: some View {
         NavigationView {
             ZStack{
                 ScrollView {
                     VStack{
-                        Text("\(viewmodel.amount.toCurrency(settings.locale))")
+                        Text("\(viewModel.amount.toCurrency(settings.locale))")
                             .font(.largeTitle)
                             .bold()
                             .onTapGesture {
-                                viewmodel.isPresented = true
+                                viewModel.isPresented = true
                             }
-                        
                         GeometryReader { geometry in
-                            VStack(alignment: .leading) {
-                                
-                                ReusableTitleView(title: "Budgets", description: "", errorState: $viewmodel.errorState){
-                                    BudgetSelectedButton(budgets: viewmodel.budgets, budgetSelected: $viewmodel.budgetSelected, geometry: geometry)
+                            VStack(alignment: .leading, spacing: 16) {
+                                ReusableTitleView(title: "Budgets", description: "", errorState: $viewModel.errorState){
+                                    BudgetSelectedButton(budgets: viewModel.budgets, budgetSelected: $viewModel.budgetSelected, geometry: geometry)
                                 }
                                 Divider()
-                                DatePicker( "Date", selection: $viewmodel.selectedDate, displayedComponents: [.date, .hourAndMinute])
-                                    .font(.title3.bold())
-                                    .padding(.horizontal, 8)
-                                
-                            }.navigationBarTitle(Text("Add Saving"), displayMode: .inline)
+                                DateTimePicker(text: "Date", date: $viewModel.selectedDate)
+                            }
+                            .navigationBarTitle(Text("Add Saving"), displayMode: .inline)
                                 .navigationBarItems(leading: Button(action: {
-                                    self.presentationMode.wrappedValue.dismiss()
+                                    isPresented.toggle()
                                 }) {
                                     Text("Cancel").bold()
                                 }, trailing: Button(action: {
-                                    self.presentationMode.wrappedValue.dismiss()
+                                    print("saved")
+                                    isPresented.toggle()
                                 }) {
                                     Text("Save").bold()
                                 })
@@ -53,8 +55,8 @@ struct AddSavingRecord: View {
                     }.padding(8)
                     
                 }
-                HalfASheet(isPresented: $viewmodel.isPresented){
-                    CalculatorComponent(finalValue: $viewmodel.amount, isPresented: $viewmodel.isPresented)
+                HalfASheet(isPresented: $viewModel.isPresented){
+                    CalculatorComponent(finalValue: $viewModel.amount, isPresented: $viewModel.isPresented)
                 }
                 .disableDragToDismiss
             }
@@ -65,7 +67,7 @@ struct AddSavingRecord: View {
 
 struct AddSavingRecord_Previews: PreviewProvider {
     static var previews: some View {
-        AddSavingRecord()
+        AddSavingRecord(isPresented: .constant(true))
             .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
     }
 }

@@ -28,6 +28,7 @@
 		7E1EC3752740DFF700938713 /* CompleteOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1EC3742740DFF700938713 /* CompleteOverview.swift */; };
 		7E1EC3792741636200938713 /* ExpensesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1EC3782741636200938713 /* ExpensesList.swift */; };
 		7E1EC37D2741716200938713 /* BudgetSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1EC37C2741716200938713 /* BudgetSlider.swift */; };
+		7E3050482743685500F59B58 /* NewRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3050472743685500F59B58 /* NewRecord.swift */; };
 		7E6100C9273471620084B014 /* TripDatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100C8273471620084B014 /* TripDatePickerViewModel.swift */; };
 		7E6100CB273472CE0084B014 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100CA273472CE0084B014 /* DateTimePicker.swift */; };
 		7E6100CE2734FB230084B014 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100CD2734FB230084B014 /* Currency.swift */; };
@@ -109,6 +110,7 @@
 		7E1EC3742740DFF700938713 /* CompleteOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteOverview.swift; sourceTree = "<group>"; };
 		7E1EC3782741636200938713 /* ExpensesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesList.swift; sourceTree = "<group>"; };
 		7E1EC37C2741716200938713 /* BudgetSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetSlider.swift; sourceTree = "<group>"; };
+		7E3050472743685500F59B58 /* NewRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecord.swift; sourceTree = "<group>"; };
 		7E6100C8273471620084B014 /* TripDatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDatePickerViewModel.swift; sourceTree = "<group>"; };
 		7E6100CA273472CE0084B014 /* DateTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
 		7E6100CD2734FB230084B014 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
@@ -306,6 +308,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		7E3050462743684600F59B58 /* NewRecord */ = {
+			isa = PBXGroup;
+			children = (
+				7E3050472743685500F59B58 /* NewRecord.swift */,
+			);
+			path = NewRecord;
+			sourceTree = "<group>";
+		};
 		7E6100CC2734FB140084B014 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,6 +505,7 @@
 		A7E353612727CB0C004E999A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7E3050462743684600F59B58 /* NewRecord */,
 				E8DC4FEB273A4BA6005E9668 /* CreateProfile */,
 				7E08C16E27345FD900F269BD /* Components */,
 				7E17115527357E2E0086A78F /* Main */,
@@ -694,7 +705,6 @@
 				7E08C15E2734535900F269BD /* HeaderViewModel.swift in Sources */,
 				7E944D3C272BEDD00017EF76 /* DebtsModel.swift in Sources */,
 				A779EA97274234660060D7B1 /* BudgetSelectedButton.swift in Sources */,
-				E8DF848727416AD9004C5BA2 /* BudgetDefaults.swift in Sources */,
 				7E17114E27353DBE0086A78F /* Overview.swift in Sources */,
 				A79B4F8227353820004B2F19 /* CustomButton.swift in Sources */,
 				7E17115E273586760086A78F /* BudgetCard.swift in Sources */,
@@ -714,6 +724,7 @@
 				7E8A9437273A51DF00E023DC /* MainPageView.swift in Sources */,
 				7E944D41272BFD2B0017EF76 /* SettlementsModel.swift in Sources */,
 				A7FAE4AF2738FD6E0097793C /* HalfASheet.swift in Sources */,
+				7E3050482743685500F59B58 /* NewRecord.swift in Sources */,
 				A79423AE2737BBA2000573A8 /* CalculatorComponent.swift in Sources */,
 				7E08C1632734571D00F269BD /* DateFormatter+WithFormat.swift in Sources */,
 				7EDF2FAD2742203A002F7B35 /* Palette.swift in Sources */,
@@ -891,28 +902,30 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = genersa/genersa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"genersa/Preview Content\"";
 				DEVELOPMENT_TEAM = 7BXMQ2C5C2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = genersa/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Vellas;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Genersa.genersaTravel;
+				MARKETING_VERSION = 0.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.genersa.vellas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -923,28 +936,30 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = genersa/genersa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"genersa/Preview Content\"";
 				DEVELOPMENT_TEAM = 7BXMQ2C5C2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = genersa/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Vellas;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Genersa.genersaTravel;
+				MARKETING_VERSION = 0.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.genersa.vellas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

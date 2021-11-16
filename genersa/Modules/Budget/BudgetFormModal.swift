@@ -59,6 +59,7 @@ struct BudgetFormModal: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
+                        viewModel.isPresented.toggle()
                         print("save category")
                     } label: {
                         Text("Save")

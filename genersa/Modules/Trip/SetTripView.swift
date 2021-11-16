@@ -43,8 +43,11 @@ struct SetTripView: View {
                     .ignoresSafeArea(.keyboard, edges: .bottom)
                 }
                 Spacer()
-                CustomNavigationLink(title: "Continue", type: .primary, fullWidth: true, destination: MainPageView(budgets: [], expenses: [], savingRecords: []))
-                    .disabled(viewModel.fieldTrip.isEmpty || viewModel.errorState )
+                CustomButton(title: "Continue", type: .primary, fullWidth: true) {
+                    settings.tripSet.toggle()
+                }
+//                CustomNavigationLink(title: "Continue", type: .primary, fullWidth: true, destination: DummyMainPageView())
+//                    .disabled(viewModel.fieldTrip.isEmpty || viewModel.errorState )
             }
             .padding(.horizontal, 16)
             HalfASheet(isPresented: $viewModel.isPresented){

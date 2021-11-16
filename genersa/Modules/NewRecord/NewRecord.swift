@@ -1,22 +1,29 @@
 //
-//  AddExpenses.swift
+//  NewRecord.swift
 //  genersa
 //
-//  Created by Leo nardo on 15/11/21.
+//  Created by Joanda Febrian on 16/11/21.
 //
 
 import SwiftUI
 
-struct AddExpenses: View {
+enum RecordType {
+    case expense, saving
+}
+
+struct NewRecord: View {
     
     @EnvironmentObject var settings: TripSettings
-    @ObservedObject private var viewModel: AddExpensesViewModel
+    @ObservedObject private var viewModel: NewRecordViewModel
     @Binding var isPresented: Bool
     @State var errorState = false
+    let type: RecordType
     
-    init(isPresented: Binding<Bool>) {
+    
+    init(isPresented: Binding<Bool>, type: RecordType) {
         self._isPresented = isPresented
-        self.viewModel = AddExpensesViewModel()
+        self.type = type
+        self.viewModel = NewRecordViewModel()
     }
     
     var body: some View {
@@ -27,6 +34,7 @@ struct AddExpenses: View {
                         Text("\(viewModel.amount.toCurrency(settings.locale))")
                             .font(.largeTitle)
                             .bold()
+                            .padding(16)
                             .onTapGesture {
                                 viewModel.isPresented = true
                             }
@@ -37,18 +45,25 @@ struct AddExpenses: View {
                                 }
                                 Divider()
                                 DateTimePicker(text: "Date", date: $viewModel.selectedDate)
-                                ReusableTitleView(title: "Notes", description: "", errorState: $viewModel.errorState){
-                                    TextFieldComponent(field: $viewModel.fieldNote, placeholder: "Notes for this expenses", errorState: $errorState)
+                                if type == .expense {
+                                    ReusableTitleView(title: "Notes", description: "", errorState: $viewModel.errorState){
+                                        TextFieldComponent(field: $viewModel.fieldNote, placeholder: "Notes for this expenses", errorState: $errorState)
+                                    }
                                 }
                             }
-                            .navigationBarTitle("New Expense")
+                            .navigationBarTitle(type == .expense ? "New Expense" : "New Saving")
                             .navigationBarTitleDisplayMode(.inline)
                             .navigationBarItems(leading: Button(action: {
                                 isPresented.toggle()
                             }) {
                                 Text("Cancel").bold()
                             }, trailing: Button(action: {
-                                print("saved")
+                                switch type {
+                                case .expense:
+                                    print("saved new expense")
+                                case .saving:
+                                    print("saved new saving")
+                                }
                                 isPresented.toggle()
                             }) {
                                 Text("Save").bold()
@@ -64,14 +79,35 @@ struct AddExpenses: View {
                 }
                 .disableDragToDismiss
             }
-            
         }
     }
 }
 
-struct AddExpenses_Previews: PreviewProvider {
+final class NewRecordViewModel: ObservableObject {
+    
+    @Published var errorState = false
+    @Published var fieldNote = ""
+    @Published var startDate = Date()
+    @Published var endDate = Date()
+    @Published var selectedDate = Date()
+    @Published var amount: String = "0"
+    @Published var isPresented: Bool = true
+    @Published var budgetSelected: String = ""
+    @Published var budgets: [DummyBudget] = [
+        DummyBudget(icon: "car.fill", name: "Transport", amountUsed: 1300000, amountTotal: 2000000),
+        DummyBudget(icon: "leaf.fill", name: "Food", amountUsed: 275000, amountTotal: 1700000),
+        DummyBudget(icon: "house.fill", name: "Accomodation", amountUsed: 675000, amountTotal: 1850000),
+        DummyBudget(icon: "ticket.fill", name: "Disney Land", amountUsed: 1300000, amountTotal: 2000000),
+        DummyBudget(icon: "bag.fill", name: "Shopping", amountUsed: 275000, amountTotal: 1700000),
+        DummyBudget(icon: "cross.case.fill", name: "Other", amountUsed: 675000, amountTotal: 1850000)
+    ]
+}
+
+
+
+struct NewRecord_Previews: PreviewProvider {
     static var previews: some View {
-        AddExpenses(isPresented: .constant(true))
+        NewRecord(isPresented: .constant(true), type: .expense)
             .environmentObject(TripSettings(currency: Currency.allCurrencies.first!))
     }
 }
