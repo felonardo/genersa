@@ -60,7 +60,11 @@ struct BudgetFormModal: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         viewModel.isPresented.toggle()
-                        viewModel.createBudget()
+                        if let id = viewModel.budgetId {
+                            viewModel.editBudget()
+                        } else {
+                            viewModel.createBudget()
+                        }
                         print("save category")
                     } label: {
                         Text("Save")

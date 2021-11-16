@@ -44,7 +44,7 @@ struct ExpensesList: View {
     var body: some View {
         if recents {
             VStack {
-                ForEach(expenses, id: \.id) { expense in
+                ForEach(expenses.prefix(3), id: \.id) { expense in
                     ExpensesCell(expense: expense)
                 }
             }

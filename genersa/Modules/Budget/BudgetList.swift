@@ -19,7 +19,13 @@ struct BudgetList: View {
     
     init(isPresented: Binding<Bool>) {
         self.viewModel = BudgetListViewModel(isPresented: isPresented)
+        
+//        if budgets.isEmpty {
+//            self.viewModel.createBudget(amountTotal: 10000, name: "Other", icon: "car.fill")
+//        }
     }
+    
+    
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -69,6 +75,10 @@ final class BudgetListViewModel: ObservableObject {
     //    init(budgets: [Budget]) {
     //        self.budgets = budgets
     //    }
+    
+    func createBudget(amountTotal: Double, name: String, icon: String){
+        let _ = BudgetDataSource.shared.createPersonalBudget(amountSaved: 0, amountTotal: amountTotal, amountUsed: 0, name: name, icon: icon)
+    }
     
     init(isPresented: Binding<Bool>) {
         self._isPresented = isPresented

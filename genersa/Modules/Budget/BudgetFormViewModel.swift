@@ -10,7 +10,7 @@ import SwiftUI
 
 final class BudgetFormViewModel: ObservableObject {
     
-    @Published var budgetIcon: String = ""
+    @Published var budgetIcon: String = "car.fill"
     @Published var budgetName: String = "" {
         willSet {
             budgetNameError = budgetNameError(budgetName: newValue)
@@ -20,17 +20,19 @@ final class BudgetFormViewModel: ObservableObject {
     @Published var presentingCalculator: Bool = false
     @Binding var isPresented: Bool
     @Published var fieldBudget: String = "0"
+    @Published var budgetId: UUID? = nil
     //    @Published var finalvalue: String
     
     init(budget: Budget? = nil, isPresented: Binding<Bool>) {
         self._isPresented = isPresented
         if let budget = budget {
-            guard let icon = budget.icon, let name = budget.name else {
+            guard let icon = budget.icon, let name = budget.name, let id = budget.id else {
                 fatalError()
             }
             self.budgetIcon = icon
             self.budgetName = name
             self.fieldBudget = String(budget.amountTotal)
+            self.budgetId = id
         }
     }
     
@@ -43,9 +45,13 @@ final class BudgetFormViewModel: ObservableObject {
     }
     
     func createBudget(){
-        BudgetDataSource.shared.createPersonalBudget(amountSaved: 0, amountTotal: Double(fieldBudget) ?? 0, amountUsed: 0, name: budgetName, icon: budgetIcon)
+        let _ = BudgetDataSource.shared.createPersonalBudget(amountSaved: 0, amountTotal: Double(fieldBudget) ?? 0, amountUsed: 0, name: budgetName, icon: budgetIcon)
         print("name: \(budgetName), icon: \(budgetIcon)")
     }
     
+    func editBudget(){
+        let _ = BudgetDataSource.shared.updateBudget(id: budgetId!, amountSaved: 0, amountTotal: Double(fieldBudget) ?? 0, amountUsed: 0, name: budgetName, icon: budgetIcon)
+        print("name: \(budgetName), icon: \(budgetIcon)")
+    }
     
 }

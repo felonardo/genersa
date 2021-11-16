@@ -18,11 +18,6 @@ struct SavingsList: View {
             
         ]) var savings: FetchedResults<SavingRecord>
     
-    
-//    init(savingRecords: [SavingRecord]) {
-//        self.viewModel = SavingsListViewModel(savings: savingRecords)
-//    }
-    
     init(recents: Bool = false) {
         self.viewModel = SavingsListViewModel()
         self.recents = recents
@@ -58,12 +53,7 @@ struct SavingsList: View {
 
 final class SavingsListViewModel: ObservableObject {
     
-//    @FetchRequest(
-//        entity: SavingRecord.entity(),
-//        sortDescriptors: [
-//
-//        ]) var savings: FetchedResults<SavingRecord>
-//
+
 }
 
 struct SavingsList_Previews: PreviewProvider {

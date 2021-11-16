@@ -28,15 +28,19 @@ final class SetTripViewModel: ObservableObject {
         }
     }
     
-//    @Published var field1 = TextBindingManager(limit: 28)
-//    init(fieldTrip: String, errorState: Bool, startDate: Date, endDate: Date, isPresented: Bool, fieldBudget: String){
-//        self.fieldTrip = fieldTrip
-//        self.errorState = errorState
-//        self.startDate = startDate
-//        self.endDate = endDate
-//        self.isPresented = isPresented
-//        self.fieldBudget = fieldBudget
-//    }
+    func initBudget() {
+        let _ = BudgetDataSource.shared.createPersonalBudget(amountSaved: 0, amountTotal: 0, amountUsed: 0, name: "Other", icon: "creditcard.fill")
+        
+        let _ = BudgetDataSource.shared.createPersonalBudget(amountSaved: 0, amountTotal:  0, amountUsed: 0, name: "Accomodation", icon: "house.fill")
+
+        let _ = BudgetDataSource.shared.createPersonalBudget(amountSaved: 0, amountTotal: 0, amountUsed: 0, name: "Flight", icon: "airplane")
+
+        let _ = BudgetDataSource.shared.createPersonalBudget(amountSaved: 0, amountTotal: 0, amountUsed: 0, name: "Meal", icon: "fork.knife")
+        
+        let _ = BudgetDataSource.shared.createPersonalBudget(amountSaved: 0, amountTotal: 0, amountUsed: 0, name: "Shopping", icon: "bag.fill")
+
+        let _ = BudgetDataSource.shared.createPersonalBudget(amountSaved: 0, amountTotal: 0, amountUsed: 0, name: "Transport", icon: "car.fill")
+    }
     
     func tripNameError(tripName: String) -> Bool {
         if tripName.count > 12 {

@@ -13,6 +13,7 @@ struct CreateProfileView: View {
     
     init() {
         self.viewModel = AvatarListViewModel()
+        
     }
     
     var body: some View {

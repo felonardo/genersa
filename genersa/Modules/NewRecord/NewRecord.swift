@@ -47,8 +47,8 @@ struct NewRecord: View {
                                 Divider()
                                 DateTimePicker(text: "Date", date: $viewModel.selectedDate)
                                 if type == .expense {
-                                    ReusableTitleView(title: "Notes", description: "", errorState: $viewModel.errorState){
-                                        TextFieldComponent(field: $viewModel.fieldNote, placeholder: "Notes for this expenses", errorState: $errorState)
+                                    ReusableTitleView(title: "Notes", description: "", errorState: $viewModel.notesErrorState){
+                                        TextFieldComponent(field:$viewModel.fieldNote, placeholder: "Notes for this expenses", errorState:.constant(false))
                                     }
                                 }
                             }
@@ -71,7 +71,7 @@ struct NewRecord: View {
                                 isPresented.toggle()
                             }) {
                                 Text("Save").bold()
-                            })
+                            }.disabled(viewModel.budgetSelected == ""))
                             .padding(8)
                             Spacer()
                         }
@@ -90,11 +90,11 @@ struct NewRecord: View {
 final class NewRecordViewModel: ObservableObject {
     
     
-    @FetchRequest(
-        entity: Budget.entity(),
-        sortDescriptors: [
-            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
-        ]) var budgets: FetchedResults<Budget>
+//    @FetchRequest(
+//        entity: Budget.entity(),
+//        sortDescriptors: [
+//            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
+//        ]) var budgets: FetchedResults<Budget>
     
     @Published var errorState = false
     @Published var fieldNote = ""
@@ -104,6 +104,13 @@ final class NewRecordViewModel: ObservableObject {
     @Published var amount: String = "0"
     @Published var isPresented: Bool = true
     @Published var budgetSelected: String = ""
+    @Published var notesErrorState: Bool = false
+    @Published var goal: Double?
+    
+    var calculateGoal: Double {
+        return calculateGoal
+    }
+    
     
     func addExpense(){
          ExpenseDataSource.shared.createExpense(amount: Double(amount) ?? 0, date: selectedDate, notes: fieldNote, budget: budgetSelected)

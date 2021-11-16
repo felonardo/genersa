@@ -44,6 +44,7 @@ struct SetTripView: View {
                 Spacer()
                 CustomButton(title: "Continue", type: .primary, fullWidth: true) {
                     viewModel.tripSet = true
+                    viewModel.initBudget()
                 }
                 .disabled(viewModel.fieldTrip.isEmpty || viewModel.errorState )
 //                CustomNavigationLink(title: "Continue", type: .primary, fullWidth: true, destination: DummyMainPageView())
