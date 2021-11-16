@@ -95,19 +95,4 @@ class BudgetDataSource {
             return false
         }
     }
-    
-    static func dummyBudgets() -> [Budget] {
-        var dummyBudgets = [Budget]()
-        let dummyNames = ["Transport","Flight","Accomodation"]
-        for i in 1...3 {
-            let newBudget = Budget(context: PersistenceController.shared.container.viewContext)
-            newBudget.id = UUID()
-            newBudget.amountSaved = Double(250000 * i)
-            newBudget.amountTotal = Double(500000 * i)
-            newBudget.amountUsed = Double(100000 * i)
-            newBudget.name = dummyNames[i-1]
-            dummyBudgets.append(newBudget)
-        }
-        return dummyBudgets
-    }
 }

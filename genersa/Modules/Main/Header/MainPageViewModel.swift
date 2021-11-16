@@ -9,19 +9,30 @@ import SwiftUI
 
 final class MainPageViewModel: ObservableObject {
     
+    @FetchRequest(
+        entity: Budget.entity(),
+        sortDescriptors: [
+            
+        ]) var budgets: FetchedResults<Budget>
+    
+    @FetchRequest(
+        entity: Expense.entity(),
+        sortDescriptors: [
+            
+        ]) var expenses: FetchedResults<Expense>
+    
+    
+    @FetchRequest(
+        entity: Expense.entity(),
+        sortDescriptors: [
+
+        ]) var savingRecords: FetchedResults<SavingRecord>
+    
     @AppStorage("tripName") var tripName: String = ""
     
     @Published var presentingNewBudget: Bool = false
     @Published var presentingEditBudget: Bool = false
     @Published var presentingAddExpense: Bool = false
     @Published var presentingAddSavingRecord: Bool = false
-    @Published var budgets: [DummyBudget]
-    @Published var expenses: [DummyExpense]
-    @Published var savingRecords: [DummySavingRecord]
     
-    init(budgets: [DummyBudget], expenses: [DummyExpense], savingRecords: [DummySavingRecord]) {
-        self.budgets = budgets
-        self.expenses = expenses
-        self.savingRecords = savingRecords
-    }
 }

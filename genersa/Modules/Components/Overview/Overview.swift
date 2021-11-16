@@ -12,13 +12,13 @@ struct Overview: View {
     @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     @ObservedObject private var viewModel: OverviewViewModel
     
-    init(budgets: [DummyBudget]) {
-        self.viewModel = OverviewViewModel(budgets: budgets)
+    init() {
+        self.viewModel = OverviewViewModel()
     }
     
     var body: some View {
         NavigationLink {
-            CompleteOverview(budgets: viewModel.budgets)
+            CompleteOverview()
         } label: {
             HStack {
                 CircularProgressBar(size: 144, bars: viewModel.progresses) {
@@ -89,11 +89,7 @@ struct LegendView: View {
 struct Overview_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            Overview(budgets: [
-                DummyBudget(icon: "car.fill", name: "Transport", amountUsed: 1300000, amountTotal: 2000000, amountSaved: 1500000),
-                DummyBudget(icon: "leaf.fill", name: "Food", amountUsed: 275000, amountTotal: 1700000, amountSaved: 500000),
-                DummyBudget(icon: "house.fill", name: "Accomodation", amountUsed: 675000, amountTotal: 1850000, amountSaved: 800000),
-            ])
+            Overview()
                 .padding(16)
         }
     }

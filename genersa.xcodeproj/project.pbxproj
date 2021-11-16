@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		7E08C154272F0A9F00F269BD /* UsersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C153272F0A9F00F269BD /* UsersDataSource.swift */; };
 		7E08C156272F0E2700F269BD /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C155272F0E2700F269BD /* UsersModel.swift */; };
-		7E08C15827330BB300F269BD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C15727330BB300F269BD /* HeaderView.swift */; };
 		7E08C15A2734529400F269BD /* View+CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C1592734529400F269BD /* View+CornerRadiusStyle.swift */; };
-		7E08C15E2734535900F269BD /* HeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C15D2734535900F269BD /* HeaderViewModel.swift */; };
 		7E08C1632734571D00F269BD /* DateFormatter+WithFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C1622734571D00F269BD /* DateFormatter+WithFormat.swift */; };
 		7E08C165273458B500F269BD /* HeaderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C164273458B500F269BD /* HeaderButton.swift */; };
 		7E08C16D27345ED900F269BD /* TimeInterval+CommonIntervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08C16C27345ED900F269BD /* TimeInterval+CommonIntervals.swift */; };
@@ -89,9 +87,7 @@
 /* Begin PBXFileReference section */
 		7E08C153272F0A9F00F269BD /* UsersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDataSource.swift; sourceTree = "<group>"; };
 		7E08C155272F0E2700F269BD /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
-		7E08C15727330BB300F269BD /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		7E08C1592734529400F269BD /* View+CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "View+CornerRadiusStyle.swift"; path = "genersa/Vendors/Utilities/Extensions/View+CornerRadiusStyle.swift"; sourceTree = SOURCE_ROOT; };
-		7E08C15D2734535900F269BD /* HeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModel.swift; sourceTree = "<group>"; };
 		7E08C1622734571D00F269BD /* DateFormatter+WithFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+WithFormat.swift"; sourceTree = "<group>"; };
 		7E08C164273458B500F269BD /* HeaderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderButton.swift; sourceTree = "<group>"; };
 		7E08C16C27345ED900F269BD /* TimeInterval+CommonIntervals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+CommonIntervals.swift"; sourceTree = "<group>"; };
@@ -523,8 +519,6 @@
 		A7E353672727CB6C004E999A /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				7E08C15727330BB300F269BD /* HeaderView.swift */,
-				7E08C15D2734535900F269BD /* HeaderViewModel.swift */,
 				7E08C164273458B500F269BD /* HeaderButton.swift */,
 				7E30504E27439FB900F59B58 /* MainPageViewModel.swift */,
 			);
@@ -697,7 +691,6 @@
 				A7FF41FF273B54F9007B271F /* SetTripView.swift in Sources */,
 				7E8A943D273D001D00E023DC /* Defaults.swift in Sources */,
 				7E1EC37D2741716200938713 /* BudgetSlider.swift in Sources */,
-				7E08C15E2734535900F269BD /* HeaderViewModel.swift in Sources */,
 				7E944D3C272BEDD00017EF76 /* DebtsModel.swift in Sources */,
 				A779EA97274234660060D7B1 /* BudgetSelectedButton.swift in Sources */,
 				7E17114E27353DBE0086A78F /* Overview.swift in Sources */,
@@ -761,7 +754,6 @@
 				7E08C156272F0E2700F269BD /* UsersModel.swift in Sources */,
 				7E08C16D27345ED900F269BD /* TimeInterval+CommonIntervals.swift in Sources */,
 				7E17115727357E710086A78F /* DailyBudget.swift in Sources */,
-				7E08C15827330BB300F269BD /* HeaderView.swift in Sources */,
 				A7E3536B2727CC26004E999A /* genersaDataModel.xcdatamodeld in Sources */,
 				A7FF4201273B5512007B271F /* SetTripViewModel.swift in Sources */,
 				7EDF2FAF27422308002F7B35 /* Color+Hex.swift in Sources */,

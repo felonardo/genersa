@@ -15,9 +15,8 @@ struct BudgetList: View {
 //        self.viewModel = BudgetListViewModel(budgets: budgets)
 //    }
     
-    #warning("to be removed, only for dummy testing")
-    init(budgets: [DummyBudget], isPresented: Binding<Bool>) {
-        self.viewModel = BudgetListViewModel(budgets: budgets, isPresented: isPresented)
+    init(isPresented: Binding<Bool>) {
+        self.viewModel = BudgetListViewModel(isPresented: isPresented)
     }
     
     var body: some View {
@@ -41,18 +40,16 @@ struct BudgetList: View {
     }
 }
 
-struct DummyBudget {
-    let icon: String
-    let name: String
-    let amountUsed: Double
-    let amountTotal: Double
-    var amountSaved: Double = 0
-}
-
 
 final class BudgetListViewModel: ObservableObject {
     
-    @Published var budgets: [DummyBudget]
+    
+    @FetchRequest(
+        entity: Budget.entity(),
+        sortDescriptors: [
+            
+        ]) var budgets: FetchedResults<Budget>
+    
     @Binding var isPresented: Bool
 
 //    @Published var selectedBudget: String = "car.fill"
@@ -73,9 +70,7 @@ final class BudgetListViewModel: ObservableObject {
 //        self.budgets = budgets
 //    }
     
-    #warning("to be removed, only for dummy testing")
-    init(budgets: [DummyBudget], isPresented: Binding<Bool>) {
-        self.budgets = budgets
+    init(isPresented: Binding<Bool>) {
         self._isPresented = isPresented
     }
 }
@@ -83,10 +78,6 @@ final class BudgetListViewModel: ObservableObject {
 struct BudgetList_Previews: PreviewProvider {
     
     static var previews: some View {
-        BudgetList(budgets: [
-            DummyBudget(icon: "car.fill", name: "Transport", amountUsed: 1300000, amountTotal: 2000000),
-            DummyBudget(icon: "leaf.fill", name: "Food", amountUsed: 275000, amountTotal: 1700000),
-            DummyBudget(icon: "house.fill", name: "Accomodation", amountUsed: 675000, amountTotal: 1850000),
-        ], isPresented: .constant(true))
+        BudgetList(isPresented: .constant(true))
     }
 }

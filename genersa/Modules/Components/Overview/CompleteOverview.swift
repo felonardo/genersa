@@ -9,7 +9,11 @@ import SwiftUI
 
 struct CompleteOverview: View {
     
-    let budgets: [DummyBudget]
+    @FetchRequest(
+        entity: Budget.entity(),
+        sortDescriptors: [
+            
+        ]) var budgets: FetchedResults<Budget>
     
     var body: some View {
         ScrollView {
@@ -34,7 +38,7 @@ struct BudgetOverview: View {
     let amountSaved: Double
     let budgetAmount: Double
     
-    init(budget: DummyBudget) {
+    init(budget: Budget) {
         amountUsed = budget.amountUsed
         amountSaved = budget.amountSaved
         budgetAmount = budget.amountTotal
@@ -121,11 +125,7 @@ struct OverviewLegend: View {
 struct CompleteOverview_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CompleteOverview(budgets: [
-                DummyBudget(icon: "car.fill", name: "Transport", amountUsed: 1300000, amountTotal: 2000000, amountSaved: 1500000),
-                DummyBudget(icon: "leaf.fill", name: "Food", amountUsed: 275000, amountTotal: 1700000, amountSaved: 500000),
-                DummyBudget(icon: "house.fill", name: "Accomodation", amountUsed: 675000, amountTotal: 1850000, amountSaved: 800000),
-            ])
+            CompleteOverview()
         }
     }
 }
