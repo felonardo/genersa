@@ -42,8 +42,8 @@ final class BudgetFormViewModel: ObservableObject {
     }
     
         func createBudget(){
-//            BudgetDataSource.shared.createPersonalBudget(amountSaved: 0, amountTotal: Double(fieldBudget) ?? 0, amountUsed: 0, name: budgetName, icon: budgetIcon)
-//            print("name: \(budgetName), icon: \(budgetIcon)")
+            BudgetDataSource.shared.createPersonalBudget(amountSaved: 0, amountTotal: Double(fieldBudget) ?? 0, amountUsed: 0, name: budgetName, icon: budgetIcon)
+            print("name: \(budgetName), icon: \(budgetIcon)")
         }
 
 }

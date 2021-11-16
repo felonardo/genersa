@@ -25,6 +25,6 @@
     <elements>
         <element name="Budget" positionX="-219.840087890625" positionY="-401.2649536132812" width="128" height="148"/>
         <element name="Expense" positionX="138.8309631347656" positionY="-328.6529846191406" width="128" height="118"/>
-        <element name="SavingRecord" positionX="-56.922119140625" positionY="-124.3917236328125" width="128" height="103"/>
+        <element name="SavingRecord" positionX="118.4638061523438" positionY="-510.7171020507812" width="128" height="103"/>
     </elements>
 </model>
