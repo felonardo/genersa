@@ -13,6 +13,14 @@ enum RecordType {
 
 struct NewRecord: View {
     
+    @FetchRequest(
+        entity: Budget.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
+        ]) var budgets: FetchedResults<Budget>
+    
+    
+    
     @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     
     @ObservedObject private var viewModel: NewRecordViewModel
@@ -20,6 +28,20 @@ struct NewRecord: View {
     @State var errorState = false
     let type: RecordType
     
+    //    var calculateGoal: Double {
+    //        let interval = endDate - Date()
+    //        var totalAmount : Double = 0
+    //        for budget in budgets {
+    //            totalAmount += budget.amountTotal
+    //        }
+    //        var goal: Double = totalAmount/Double(interval.month!)
+    //
+    //        print(totalAmount)
+    //        print(endDate)
+    //        print(interval.month)
+    //        print(goal)
+    //        return goal
+    //    }
     
     init(isPresented: Binding<Bool>, type: RecordType) {
         self._isPresented = isPresented
@@ -90,11 +112,11 @@ struct NewRecord: View {
 final class NewRecordViewModel: ObservableObject {
     
     
-//    @FetchRequest(
-//        entity: Budget.entity(),
-//        sortDescriptors: [
-//            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
-//        ]) var budgets: FetchedResults<Budget>
+    //    @FetchRequest(
+    //        entity: Budget.entity(),
+    //        sortDescriptors: [
+    //            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
+    //        ]) var budgets: FetchedResults<Budget>
     
     @Published var errorState = false
     @Published var fieldNote = ""
@@ -105,20 +127,14 @@ final class NewRecordViewModel: ObservableObject {
     @Published var isPresented: Bool = true
     @Published var budgetSelected: String = ""
     @Published var notesErrorState: Bool = false
-    @Published var goal: Double?
-    
-    var calculateGoal: Double {
-        return calculateGoal
-    }
-    
     
     func addExpense(){
-         ExpenseDataSource.shared.createExpense(amount: Double(amount) ?? 0, date: selectedDate, notes: fieldNote, budget: budgetSelected)
+        let _ =  ExpenseDataSource.shared.createExpense(amount: Double(amount) ?? 0, date: selectedDate, notes: fieldNote, budget: budgetSelected)
         
     }
     
     func addSaving(){
-        SavingRecordDataSource.shared.createSavingRecord(amountSaved: Double(amount) ?? 0, goal: 0, date: selectedDate)
+        let _ = SavingRecordDataSource.shared.updateRecord(amountSaved: Double(amount), date: Date(), budget: budgetSelected)
     }
 }
 

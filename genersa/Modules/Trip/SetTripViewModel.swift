@@ -42,6 +42,10 @@ final class SetTripViewModel: ObservableObject {
         let _ = BudgetDataSource.shared.createPersonalBudget(amountSaved: 0, amountTotal: 0, amountUsed: 0, name: "Transport", icon: "car.fill")
     }
     
+    func initSavingRecord() {
+        let _ = SavingRecordDataSource.shared.createSavingRecord(amountSaved: 0, date: Date(), budget: "Others")
+    }
+    
     func tripNameError(tripName: String) -> Bool {
         if tripName.count > 12 {
             return true
