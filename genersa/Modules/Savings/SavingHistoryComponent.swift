@@ -14,7 +14,7 @@ struct SavingHistoryComponent: View {
         sortDescriptors: [
             NSSortDescriptor(keyPath: \Budget.name, ascending: true)
         ]) var budgets: FetchedResults<Budget>
-            
+    
     
     @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     
@@ -34,8 +34,9 @@ struct SavingHistoryComponent: View {
         for budget in budgets {
             totalAmount += budget.amountTotal
         }
-        var goal: Double = totalAmount/Double(interval.month!)
-            
+        var goal: Double = 0
+        goal =  totalAmount/Double(interval.month!)
+        
         return goal
     }
     
