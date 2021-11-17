@@ -37,17 +37,19 @@ struct BudgetOverview: View {
     let amountUsed: Double
     let amountSaved: Double
     let budgetAmount: Double
+    let budgetName: String
     
     init(budget: Budget) {
         amountUsed = budget.amountUsed
         amountSaved = budget.amountSaved
         budgetAmount = budget.amountTotal
+        budgetName = budget.name!
     }
     
     var body: some View {
         VStack(spacing: 8) {
             HStack {
-                Text("Budget Name")
+                Text(budgetName)
                     .bold()
                     .foregroundColor(.three)
                 Spacer()

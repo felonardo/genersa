@@ -27,37 +27,30 @@ class BudgetDataSource {
     func getBudget(name: String) -> Budget? {
         return budgets.first(where: {$0.name == name})
     }
+    
+    func getTotalBudget() -> Double {
+        
+        return 0
+    }
     //    func getBudgets(tripId: UUID, userId: UUID) -> [Budget] {
     //        return budgets.filter({$0.trip?.id == tripId && $0.user?.id == userId})
     //    }
     
-    //    func createBudget(amountSaved: Double, amountTotal: Double,
-    //                      amountUsed: Double, name: String, user: User, trip: Trip) -> Budget {
-    //
-    //        let newBudget = Budget(context: container.viewContext)
-    //        newBudget.id = UUID()
-    //        newBudget.amountSaved = amountSaved
-    //        newBudget.amountTotal = amountTotal
-    //        newBudget.amountUsed = amountUsed
-    //        newBudget.name = name
-    //        newBudget.user = user
-    //        newBudget.trip = trip
-    //        budgets.append(newBudget)
-    //        PersistenceController.shared.save()
-    //        return newBudget
-    //    }
     
-    func createPersonalBudget(amountSaved: Double, amountTotal: Double, amountUsed: Double, name: String, icon: String) -> Budget {
-        let newBudget = Budget(context: container.viewContext)
-        newBudget.id = UUID()
-        newBudget.amountSaved = amountSaved
-        newBudget.amountTotal = amountTotal
-        newBudget.amountUsed = amountUsed
-        newBudget.name = name
-        newBudget.icon = icon
-        budgets.append(newBudget)
-        PersistenceController.shared.save()
-        return newBudget
+    func createPersonalBudget(amountSaved: Double, amountTotal: Double, amountUsed: Double, name: String, icon: String) -> Bool {
+        if getBudget(name: name) == nil {
+            let newBudget = Budget(context: container.viewContext)
+            newBudget.id = UUID()
+            newBudget.amountSaved = amountSaved
+            newBudget.amountTotal = amountTotal
+            newBudget.amountUsed = amountUsed
+            newBudget.name = name
+            newBudget.icon = icon
+            budgets.append(newBudget)
+            PersistenceController.shared.save()
+            return true
+        }
+        return false
     }
     
     func readBudgets() -> Bool{

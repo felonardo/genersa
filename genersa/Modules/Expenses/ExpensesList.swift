@@ -18,7 +18,7 @@ struct ExpensesList: View {
     @FetchRequest(
         entity: Expense.entity(),
         sortDescriptors: [
-            
+            NSSortDescriptor(keyPath: \Expense.date, ascending: false)
         ]) var expenses: FetchedResults<Expense>
     
     let recents: Bool
@@ -44,7 +44,7 @@ struct ExpensesList: View {
     var body: some View {
         if recents {
             VStack {
-                ForEach(expenses, id: \.id) { expense in
+                ForEach(expenses.prefix(3), id: \.id) { expense in
                     ExpensesCell(expense: expense)
                 }
             }
@@ -94,26 +94,28 @@ struct ExpensesCell: View {
     
     var body: some View {
         HStack {
-            Image(systemName: expense.budget!.icon!)
-                .padding(12)
-            VStack(spacing: 8) {
-                HStack {
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text(expense.budget!.name!)
-                            .bold()
-                        HStack(spacing: 4) {
-                            Text(expense.date!.toString(withFormat: "HH.mm"))
-                            Text(expense.notes!)
+            if expense.budget != nil {
+                Image(systemName: expense.budget!.icon!)
+                    .padding(12)
+                VStack(spacing: 8) {
+                    HStack {
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text(expense.budget!.name!)
+                                .bold()
+                            HStack(spacing: 4) {
+                                Text(expense.date!.toString(withFormat: "HH.mm"))
+                                Text(expense.notes!)
+                            }
+                            .font(.caption)
+                            .foregroundColor(.gray)
                         }
-                        .font(.caption)
-                        .foregroundColor(.gray)
+                        Spacer()
+                        Text(expense.amount.toCurrency(currency))
+                        Image(systemName: "chevron.right")
                     }
-                    Spacer()
-                    Text(expense.amount.toCurrency(currency))
-                    Image(systemName: "chevron.right")
+                    Divider()
+                        .padding(.trailing, -16)
                 }
-                Divider()
-                    .padding(.trailing, -16)
             }
         }
         .foregroundColor(.three)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Budget" representedClassName="Budget" syncable="YES" codeGenerationType="class">
         <attribute name="amountSaved" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="amountTotal" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -8,6 +8,7 @@
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String"/>
         <relationship name="expenses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="budget" inverseEntity="Expense"/>
+        <relationship name="savings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SavingRecord" inverseName="budget" inverseEntity="SavingRecord"/>
     </entity>
     <entity name="Expense" representedClassName="Expense" syncable="YES" codeGenerationType="class">
         <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -21,10 +22,11 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="goal" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="budget" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Budget" inverseName="savings" inverseEntity="Budget"/>
     </entity>
     <elements>
-        <element name="Budget" positionX="-219.840087890625" positionY="-401.2649536132812" width="128" height="148"/>
+        <element name="Budget" positionX="-219.840087890625" positionY="-401.2649536132812" width="128" height="163"/>
         <element name="Expense" positionX="138.8309631347656" positionY="-328.6529846191406" width="128" height="118"/>
-        <element name="SavingRecord" positionX="118.4638061523438" positionY="-510.7171020507812" width="128" height="103"/>
+        <element name="SavingRecord" positionX="118.4638061523438" positionY="-510.7171020507812" width="128" height="118"/>
     </elements>
 </model>

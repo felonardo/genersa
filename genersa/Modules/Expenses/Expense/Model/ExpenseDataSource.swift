@@ -48,9 +48,11 @@ class ExpenseDataSource {
         newExpense.notes = notes
         BudgetDataSource.shared.readBudgets()
         newExpense.budget = BudgetDataSource.shared.getBudget(name: budget)
+        newExpense.budget!.amountUsed = newExpense.budget!.amountUsed + newExpense.amount
         expenses.append(newExpense)
         PersistenceController.shared.save()
         print(newExpense)
+        print(newExpense.budget!)
         return newExpense
     }
     

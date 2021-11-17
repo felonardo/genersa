@@ -9,8 +9,15 @@ import SwiftUI
 
 struct MainPageView: View {
     
+    @FetchRequest(
+        entity: Expense.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Expense.date, ascending: false)
+        ]) var expenses: FetchedResults<Expense>
+    
     @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     @ObservedObject private var viewModel: MainPageViewModel
+    
     
     init() {
         self.viewModel = MainPageViewModel()
@@ -41,15 +48,22 @@ struct MainPageView: View {
                         viewModel.presentingAddExpense.toggle()
                     } content: {
                         VStack(spacing: 16) {
-                            ExpensesList(recents: true)
-                            if viewModel.expenses.count > 3 {
-                                CustomNavigationLink(
-                                    title: "See More",
-                                    type: .secondary,
-                                    fullWidth: false,
-                                    destination:
-                                        ExpensesList(recents: false))
+                            if expenses.count != 0 {
+                                ExpensesList(recents: true)
+                                if expenses.count > 3 {
+                                    CustomNavigationLink(
+                                        title: "See More",
+                                        type: .secondary,
+                                        fullWidth: false,
+                                        destination:
+                                            ExpensesList(recents: false))
+                                }
+                            } else {
+                                Image("EmptyState")
+                                Text("No Expense Yet \n Your Future Expense will return here").multilineTextAlignment(.center)
+                                    .foregroundColor(.gray)
                             }
+                           
                         }
                         .sheet(isPresented: $viewModel.presentingAddExpense, onDismiss: nil) {
                             NewRecord(isPresented: $viewModel.presentingAddExpense, type: .expense)

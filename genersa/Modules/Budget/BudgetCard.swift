@@ -17,7 +17,10 @@ struct BudgetCard: View {
     var budgetAmount: Double
     
     var budgetUsed: Double {
-        return amountUsed / budgetAmount
+        if budgetAmount != 0{
+            return amountUsed / budgetAmount
+        }
+        return 0
     }
     
     var body: some View {

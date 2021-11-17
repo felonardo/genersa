@@ -12,6 +12,7 @@ struct Overview: View {
     @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     @ObservedObject private var viewModel: OverviewViewModel
     
+    
     init() {
         self.viewModel = OverviewViewModel()
     }
@@ -31,7 +32,7 @@ struct Overview: View {
                     }
                 }
                 Spacer(minLength: 0)
-                OverviewLegends(totalUsed: viewModel.totalUsed, totalSaved: viewModel.totalSaved, needToSave: viewModel.totalBudget - viewModel.totalSaved)
+                OverviewLegends()
             }
             .padding(16)
             .background(RoundedRectangle(cornerRadius: 20)
@@ -43,9 +44,42 @@ struct Overview: View {
 
 struct OverviewLegends: View {
     
-    let totalUsed: Double
-    let totalSaved: Double
-    let needToSave: Double
+    var totalUsed: Double {
+        var totalUsed : Double = 0
+        for budget in budgets {
+            totalUsed += budget.amountUsed
+        }
+        return totalUsed
+    }
+    
+    var totalSaved: Double {
+        var totalSaved : Double = 0
+        for budget in budgets {
+            totalSaved += budget.amountSaved
+        }
+        return totalSaved
+    }
+    
+    var totalAmount: Double {
+        var totalAmount : Double = 0
+        for budget in budgets {
+            totalAmount += budget.amountTotal
+        }
+        return totalAmount
+    }
+    
+    var needToSave: Double {
+        return totalAmount - totalSaved
+    }
+    
+    @FetchRequest(
+        entity: Budget.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
+        ]) var budgets: FetchedResults<Budget>
+            
+    
+    
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -54,6 +88,8 @@ struct OverviewLegends: View {
             LegendView(name: "Need to Save", amount: needToSave, color: .gray)
         }
     }
+    
+
 }
 
 struct LegendView: View {
