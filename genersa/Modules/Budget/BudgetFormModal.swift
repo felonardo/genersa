@@ -60,7 +60,7 @@ struct BudgetFormModal: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         viewModel.isPresented.toggle()
-                        if let id = viewModel.budgetId {
+                        if viewModel.budgetId != nil {
                             viewModel.editBudget()
                         } else {
                             viewModel.createBudget()

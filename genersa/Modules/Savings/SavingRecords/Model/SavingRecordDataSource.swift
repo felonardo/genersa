@@ -51,7 +51,7 @@ class SavingRecordDataSource {
     
     func updateRecord(amountSaved: Double? = nil, date: Date? = nil, budget: String) -> Bool {
         if let record = getRecord(date: date?.toString(withFormat: "MMMM") ?? Date().toString(withFormat: "MMMM")) {
-            record.amountSaved = amountSaved ?? record.amountSaved
+            record.amountSaved = record.amountSaved + amountSaved! ?? record.amountSaved
             record.date = date ?? record.date
             BudgetDataSource.shared.readBudgets()
             record.budget = BudgetDataSource.shared.getBudget(name: budget)

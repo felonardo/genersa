@@ -12,37 +12,11 @@ struct Overview: View {
     @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     @ObservedObject private var viewModel: OverviewViewModel
     
-    
-    init() {
-        self.viewModel = OverviewViewModel()
-    }
-    
-    var body: some View {
-        NavigationLink {
-            CompleteOverview()
-        } label: {
-            HStack {
-                CircularProgressBar(size: 144, bars: viewModel.progresses) {
-                    VStack {
-                        Text("Current Balance")
-                            .foregroundColor(.secondary)
-                        Text(viewModel.currentBalance.toCurrency(currency))
-                            .bold()
-                            .foregroundColor(.primary)
-                    }
-                }
-                Spacer(minLength: 0)
-                OverviewLegends()
-            }
-            .padding(16)
-            .background(RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(.customPrimary.opacity(0.1)))
-        }
-        .buttonStyle(.plain)
-    }
-}
-
-struct OverviewLegends: View {
+    @FetchRequest(
+        entity: Budget.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
+        ]) var budgets: FetchedResults<Budget>
     
     var totalUsed: Double {
         var totalUsed : Double = 0
@@ -72,14 +46,58 @@ struct OverviewLegends: View {
         return totalAmount - totalSaved
     }
     
-    @FetchRequest(
-        entity: Budget.entity(),
-        sortDescriptors: [
-            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
-        ]) var budgets: FetchedResults<Budget>
-            
+    var currentBalance: Double {
+        return totalSaved - totalUsed
+    }
     
+    var progresses: [Progress] {
+        var progresses = [Progress]()
+        if totalSaved > totalUsed {
+            progresses.append(Progress(progress: totalSaved / totalAmount, color: .nine))
+            progresses.append(Progress(progress: totalUsed / totalAmount, color: .five))
+        } else {
+            progresses.append(Progress(progress: totalUsed / totalAmount, color: .five))
+            progresses.append(Progress(progress: totalSaved / totalAmount, color: .nine))
+        }
+
+        return progresses
+    }
     
+    init() {
+        self.viewModel = OverviewViewModel()
+    }
+    
+    var body: some View {
+        NavigationLink {
+            CompleteOverview()
+        } label: {
+            HStack {
+                CircularProgressBar(size: 144, bars: progresses) {
+                    VStack {
+                        Text("Current Balance")
+                            .foregroundColor(.secondary)
+                        Text(currentBalance.toCurrency(currency))
+                            .bold()
+                            .foregroundColor(.primary)
+                    }
+                }
+                Spacer(minLength: 0)
+                OverviewLegends(totalUsed: totalUsed, totalSaved: totalSaved, totalAmount: totalAmount, needToSave: needToSave)
+            }
+            .padding(16)
+            .background(RoundedRectangle(cornerRadius: 20)
+                            .foregroundColor(.customPrimary.opacity(0.1)))
+        }
+        .buttonStyle(.plain)
+    }
+}
+
+struct OverviewLegends: View {
+    
+    var totalUsed: Double
+    var totalSaved: Double
+    var totalAmount: Double
+    var needToSave: Double
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
