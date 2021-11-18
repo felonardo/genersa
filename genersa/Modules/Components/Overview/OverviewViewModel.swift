@@ -13,6 +13,7 @@ final class OverviewViewModel: ObservableObject {
     @AppStorage("totalUsed") var totalUsed: Double = 0
     @AppStorage("totalSaved") var totalSaved: Double = 0
     
+    
 //    @FetchRequest(
 //        entity: Budget.entity(),
 //        sortDescriptors: [

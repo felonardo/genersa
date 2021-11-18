@@ -28,8 +28,8 @@ struct MainPageView: View {
             ScrollView {
                 VStack {
                     Divider()
-                    DailyBudgetPreview(dailyExpense: 0, dailyBudget: 100000)
-                        .padding(16)
+//                    DailyBudgetPreview(dailyExpense: 0, dailyBudget: 100000)
+//                        .padding(16)
                     MainComponent(title: "Overview") {
                         Overview()
                     }

@@ -31,12 +31,12 @@ struct SetTripView: View {
                             }
                             .padding(.top, 16)
                         }
-                        ReusableTitleView(title: "Personal Budget", description: "", errorState: .constant(false)){
-                            HStack{
-                                CalculatorField(finalValue: $viewModel.fieldBudget, isPresented: $viewModel.isPresented)
-                                CurrencyPicker()
-                            }
-                        }
+//                        ReusableTitleView(title: "Personal Budget", description: "", errorState: .constant(false)){
+//                            HStack{
+//                                CalculatorField(finalValue: $viewModel.fieldBudget, isPresented: $viewModel.isPresented)
+//                                CurrencyPicker()
+//                            }
+//                        }
                         //final value, is presented
                     }
                     .ignoresSafeArea(.keyboard, edges: .bottom)
