@@ -13,7 +13,6 @@ class BudgetDataSource {
     static let shared = BudgetDataSource()
     var budgets: [Budget] = []
     
-#warning("Local Container to be updated as soon as app supports multiple users!")
     var container: NSPersistentContainer
     
     init() {
@@ -32,9 +31,6 @@ class BudgetDataSource {
         
         return 0
     }
-    //    func getBudgets(tripId: UUID, userId: UUID) -> [Budget] {
-    //        return budgets.filter({$0.trip?.id == tripId && $0.user?.id == userId})
-    //    }
     
     
     func createPersonalBudget(amountSaved: Double, amountTotal: Double, amountUsed: Double, name: String, icon: String) -> Bool {
@@ -53,15 +49,13 @@ class BudgetDataSource {
         return false
     }
     
-    func readBudgets() -> Bool{
+    func readBudgets() {
         
         let request = Budget.fetchRequest()
         do {
             budgets =  try container.viewContext.fetch(request)
-            return true
         } catch {
             print("Error reading budgets. \(error.localizedDescription)")
-            return false
         }
     }
     

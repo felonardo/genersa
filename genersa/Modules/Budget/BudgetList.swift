@@ -26,12 +26,9 @@ struct BudgetList: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 0) {
-                //                #warning("ini gak muncul")
                 ForEach(budgets, id:\.name) { budget in
                     Button {
                         self.selectedBudget = budget
-                        print("budget: \(budget)")
-                        print(selectedBudget)
                         viewModel.isPresented.toggle()
                     } label: {
                         BudgetCard(iconName: budget.icon!, name: budget.name!, amountUsed: budget.amountUsed, budgetAmount: budget.amountTotal)

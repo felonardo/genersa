@@ -34,10 +34,6 @@ struct CreateProfileView: View {
                 .disabled(viewModel.nickname.isEmpty || viewModel.nicknameError)
 
         }
-        .onAppear(perform: {
-            print(viewModel.nickname)
-            print(viewModel.selectedAvatar)
-        })
         .padding()
         .navigationBarHidden(true)
     }

@@ -49,7 +49,7 @@ struct SettingsView: View {
                 }
                 Spacer()
                 CustomButton(title: "Delete Trip", type: .secondary, fullWidth: true){
-                    print("Delete clicked")
+                    
                 }
             }
             .padding(16)

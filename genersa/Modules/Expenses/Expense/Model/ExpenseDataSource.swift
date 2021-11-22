@@ -14,7 +14,6 @@ class ExpenseDataSource {
     static let shared = ExpenseDataSource()
     var expenses: [Expense] = []
     
-    #warning("Local Container to be updated as soon as app supports multiple users!")
     var container: NSPersistentContainer
     
     init() {
@@ -24,21 +23,6 @@ class ExpenseDataSource {
     func getExpense(with id: UUID) -> Expense? {
         return expenses.first(where: {$0.id == id})
     }
-    
-//    func createExpense(amount: Double, isPayer: Bool,
-//                       isReceiver: Bool, budget: Budget, user: User,
-//                       title: String, notes: String, photoBill: Data) -> Expense {
-//        
-//        let newExpense = Expense(context: container.viewContext)
-//        newExpense.id = UUID()
-//        newExpense.amount = amount
-//        newExpense.notes = notes
-//        newExpense.title = title
-//        newExpense.photoBill = photoBill
-//        expenses.append(newExpense)
-//        PersistenceController.shared.save()
-//        return newExpense
-//    }
     
     func createExpense(amount: Double, date: Date, notes: String, budget: String) -> Expense{
         let newExpense = Expense(context: container.viewContext)
@@ -51,8 +35,6 @@ class ExpenseDataSource {
         newExpense.budget!.amountUsed = newExpense.budget!.amountUsed + newExpense.amount
         expenses.append(newExpense)
         PersistenceController.shared.save()
-        print(newExpense)
-        print(newExpense.budget!)
         return newExpense
     }
     

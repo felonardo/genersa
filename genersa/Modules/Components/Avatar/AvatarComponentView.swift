@@ -16,7 +16,7 @@ struct AvatarComponent: View {
     
     var body: some View {
         Button(action: {
-            print()
+            
         }, label: {
             Circle()
                 .fill(color)

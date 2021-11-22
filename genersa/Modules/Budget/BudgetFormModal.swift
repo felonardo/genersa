@@ -65,7 +65,6 @@ struct BudgetFormModal: View {
                         } else {
                             viewModel.createBudget()
                         }
-                        print("save category")
                     } label: {
                         Text("Save")
                             .bold()

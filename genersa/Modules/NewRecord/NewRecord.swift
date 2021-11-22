@@ -28,21 +28,6 @@ struct NewRecord: View {
     @State var errorState = false
     let type: RecordType
     
-    //    var calculateGoal: Double {
-    //        let interval = endDate - Date()
-    //        var totalAmount : Double = 0
-    //        for budget in budgets {
-    //            totalAmount += budget.amountTotal
-    //        }
-    //        var goal: Double = totalAmount/Double(interval.month!)
-    //
-    //        print(totalAmount)
-    //        print(endDate)
-    //        print(interval.month)
-    //        print(goal)
-    //        return goal
-    //    }
-    
     init(isPresented: Binding<Bool>, type: RecordType) {
         self._isPresented = isPresented
         self.type = type
@@ -83,11 +68,9 @@ struct NewRecord: View {
                             }, trailing: Button(action: {
                                 switch type {
                                 case .expense:
-                                    print("saved new expense")
                                     viewModel.addExpense()
                                     
                                 case .saving:
-                                    print("saved new saving")
                                     viewModel.addSaving()
                                 }
                                 isPresented.toggle()
@@ -110,13 +93,6 @@ struct NewRecord: View {
 }
 
 final class NewRecordViewModel: ObservableObject {
-    
-    
-    //    @FetchRequest(
-    //        entity: Budget.entity(),
-    //        sortDescriptors: [
-    //            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
-    //        ]) var budgets: FetchedResults<Budget>
     
     @Published var errorState = false
     @Published var fieldNote = ""

@@ -21,8 +21,6 @@ struct Currency {
     
 }
 
-// All available currencies
-
 extension Currency {
     
     static let allCurrencies: [Currency] = [
