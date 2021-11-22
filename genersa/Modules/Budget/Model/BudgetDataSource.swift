@@ -32,10 +32,6 @@ class BudgetDataSource {
         
         return 0
     }
-    //    func getBudgets(tripId: UUID, userId: UUID) -> [Budget] {
-    //        return budgets.filter({$0.trip?.id == tripId && $0.user?.id == userId})
-    //    }
-    
     
     func createPersonalBudget(amountSaved: Double, amountTotal: Double, amountUsed: Double, name: String, icon: String) -> Bool {
         if getBudget(name: name) == nil {
@@ -68,9 +64,7 @@ class BudgetDataSource {
     func updateBudget(id: UUID, amountSaved: Double? = nil, amountTotal: Double? = nil, amountUsed: Double? = nil, name: String? = nil, icon: String?) -> Bool {
         
         if let budget = getBudget(with: id) {
-            budget.amountSaved = amountSaved ?? budget.amountSaved
             budget.amountTotal = amountTotal ?? budget.amountTotal
-            budget.amountUsed = amountUsed ?? budget.amountUsed
             budget.name = name ?? budget.name
             budget.icon = icon ?? budget.icon
             PersistenceController.shared.save()
