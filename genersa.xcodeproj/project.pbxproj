@@ -34,6 +34,13 @@
 		7E6100D62735011C0084B014 /* CurrencyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100D52735011C0084B014 /* CurrencyPicker.swift */; };
 		7E6100D827350A520084B014 /* CurrencyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6100D727350A520084B014 /* CurrencyList.swift */; };
 		7E6588E02734653F003882A4 /* TripDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6588DF2734653F003882A4 /* TripDatePicker.swift */; };
+		7E895FE5274B924900EA586D /* AvatarIconSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E895FE4274B924900EA586D /* AvatarIconSelector.swift */; };
+		7E895FE7274B92A200EA586D /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E895FE6274B92A200EA586D /* FormField.swift */; };
+		7E895FE9274B92BA00EA586D /* TextFieldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E895FE8274B92BA00EA586D /* TextFieldComponent.swift */; };
+		7E895FEB274B92DB00EA586D /* SelectorFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E895FEA274B92DB00EA586D /* SelectorFieldView.swift */; };
+		7E895FED274B931400EA586D /* PickerFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E895FEC274B931400EA586D /* PickerFieldView.swift */; };
+		7E895FEF274B933900EA586D /* LegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E895FEE274B933900EA586D /* LegendView.swift */; };
+		7E895FF1274B935900EA586D /* BudgetOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E895FF0274B935900EA586D /* BudgetOverview.swift */; };
 		7E8A9437273A51DF00E023DC /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A9436273A51DF00E023DC /* MainPageView.swift */; };
 		7E8A9439273A526700E023DC /* SavingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A9438273A526700E023DC /* SavingsList.swift */; };
 		7E8A943B273A765E00E023DC /* BudgetFormModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A943A273A765D00E023DC /* BudgetFormModal.swift */; };
@@ -97,6 +104,13 @@
 		7E6100D52735011C0084B014 /* CurrencyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPicker.swift; sourceTree = "<group>"; };
 		7E6100D727350A520084B014 /* CurrencyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyList.swift; sourceTree = "<group>"; };
 		7E6588DF2734653F003882A4 /* TripDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDatePicker.swift; sourceTree = "<group>"; };
+		7E895FE4274B924900EA586D /* AvatarIconSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarIconSelector.swift; sourceTree = "<group>"; };
+		7E895FE6274B92A200EA586D /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
+		7E895FE8274B92BA00EA586D /* TextFieldComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldComponent.swift; sourceTree = "<group>"; };
+		7E895FEA274B92DB00EA586D /* SelectorFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorFieldView.swift; sourceTree = "<group>"; };
+		7E895FEC274B931400EA586D /* PickerFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerFieldView.swift; sourceTree = "<group>"; };
+		7E895FEE274B933900EA586D /* LegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendView.swift; sourceTree = "<group>"; };
+		7E895FF0274B935900EA586D /* BudgetOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetOverview.swift; sourceTree = "<group>"; };
 		7E8A9436273A51DF00E023DC /* MainPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
 		7E8A9438273A526700E023DC /* SavingsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsList.swift; sourceTree = "<group>"; };
 		7E8A943A273A765D00E023DC /* BudgetFormModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetFormModal.swift; sourceTree = "<group>"; };
@@ -174,17 +188,14 @@
 		7E08C16E27345FD900F269BD /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E88AE02627353F2C001AD969 /* Avatar */,
 				A79B4F8127353820004B2F19 /* CustomButton.swift */,
+				E88AE02627353F2C001AD969 /* Avatar */,
 				7E17114627353A090086A78F /* Icon */,
 				7E171145273539F60086A78F /* DatePicker */,
 				7E17114C27353CCC0086A78F /* Form */,
 				7E17115327357E030086A78F /* Overview */,
 				7E17114B27353CB90086A78F /* Currency */,
-				A79423AD2737BBA2000573A8 /* CalculatorComponent.swift */,
-				A7FAE4AE2738FD6E0097793C /* HalfASheet.swift */,
-				7E17114F273540320086A78F /* CircularProgressBar.swift */,
-				A779EA96274234660060D7B1 /* BudgetSelectedButton.swift */,
+				7E895FF2274B93AA00EA586D /* Calculator */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -227,6 +238,10 @@
 			isa = PBXGroup;
 			children = (
 				A7A42D7F2734A18E00F95D5E /* ReusableTitleView.swift */,
+				7E895FE6274B92A200EA586D /* FormField.swift */,
+				7E895FE8274B92BA00EA586D /* TextFieldComponent.swift */,
+				7E895FEA274B92DB00EA586D /* SelectorFieldView.swift */,
+				7E895FEC274B931400EA586D /* PickerFieldView.swift */,
 			);
 			name = Form;
 			sourceTree = "<group>";
@@ -237,6 +252,9 @@
 				7E17114D27353DBE0086A78F /* Overview.swift */,
 				7E17115427357E030086A78F /* OverviewViewModel.swift */,
 				7E1EC3742740DFF700938713 /* CompleteOverview.swift */,
+				7E895FEE274B933900EA586D /* LegendView.swift */,
+				7E895FF0274B935900EA586D /* BudgetOverview.swift */,
+				7E17114F273540320086A78F /* CircularProgressBar.swift */,
 			);
 			path = Overview;
 			sourceTree = "<group>";
@@ -271,6 +289,15 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		7E895FF2274B93AA00EA586D /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				A79423AD2737BBA2000573A8 /* CalculatorComponent.swift */,
+				A7FAE4AE2738FD6E0097793C /* HalfASheet.swift */,
+			);
+			path = Calculator;
+			sourceTree = "<group>";
+		};
 		7E944D34272BE47E0017EF76 /* Expenses */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +325,7 @@
 				7E8A943A273A765D00E023DC /* BudgetFormModal.swift */,
 				E8DF848427416539004C5BA2 /* BudgetFormViewModel.swift */,
 				7E1EC37C2741716200938713 /* BudgetSlider.swift */,
+				A779EA96274234660060D7B1 /* BudgetSelectedButton.swift */,
 			);
 			path = Budget;
 			sourceTree = "<group>";
@@ -460,6 +488,7 @@
 				E8DC4FE1273A1EA9005E9668 /* CreateProfileView.swift */,
 				E8DC4FE9273A488A005E9668 /* AvatarIcon.swift */,
 				E8DC4FE7273A437D005E9668 /* AvatarListViewModel.swift */,
+				7E895FE4274B924900EA586D /* AvatarIconSelector.swift */,
 			);
 			path = CreateProfile;
 			sourceTree = "<group>";
@@ -588,6 +617,7 @@
 				7E30504F27439FB900F59B58 /* MainPageViewModel.swift in Sources */,
 				A7B7E2682722BA08002B6EF7 /* ContentView.swift in Sources */,
 				7E6100CE2734FB230084B014 /* Currency.swift in Sources */,
+				7E895FEB274B92DB00EA586D /* SelectorFieldView.swift in Sources */,
 				A79B4F7B273511E3004B2F19 /* TextBinding.swift in Sources */,
 				A721B987273B924900FB1291 /* SettingsViewModel.swift in Sources */,
 				7E08C165273458B500F269BD /* HeaderButton.swift in Sources */,
@@ -600,12 +630,15 @@
 				A79423AE2737BBA2000573A8 /* CalculatorComponent.swift in Sources */,
 				7E08C1632734571D00F269BD /* DateFormatter+WithFormat.swift in Sources */,
 				7EDF2FAD2742203A002F7B35 /* Palette.swift in Sources */,
+				7E895FE5274B924900EA586D /* AvatarIconSelector.swift in Sources */,
 				E88AE02827353F4D001AD969 /* AvatarComponentView.swift in Sources */,
 				7E08C15A2734529400F269BD /* View+CornerRadiusStyle.swift in Sources */,
 				A7E3536D2727CC74004E999A /* Persistance.swift in Sources */,
+				7E895FED274B931400EA586D /* PickerFieldView.swift in Sources */,
 				7E171159273582070086A78F /* Double+FormatToCurrency.swift in Sources */,
 				7E17116027358BA10086A78F /* MainComponent.swift in Sources */,
 				A7394D2F272F272000C65D55 /* ExpenseDataSource.swift in Sources */,
+				7E895FF1274B935900EA586D /* BudgetOverview.swift in Sources */,
 				7E1EC3752740DFF700938713 /* CompleteOverview.swift in Sources */,
 				7E17116227358F200086A78F /* BudgetList.swift in Sources */,
 				7E17115B273583360086A78F /* TripSettings.swift in Sources */,
@@ -616,8 +649,10 @@
 				7E171150273540320086A78F /* CircularProgressBar.swift in Sources */,
 				E8DF848527416539004C5BA2 /* BudgetFormViewModel.swift in Sources */,
 				E8DC4FE2273A1EA9005E9668 /* CreateProfileView.swift in Sources */,
+				7E895FEF274B933900EA586D /* LegendView.swift in Sources */,
 				A7394D2B272F1F4D00C65D55 /* BudgetDataSource.swift in Sources */,
 				7E8A943B273A765E00E023DC /* BudgetFormModal.swift in Sources */,
+				7E895FE9274B92BA00EA586D /* TextFieldComponent.swift in Sources */,
 				7E1EC3792741636200938713 /* ExpensesList.swift in Sources */,
 				7E8A9439273A526700E023DC /* SavingsList.swift in Sources */,
 				A7A42D802734A18E00F95D5E /* ReusableTitleView.swift in Sources */,
@@ -629,6 +664,7 @@
 				7E6100CB273472CE0084B014 /* DateTimePicker.swift in Sources */,
 				E8C5D23D2739251B00F504FC /* AvatarPickerComponent.swift in Sources */,
 				7E08C16D27345ED900F269BD /* TimeInterval+CommonIntervals.swift in Sources */,
+				7E895FE7274B92A200EA586D /* FormField.swift in Sources */,
 				7E17115727357E710086A78F /* DailyBudget.swift in Sources */,
 				A7E3536B2727CC26004E999A /* genersaDataModel.xcdatamodeld in Sources */,
 				A7FF4201273B5512007B271F /* SetTripViewModel.swift in Sources */,

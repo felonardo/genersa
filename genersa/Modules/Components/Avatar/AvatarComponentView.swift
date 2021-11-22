@@ -13,7 +13,6 @@ struct AvatarComponent: View {
     let iconSize: CGFloat
     let image: Image?
 
-    
     var body: some View {
         Button(action: {
             
