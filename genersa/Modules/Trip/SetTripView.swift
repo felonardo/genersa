@@ -31,13 +31,6 @@ struct SetTripView: View {
                             }
                             .padding(.top, 16)
                         }
-//                        ReusableTitleView(title: "Personal Budget", description: "", errorState: .constant(false)){
-//                            HStack{
-//                                CalculatorField(finalValue: $viewModel.fieldBudget, isPresented: $viewModel.isPresented)
-//                                CurrencyPicker()
-//                            }
-//                        }
-                        //final value, is presented
                     }
                     .ignoresSafeArea(.keyboard, edges: .bottom)
                 }
@@ -48,7 +41,6 @@ struct SetTripView: View {
                     viewModel.initSavingRecord()
                 }
                 .disabled(viewModel.fieldTrip.isEmpty || viewModel.errorState )
-//                CustomNavigationLink(title: "Continue", type: .primary, fullWidth: true, destination: DummyMainPageView())
             }
             .padding(.horizontal, 16)
             HalfASheet(isPresented: $viewModel.isPresented){
@@ -57,6 +49,9 @@ struct SetTripView: View {
             .disableDragToDismiss
         }
         .navigationBarTitle("Set Trip", displayMode: .inline)
+        .onTapGesture {
+            endTextEditing()
+        }
     }
 }
 

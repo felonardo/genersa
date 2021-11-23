@@ -51,7 +51,7 @@ struct MainComponent_Previews: PreviewProvider {
             }
             .padding(16)
             MainComponent(title: "Budgets", buttonTitle: "+ New Budget") {
-                print("New Budget")
+                
             } content: {
                 BudgetList(isPresented: .constant(false))
                 .padding(.horizontal, -16)

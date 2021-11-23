@@ -13,13 +13,6 @@ final class OverviewViewModel: ObservableObject {
     @AppStorage("totalUsed") var totalUsed: Double = 0
     @AppStorage("totalSaved") var totalSaved: Double = 0
     
-    
-//    @FetchRequest(
-//        entity: Budget.entity(),
-//        sortDescriptors: [
-//            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
-//        ]) var budgets: FetchedResults<Budget>
-    
     var currentBalance: Double {
         return totalSaved - totalUsed
     }
