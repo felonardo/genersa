@@ -113,22 +113,22 @@ struct ButtonPrimary_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             CustomButton(title: "Primary", type: .primary, fullWidth: false) {
-                print("primary")
+                
             }
             CustomButton(title: "Primary Full Width", type: .primary, fullWidth: true) {
-                print("primary full width")
+                
             }
             CustomButton(title: "Secondary", type: .secondary, fullWidth: false) {
-                print("secondary")
+                
             }
             CustomButton(title: "Secondary Full Width", type: .secondary, fullWidth: true) {
-                print("secondary full width")
+                
             }
             CustomButton(title: "Tertiary", type: .tertiary, fullWidth: false) {
-                print("tertiary")
+                
             }
             CustomButton(title: "Tertiary Full Width", type: .tertiary, fullWidth: true) {
-                print("tertiary full width")
+                
             }
         }
     }

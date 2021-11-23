@@ -34,32 +34,11 @@ struct CreateProfileView: View {
                 .disabled(viewModel.nickname.isEmpty || viewModel.nicknameError)
 
         }
-        .onAppear(perform: {
-            print(viewModel.nickname)
-            print(viewModel.selectedAvatar)
-        })
         .padding()
         .navigationBarHidden(true)
-    }
-}
-
-struct AvatarIconSelector: View {
-    
-    @Binding var selectedAvatar: String
-    
-    var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 16) {
-                ForEach(Defaults.avatars, id:\.self) { avatar in
-                    AvatarIcon(imageName: avatar, size: 63, selected: avatar == selectedAvatar)
-                        .onTapGesture {
-                            selectedAvatar = avatar
-                        }
-                }
-            }
-            .padding(.horizontal, 16)
+        .onTapGesture {
+            endTextEditing()
         }
-        .padding(.horizontal, -16)
     }
 }
 

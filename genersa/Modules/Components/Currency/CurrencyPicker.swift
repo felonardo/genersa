@@ -9,13 +9,14 @@ import SwiftUI
 
 struct CurrencyPicker: View {
     
-    @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
+    @AppStorage("tripCurrency") var identifier: String = Currency.allCurrencies.first!.identifier
     
     var body: some View {
         NavigationLink {
-            CurrencyList(currencySelected: $currency)
+            CurrencyList(currencySelected: $identifier)
         } label: {
-            Text(Currency.allCurrencies.first(where: {$0.identifier == currency})!.code)
+            let currency = Currency.allCurrencies.first(where: {$0.identifier == identifier}) ?? Currency.allCurrencies.first!
+            Text(currency.code)
                 .foregroundColor(.customPrimary)
         }
         .buttonStyle(.plain)
@@ -24,14 +25,15 @@ struct CurrencyPicker: View {
 
 struct CurrencyPickerSecondary: View {
     
-    @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
+    @AppStorage("tripCurrency") var identifier: String = Currency.allCurrencies.first!.identifier
     
     var body: some View {
         NavigationLink {
-            CurrencyList(currencySelected: $currency)
+            CurrencyList(currencySelected: $identifier)
         } label: {
             HStack{
-                Text(Currency.allCurrencies.first(where: {$0.identifier == currency})!.name)
+                let currency = Currency.allCurrencies.first(where: {$0.identifier == identifier}) ?? Currency.allCurrencies.first!
+                Text(currency.name)
                 Spacer()
                 Image(systemName: "chevron.right")
             }

@@ -21,7 +21,6 @@ class SavingRecordDataSource {
     }
     
     func getRecord(date: String) -> SavingRecord? {
-        print("records:\(records)")
         return records.first(where: {$0.date?.toString(withFormat: "MMMM") == date})
     }
     
@@ -38,44 +37,17 @@ class SavingRecordDataSource {
         return newRecord
     }
     
-//    func readRecord() -> Bool{
-//        let request = SavingRecord.fetchRequest()
-//        do{
-//            records = try container.viewContext.fetch(request)
-//            return true
-//        } catch{
-//            print("Error reading saving record. \(error.localizedDescription)")
-//            return false
-//        }
-//    }
-    
     func updateRecord(amountSaved: Double? = nil, date: Date? = nil, budget: String) -> Bool {
         if let record = getRecord(date: date?.toString(withFormat: "MMMM") ?? Date().toString(withFormat: "MMMM")) {
-            record.amountSaved = record.amountSaved + amountSaved! ?? record.amountSaved
+            record.amountSaved = record.amountSaved + (amountSaved ?? record.amountSaved)
             record.date = date ?? record.date
             BudgetDataSource.shared.readBudgets()
             record.budget = BudgetDataSource.shared.getBudget(name: budget)
             record.budget?.amountSaved = record.budget!.amountSaved + record.amountSaved
             PersistenceController.shared.save()
-//            print(record)
-            print("lalalala")
             return true
         } else {
-            print(date!.toString(withFormat: "MMMM"))
-            print(false)
             return false
         }
     }
-//    
-//    func deleteRecord(id: UUID) -> Bool{
-//        if let record = getRecord(with: id) {
-//            container.viewContext.delete(record)
-//            records.removeAll(where: {$0.id == id})
-//            PersistenceController.shared.save()
-//            return true
-//        }else{
-//            print("Delete saving record failed. Saving record with id (\(id)), not found")
-//            return false
-//        }
-//    }
 }

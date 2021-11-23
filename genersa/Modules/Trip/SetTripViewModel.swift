@@ -24,7 +24,7 @@ final class SetTripViewModel: ObservableObject {
     @Published var isPresented: Bool = false
     @Published var fieldBudget: String = "0" {
         willSet {
-            totalBudget = Double(fieldBudget)!
+            totalBudget = Double(fieldBudget) ?? 0
         }
     }
     

@@ -15,7 +15,7 @@ public struct HalfASheet<Content: View>: View {
     @State private var hasAppeared = false
     @State private var dragOffset: CGFloat = 0
     
-    internal var height: HalfASheetHeight = .proportional(0.5) // about the same as a ColorPicker
+    internal var height: HalfASheetHeight = .proportional(0.5)
     internal var contentInsets = EdgeInsets(top: 0, leading: 16, bottom: 12, trailing: 16)
     internal var backgroundColor: UIColor = .tertiarySystemGroupedBackground
     internal var closeButtonColor: UIColor = .gray
@@ -24,7 +24,7 @@ public struct HalfASheet<Content: View>: View {
     private let title: String?
     private let content: () -> Content
     private let cornerRadius: CGFloat = 15
-    private let additionalOffset: CGFloat = 44 // this is so we can drag the sheet up a bit
+    private let additionalOffset: CGFloat = 44
     
     private var actualContentInsets: EdgeInsets {
         return EdgeInsets(top: contentInsets.top, leading: contentInsets.leading, bottom: cornerRadius + additionalOffset + contentInsets.bottom, trailing: contentInsets.trailing)
@@ -51,7 +51,7 @@ public struct HalfASheet<Content: View>: View {
                             dismiss()
                         }
                         .transition(.opacity)
-                        .onAppear { // we don't want the content to slide up until the background has appeared
+                        .onAppear {
                             withAnimation {
                                 hasAppeared = true
                             }
@@ -99,6 +99,7 @@ public struct HalfASheet<Content: View>: View {
 
 
 // MARK: - Private
+
 extension HalfASheet {
     
     private var titleView: IfLet {
@@ -117,24 +118,17 @@ extension HalfASheet {
                         .padding(EdgeInsets(top: 18, leading: 0, bottom: 0, trailing: 0))
                         .lineLimit(1)
                     Spacer()
-//                    closeButton
-//                        .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 13))
                 }
                 Spacer()
             }
-            
         } else: {
-            
             VStack {
                 HStack {
                     Spacer()
-//                    closeButton
-//                        .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 13))
                 }
                 Spacer()
             }
         }
-        
         return titleView
     }
     

@@ -11,7 +11,6 @@ struct PersistenceController {
     
     static let shared = PersistenceController()
     
-    #warning("Local Container to be updated as soon as app supports multiple users!")
     let container: NSPersistentContainer
     
     init(inMemory: Bool = false) {
@@ -24,10 +23,8 @@ struct PersistenceController {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
-//        container.viewContext.automaticallyMergesChangesFromParent = true
-//        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-
     }
+    
     func save() {
         do {
             try container.viewContext.save()

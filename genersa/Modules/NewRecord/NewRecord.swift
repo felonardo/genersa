@@ -28,21 +28,6 @@ struct NewRecord: View {
     @State var errorState = false
     let type: RecordType
     
-    //    var calculateGoal: Double {
-    //        let interval = endDate - Date()
-    //        var totalAmount : Double = 0
-    //        for budget in budgets {
-    //            totalAmount += budget.amountTotal
-    //        }
-    //        var goal: Double = totalAmount/Double(interval.month!)
-    //
-    //        print(totalAmount)
-    //        print(endDate)
-    //        print(interval.month)
-    //        print(goal)
-    //        return goal
-    //    }
-    
     init(isPresented: Binding<Bool>, type: RecordType) {
         self._isPresented = isPresented
         self.type = type
@@ -52,16 +37,16 @@ struct NewRecord: View {
     var body: some View {
         NavigationView {
             ZStack{
-                ScrollView {
-                    VStack{
-                        Text("\(viewModel.amount.toCurrency(currency))")
-                            .font(.largeTitle)
-                            .bold()
-                            .padding(16)
-                            .onTapGesture {
-                                viewModel.isPresented = true
-                            }
-                        GeometryReader { geometry in
+                GeometryReader { geometry in
+                    ScrollView {
+                        VStack{
+                            Text("\(viewModel.amount.toCurrency(currency))")
+                                .font(.largeTitle)
+                                .bold()
+                                .padding(16)
+                                .onTapGesture {
+                                    viewModel.isPresented = true
+                                }
                             VStack(alignment: .leading, spacing: 16) {
                                 ReusableTitleView(title: "Budgets", description: "", errorState: $viewModel.errorState){
                                     BudgetSelectedButton(budgetSelected: $viewModel.budgetSelected, geometry: geometry)
@@ -70,7 +55,7 @@ struct NewRecord: View {
                                 DateTimePicker(text: "Date", date: $viewModel.selectedDate)
                                 if type == .expense {
                                     ReusableTitleView(title: "Notes", description: "", errorState: $viewModel.notesErrorState){
-                                        TextFieldComponent(field:$viewModel.fieldNote, placeholder: "Notes for this expenses", errorState:.constant(false))
+                                        TextFieldComponent(field: $viewModel.fieldNote, placeholder: "Notes for this expenses", errorState:.constant(false))
                                     }
                                 }
                             }
@@ -83,40 +68,36 @@ struct NewRecord: View {
                             }, trailing: Button(action: {
                                 switch type {
                                 case .expense:
-                                    print("saved new expense")
                                     viewModel.addExpense()
                                     
                                 case .saving:
-                                    print("saved new saving")
                                     viewModel.addSaving()
                                 }
                                 isPresented.toggle()
                             }) {
-                                Text("Save").bold()
-                            }.disabled(viewModel.budgetSelected == ""))
+                                Text("Save")
+                                    .bold()
+                                    .disabled(viewModel.budgetSelected == "")
+                            })
                             .padding(8)
                             Spacer()
                         }
-                    }.padding(8)
-                    
+                        .padding(8)
+                    }
+                    HalfASheet(isPresented: $viewModel.isPresented){
+                        CalculatorComponent(finalValue: $viewModel.amount, isPresented: $viewModel.isPresented)
+                    }
+                    .disableDragToDismiss
                 }
-                HalfASheet(isPresented: $viewModel.isPresented){
-                    CalculatorComponent(finalValue: $viewModel.amount, isPresented: $viewModel.isPresented)
-                }
-                .disableDragToDismiss
+            }
+            .onTapGesture {
+                endTextEditing()
             }
         }
     }
 }
 
 final class NewRecordViewModel: ObservableObject {
-    
-    
-    //    @FetchRequest(
-    //        entity: Budget.entity(),
-    //        sortDescriptors: [
-    //            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
-    //        ]) var budgets: FetchedResults<Budget>
     
     @Published var errorState = false
     @Published var fieldNote = ""
