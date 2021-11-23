@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+//code to close the keyboard
+extension View {
+    func dismissKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+
 struct BudgetFormModal: View {
     
     @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
@@ -81,6 +88,9 @@ struct BudgetFormModal: View {
             .onTapGesture {
                 endTextEditing()
             }
+        }
+        .onTapGesture {
+            self.dismissKeyboard()
         }
     }
 }
