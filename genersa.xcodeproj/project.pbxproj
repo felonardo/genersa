@@ -52,6 +52,10 @@
 		A721B989273B925400FB1291 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A721B988273B925400FB1291 /* SettingsView.swift */; };
 		A7394D2B272F1F4D00C65D55 /* BudgetDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D2A272F1F4D00C65D55 /* BudgetDataSource.swift */; };
 		A7394D2F272F272000C65D55 /* ExpenseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D2E272F272000C65D55 /* ExpenseDataSource.swift */; };
+		A7394D31272F272A00C65D55 /* ExpenseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D30272F272A00C65D55 /* ExpenseModel.swift */; };
+		A7394D35272F318B00C65D55 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D34272F318B00C65D55 /* TripModel.swift */; };
+		A7394D37272F31B200C65D55 /* TripDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D36272F31B200C65D55 /* TripDataSource.swift */; };
+		A75924ED274CCB00000C0218 /* ExpenseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75924EC274CCB00000C0218 /* ExpenseDetail.swift */; };
 		A779EA97274234660060D7B1 /* BudgetSelectedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A779EA96274234660060D7B1 /* BudgetSelectedButton.swift */; };
 		A79423AE2737BBA2000573A8 /* CalculatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79423AD2737BBA2000573A8 /* CalculatorComponent.swift */; };
 		A79B4F7B273511E3004B2F19 /* TextBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79B4F7A273511E3004B2F19 /* TextBinding.swift */; };
@@ -123,6 +127,10 @@
 		A721B988273B925400FB1291 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A7394D2A272F1F4D00C65D55 /* BudgetDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDataSource.swift; sourceTree = "<group>"; };
 		A7394D2E272F272000C65D55 /* ExpenseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDataSource.swift; sourceTree = "<group>"; };
+		A7394D30272F272A00C65D55 /* ExpenseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseModel.swift; sourceTree = "<group>"; };
+		A7394D34272F318B00C65D55 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
+		A7394D36272F31B200C65D55 /* TripDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataSource.swift; sourceTree = "<group>"; };
+		A75924EC274CCB00000C0218 /* ExpenseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetail.swift; sourceTree = "<group>"; };
 		A779EA96274234660060D7B1 /* BudgetSelectedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetSelectedButton.swift; sourceTree = "<group>"; };
 		A79423AD2737BBA2000573A8 /* CalculatorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorComponent.swift; sourceTree = "<group>"; };
 		A79B4F7A273511E3004B2F19 /* TextBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBinding.swift; sourceTree = "<group>"; };
@@ -314,6 +322,7 @@
 			children = (
 				A7394D2C272F26F100C65D55 /* Expense */,
 				7E1EC3782741636200938713 /* ExpensesList.swift */,
+				A75924EC274CCB00000C0218 /* ExpenseDetail.swift */,
 			);
 			path = Expenses;
 			sourceTree = "<group>";
@@ -641,6 +650,7 @@
 				7E3050482743685500F59B58 /* NewRecord.swift in Sources */,
 				A79423AE2737BBA2000573A8 /* CalculatorComponent.swift in Sources */,
 				7E08C1632734571D00F269BD /* DateFormatter+WithFormat.swift in Sources */,
+				A75924ED274CCB00000C0218 /* ExpenseDetail.swift in Sources */,
 				7EDF2FAD2742203A002F7B35 /* Palette.swift in Sources */,
 				7E895FE5274B924900EA586D /* AvatarIconSelector.swift in Sources */,
 				E88AE02827353F4D001AD969 /* AvatarComponentView.swift in Sources */,

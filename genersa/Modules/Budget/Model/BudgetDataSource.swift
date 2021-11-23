@@ -20,10 +20,12 @@ class BudgetDataSource {
     }
     
     func getBudget(with id: UUID) -> Budget? {
+        readBudgets()
         return budgets.first(where: {$0.id == id})
     }
     
     func getBudget(name: String) -> Budget? {
+        readBudgets()
         return budgets.first(where: {$0.name == name})
     }
     
@@ -62,9 +64,7 @@ class BudgetDataSource {
     func updateBudget(id: UUID, amountSaved: Double? = nil, amountTotal: Double? = nil, amountUsed: Double? = nil, name: String? = nil, icon: String?) -> Bool {
         
         if let budget = getBudget(with: id) {
-            budget.amountSaved = amountSaved ?? budget.amountSaved
             budget.amountTotal = amountTotal ?? budget.amountTotal
-            budget.amountUsed = amountUsed ?? budget.amountUsed
             budget.name = name ?? budget.name
             budget.icon = icon ?? budget.icon
             PersistenceController.shared.save()

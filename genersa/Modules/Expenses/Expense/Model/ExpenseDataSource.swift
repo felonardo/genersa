@@ -50,7 +50,7 @@ class ExpenseDataSource {
         }
     }
     
-    func updateExpense(id: UUID, amount: Double? = nil, title: String? = nil) -> Bool {
+    func updateExpense(id: UUID, amount: Double? = nil) -> Bool {
         
         if let expense = getExpense(with: id) {
             expense.amount = amount ?? expense.amount
