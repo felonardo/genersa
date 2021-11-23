@@ -45,7 +45,9 @@ struct ExpensesList: View {
         if recents {
             VStack {
                 ForEach(expenses.prefix(3), id: \.id) { expense in
+                    NavigationLink(destination: ExpenseDetail(expense: expense)) {
                     ExpensesCell(expense: expense)
+                    }
                 }
             }
         } else {
@@ -80,7 +82,9 @@ struct ExpensesListDayComponent: View {
             Text(date.toString(withFormat: "d MMMM"))
                 .bold()
             ForEach(expenses, id: \.id) { expense in
-                ExpensesCell(expense: expense)
+                NavigationLink(destination: ExpenseDetail(expense: expense)) {
+                    ExpensesCell(expense: expense)
+                }
             }
         }
     }
