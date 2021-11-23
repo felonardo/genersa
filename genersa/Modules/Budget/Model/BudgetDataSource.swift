@@ -21,13 +21,12 @@ class BudgetDataSource {
     }
     
     func getBudget(with id: UUID) -> Budget? {
+        readBudgets()
         return budgets.first(where: {$0.id == id})
     }
     
     func getBudget(name: String) -> Budget? {
-        print("budget lala:\(budgets.first(where: {$0.name == name}))")
-        print(name)
-        print("budgetslili: \(budgets)")
+        readBudgets()
         return budgets.first(where: {$0.name == name})
     }
     
@@ -52,15 +51,13 @@ class BudgetDataSource {
         return false
     }
     
-    func readBudgets() -> Bool{
+    func readBudgets() {
         
         let request = Budget.fetchRequest()
         do {
             budgets =  try container.viewContext.fetch(request)
-            return true
         } catch {
             print("Error reading budgets. \(error.localizedDescription)")
-            return false
         }
     }
     

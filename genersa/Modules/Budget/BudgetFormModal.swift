@@ -35,7 +35,7 @@ struct BudgetFormModal: View {
                         }
                         BudgetIconSelector(selectedBudget: $viewModel.budgetIcon)
                             .padding(.bottom, 16)
-                        ReusableTitleView(title: "Budget Name", description: "Maximum character for budget name is 12 characters.", errorState: $viewModel.budgetNameError, warningDescription: true) {
+                        ReusableTitleView(title: "Budget Name", description: "Maximum characters for budget name is 12 characters or name already exists.", errorState: $viewModel.budgetNameError, warningDescription: true) {
                             TextFieldComponent(field: $viewModel.budgetName , placeholder: "Transportation", errorState: $viewModel.budgetNameError)
                         }
                         .padding(.horizontal, 16)
