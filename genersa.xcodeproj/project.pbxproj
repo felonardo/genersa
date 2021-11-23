@@ -191,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				7E08C153272F0A9F00F269BD /* UsersDataSource.swift */,
+				7E17115A273583360086A78F /* TripSettings.swift */,
 				7E08C155272F0E2700F269BD /* UsersModel.swift */,
 			);
 			path = Model;
@@ -420,7 +421,6 @@
 			isa = PBXGroup;
 			children = (
 				A7394D33272F317C00C65D55 /* Model */,
-				7E17115A273583360086A78F /* TripSettings.swift */,
 				A7FF41FE273B54F9007B271F /* SetTripView.swift */,
 				A7FF4200273B5512007B271F /* SetTripViewModel.swift */,
 			);
