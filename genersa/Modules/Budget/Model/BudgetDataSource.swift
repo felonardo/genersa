@@ -25,6 +25,9 @@ class BudgetDataSource {
     }
     
     func getBudget(name: String) -> Budget? {
+        print("budget lala:\(budgets.first(where: {$0.name == name}))")
+        print(name)
+        print("budgetslili: \(budgets)")
         return budgets.first(where: {$0.name == name})
     }
     
