@@ -15,7 +15,6 @@
 		7E171150273540320086A78F /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E17114F273540320086A78F /* CircularProgressBar.swift */; };
 		7E17115727357E710086A78F /* DailyBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E17115627357E710086A78F /* DailyBudget.swift */; };
 		7E171159273582070086A78F /* Double+FormatToCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E171158273582070086A78F /* Double+FormatToCurrency.swift */; };
-		7E17115B273583360086A78F /* TripSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E17115A273583360086A78F /* TripSettings.swift */; };
 		7E17115C2735846D0086A78F /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E17115427357E030086A78F /* OverviewViewModel.swift */; };
 		7E17115E273586760086A78F /* BudgetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E17115D273586760086A78F /* BudgetCard.swift */; };
 		7E17116027358BA10086A78F /* MainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E17115F27358BA10086A78F /* MainComponent.swift */; };
@@ -52,9 +51,6 @@
 		A721B989273B925400FB1291 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A721B988273B925400FB1291 /* SettingsView.swift */; };
 		A7394D2B272F1F4D00C65D55 /* BudgetDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D2A272F1F4D00C65D55 /* BudgetDataSource.swift */; };
 		A7394D2F272F272000C65D55 /* ExpenseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D2E272F272000C65D55 /* ExpenseDataSource.swift */; };
-		A7394D31272F272A00C65D55 /* ExpenseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D30272F272A00C65D55 /* ExpenseModel.swift */; };
-		A7394D35272F318B00C65D55 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D34272F318B00C65D55 /* TripModel.swift */; };
-		A7394D37272F31B200C65D55 /* TripDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D36272F31B200C65D55 /* TripDataSource.swift */; };
 		A75924ED274CCB00000C0218 /* ExpenseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75924EC274CCB00000C0218 /* ExpenseDetail.swift */; };
 		A779EA97274234660060D7B1 /* BudgetSelectedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A779EA96274234660060D7B1 /* BudgetSelectedButton.swift */; };
 		A79423AE2737BBA2000573A8 /* CalculatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79423AD2737BBA2000573A8 /* CalculatorComponent.swift */; };
@@ -91,7 +87,6 @@
 		7E17115427357E030086A78F /* OverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
 		7E17115627357E710086A78F /* DailyBudget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBudget.swift; sourceTree = "<group>"; };
 		7E171158273582070086A78F /* Double+FormatToCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+FormatToCurrency.swift"; sourceTree = "<group>"; };
-		7E17115A273583360086A78F /* TripSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSettings.swift; sourceTree = "<group>"; };
 		7E17115D273586760086A78F /* BudgetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCard.swift; sourceTree = "<group>"; };
 		7E17115F27358BA10086A78F /* MainComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainComponent.swift; sourceTree = "<group>"; };
 		7E17116127358F200086A78F /* BudgetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetList.swift; sourceTree = "<group>"; };
@@ -127,9 +122,6 @@
 		A721B988273B925400FB1291 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A7394D2A272F1F4D00C65D55 /* BudgetDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDataSource.swift; sourceTree = "<group>"; };
 		A7394D2E272F272000C65D55 /* ExpenseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDataSource.swift; sourceTree = "<group>"; };
-		A7394D30272F272A00C65D55 /* ExpenseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseModel.swift; sourceTree = "<group>"; };
-		A7394D34272F318B00C65D55 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
-		A7394D36272F31B200C65D55 /* TripDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataSource.swift; sourceTree = "<group>"; };
 		A75924EC274CCB00000C0218 /* ExpenseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetail.swift; sourceTree = "<group>"; };
 		A779EA96274234660060D7B1 /* BudgetSelectedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetSelectedButton.swift; sourceTree = "<group>"; };
 		A79423AD2737BBA2000573A8 /* CalculatorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorComponent.swift; sourceTree = "<group>"; };
@@ -377,7 +369,6 @@
 		A7394D32272F317100C65D55 /* Trip */ = {
 			isa = PBXGroup;
 			children = (
-				7E17115A273583360086A78F /* TripSettings.swift */,
 				A7FF41FE273B54F9007B271F /* SetTripView.swift */,
 				A7FF4200273B5512007B271F /* SetTripViewModel.swift */,
 			);
@@ -662,7 +653,6 @@
 				7E895FF1274B935900EA586D /* BudgetOverview.swift in Sources */,
 				7E1EC3752740DFF700938713 /* CompleteOverview.swift in Sources */,
 				7E17116227358F200086A78F /* BudgetList.swift in Sources */,
-				7E17115B273583360086A78F /* TripSettings.swift in Sources */,
 				7E6100D22734FFC70084B014 /* NumberFormatter+CurrencyFormatter.swift in Sources */,
 				E8DC4FE8273A437D005E9668 /* AvatarListViewModel.swift in Sources */,
 				7E6100C9273471620084B014 /* TripDatePickerViewModel.swift in Sources */,
