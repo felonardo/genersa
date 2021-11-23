@@ -49,6 +49,9 @@ struct SetTripView: View {
             .disableDragToDismiss
         }
         .navigationBarTitle("Set Trip", displayMode: .inline)
+        .onTapGesture {
+            endTextEditing()
+        }
     }
 }
 

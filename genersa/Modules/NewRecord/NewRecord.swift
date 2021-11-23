@@ -37,16 +37,16 @@ struct NewRecord: View {
     var body: some View {
         NavigationView {
             ZStack{
-                ScrollView {
-                    VStack{
-                        Text("\(viewModel.amount.toCurrency(currency))")
-                            .font(.largeTitle)
-                            .bold()
-                            .padding(16)
-                            .onTapGesture {
-                                viewModel.isPresented = true
-                            }
-                        GeometryReader { geometry in
+                GeometryReader { geometry in
+                    ScrollView {
+                        VStack{
+                            Text("\(viewModel.amount.toCurrency(currency))")
+                                .font(.largeTitle)
+                                .bold()
+                                .padding(16)
+                                .onTapGesture {
+                                    viewModel.isPresented = true
+                                }
                             VStack(alignment: .leading, spacing: 16) {
                                 ReusableTitleView(title: "Budgets", description: "", errorState: $viewModel.errorState){
                                     BudgetSelectedButton(budgetSelected: $viewModel.budgetSelected, geometry: geometry)
@@ -55,7 +55,7 @@ struct NewRecord: View {
                                 DateTimePicker(text: "Date", date: $viewModel.selectedDate)
                                 if type == .expense {
                                     ReusableTitleView(title: "Notes", description: "", errorState: $viewModel.notesErrorState){
-                                        TextFieldComponent(field:$viewModel.fieldNote, placeholder: "Notes for this expenses", errorState:.constant(false))
+                                        TextFieldComponent(field: $viewModel.fieldNote, placeholder: "Notes for this expenses", errorState:.constant(false))
                                     }
                                 }
                             }
@@ -75,18 +75,23 @@ struct NewRecord: View {
                                 }
                                 isPresented.toggle()
                             }) {
-                                Text("Save").bold()
-                            }.disabled(viewModel.budgetSelected == ""))
+                                Text("Save")
+                                    .bold()
+                                    .disabled(viewModel.budgetSelected == "")
+                            })
                             .padding(8)
                             Spacer()
                         }
-                    }.padding(8)
-                    
+                        .padding(8)
+                    }
+                    HalfASheet(isPresented: $viewModel.isPresented){
+                        CalculatorComponent(finalValue: $viewModel.amount, isPresented: $viewModel.isPresented)
+                    }
+                    .disableDragToDismiss
                 }
-                HalfASheet(isPresented: $viewModel.isPresented){
-                    CalculatorComponent(finalValue: $viewModel.amount, isPresented: $viewModel.isPresented)
-                }
-                .disableDragToDismiss
+            }
+            .onTapGesture {
+                endTextEditing()
             }
         }
     }

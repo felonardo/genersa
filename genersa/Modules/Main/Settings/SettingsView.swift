@@ -17,7 +17,7 @@ struct SettingsView: View {
     }
     
     var body: some View {
-        VStack(){
+        VStack{
             VStack(alignment: .leading, spacing: 16) {
                 HStack {
                     Spacer()
@@ -58,7 +58,9 @@ struct SettingsView: View {
         }
         .padding(.vertical, 8)
         .navigationBarTitle("Settings", displayMode: .inline)
-        
+        .onTapGesture {
+            endTextEditing()
+        }
         
     }
 }

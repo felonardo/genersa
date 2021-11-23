@@ -78,6 +78,9 @@ struct BudgetFormModal: View {
                     }
                 }
             }
+            .onTapGesture {
+                endTextEditing()
+            }
         }
     }
 }

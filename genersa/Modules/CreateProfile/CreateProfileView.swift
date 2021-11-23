@@ -36,6 +36,9 @@ struct CreateProfileView: View {
         }
         .padding()
         .navigationBarHidden(true)
+        .onTapGesture {
+            endTextEditing()
+        }
     }
 }
 
