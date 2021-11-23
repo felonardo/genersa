@@ -31,9 +31,12 @@ struct BudgetList: View {
                         self.selectedBudget = budget
                         viewModel.isPresented.toggle()
                     } label: {
-                        BudgetCard(iconName: budget.icon!, name: budget.name!, amountUsed: budget.amountUsed, budgetAmount: budget.amountTotal)
-                            .padding(budget.name! == budgets.last!.name ? .horizontal : .leading, 16)
-                        
+                        if let icon = budget.icon,
+                           let name = budget.name,
+                           let lastBudgetName = budgets.last?.name {
+                            BudgetCard(iconName: icon, name: name, amountUsed: budget.amountUsed, budgetAmount: budget.amountTotal)
+                                .padding(name == lastBudgetName ? .horizontal : .leading, 16)
+                        }
                     }
                 }
             }

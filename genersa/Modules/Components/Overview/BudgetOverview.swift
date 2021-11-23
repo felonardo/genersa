@@ -21,7 +21,7 @@ struct BudgetOverview: View {
         amountUsed = budget.amountUsed
         amountSaved = budget.amountSaved
         budgetAmount = budget.amountTotal
-        budgetName = budget.name!
+        budgetName = budget.name ?? ""
     }
     
     var body: some View {

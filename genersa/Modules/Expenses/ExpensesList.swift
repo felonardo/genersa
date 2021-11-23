@@ -32,10 +32,12 @@ struct ExpensesList: View {
     var mappedExpenses: [Date:[Expense]] {
         var groupedExpenses = [Date:[Expense]]()
         for expense in expenses {
-            if groupedExpenses[expense.date!.dateOnly()] != nil {
-                groupedExpenses[expense.date!.dateOnly()]!.append(expense)
-            } else {
-                groupedExpenses[expense.date!.dateOnly()] = [expense]
+            if let date = expense.date {
+                if groupedExpenses[date.dateOnly()] != nil {
+                    groupedExpenses[date.dateOnly()]!.append(expense)
+                } else {
+                    groupedExpenses[date.dateOnly()] = [expense]
+                }
             }
         }
         return groupedExpenses
@@ -53,7 +55,12 @@ struct ExpensesList: View {
                 LazyVStack {
                     BudgetSlider(selectedBudget: $selectedBudget)
                     ForEach(mappedExpenses.sorted(by: {$0.key > $1.key}), id: \.key) { key, value in
-                        let filteredValue = value.filter { $0.budget!.name!.contains(selectedBudget) || selectedBudget == "" }
+                        let filteredValue = value.filter {
+                            if let name = $0.budget?.name {
+                                return name.contains(selectedBudget) || selectedBudget == ""
+                            }
+                            return false
+                        }
                         if !filteredValue.isEmpty {
                             ExpensesListDayComponent(
                                 date: key,
@@ -99,15 +106,19 @@ struct ExpensesCell: View {
                     .padding(12)
                 VStack(spacing: 8) {
                     HStack {
-                        VStack(alignment: .leading, spacing: 6) {
-                            Text(expense.budget!.name!)
-                                .bold()
-                            HStack(spacing: 4) {
-                                Text(expense.date!.toString(withFormat: "HH.mm"))
-                                Text(expense.notes!)
+                        if let name = expense.budget?.name,
+                           let date = expense.date,
+                           let notes = expense.notes {
+                            VStack(alignment: .leading, spacing: 6) {
+                                Text(name)
+                                    .bold()
+                                HStack(spacing: 4) {
+                                    Text(date.toString(withFormat: "HH.mm"))
+                                    Text(notes)
+                                }
+                                .font(.caption)
+                                .foregroundColor(.gray)
                             }
-                            .font(.caption)
-                            .foregroundColor(.gray)
                         }
                         Spacer()
                         Text(expense.amount.toCurrency(currency))
