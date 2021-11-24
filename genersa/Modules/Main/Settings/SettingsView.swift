@@ -14,11 +14,21 @@ struct SettingsView: View {
     
     init() {
         self.viewModel = SettingsViewModel()
+        
+        let navBarAppearance = UINavigationBarAppearance()
+////        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.systemBackground]
+////        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemBackground]
+////        navBarAppearance.backgroundColor = UIColor.white
+////        navBarAppearance.shadowColor = .darkGray
+        UINavigationBar.appearance().standardAppearance = navBarAppearance
+        UINavigationBar.appearance().compactAppearance = navBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
     }
     
     var body: some View {
         VStack{
             VStack(alignment: .leading, spacing: 16) {
+                Spacer()
                 HStack {
                     Spacer()
                     AvatarIcon(imageName: viewModel.selectedAvatar, size: 117)
