@@ -26,7 +26,7 @@ struct SetTripView: View {
                         ReusableTitleView(title: "Trip Date", description: "", errorState: .constant(false)){
                             HStack {
                                 Spacer()
-                                TripDatePicker(startDate: $viewModel.startDate, endDate: $viewModel.endDate)
+                                TripDatePicker()
                                 Spacer()
                             }
                             .padding(.top, 16)
@@ -48,6 +48,7 @@ struct SetTripView: View {
             }
             .disableDragToDismiss
         }
+        .padding(16)
         .navigationBarTitle("Set Trip", displayMode: .inline)
         .onTapGesture {
             endTextEditing()

@@ -18,12 +18,11 @@ final class SettingsViewModel: ObservableObject {
             errorState = tripNameError(tripName: newValue)
         }
     }
-    @AppStorage("tripStartDate") var startDate: Date = Date()
-    @AppStorage("tripEndDate") var endDate: Date = Date()
     @AppStorage("selectedAvatar") var selectedAvatar: String = "Avatar 1"
     
     @Published var errorState: Bool = false
     @Published var nicknameError: Bool = false
+    @Published var isPresentingDeleteAlert: Bool = false
     
     
     func tripNameError(tripName: String) -> Bool {

@@ -87,4 +87,15 @@ class BudgetDataSource {
             return false
         }
     }
+    
+    func deleteAll() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Budget")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try PersistenceController.shared.container.persistentStoreCoordinator.execute(deleteRequest, with: PersistenceController.shared.container.viewContext)
+        } catch let error as NSError {
+            print("error deleting budgets: \(error.localizedDescription)")
+        }
+    }
 }

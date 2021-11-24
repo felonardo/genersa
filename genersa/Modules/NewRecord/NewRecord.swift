@@ -90,9 +90,6 @@ struct NewRecord: View {
                     .disableDragToDismiss
                 }
             }
-            .onTapGesture {
-                endTextEditing()
-            }
         }
     }
 }

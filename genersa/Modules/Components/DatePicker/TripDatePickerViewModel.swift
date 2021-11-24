@@ -15,13 +15,18 @@ final class TripDatePickerViewModel: ObservableObject {
         case end
     }
     
-    @Published var startDate: Binding<Date>
-    @Published var endDate: Binding<Date>
+    @AppStorage("tripStartDate") var startDate: Date = Date()
+    @AppStorage("tripEndDate") var endDate: Date = Date().addingTimeInterval(TimeInterval.week)
+    
     @Published var showPicker: TripDatePickerState = .none
     
-    init(startDate: Binding<Date>, endDate: Binding<Date>) {
-        self.startDate = startDate
-        self.endDate = endDate
+    var duration: TimeInterval
+    
+    init() {
+        let start = UserDefaults.standard.object(forKey: "tripStartDate") as? Date ?? Date()
+        let end = UserDefaults.standard.object(forKey: "tripEndDate") as? Date ?? Date().addingTimeInterval(TimeInterval.week)
+
+        duration = end.timeIntervalSince1970 - start.timeIntervalSince1970
     }
     
 }

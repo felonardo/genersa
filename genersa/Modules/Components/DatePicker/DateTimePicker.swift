@@ -23,14 +23,29 @@ struct DateTimePicker: View {
                 Text(viewModel.text)
                     .bold()
                 Spacer()
-                CustomButton(title: viewModel.date.wrappedValue.toString(withFormat: "MMM d, yyyy, HH:mm"), type: .secondary, fullWidth: false) {
-                    viewModel.showPicker.toggle()
+                CustomButton(title: viewModel.date.wrappedValue.toString(withFormat: "MMM d, yyyy"), type: .secondary, fullWidth: false) {
+                    withAnimation {
+                        viewModel.showPicker = viewModel.showPicker == .date ? .none : .date
+                    }
+                }
+                CustomButton(title: viewModel.date.wrappedValue.toString(withFormat: "HH:mm"), type: .secondary, fullWidth: false) {
+                    withAnimation {
+                        viewModel.showPicker = viewModel.showPicker == .time ? .none : .time
+                    }
                 }
             }
-            if viewModel.showPicker {
-                DatePicker("Date Time",
+            switch viewModel.showPicker {
+            case .none:
+                EmptyView()
+            case .date:
+                DatePicker("Date",
                            selection: viewModel.date,
-                           displayedComponents: [.date, .hourAndMinute])
+                           displayedComponents: [.date])
+                    .datePickerStyle(.graphical)
+            case .time:
+                DatePicker("Time",
+                           selection: viewModel.date,
+                           displayedComponents: [.hourAndMinute])
                     .datePickerStyle(.graphical)
             }
         }
@@ -39,9 +54,13 @@ struct DateTimePicker: View {
 
 final class DateTimePickerViewModel: ObservableObject {
     
+    enum DateTimeShowPicker {
+        case none, date, time
+    }
+    
     @Published var text: String
     @Published var date: Binding<Date>
-    @Published var showPicker: Bool = false
+    @Published var showPicker: DateTimeShowPicker = .none
     
     init(text: String, date: Binding<Date>) {
         self.text = text
