@@ -28,6 +28,7 @@ struct SettingsView: View {
     var body: some View {
         VStack{
             VStack(alignment: .leading, spacing: 16) {
+                Spacer()
                 HStack {
                     Spacer()
                     AvatarIcon(imageName: viewModel.selectedAvatar, size: 117)
