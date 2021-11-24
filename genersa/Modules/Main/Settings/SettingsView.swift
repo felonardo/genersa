@@ -14,6 +14,14 @@ struct SettingsView: View {
     
     init() {
         self.viewModel = SettingsViewModel()
+        
+        let navBarAppearance = UINavigationBarAppearance()
+////        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemBackground]
+////        navBarAppearance.backgroundColor = UIColor.white
+////        navBarAppearance.shadowColor = .darkGray
+        UINavigationBar.appearance().standardAppearance = navBarAppearance
+        UINavigationBar.appearance().compactAppearance = navBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
     }
     
     var body: some View {
