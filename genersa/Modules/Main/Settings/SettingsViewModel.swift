@@ -18,8 +18,6 @@ final class SettingsViewModel: ObservableObject {
             errorState = tripNameError(tripName: newValue)
         }
     }
-    @AppStorage("tripStartDate") var startDate: Date = Date()
-    @AppStorage("tripEndDate") var endDate: Date = Date()
     @AppStorage("selectedAvatar") var selectedAvatar: String = "Avatar 1"
     
     @Published var errorState: Bool = false

@@ -39,7 +39,7 @@ struct SettingsView: View {
                 ReusableTitleView(title: "Trip Date", description: "", errorState: .constant(false)){
                     HStack {
                         Spacer()
-                        TripDatePicker(startDate: $viewModel.startDate, endDate: $viewModel.endDate)
+                        TripDatePicker()
                         Spacer()
                     }
                     .padding(.top, 16)
