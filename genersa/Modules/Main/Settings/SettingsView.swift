@@ -16,6 +16,7 @@ struct SettingsView: View {
         self.viewModel = SettingsViewModel()
         
         let navBarAppearance = UINavigationBarAppearance()
+////        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.systemBackground]
 ////        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemBackground]
 ////        navBarAppearance.backgroundColor = UIColor.white
 ////        navBarAppearance.shadowColor = .darkGray
