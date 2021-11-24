@@ -6,20 +6,17 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct SettingsView: View {
-    
     @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
+    @AppStorage("tripSet") var tripSet: Bool = false
     @ObservedObject var viewModel: SettingsViewModel
     
     init() {
         self.viewModel = SettingsViewModel()
         
         let navBarAppearance = UINavigationBarAppearance()
-////        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.systemBackground]
-////        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemBackground]
-////        navBarAppearance.backgroundColor = UIColor.white
-////        navBarAppearance.shadowColor = .darkGray
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         UINavigationBar.appearance().compactAppearance = navBarAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
@@ -29,7 +26,6 @@ struct SettingsView: View {
         VStack{
             VStack(alignment: .leading, spacing: 16) {
                 VStack(alignment: .leading, spacing: 16) {
-                    Spacer()
                     HStack {
                         Spacer()
                         AvatarIcon(imageName: viewModel.selectedAvatar, size: 117)
@@ -62,9 +58,19 @@ struct SettingsView: View {
                             .foregroundColor(.black)
                     }.padding(4)
                 }
-                Spacer()
                 CustomButton(title: "Delete Trip", type: .secondary, fullWidth: true){
-                    
+                    viewModel.isPresentingDeleteAlert = true
+                }
+                .alert(isPresented: $viewModel.isPresentingDeleteAlert) {
+                    Alert(title: Text("Are you sure?"), message: Text("Deleting trip is permanent, and you can't recover the data."), primaryButton: .destructive(Text("Delete"), action: {
+                        if let appDomain = Bundle.main.bundleIdentifier {
+                            UserDefaults.standard.removePersistentDomain(forName: appDomain)
+                            BudgetDataSource.shared.deleteAll()
+                            SavingRecordDataSource.shared.deleteAll()
+                            ExpenseDataSource.shared.deleteAll()
+                            tripSet = false
+                        }
+                    }), secondaryButton: .cancel())
                 }
             }
             .padding(16)

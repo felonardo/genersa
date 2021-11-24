@@ -22,6 +22,7 @@ final class SettingsViewModel: ObservableObject {
     
     @Published var errorState: Bool = false
     @Published var nicknameError: Bool = false
+    @Published var isPresentingDeleteAlert: Bool = false
     
     
     func tripNameError(tripName: String) -> Bool {
