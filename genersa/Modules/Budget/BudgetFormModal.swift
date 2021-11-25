@@ -35,6 +35,7 @@ struct BudgetFormModal: View {
             ZStack {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 16) {
+                        Spacer()
                         HStack {
                             Spacer()
                             BudgetIcon(image: viewModel.budgetIcon, iconSize: 117)
