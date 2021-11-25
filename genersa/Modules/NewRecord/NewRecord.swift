@@ -46,17 +46,22 @@ struct NewRecord: View {
                                 .padding(16)
                                 .onTapGesture {
                                     viewModel.isPresented = true
+                                    endTextEditing()
                                 }
+                                .padding(.horizontal, 8)
                             VStack(alignment: .leading, spacing: 16) {
                                 ReusableTitleView(title: "Budgets", description: "", errorState: $viewModel.errorState){
                                     BudgetSelectedButton(budgetSelected: $viewModel.budgetSelected, geometry: geometry)
                                 }
                                 Divider()
+                                    .padding(.horizontal, 8)
                                 DateTimePicker(text: "Date", date: $viewModel.selectedDate)
+                                    .padding(.horizontal, 8)
                                 if type == .expense {
                                     ReusableTitleView(title: "Notes", description: "", errorState: $viewModel.notesErrorState){
                                         TextFieldComponent(field: $viewModel.fieldNote, placeholder: "Notes for this expenses", errorState:.constant(false))
                                     }
+                                    .padding(8)
                                 }
                             }
                             .navigationBarTitle(type == .expense ? "New Expense" : "New Saving")
@@ -75,7 +80,7 @@ struct NewRecord: View {
                                     } label: {
                                         Text("Save")
                                             .bold()
-                                    }.disabled(viewModel.budgetSelected == "" && viewModel.amount == "0")
+                                    }.disabled(viewModel.budgetSelected == "" || viewModel.amount == "0")
                                 }
                                 ToolbarItem(placement: .navigationBarLeading) {
                                     Button {
@@ -117,7 +122,6 @@ final class NewRecordViewModel: ObservableObject {
     
     func addExpense(){
         let _ =  ExpenseDataSource.shared.createExpense(amount: Double(amount) ?? 0, date: selectedDate, notes: fieldNote, budget: budgetSelected)
-        
     }
     
     func addSaving(){

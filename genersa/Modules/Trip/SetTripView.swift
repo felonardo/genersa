@@ -23,6 +23,9 @@ struct SetTripView: View {
                         ReusableTitleView(title: "Trip Name", description: "Maximum character for trip name is 12 characters.", errorState: $viewModel.errorState, warningDescription: true){
                             TextFieldComponent(field: $viewModel.fieldTrip, placeholder: "My Trip", errorState: $viewModel.errorState)
                         }
+                        .onTapGesture {
+                            endTextEditing()
+                        }
                         ReusableTitleView(title: "Trip Date", description: "", errorState: .constant(false)){
                             HStack {
                                 Spacer()
@@ -50,9 +53,6 @@ struct SetTripView: View {
         }
         .padding(16)
         .navigationBarTitle("Set Trip", displayMode: .inline)
-        .onTapGesture {
-            endTextEditing()
-        }
     }
 }
 

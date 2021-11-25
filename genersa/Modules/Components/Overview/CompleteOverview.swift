@@ -22,7 +22,7 @@ struct CompleteOverview: View {
                     BudgetOverview(budget: budget)
                 }
             }
-            .padding(.horizontal, 16)
+            .padding(16)
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Overview")
