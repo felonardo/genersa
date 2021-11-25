@@ -77,7 +77,7 @@ struct NewRecord: View {
                             }) {
                                 Text("Save")
                                     .bold()
-                                    .disabled(viewModel.budgetSelected == "")
+                                    .disabled(viewModel.amount == "0" || viewModel.budgetSelected == "")
                             })
                             .padding(8)
                             Spacer()
