@@ -15,7 +15,21 @@ struct MainPageView: View {
             NSSortDescriptor(keyPath: \Expense.date, ascending: false)
         ]) var expenses: FetchedResults<Expense>
     
+    @FetchRequest(
+        entity: Budget.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
+        ]) var budgets: FetchedResults<Budget>
+    
+    
+    @FetchRequest(
+        entity: Expense.entity(),
+        sortDescriptors: [
+
+        ]) var savingRecords: FetchedResults<SavingRecord>
+    
     @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
+
     @ObservedObject private var viewModel: MainPageViewModel
     
     
@@ -24,92 +38,99 @@ struct MainPageView: View {
     }
     
     var body: some View {
-        VStack {
-            ScrollView {
-                VStack {
-                    Divider()
-                    MainComponent(title: "Overview") {
-                        Overview()
-                    }
-                    .padding(16)
-                    MainComponent(title: "Budgets", buttonTitle: "New Budget") {
-                        viewModel.presentingNewBudget.toggle()
-                    } content: {
-                        BudgetList(isPresented: $viewModel.presentingEditBudget)
-                            .padding(.horizontal, -16)
-                            .sheet(isPresented: $viewModel.presentingNewBudget, onDismiss: nil) {
-                                BudgetFormModal(title: "New Budget", isPresented: $viewModel.presentingNewBudget)
+//        if tripSet {
+            VStack {
+                ScrollView {
+                    VStack {
+                        Divider()
+                        MainComponent(title: "Overview") {
+                            Overview()
+                        }
+                        .padding(16)
+                        MainComponent(title: "Budgets", buttonTitle: "New Budget") {
+                            viewModel.presentingNewBudget.toggle()
+                        } content: {
+                            BudgetList(isPresented: $viewModel.presentingEditBudget)
+                                .padding(.horizontal, -16)
+                                .sheet(isPresented: $viewModel.presentingNewBudget, onDismiss: nil) {
+                                    BudgetFormModal(title: "New Budget", isPresented: $viewModel.presentingNewBudget)
+                                }
+                        }
+                        .padding(16)
+                        MainComponent(title: "Expenses", buttonTitle: "New Expense") {
+                            viewModel.presentingAddExpense.toggle()
+                        } content: {
+                            VStack(spacing: 16) {
+                                if expenses.count != 0 {
+                                    ExpensesList(recents: true)
+                                    if expenses.count > 3 {
+                                        CustomNavigationLink(
+                                            title: "See More",
+                                            type: .secondary,
+                                            fullWidth: false,
+                                            destination:
+                                                ExpensesList(recents: false))
+                                    }
+                                } else {
+                                    Image("EmptyState")
+                                    Text("No Expense Yet \n Your Future Expense will return here").multilineTextAlignment(.center)
+                                        .foregroundColor(.gray)
+                                }
                             }
-                    }
-                    .padding(16)
-                    MainComponent(title: "Expenses", buttonTitle: "New Expense") {
-                        viewModel.presentingAddExpense.toggle()
-                    } content: {
-                        VStack(spacing: 16) {
-                            if expenses.count != 0 {
-                                ExpensesList(recents: true)
-                                if expenses.count > 3 {
+                            .sheet(isPresented: $viewModel.presentingAddExpense, onDismiss: nil) {
+                                NewRecord(isPresented: $viewModel.presentingAddExpense, type: .expense)
+                            }
+                        }
+                        .padding(16)
+                        MainComponent(title: "Savings", buttonTitle: "New Saving") {
+                            viewModel.presentingAddSavingRecord.toggle()
+                        } content: {
+                            VStack(spacing: 16) {
+                                SavingsList(recents: true)
+                                if savingRecords.count > 3 {
                                     CustomNavigationLink(
                                         title: "See More",
                                         type: .secondary,
                                         fullWidth: false,
                                         destination:
-                                            ExpensesList(recents: false))
+                                            SavingsList())
                                 }
-                            } else {
-                                Image("EmptyState")
-                                Text("No Expense Yet \n Your Future Expense will return here").multilineTextAlignment(.center)
-                                    .foregroundColor(.gray)
                             }
-                           
-                        }
-                        .sheet(isPresented: $viewModel.presentingAddExpense, onDismiss: nil) {
-                            NewRecord(isPresented: $viewModel.presentingAddExpense, type: .expense)
-                        }
-                    }
-                    .padding(16)
-                    MainComponent(title: "Savings", buttonTitle: "New Saving") {
-                        viewModel.presentingAddSavingRecord.toggle()
-                    } content: {
-                        VStack(spacing: 16) {
-                            SavingsList(recents: true)
-                            if viewModel.savingRecords.count > 3 {
-                                CustomNavigationLink(
-                                    title: "See More",
-                                    type: .secondary,
-                                    fullWidth: false,
-                                    destination:
-                                        SavingsList())
+                            .sheet(isPresented: $viewModel.presentingAddSavingRecord, onDismiss: nil) {
+                                NewRecord(isPresented: $viewModel.presentingAddSavingRecord, type: .saving)
                             }
                         }
-                        .sheet(isPresented: $viewModel.presentingAddSavingRecord, onDismiss: nil) {
-                            NewRecord(isPresented: $viewModel.presentingAddSavingRecord, type: .saving)
+                        .padding(16)
+                    }
+                }
+                .navigationTitle(viewModel.tripName)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink {
+                            SettingsView()
+                        } label: {
+                            Image(systemName: "gearshape.fill")
+                                .foregroundColor(.customPrimary)
                         }
+                        
                     }
-                    .padding(16)
                 }
             }
-            .navigationTitle(viewModel.tripName)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink {
-                        SettingsView()
-                    } label: {
-                        Image(systemName: "gearshape.fill")
-                            .foregroundColor(.customPrimary)
-                    }
-
-                }
-            }
-        }
+//        }
     }
 }
 
 struct DummyMainPageView: View {
+    
+    @AppStorage("tripSet") var tripSet: Bool = false
+    
     var body: some View {
-        MainPageView()
-            .navigationTitle("Bali 2022")
-            .navigationBarTitleDisplayMode(.inline)
+        
+        if tripSet {
+            MainPageView()
+                .navigationTitle("Bali 2022")
+                .navigationBarTitleDisplayMode(.inline)
+        }
     }
 }
 
