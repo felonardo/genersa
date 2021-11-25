@@ -61,24 +61,33 @@ struct NewRecord: View {
                             }
                             .navigationBarTitle(type == .expense ? "New Expense" : "New Saving")
                             .navigationBarTitleDisplayMode(.inline)
-                            .navigationBarItems(leading: Button(action: {
-                                isPresented.toggle()
-                            }) {
-                                Text("Cancel").bold()
-                            }, trailing: Button(action: {
-                                switch type {
-                                case .expense:
-                                    viewModel.addExpense()
-                                    
-                                case .saving:
-                                    viewModel.addSaving()
+                            .toolbar {
+                                ToolbarItem(placement: .navigationBarTrailing) {
+                                    Button {
+                                        switch type {
+                                        case .expense:
+                                            viewModel.addExpense()
+                                            
+                                        case .saving:
+                                            viewModel.addSaving()
+                                        }
+                                        isPresented.toggle()
+                                    } label: {
+                                        Text("Save")
+                                            .bold()
+                                    }.disabled(viewModel.budgetSelected == "" && viewModel.amount == "0")
                                 }
-                                isPresented.toggle()
-                            }) {
-                                Text("Save")
-                                    .bold()
-                                    .disabled(viewModel.amount == "0" || viewModel.budgetSelected == "")
-                            })
+                                ToolbarItem(placement: .navigationBarLeading) {
+                                    Button {
+                                        isPresented.toggle()
+                                    } label: {
+                                        Text("Cancel")
+                                    }
+                                }
+                            }
+                            .onTapGesture {
+                                endTextEditing()
+                            }
                             .padding(8)
                             Spacer()
                         }

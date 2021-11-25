@@ -9,25 +9,6 @@ import SwiftUI
 
 final class MainPageViewModel: ObservableObject {
     
-    @FetchRequest(
-        entity: Budget.entity(),
-        sortDescriptors: [
-            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
-        ]) var budgets: FetchedResults<Budget>
-    
-    @FetchRequest(
-        entity: Expense.entity(),
-        sortDescriptors: [
-            
-        ]) var expenses: FetchedResults<Expense>
-    
-    
-    @FetchRequest(
-        entity: Expense.entity(),
-        sortDescriptors: [
-
-        ]) var savingRecords: FetchedResults<SavingRecord>
-    
     @AppStorage("tripName") var tripName: String = ""
     
     @Published var presentingNewBudget: Bool = false
