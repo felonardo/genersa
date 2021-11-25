@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ExpensesList: View {
     
+    @Environment(\.managedObjectContext) private var managedObjectContext
+    
     @FetchRequest(
         entity: Budget.entity(),
         sortDescriptors: [
