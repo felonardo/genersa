@@ -20,16 +20,11 @@ struct EmptyStateCardView: View {
     
     var body: some View {
         ZStack{
-            RoundedRectangle(cornerRadius: 20)
-                .frame(width: 354, height: 424, alignment: .center)
-                .foregroundColor(.customPrimary.opacity(0.1))
-                
             VStack(){
                 XButtonView(isShowing: $isShowing)
                 Image(image)
                     .resizable()
                     .frame(width: width, height: height, alignment: .center)
-                    .padding(6)
                 VStack(alignment: .leading){
                     Text(headlineText)
                         .font(.headline)
@@ -38,13 +33,17 @@ struct EmptyStateCardView: View {
                         .multilineTextAlignment(.leading)
                     Text(bodyText)
                         .frame(width: 297, height: 48, alignment: .leading)
-                }
+                }.padding(.bottom, 5)
                 
-                CustomButton(title: btnTitle, type: .primary, fullWidth: false) {
+                CustomButton(title: btnTitle, type: .primary, fullWidth: true) {
                     
-                }.padding(25)
+                }.padding(.horizontal, 40)
                 
             }
+            .frame(width: 354, height: 368)
+            .background(RoundedRectangle(cornerRadius: 20)
+                .foregroundColor(.customPrimary.opacity(0.1)))
+            
         }
     }
 }
@@ -53,7 +52,7 @@ struct EmptyStateCardView_Previews: PreviewProvider {
 //    @State private var isAdShowing = true
     
     static var previews: some View {
-        EmptyStateCardView(image: "SetupBudget_ES", width: 125, height: 171, headlineText: "Set Up Your Budget ", bodyText: "Your set budget will act as your saving goal and expense limit.", btnTitle: "                    Set Budget                    ")
+        EmptyStateCardView(image: "SetupBudget_ES", width: 125, height: 171, headlineText: "Set Up Your Budget ", bodyText: "Your set budget will act as your saving goal and expense limit.", btnTitle: "Set Budget")
     }
 }
 
@@ -69,7 +68,8 @@ struct XButtonView: View {
                 .font(Font.body.weight(.bold))
                 .foregroundColor(.gray)
                 .frame(width: 315, height: 28, alignment: .trailing)
-            
+
         }
+        
     }
 }
