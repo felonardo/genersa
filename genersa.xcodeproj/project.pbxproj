@@ -70,6 +70,7 @@
 		A7FF4201273B5512007B271F /* SetTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FF4200273B5512007B271F /* SetTripViewModel.swift */; };
 		E88AE02827353F4D001AD969 /* AvatarComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88AE02727353F4D001AD969 /* AvatarComponentView.swift */; };
 		E8C5D23D2739251B00F504FC /* AvatarPickerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C5D23C2739251B00F504FC /* AvatarPickerComponent.swift */; };
+		E8DBF0002750989300792DA9 /* EmptyStateCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DBEFFF2750989300792DA9 /* EmptyStateCardView.swift */; };
 		E8DC4FE2273A1EA9005E9668 /* CreateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DC4FE1273A1EA9005E9668 /* CreateProfileView.swift */; };
 		E8DC4FE8273A437D005E9668 /* AvatarListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DC4FE7273A437D005E9668 /* AvatarListViewModel.swift */; };
 		E8DC4FEA273A488A005E9668 /* AvatarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DC4FE9273A488A005E9668 /* AvatarIcon.swift */; };
@@ -144,6 +145,7 @@
 		A7FF4200273B5512007B271F /* SetTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTripViewModel.swift; sourceTree = "<group>"; };
 		E88AE02727353F4D001AD969 /* AvatarComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarComponentView.swift; sourceTree = "<group>"; };
 		E8C5D23C2739251B00F504FC /* AvatarPickerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerComponent.swift; sourceTree = "<group>"; };
+		E8DBEFFF2750989300792DA9 /* EmptyStateCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateCardView.swift; sourceTree = "<group>"; };
 		E8DC4FE1273A1EA9005E9668 /* CreateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileView.swift; sourceTree = "<group>"; };
 		E8DC4FE7273A437D005E9668 /* AvatarListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListViewModel.swift; sourceTree = "<group>"; };
 		E8DC4FE9273A488A005E9668 /* AvatarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarIcon.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 		7E08C16E27345FD900F269BD /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E8DBEFFE2750972700792DA9 /* EmptyState */,
 				A79B4F8127353820004B2F19 /* CustomButton.swift */,
 				E88AE02627353F2C001AD969 /* Avatar */,
 				7E17114627353A090086A78F /* Icon */,
@@ -493,6 +496,14 @@
 			path = Avatar;
 			sourceTree = "<group>";
 		};
+		E8DBEFFE2750972700792DA9 /* EmptyState */ = {
+			isa = PBXGroup;
+			children = (
+				E8DBEFFF2750989300792DA9 /* EmptyStateCardView.swift */,
+			);
+			path = EmptyState;
+			sourceTree = "<group>";
+		};
 		E8DC4FEB273A4BA6005E9668 /* CreateProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -626,6 +637,7 @@
 				7E17114E27353DBE0086A78F /* Overview.swift in Sources */,
 				A79B4F8227353820004B2F19 /* CustomButton.swift in Sources */,
 				7E17115E273586760086A78F /* BudgetCard.swift in Sources */,
+				E8DBF0002750989300792DA9 /* EmptyStateCardView.swift in Sources */,
 				7E30504F27439FB900F59B58 /* MainPageViewModel.swift in Sources */,
 				A7B7E2682722BA08002B6EF7 /* ContentView.swift in Sources */,
 				7E6100CE2734FB230084B014 /* Currency.swift in Sources */,
