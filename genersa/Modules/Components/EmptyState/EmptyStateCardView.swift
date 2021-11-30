@@ -19,13 +19,13 @@ struct EmptyStateCardView: View {
     let btnTitle: String
     
     var body: some View {
-        ZStack{
-            VStack(){
+        ZStack {
+            VStack {
                 XButtonView(isShowing: $isShowing)
                 Image(image)
                     .resizable()
                     .frame(width: width, height: height, alignment: .center)
-                VStack(alignment: .leading){
+                VStack(alignment: .leading) {
                     Text(headlineText)
                         .font(.headline)
                         .fontWeight(.bold)
@@ -33,11 +33,13 @@ struct EmptyStateCardView: View {
                         .multilineTextAlignment(.leading)
                     Text(bodyText)
                         .frame(width: 297, height: 48, alignment: .leading)
-                }.padding(.bottom, 5)
+                }
+                .padding(.bottom, 5)
                 
                 CustomButton(title: btnTitle, type: .primary, fullWidth: true) {
                     
-                }.padding(.horizontal, 40)
+                }
+                .padding(.horizontal, 40)
                 
             }
             .frame(width: 354, height: 368)
