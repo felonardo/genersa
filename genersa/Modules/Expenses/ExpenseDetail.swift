@@ -46,7 +46,7 @@ struct ExpenseDetail: View {
                             Alert(title: Text("Are you sure?"), message: Text("Deleting expense is permanent, and you can't recover the data."), primaryButton: .destructive(Text("Delete"), action: {
                                 
                                 
-                                viewModel.DeleteExpense()
+                                viewModel.deleteExpense()
                             }), secondaryButton: .cancel())
                         }
                     }
@@ -68,9 +68,9 @@ struct ExpenseDetail: View {
                         Text("Save")
                             .bold()
                     }
-                    .alert("Expense edited", isPresented: $viewModel.isPresentingEditAlert) {
+                    .alert("Expense successfully updated.", isPresented: $viewModel.isPresentingEditAlert) {
                         Button("OK", role: .cancel) {
-                            viewModel.EditExpense()
+                            viewModel.editExpense()
                             self.dismiss()
                         }
                     }
@@ -108,14 +108,12 @@ final class DetailExpenseViewModel: ObservableObject {
         }
     }
     
-    func DeleteExpense(){
-        ExpenseDataSource.shared.deleteExpense(id: expenseId!)
-        print("expense deleted")
+    func deleteExpense() {
+        let _ = ExpenseDataSource.shared.deleteExpense(id: expenseId!)
     }
     
-    func EditExpense(){
-        ExpenseDataSource.shared.updateExpense(id: expenseId!, amount: Double(amount), budget: budgetSelected, date: selectedDate, notes: fieldNote)
-        print("expense edited")
+    func editExpense() {
+        let _ = ExpenseDataSource.shared.updateExpense(id: expenseId!, amount: Double(amount), budget: budgetSelected, date: selectedDate, notes: fieldNote)
     }
     
 }

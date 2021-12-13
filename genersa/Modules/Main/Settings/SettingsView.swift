@@ -58,11 +58,11 @@ struct SettingsView: View {
                             .foregroundColor(.black)
                     }.padding(4)
                 }
-                CustomButton(title: "Delete Trip", type: .secondary, fullWidth: true){
+                CustomButton(title: "Reset Trip", type: .secondary, fullWidth: true){
                     viewModel.isPresentingDeleteAlert = true
                 }
                 .alert(isPresented: $viewModel.isPresentingDeleteAlert) {
-                    Alert(title: Text("Are you sure?"), message: Text("Deleting trip is permanent, and you can't recover the data."), primaryButton: .destructive(Text("Delete"), action: {
+                    Alert(title: Text("Are you sure?"), message: Text("Resetting a trip is permanent, and you can't recover your data."), primaryButton: .destructive(Text("Delete"), action: {
                         if let appDomain = Bundle.main.bundleIdentifier {
                             UserDefaults.standard.removePersistentDomain(forName: appDomain)
                             BudgetDataSource.shared.deleteAll()
