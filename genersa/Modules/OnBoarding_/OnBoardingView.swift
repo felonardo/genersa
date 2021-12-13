@@ -14,9 +14,9 @@ struct OnBoardingStep {
 }
 
 private let onBoardingSteps = [
-    OnBoardingStep(image: "ob1", title: "Travel Finance Manager in One App", description: "Manage your travel budget, saving, and expense with Vellas."),
-    OnBoardingStep(image: "ob2", title: "No More Overspending during Travel ", description: "Keep track of your travel expenses to stay inline with your budget."),
-    OnBoardingStep(image: "ob3", title: "Start Saving for Your Needed Travel Budget", description: "Track your savings and achieve your needed travel budget in time.")
+    OnBoardingStep(image: "Onboarding 1", title: "Travel Finance Manager in One App", description: "Manage your travel budget, saving, and expense with Vellas."),
+    OnBoardingStep(image: "Onboarding 2", title: "No More Overspending during Travel ", description: "Keep track of your travel expenses to stay inline with your budget."),
+    OnBoardingStep(image: "Onboarding 3", title: "Start Saving for Your Needed Travel Budget", description: "Track your savings and achieve your needed travel budget in time.")
     
     
 ]
