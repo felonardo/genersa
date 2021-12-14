@@ -62,31 +62,47 @@ struct MainPageView: View {
                                             BudgetList(recents: false, isPresented: $viewModel.presentingEditBudget))
                                 }
                             } else {
-                                Image("EmptyState")
-                                Text("No Budget Yet \n Your Future Expense will return here").multilineTextAlignment(.center)
-                                    .foregroundColor(.gray)
+                                EmptyStateCardView(image: "SetupBudget_ES", width: 125, height: 171, headlineText: "Set Up Your Budget ", bodyText: "Your set budget will act as your saving goal and expense limit.", btnTitle: "Set Budget"){
+                                    CustomButton(title: "Set Budget", type: .primary, fullWidth: true) {
+                                        viewModel.presentingNewBudget.toggle()
+                                    }
+                                }
+                                
                             }
                         }
                         .sheet(isPresented: $viewModel.presentingNewBudget, onDismiss: nil) {
-                            BudgetFormModal(title: "New Budget", isPresented: $viewModel.presentingNewBudget)
+                            if budgets.count != 0 {
+                                BudgetFormModal(title: "New Budget", isPresented: $viewModel.presentingNewBudget)
+                            } else {
+                                SetupBudgetFormModal(headline: "lalala", subheadline: "llilil", isPresented: $viewModel.presentingNewBudget)
+                            }
                         }
                     }
                     .padding(16)
-
+                    
                     MainComponent(title: "Savings", buttonTitle: "New Saving") {
                         viewModel.presentingAddSavingRecord.toggle()
                     } content: {
                         VStack(spacing: 16) {
-                            SavingsList(recents: true)
-                                .background(RoundedRectangle(cornerRadius: 20)
-                                                .foregroundColor(.customPrimary.opacity(0.1)))
-                            if savingRecords.count > 3 {
-                                CustomNavigationLink(
-                                    title: "See More",
-                                    type: .secondary,
-                                    fullWidth: false,
-                                    destination:
-                                        SavingsList())
+                            
+                            if savingRecords.count != 0 {
+                                SavingsList(recents: true)
+                                    .background(RoundedRectangle(cornerRadius: 20)
+                                                    .foregroundColor(.customPrimary.opacity(0.1)))
+                                if savingRecords.count > 3 {
+                                    CustomNavigationLink(
+                                        title: "See More",
+                                        type: .secondary,
+                                        fullWidth: false,
+                                        destination:
+                                            SavingsList())
+                                }
+                            } else {
+                                EmptyStateCardView(image: "TrackSavings_ES", width: 125, height: 171, headlineText: "Set Up Your Budget ", bodyText: "Your set budget will act as your saving goal and expense limit.", btnTitle: "Set Budget"){
+                                    CustomButton(title: "Set Budget", type: .primary, fullWidth: true) {
+                                        viewModel.presentingNewBudget.toggle()
+                                    }
+                                }
                             }
                         }
                         .sheet(isPresented: $viewModel.presentingAddSavingRecord, onDismiss: nil) {
@@ -110,9 +126,11 @@ struct MainPageView: View {
                                             ExpensesList(recents: false))
                                 }
                             } else {
-                                Image("EmptyState")
-                                Text("No Expense Yet \n Your Future Expense will return here").multilineTextAlignment(.center)
-                                    .foregroundColor(.gray)
+                                EmptyStateCardView(image: "TrackExpense_ES", width: 125, height: 171, headlineText: "Set Up Your Budget ", bodyText: "Your set budget will act as your saving goal and expense limit.", btnTitle: "Set Budget"){
+                                    CustomButton(title: "Set Budget", type: .primary, fullWidth: true) {
+                                        viewModel.presentingNewBudget.toggle()
+                                    }
+                                }
                             }
                         }
                         .sheet(isPresented: $viewModel.presentingAddExpense, onDismiss: nil) {

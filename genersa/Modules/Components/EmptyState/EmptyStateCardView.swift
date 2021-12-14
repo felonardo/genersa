@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EmptyStateCardView: View {
+struct EmptyStateCardView<Content: View>: View {
     
     @State private var isShowing = true
     
@@ -17,6 +17,17 @@ struct EmptyStateCardView: View {
     let headlineText: String
     let bodyText: String
     let btnTitle: String
+    let content: Content
+    
+    init(image: String, width: CGFloat, height: CGFloat, headlineText: String, bodyText: String, btnTitle: String, @ViewBuilder content: @escaping () -> Content) {
+        self.image = image
+        self.width = width
+        self.height = height
+        self.headlineText = headlineText
+        self.bodyText = bodyText
+        self.btnTitle = btnTitle
+        self.content = content()
+    }
     
     var body: some View {
         ZStack {
@@ -36,27 +47,36 @@ struct EmptyStateCardView: View {
                 }
                 .padding(.bottom, 5)
                 
-                CustomButton(title: btnTitle, type: .primary, fullWidth: true) {
-                    
-                }
-                .padding(.horizontal, 40)
+                //                CustomButton(title: btnTitle, type: .primary, fullWidth: true) {
+                //
+                //                }
+                content
+                    .padding(.horizontal, 40)
                 
             }
             .frame(width: 354, height: 368)
             .background(RoundedRectangle(cornerRadius: 20)
-                .foregroundColor(.customPrimary.opacity(0.1)))
+                            .foregroundColor(.customPrimary.opacity(0.1)))
             
         }
     }
 }
 
-struct EmptyStateCardView_Previews: PreviewProvider {
-//    @State private var isAdShowing = true
-    
-    static var previews: some View {
-        EmptyStateCardView(image: "SetupBudget_ES", width: 125, height: 171, headlineText: "Set Up Your Budget ", bodyText: "Your set budget will act as your saving goal and expense limit.", btnTitle: "Set Budget")
-    }
-}
+//struct EmptyStateCardView_Previews: PreviewProvider {
+////    @State private var isShowing = true
+//
+//    static var previews: some View {
+//        ScrollView{
+//        LazyVStack{
+//        EmptyStateCardView(image: "SetupBudget_ES", width: 125, height: 171, headlineText: "Set Up Your Budget ", bodyText: "Your set budget will act as your saving goal and expense limit.", btnTitle: "Set Budget")
+//
+//        EmptyStateCardView(image: "TrackExpense_ES", width: 125, height: 171, headlineText: "Set Up Your Budget ", bodyText: "Your set budget will act as your saving goal and expense limit.", btnTitle: "Set Budget")
+//
+//        EmptyStateCardView(image: "TrackSavings_ES", width: 125, height: 171, headlineText: "Set Up Your Budget ", bodyText: "Your set budget will act as your saving goal and expense limit.", btnTitle: "Set Budget")
+//        }
+//        }
+//    }
+//}
 
 struct XButtonView: View {
     @Binding var isShowing: Bool
@@ -70,7 +90,7 @@ struct XButtonView: View {
                 .font(Font.body.weight(.bold))
                 .foregroundColor(.gray)
                 .frame(width: 315, height: 28, alignment: .trailing)
-
+            
         }
         
     }

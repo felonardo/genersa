@@ -40,8 +40,8 @@ struct SetTripView: View {
                 Spacer()
                 CustomButton(title: "Continue", type: .primary, fullWidth: true) {
                     viewModel.tripSet = true
-                    viewModel.initBudget()
-                    viewModel.initSavingRecord()
+//                    viewModel.initBudget()
+//                    viewModel.initSavingRecord()
                 }
                 .disabled(viewModel.fieldTrip.isEmpty || viewModel.errorState )
             }

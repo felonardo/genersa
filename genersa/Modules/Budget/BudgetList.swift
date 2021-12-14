@@ -46,7 +46,7 @@ struct BudgetList: View {
                 }
             }
             .sheet(isPresented: $viewModel.isPresented, onDismiss: nil) {
-                BudgetFormModal(title: "Edit Budget", isPresented: $viewModel.isPresented, budget: self.selectedBudget)
+                BudgetFormModal(title: "Budget Detail", isPresented: $viewModel.isPresented, budget: self.selectedBudget)
             }
         } else {
             ScrollView {

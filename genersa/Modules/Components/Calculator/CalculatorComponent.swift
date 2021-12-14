@@ -15,12 +15,9 @@ struct CalculatorField: View {
     @Binding var isPresented: Bool
     
     var body: some View{
-        VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .trailing, spacing: 4) {
             Text(finalValue.toCurrency(currency))
                 .font(.title3)
-            Divider()
-                .frame(height: 1)
-                .foregroundColor(.gray)
             
         }
         .contentShape(Rectangle())

@@ -43,57 +43,62 @@ struct BudgetFormModal: View {
                         }
                         BudgetIconSelector(selectedBudget: $viewModel.budgetIcon)
                             .padding(.bottom, 16)
-                        ReusableTitleView(title: "Budget Name", description: "Maximum characters for budget name is 12 characters or name already exists.", errorState: $viewModel.budgetNameError, warningDescription: true) {
-                            TextFieldComponent(field: $viewModel.budgetName , placeholder: "Transportation", errorState: $viewModel.budgetNameError)
-                        }
-                        .padding(.horizontal, 16)
-                        ReusableTitleView(title: "Budget Amount", description: "", errorState: .constant(false)){
-                            HStack{
-                                CalculatorField(finalValue: $viewModel.fieldBudget, isPresented: $viewModel.presentingCalculator)
-                                CurrencyPicker()
+                        VStack {
+                            NewFormField(title: "Budget Name"){
+                                TextFieldComponent(field: $viewModel.budgetName, placeholder: "Transportation", errorState: .constant(false))
+                                    .multilineTextAlignment(.trailing)
                             }
-                        }
-                        .padding(.horizontal, 16)
+                            Divider()
+                            NewFormField(title: "Budget Name"){
+                                CalculatorField(finalValue: $viewModel.fieldBudget, isPresented: $viewModel.presentingCalculator)
+                                    .multilineTextAlignment(.trailing)
+                            }
                     }
-                    Spacer()
-                }
-                .ignoresSafeArea(.keyboard, edges: .bottom)
-                .navigationTitle(title)
-                .navigationBarTitleDisplayMode(.inline)
-                HalfASheet(isPresented: $viewModel.presentingCalculator){
-                    CalculatorComponent(finalValue: $viewModel.fieldBudget, isPresented: $viewModel.presentingCalculator)
-                }.disableDragToDismiss
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        viewModel.isPresented.toggle()
-                        if viewModel.budgetId != nil {
-                            viewModel.editBudget()
-                        } else {
-                            viewModel.createBudget()
-                        }
-                    } label: {
-                        Text("Save")
-                            .bold()
-                    }.disabled(viewModel.budgetName.description.isEmpty || viewModel.budgetNameError)
-                }
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        viewModel.isPresented.toggle()
-                    } label: {
-                        Text("Cancel")
+                    .background(RoundedRectangle(cornerRadius: 20)
+                                    .foregroundColor(.customPrimary.opacity(0.1)))
+                    .padding(.horizontal, 16)
+                    
                     }
-                }
+                
+                Spacer()
             }
-            .onTapGesture {
-                endTextEditing()
+            .ignoresSafeArea(.keyboard, edges: .bottom)
+            .navigationTitle(title)
+            .navigationBarTitleDisplayMode(.inline)
+            HalfASheet(isPresented: $viewModel.presentingCalculator){
+                CalculatorComponent(finalValue: $viewModel.fieldBudget, isPresented: $viewModel.presentingCalculator)
+            }.disableDragToDismiss
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    viewModel.isPresented.toggle()
+                    if viewModel.budgetId != nil {
+                        viewModel.editBudget()
+                    } else {
+                        viewModel.createBudget()
+                    }
+                } label: {
+                    Text("Save")
+                        .bold()
+                }.disabled(viewModel.budgetName.description.isEmpty || viewModel.budgetNameError)
+            }
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    viewModel.isPresented.toggle()
+                } label: {
+                    Text("Cancel")
+                }
             }
         }
         .onTapGesture {
-            self.dismissKeyboard()
+            endTextEditing()
         }
     }
+        .onTapGesture {
+            self.dismissKeyboard()
+        }
+}
 }
 
 struct BudgetIconSelector: View {

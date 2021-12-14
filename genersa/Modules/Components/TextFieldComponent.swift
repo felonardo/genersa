@@ -26,7 +26,7 @@ struct TextFieldComponent: View {
             HStack {
                 TextField(placeholder, text: $field)
                     .foregroundColor(errorState ? Color.red : Color.black)
-                    .multilineTextAlignment(.leading)
+                    .multilineTextAlignment(.trailing)
                 if isEditing {
                     Image(systemName: "pencil")
                         .font(.title2)
@@ -35,9 +35,9 @@ struct TextFieldComponent: View {
                 }
             }
             .padding(.vertical, 8)
-            Divider()
-                .frame(height: 1)
-                .foregroundColor(errorState ? .red : .gray)
+//            Divider()
+//                .frame(height: 1)
+//                .foregroundColor(errorState ? .red : .gray)
         }
     }
 }
