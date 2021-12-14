@@ -19,6 +19,7 @@ extension Color {
     static let eight = Color(hex: "00ADBF")
     static let nine = Color(hex: "00C4D9")
     static let ten = Color(hex: "00DBF2")
+    static let eleven = Color(hex: "E6F5F6")
     
     static let customPrimary = Color(hex: "0096A6")
     
