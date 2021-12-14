@@ -69,6 +69,7 @@
 		A7FAE4AF2738FD6E0097793C /* HalfASheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FAE4AE2738FD6E0097793C /* HalfASheet.swift */; };
 		A7FF41FF273B54F9007B271F /* SetTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FF41FE273B54F9007B271F /* SetTripView.swift */; };
 		A7FF4201273B5512007B271F /* SetTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FF4200273B5512007B271F /* SetTripViewModel.swift */; };
+		E814D3FF27549DDE00573D5E /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E814D3FE27549DDE00573D5E /* OnBoardingView.swift */; };
 		E88AE02827353F4D001AD969 /* AvatarComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88AE02727353F4D001AD969 /* AvatarComponentView.swift */; };
 		E8C5D23D2739251B00F504FC /* AvatarPickerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C5D23C2739251B00F504FC /* AvatarPickerComponent.swift */; };
 		E8C97FFB2767BC95001D0D36 /* TripSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C97FFA2767BC95001D0D36 /* TripSettingsView.swift */; };
@@ -148,6 +149,7 @@
 		A7FAE4AE2738FD6E0097793C /* HalfASheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfASheet.swift; sourceTree = "<group>"; };
 		A7FF41FE273B54F9007B271F /* SetTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTripView.swift; sourceTree = "<group>"; };
 		A7FF4200273B5512007B271F /* SetTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTripViewModel.swift; sourceTree = "<group>"; };
+		E814D3FE27549DDE00573D5E /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		E88AE02727353F4D001AD969 /* AvatarComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarComponentView.swift; sourceTree = "<group>"; };
 		E8C5D23C2739251B00F504FC /* AvatarPickerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerComponent.swift; sourceTree = "<group>"; };
 		E8C97FFA2767BC95001D0D36 /* TripSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSettingsView.swift; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 		A7E353612727CB0C004E999A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E814D3FD27549DB900573D5E /* OnBoarding_ */,
 				7E3050462743684600F59B58 /* NewRecord */,
 				E8DC4FEB273A4BA6005E9668 /* CreateProfile */,
 				7E08C16E27345FD900F269BD /* Components */,
@@ -497,6 +500,14 @@
 				A7E3537127280180004E999A /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E814D3FD27549DB900573D5E /* OnBoarding_ */ = {
+			isa = PBXGroup;
+			children = (
+				E814D3FE27549DDE00573D5E /* OnBoardingView.swift */,
+			);
+			path = OnBoarding_;
 			sourceTree = "<group>";
 		};
 		E88AE02627353F2C001AD969 /* Avatar */ = {
@@ -669,6 +680,7 @@
 				7E08C1632734571D00F269BD /* DateFormatter+WithFormat.swift in Sources */,
 				A75924ED274CCB00000C0218 /* ExpenseDetail.swift in Sources */,
 				7EDF2FAD2742203A002F7B35 /* Palette.swift in Sources */,
+				E814D3FF27549DDE00573D5E /* OnBoardingView.swift in Sources */,
 				7E895FE5274B924900EA586D /* AvatarIconSelector.swift in Sources */,
 				E88AE02827353F4D001AD969 /* AvatarComponentView.swift in Sources */,
 				A7E3536D2727CC74004E999A /* Persistance.swift in Sources */,
