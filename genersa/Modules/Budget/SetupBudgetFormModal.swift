@@ -61,6 +61,7 @@ struct SetupBudgetFormModal: View {
                                 .foregroundColor(.customPrimary.opacity(0.1)))
                 CustomButton(title: "Next", type: .primary, fullWidth: true) {
                     withAnimation {
+                        viewModel.presentingCalculator = false
                         selection = 1
                     }
                 }
@@ -75,7 +76,7 @@ struct SetupBudgetFormModal: View {
                 ReusableSetupComponent(headline: "Do you want to categorize budget?", subheadline: "Categorizing budget can help you focus on how you'll spend money while travel", image:"SetupBudget2", width: 97, height: 166, viewModel: viewModel, selection: $selection)
                 CustomButton(title: "Skip", type: .secondary, fullWidth: true) {
                     withAnimation {
-                        selection = 1
+                        
                     }
                 }
                 CustomButton(title: "Category Budget", type: .primary, fullWidth: true) {

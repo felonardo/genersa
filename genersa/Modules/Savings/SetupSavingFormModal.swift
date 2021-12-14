@@ -25,21 +25,7 @@ struct SetupSavingFormModal: View {
                 .resizable()
                 .frame(width: 192, height: 162, alignment: .center)
             VStack{
-                
-//                DateTimePicker(text: "Start Date", date: $startDate)
-//                Divider()
-//                DateTimePicker(text: "End Date", date: $startDate)
-//                DatePicker("Enter your date", selection: $endDate, displayedComponents: .date)
                 TripDatePickerAlternative()
-//                            .datePickerStyle(GraphicalDatePickerStyle())
-                
-//                NewFormField(title: "Start Date"){
-//                    TextFieldComponent(field: $s, placeholder: "lalala", errorState: .constant(false))
-//                }
-//                NewFormField(title: "End Date"){
-//                    TextFieldComponent(field: $s, placeholder: "lalala", errorState: .constant(false))
-//                }
-                
                 
             }
             .background(RoundedRectangle(cornerRadius: 20)

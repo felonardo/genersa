@@ -44,6 +44,7 @@ class BudgetDataSource {
             newBudget.amountUsed = amountUsed
             newBudget.name = name
             newBudget.icon = icon
+            print(newBudget)
             budgets.append(newBudget)
             PersistenceController.shared.save()
             return true
