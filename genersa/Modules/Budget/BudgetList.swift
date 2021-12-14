@@ -16,33 +16,61 @@ struct BudgetList: View {
         ]) var budgets: FetchedResults<Budget>
     
     @ObservedObject private var viewModel: BudgetListViewModel
-    
     @State var selectedBudget: Budget?
+    let recents: Bool
     
-    init(isPresented: Binding<Bool>) {
+    //    init(recents: Bool = false) {
+    //        self.recents = recents
+    //    }
+    
+    init(recents: Bool = false, isPresented: Binding<Bool>) {
         self.viewModel = BudgetListViewModel(isPresented: isPresented)
+        self.recents = recents
     }
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 0) {
-                ForEach(budgets, id:\.name) { budget in
+        //        ScrollView(.horizontal, showsIndicators: false) {
+        if recents {
+            VStack(spacing: 0) {
+                ForEach(budgets.prefix(3), id:\.name) { budget in
                     Button {
                         self.selectedBudget = budget
                         viewModel.isPresented.toggle()
                     } label: {
-                        if let icon = budget.icon,
-                           let name = budget.name,
+                        if let name = budget.name,
                            let lastBudgetName = budgets.last?.name {
-                            BudgetCard(iconName: icon, name: name, amountUsed: budget.amountUsed, budgetAmount: budget.amountTotal)
-                                .padding(name == lastBudgetName ? .horizontal : .leading, 16)
+                            ListHistoryComponent(name: name, amountSaved: budget.amountUsed, totalAmount: budget.amountTotal) .background(RoundedRectangle(cornerRadius: 20)                                                               .foregroundColor(.customPrimary.opacity(0.1)))
+                                .padding(.vertical, 4)
                         }
                     }
                 }
             }
-        }
-        .sheet(isPresented: $viewModel.isPresented, onDismiss: nil) {
-            BudgetFormModal(title: "Edit Budget", isPresented: $viewModel.isPresented, budget: self.selectedBudget)
+            .sheet(isPresented: $viewModel.isPresented, onDismiss: nil) {
+                BudgetFormModal(title: "Edit Budget", isPresented: $viewModel.isPresented, budget: self.selectedBudget)
+            }
+        } else {
+            ScrollView {
+                LazyVStack(spacing: 0) {
+                    ForEach(budgets, id:\.name) { budget in
+                        Button {
+                            self.selectedBudget = budget
+                            viewModel.isPresented.toggle()
+                        } label: {
+                            if let name = budget.name,
+                               let lastBudgetName = budgets.last?.name {
+                                ListHistoryComponent(name: name, amountSaved: budget.amountUsed, totalAmount: budget.amountTotal)
+                                    .background(RoundedRectangle(cornerRadius: 20)
+                                                    .foregroundColor(.customPrimary.opacity(0.1)))
+                                    .padding(.horizontal, 4)
+                            }
+                        }
+                    }
+                    .padding(4)
+                }
+                .navigationTitle("Budgets")
+                .navigationBarTitleDisplayMode(.inline)
+            }
+            
         }
     }
 }

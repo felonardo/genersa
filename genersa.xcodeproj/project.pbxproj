@@ -50,6 +50,7 @@
 		7EDF2FAF27422308002F7B35 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDF2FAE27422308002F7B35 /* Color+Hex.swift */; };
 		A721B987273B924900FB1291 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A721B986273B924900FB1291 /* SettingsViewModel.swift */; };
 		A721B989273B925400FB1291 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A721B988273B925400FB1291 /* SettingsView.swift */; };
+		A72B8A6E27680FFC00198E9C /* NewFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72B8A6D27680FFC00198E9C /* NewFormField.swift */; };
 		A7394D2B272F1F4D00C65D55 /* BudgetDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D2A272F1F4D00C65D55 /* BudgetDataSource.swift */; };
 		A7394D2F272F272000C65D55 /* ExpenseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7394D2E272F272000C65D55 /* ExpenseDataSource.swift */; };
 		A75924ED274CCB00000C0218 /* ExpenseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75924EC274CCB00000C0218 /* ExpenseDetail.swift */; };
@@ -58,7 +59,7 @@
 		A79B4F7B273511E3004B2F19 /* TextBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79B4F7A273511E3004B2F19 /* TextBinding.swift */; };
 		A79B4F8227353820004B2F19 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79B4F8127353820004B2F19 /* CustomButton.swift */; };
 		A7A42D802734A18E00F95D5E /* ReusableTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A42D7F2734A18E00F95D5E /* ReusableTitleView.swift */; };
-		A7A42D842734D6F600F95D5E /* SavingHistoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A42D832734D6F600F95D5E /* SavingHistoryComponent.swift */; };
+		A7A42D842734D6F600F95D5E /* ListHistoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A42D832734D6F600F95D5E /* ListHistoryComponent.swift */; };
 		A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B7E2652722BA08002B6EF7 /* GenersaApp.swift */; };
 		A7B7E2682722BA08002B6EF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B7E2672722BA08002B6EF7 /* ContentView.swift */; };
 		A7B7E26A2722BA0A002B6EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7B7E2692722BA0A002B6EF7 /* Assets.xcassets */; };
@@ -123,6 +124,7 @@
 		7EDF2FAE27422308002F7B35 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		A721B986273B924900FB1291 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		A721B988273B925400FB1291 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A72B8A6D27680FFC00198E9C /* NewFormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFormField.swift; sourceTree = "<group>"; };
 		A7394D2A272F1F4D00C65D55 /* BudgetDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDataSource.swift; sourceTree = "<group>"; };
 		A7394D2E272F272000C65D55 /* ExpenseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDataSource.swift; sourceTree = "<group>"; };
 		A75924EC274CCB00000C0218 /* ExpenseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetail.swift; sourceTree = "<group>"; };
@@ -131,7 +133,7 @@
 		A79B4F7A273511E3004B2F19 /* TextBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBinding.swift; sourceTree = "<group>"; };
 		A79B4F8127353820004B2F19 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A7A42D7F2734A18E00F95D5E /* ReusableTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTitleView.swift; sourceTree = "<group>"; };
-		A7A42D832734D6F600F95D5E /* SavingHistoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingHistoryComponent.swift; sourceTree = "<group>"; };
+		A7A42D832734D6F600F95D5E /* ListHistoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHistoryComponent.swift; sourceTree = "<group>"; };
 		A7B7E2622722BA08002B6EF7 /* genersa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = genersa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7B7E2652722BA08002B6EF7 /* GenersaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenersaApp.swift; sourceTree = "<group>"; };
 		A7B7E2672722BA08002B6EF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -194,8 +196,9 @@
 		7E08C16E27345FD900F269BD /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E8DBEFFE2750972700792DA9 /* EmptyState */,
+				A7A42D832734D6F600F95D5E /* ListHistoryComponent.swift */,
 				A79B4F8127353820004B2F19 /* CustomButton.swift */,
+				E8DBEFFE2750972700792DA9 /* EmptyState */,
 				E88AE02627353F2C001AD969 /* Avatar */,
 				7E17114627353A090086A78F /* Icon */,
 				7E171145273539F60086A78F /* DatePicker */,
@@ -250,6 +253,7 @@
 				7E895FE8274B92BA00EA586D /* TextFieldComponent.swift */,
 				7E895FEA274B92DB00EA586D /* SelectorFieldView.swift */,
 				7E895FEC274B931400EA586D /* PickerFieldView.swift */,
+				A72B8A6D27680FFC00198E9C /* NewFormField.swift */,
 			);
 			name = Form;
 			sourceTree = "<group>";
@@ -476,7 +480,6 @@
 			isa = PBXGroup;
 			children = (
 				E8F9DBE7272F9D3900200DAC /* SavingRecords */,
-				A7A42D832734D6F600F95D5E /* SavingHistoryComponent.swift */,
 				7E8A9438273A526700E023DC /* SavingsList.swift */,
 			);
 			path = Savings;
@@ -649,7 +652,7 @@
 				A721B987273B924900FB1291 /* SettingsViewModel.swift in Sources */,
 				7E08C165273458B500F269BD /* HeaderButton.swift in Sources */,
 				7E17114827353AC40086A78F /* BudgetIcon.swift in Sources */,
-				A7A42D842734D6F600F95D5E /* SavingHistoryComponent.swift in Sources */,
+				A7A42D842734D6F600F95D5E /* ListHistoryComponent.swift in Sources */,
 				7E6100D62735011C0084B014 /* CurrencyPicker.swift in Sources */,
 				7E8A9437273A51DF00E023DC /* MainPageView.swift in Sources */,
 				A7FAE4AF2738FD6E0097793C /* HalfASheet.swift in Sources */,
@@ -657,6 +660,7 @@
 				A79423AE2737BBA2000573A8 /* CalculatorComponent.swift in Sources */,
 				7E08C1632734571D00F269BD /* DateFormatter+WithFormat.swift in Sources */,
 				A75924ED274CCB00000C0218 /* ExpenseDetail.swift in Sources */,
+				A72B8A6E27680FFC00198E9C /* NewFormField.swift in Sources */,
 				7EDF2FAD2742203A002F7B35 /* Palette.swift in Sources */,
 				7E895FE5274B924900EA586D /* AvatarIconSelector.swift in Sources */,
 				E88AE02827353F4D001AD969 /* AvatarComponentView.swift in Sources */,
