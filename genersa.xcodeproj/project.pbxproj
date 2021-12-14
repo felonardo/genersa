@@ -70,6 +70,9 @@
 		A7FF4201273B5512007B271F /* SetTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FF4200273B5512007B271F /* SetTripViewModel.swift */; };
 		E88AE02827353F4D001AD969 /* AvatarComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88AE02727353F4D001AD969 /* AvatarComponentView.swift */; };
 		E8C5D23D2739251B00F504FC /* AvatarPickerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C5D23C2739251B00F504FC /* AvatarPickerComponent.swift */; };
+		E8C97FFB2767BC95001D0D36 /* TripSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C97FFA2767BC95001D0D36 /* TripSettingsView.swift */; };
+		E8D8146F276861BD00ED14C3 /* FormRowStaticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D8146E276861BD00ED14C3 /* FormRowStaticView.swift */; };
+		E8D814712768A1E100ED14C3 /* CategorizeBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D814702768A1E100ED14C3 /* CategorizeBudgetView.swift */; };
 		E8DBF0002750989300792DA9 /* EmptyStateCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DBEFFF2750989300792DA9 /* EmptyStateCardView.swift */; };
 		E8DC4FE2273A1EA9005E9668 /* CreateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DC4FE1273A1EA9005E9668 /* CreateProfileView.swift */; };
 		E8DC4FE8273A437D005E9668 /* AvatarListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DC4FE7273A437D005E9668 /* AvatarListViewModel.swift */; };
@@ -145,6 +148,9 @@
 		A7FF4200273B5512007B271F /* SetTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTripViewModel.swift; sourceTree = "<group>"; };
 		E88AE02727353F4D001AD969 /* AvatarComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarComponentView.swift; sourceTree = "<group>"; };
 		E8C5D23C2739251B00F504FC /* AvatarPickerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerComponent.swift; sourceTree = "<group>"; };
+		E8C97FFA2767BC95001D0D36 /* TripSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSettingsView.swift; sourceTree = "<group>"; };
+		E8D8146E276861BD00ED14C3 /* FormRowStaticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRowStaticView.swift; sourceTree = "<group>"; };
+		E8D814702768A1E100ED14C3 /* CategorizeBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorizeBudgetView.swift; sourceTree = "<group>"; };
 		E8DBEFFF2750989300792DA9 /* EmptyStateCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateCardView.swift; sourceTree = "<group>"; };
 		E8DC4FE1273A1EA9005E9668 /* CreateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileView.swift; sourceTree = "<group>"; };
 		E8DC4FE7273A437D005E9668 /* AvatarListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListViewModel.swift; sourceTree = "<group>"; };
@@ -327,6 +333,9 @@
 			children = (
 				A721B986273B924900FB1291 /* SettingsViewModel.swift */,
 				A721B988273B925400FB1291 /* SettingsView.swift */,
+				E8C97FFA2767BC95001D0D36 /* TripSettingsView.swift */,
+				E8D8146E276861BD00ED14C3 /* FormRowStaticView.swift */,
+				E8D814702768A1E100ED14C3 /* CategorizeBudgetView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -628,10 +637,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E6100D827350A520084B014 /* CurrencyList.swift in Sources */,
+				E8D814712768A1E100ED14C3 /* CategorizeBudgetView.swift in Sources */,
 				7E30504D27439EF600F59B58 /* Date+AppStorage.swift in Sources */,
 				A7FF41FF273B54F9007B271F /* SetTripView.swift in Sources */,
 				7E8A943D273D001D00E023DC /* Defaults.swift in Sources */,
 				7E895FF4274CC92E00EA586D /* View+Keyboard.swift in Sources */,
+				E8D8146F276861BD00ED14C3 /* FormRowStaticView.swift in Sources */,
 				7E1EC37D2741716200938713 /* BudgetSlider.swift in Sources */,
 				A779EA97274234660060D7B1 /* BudgetSelectedButton.swift in Sources */,
 				7E17114E27353DBE0086A78F /* Overview.swift in Sources */,
@@ -675,6 +686,7 @@
 				7E895FEF274B933900EA586D /* LegendView.swift in Sources */,
 				A7394D2B272F1F4D00C65D55 /* BudgetDataSource.swift in Sources */,
 				7E8A943B273A765E00E023DC /* BudgetFormModal.swift in Sources */,
+				E8C97FFB2767BC95001D0D36 /* TripSettingsView.swift in Sources */,
 				7E895FE9274B92BA00EA586D /* TextFieldComponent.swift in Sources */,
 				7E1EC3792741636200938713 /* ExpensesList.swift in Sources */,
 				7E8A9439273A526700E023DC /* SavingsList.swift in Sources */,
