@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Budget" representedClassName="Budget" syncable="YES" codeGenerationType="class">
         <attribute name="amountSaved" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="amountTotal" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -17,6 +17,10 @@
         <attribute name="notes" optional="YES" attributeType="String"/>
         <relationship name="budget" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Budget" inverseName="expenses" inverseEntity="Budget"/>
     </entity>
+    <entity name="Member" representedClassName="Member" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="SavingRecord" representedClassName="SavingRecord" syncable="YES" codeGenerationType="class">
         <attribute name="amountSaved" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -27,6 +31,7 @@
     <elements>
         <element name="Budget" positionX="-219.840087890625" positionY="-401.2649536132812" width="128" height="163"/>
         <element name="Expense" positionX="138.8309631347656" positionY="-328.6529846191406" width="128" height="118"/>
-        <element name="SavingRecord" positionX="118.4638061523438" positionY="-510.7171020507812" width="128" height="118"/>
+        <element name="SavingRecord" positionX="118.4638061523438" positionY="-510.7171020507812" width="128" height="104"/>
+        <element name="Member" positionX="-36" positionY="-378" width="128" height="59"/>
     </elements>
 </model>

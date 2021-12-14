@@ -23,4 +23,5 @@ struct GenersaApp: App {
             persistenceController.save()
         }
     }
+    
 }

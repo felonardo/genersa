@@ -19,13 +19,15 @@ struct NewRecord: View {
             NSSortDescriptor(keyPath: \Budget.name, ascending: true)
         ]) var budgets: FetchedResults<Budget>
     
-    
-    
     @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     
     @ObservedObject private var viewModel: NewRecordViewModel
     @Binding var isPresented: Bool
     @State var errorState = false
+    
+    @State var isPickingPayer = false
+    @State var isPickingMembers = false
+    
     let type: RecordType
     
     init(isPresented: Binding<Bool>, type: RecordType) {
@@ -58,6 +60,35 @@ struct NewRecord: View {
                                 DateTimePicker(text: "Date", date: $viewModel.selectedDate)
                                     .padding(.horizontal, 8)
                                 if type == .expense {
+                                    Divider()
+                                    HStack {
+                                        Text("Who paid?")
+                                            .bold()
+                                        Spacer()
+                                        Button {
+                                            isPickingPayer.toggle()
+                                        } label: {
+                                            HStack {
+                                                Text(viewModel.payerName)
+                                                Image(systemName: "chevron.right")
+                                            }
+                                        }
+                                    }
+                                    .padding(.horizontal, 8)
+                                    Divider()
+                                    HStack {
+                                        Text("Split with?")
+                                            .bold()
+                                        Spacer()
+                                        Button {
+                                            isPickingMembers.toggle()
+                                        } label: {
+                                            Text(viewModel.memberName)
+                                            Image(systemName: "chevron.right")
+                                        }
+                                    }
+                                    .padding(.horizontal, 8)
+                                    Divider()
                                     ReusableTitleView(title: "Notes", description: "", errorState: $viewModel.notesErrorState){
                                         TextFieldComponent(field: $viewModel.fieldNote, placeholder: "Notes for this expenses", errorState:.constant(false))
                                     }
@@ -72,7 +103,6 @@ struct NewRecord: View {
                                         switch type {
                                         case .expense:
                                             viewModel.addExpense()
-                                            
                                         case .saving:
                                             viewModel.addSaving()
                                         }
@@ -97,6 +127,12 @@ struct NewRecord: View {
                             Spacer()
                         }
                         .padding(8)
+                        .sheet(isPresented: $isPickingPayer) {
+                            SelectExpenseMembers(type: .payers, totalAmount: Double(viewModel.amount) ?? 0)
+                        }
+                        .sheet(isPresented: $isPickingMembers) {
+                            SelectExpenseMembers(type: .members, totalAmount: Double(viewModel.amount) ?? 0)
+                        }
                     }
                     HalfASheet(isPresented: $viewModel.isPresented){
                         CalculatorComponent(finalValue: $viewModel.amount, isPresented: $viewModel.isPresented)
@@ -119,6 +155,24 @@ final class NewRecordViewModel: ObservableObject {
     @Published var isPresented: Bool = true
     @Published var budgetSelected: String = ""
     @Published var notesErrorState: Bool = false
+    @Published var payers: [String] = ["You"]
+    @Published var members: [String] = ["You"]
+    
+    var payerName: String {
+        if payers.count == 1 {
+            return payers.first!
+        } else {
+            return "\(payers.count) payers"
+        }
+    }
+    
+    var memberName: String {
+        if members.count == 1 {
+            return members.first!
+        } else {
+            return "\(members.count) payers"
+        }
+    }
     
     func addExpense(){
         let _ =  ExpenseDataSource.shared.createExpense(amount: Double(amount) ?? 0, date: selectedDate, notes: fieldNote, budget: budgetSelected)

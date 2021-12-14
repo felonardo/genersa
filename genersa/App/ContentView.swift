@@ -15,9 +15,14 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             if tripSet {
-                DummyMainPageView()
+                MainPageView()
             } else {
                 CreateProfileView()
+            }
+        }
+        .onAppear {
+            if MemberDataSource.shared.getMember(with: "You") == nil {
+                MemberDataSource.shared.createMember(name: "You")
             }
         }
     }

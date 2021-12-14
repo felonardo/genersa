@@ -72,7 +72,7 @@ struct Overview: View {
             CompleteOverview()
         } label: {
             HStack {
-                CircularProgressBar(size: 144, bars: progresses) {
+                CircularProgressBar(size: 132, bars: progresses) {
                     VStack {
                         Text("Current Balance")
                             .foregroundColor(.secondary)

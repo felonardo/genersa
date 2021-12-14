@@ -46,6 +46,13 @@
 		7E8A9439273A526700E023DC /* SavingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A9438273A526700E023DC /* SavingsList.swift */; };
 		7E8A943B273A765E00E023DC /* BudgetFormModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A943A273A765D00E023DC /* BudgetFormModal.swift */; };
 		7E8A943D273D001D00E023DC /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A943C273D001D00E023DC /* Defaults.swift */; };
+		7E9D29EC27687198000FD57A /* OverviewSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D29EB27687198000FD57A /* OverviewSlider.swift */; };
+		7E9D29EE2768728C000FD57A /* DebtsOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D29ED2768728C000FD57A /* DebtsOverview.swift */; };
+		7E9D29F127687544000FD57A /* DebtsSettlement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D29F027687544000FD57A /* DebtsSettlement.swift */; };
+		7E9D29F3276881F0000FD57A /* DebtSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D29F2276881F0000FD57A /* DebtSlider.swift */; };
+		7E9D29F52768F9F6000FD57A /* SelectExpenseMembers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D29F42768F9F6000FD57A /* SelectExpenseMembers.swift */; };
+		7E9D29F72769088B000FD57A /* MemberDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D29F62769088B000FD57A /* MemberDataSource.swift */; };
+		7E9D29F927692386000FD57A /* View+TextFieldAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D29F827692386000FD57A /* View+TextFieldAlert.swift */; };
 		7EDF2FAD2742203A002F7B35 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDF2FAC2742203A002F7B35 /* Palette.swift */; };
 		7EDF2FAF27422308002F7B35 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDF2FAE27422308002F7B35 /* Color+Hex.swift */; };
 		A721B987273B924900FB1291 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A721B986273B924900FB1291 /* SettingsViewModel.swift */; };
@@ -119,6 +126,13 @@
 		7E8A9438273A526700E023DC /* SavingsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsList.swift; sourceTree = "<group>"; };
 		7E8A943A273A765D00E023DC /* BudgetFormModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetFormModal.swift; sourceTree = "<group>"; };
 		7E8A943C273D001D00E023DC /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		7E9D29EB27687198000FD57A /* OverviewSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewSlider.swift; sourceTree = "<group>"; };
+		7E9D29ED2768728C000FD57A /* DebtsOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtsOverview.swift; sourceTree = "<group>"; };
+		7E9D29F027687544000FD57A /* DebtsSettlement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtsSettlement.swift; sourceTree = "<group>"; };
+		7E9D29F2276881F0000FD57A /* DebtSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtSlider.swift; sourceTree = "<group>"; };
+		7E9D29F42768F9F6000FD57A /* SelectExpenseMembers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectExpenseMembers.swift; sourceTree = "<group>"; };
+		7E9D29F62769088B000FD57A /* MemberDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDataSource.swift; sourceTree = "<group>"; };
+		7E9D29F827692386000FD57A /* View+TextFieldAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+TextFieldAlert.swift"; sourceTree = "<group>"; };
 		7EDF2FAC2742203A002F7B35 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		7EDF2FAE27422308002F7B35 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		A721B986273B924900FB1291 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -257,6 +271,7 @@
 		7E17115327357E030086A78F /* Overview */ = {
 			isa = PBXGroup;
 			children = (
+				7E9D29EB27687198000FD57A /* OverviewSlider.swift */,
 				7E17114D27353DBE0086A78F /* Overview.swift */,
 				7E17115427357E030086A78F /* OverviewViewModel.swift */,
 				7E1EC3742740DFF700938713 /* CompleteOverview.swift */,
@@ -283,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				7E3050472743685500F59B58 /* NewRecord.swift */,
+				7E9D29F42768F9F6000FD57A /* SelectExpenseMembers.swift */,
 			);
 			path = NewRecord;
 			sourceTree = "<group>";
@@ -311,6 +327,7 @@
 			children = (
 				7E895FF7274CC96700EA586D /* View+CornerRadiusStyle.swift */,
 				7E895FF3274CC92E00EA586D /* View+Keyboard.swift */,
+				7E9D29F827692386000FD57A /* View+TextFieldAlert.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,6 +340,16 @@
 				A75924EC274CCB00000C0218 /* ExpenseDetail.swift */,
 			);
 			path = Expenses;
+			sourceTree = "<group>";
+		};
+		7E9D29EF27687536000FD57A /* Debts */ = {
+			isa = PBXGroup;
+			children = (
+				7E9D29ED2768728C000FD57A /* DebtsOverview.swift */,
+				7E9D29F027687544000FD57A /* DebtsSettlement.swift */,
+				7E9D29F2276881F0000FD57A /* DebtSlider.swift */,
+			);
+			path = Debts;
 			sourceTree = "<group>";
 		};
 		A721B985273B917600FB1291 /* Settings */ = {
@@ -368,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				A7394D2E272F272000C65D55 /* ExpenseDataSource.swift */,
+				7E9D29F62769088B000FD57A /* MemberDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -444,6 +472,7 @@
 		A7E353612727CB0C004E999A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7E9D29EF27687536000FD57A /* Debts */,
 				7E3050462743684600F59B58 /* NewRecord */,
 				E8DC4FEB273A4BA6005E9668 /* CreateProfile */,
 				7E08C16E27345FD900F269BD /* Components */,
@@ -638,6 +667,7 @@
 				7E1EC37D2741716200938713 /* BudgetSlider.swift in Sources */,
 				A779EA97274234660060D7B1 /* BudgetSelectedButton.swift in Sources */,
 				7E17114E27353DBE0086A78F /* Overview.swift in Sources */,
+				7E9D29F52768F9F6000FD57A /* SelectExpenseMembers.swift in Sources */,
 				A79B4F8227353820004B2F19 /* CustomButton.swift in Sources */,
 				7E17115E273586760086A78F /* BudgetCard.swift in Sources */,
 				E8DBF0002750989300792DA9 /* EmptyStateCardView.swift in Sources */,
@@ -648,6 +678,7 @@
 				A79B4F7B273511E3004B2F19 /* TextBinding.swift in Sources */,
 				A721B987273B924900FB1291 /* SettingsViewModel.swift in Sources */,
 				7E08C165273458B500F269BD /* HeaderButton.swift in Sources */,
+				7E9D29F3276881F0000FD57A /* DebtSlider.swift in Sources */,
 				7E17114827353AC40086A78F /* BudgetIcon.swift in Sources */,
 				A7A42D842734D6F600F95D5E /* SavingHistoryComponent.swift in Sources */,
 				7E6100D62735011C0084B014 /* CurrencyPicker.swift in Sources */,
@@ -663,6 +694,7 @@
 				A7E3536D2727CC74004E999A /* Persistance.swift in Sources */,
 				7E895FED274B931400EA586D /* PickerFieldView.swift in Sources */,
 				7E171159273582070086A78F /* Double+FormatToCurrency.swift in Sources */,
+				7E9D29EC27687198000FD57A /* OverviewSlider.swift in Sources */,
 				7E17116027358BA10086A78F /* MainComponent.swift in Sources */,
 				A7394D2F272F272000C65D55 /* ExpenseDataSource.swift in Sources */,
 				7E895FFB2750BAFF00EA586D /* MainCard.swift in Sources */,
@@ -682,8 +714,10 @@
 				7E895FE9274B92BA00EA586D /* TextFieldComponent.swift in Sources */,
 				7E1EC3792741636200938713 /* ExpensesList.swift in Sources */,
 				7E8A9439273A526700E023DC /* SavingsList.swift in Sources */,
+				7E9D29EE2768728C000FD57A /* DebtsOverview.swift in Sources */,
 				A7A42D802734A18E00F95D5E /* ReusableTitleView.swift in Sources */,
 				E8F9DBEA272F9D5500200DAC /* SavingRecordDataSource.swift in Sources */,
+				7E9D29F72769088B000FD57A /* MemberDataSource.swift in Sources */,
 				7E17115C2735846D0086A78F /* OverviewViewModel.swift in Sources */,
 				E8DC4FEA273A488A005E9668 /* AvatarIcon.swift in Sources */,
 				A7B7E2662722BA08002B6EF7 /* GenersaApp.swift in Sources */,
@@ -693,6 +727,8 @@
 				7E08C16D27345ED900F269BD /* TimeInterval+CommonIntervals.swift in Sources */,
 				7E895FE7274B92A200EA586D /* FormField.swift in Sources */,
 				7E895FF8274CC96700EA586D /* View+CornerRadiusStyle.swift in Sources */,
+				7E9D29F127687544000FD57A /* DebtsSettlement.swift in Sources */,
+				7E9D29F927692386000FD57A /* View+TextFieldAlert.swift in Sources */,
 				7E17115727357E710086A78F /* DailyBudget.swift in Sources */,
 				A7E3536B2727CC26004E999A /* genersaDataModel.xcdatamodeld in Sources */,
 				A7FF4201273B5512007B271F /* SetTripViewModel.swift in Sources */,
