@@ -65,6 +65,7 @@
 		A7B7E2682722BA08002B6EF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B7E2672722BA08002B6EF7 /* ContentView.swift */; };
 		A7B7E26A2722BA0A002B6EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7B7E2692722BA0A002B6EF7 /* Assets.xcassets */; };
 		A7B7E26D2722BA0A002B6EF7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7B7E26C2722BA0A002B6EF7 /* Preview Assets.xcassets */; };
+		A7DC2B27276866A800FAD967 /* SetupSavingFormModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DC2B26276866A800FAD967 /* SetupSavingFormModal.swift */; };
 		A7E3536B2727CC26004E999A /* genersaDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7E353692727CC26004E999A /* genersaDataModel.xcdatamodeld */; };
 		A7E3536D2727CC74004E999A /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E3536C2727CC74004E999A /* Persistance.swift */; };
 		A7E3537227280180004E999A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E3537127280180004E999A /* CloudKit.framework */; };
@@ -142,6 +143,7 @@
 		A7B7E2692722BA0A002B6EF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7B7E26C2722BA0A002B6EF7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A7D7281B2727761E00BCFE61 /* genersa.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = genersa.entitlements; sourceTree = "<group>"; };
+		A7DC2B26276866A800FAD967 /* SetupSavingFormModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupSavingFormModal.swift; sourceTree = "<group>"; };
 		A7E3536A2727CC26004E999A /* genersaDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = genersaDataModel.xcdatamodel; sourceTree = "<group>"; };
 		A7E3536C2727CC74004E999A /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		A7E3536F27280175004E999A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 			children = (
 				E8F9DBE7272F9D3900200DAC /* SavingRecords */,
 				7E8A9438273A526700E023DC /* SavingsList.swift */,
+				A7DC2B26276866A800FAD967 /* SetupSavingFormModal.swift */,
 			);
 			path = Savings;
 			sourceTree = "<group>";
@@ -641,6 +644,7 @@
 				7E30504D27439EF600F59B58 /* Date+AppStorage.swift in Sources */,
 				A7FF41FF273B54F9007B271F /* SetTripView.swift in Sources */,
 				7E8A943D273D001D00E023DC /* Defaults.swift in Sources */,
+				A7DC2B27276866A800FAD967 /* SetupSavingFormModal.swift in Sources */,
 				7E895FF4274CC92E00EA586D /* View+Keyboard.swift in Sources */,
 				7E1EC37D2741716200938713 /* BudgetSlider.swift in Sources */,
 				A779EA97274234660060D7B1 /* BudgetSelectedButton.swift in Sources */,

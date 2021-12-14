@@ -11,7 +11,7 @@ struct TripDatePicker: View {
     
     @StateObject private var viewModel = TripDatePickerViewModel()
     
-    #warning("iOS 15 Bug: Date Picker day names is missing! https://stackoverflow.com/questions/69417738/swiftui-days-name-is-missing-if-you-show-and-hide-datepicker")
+#warning("iOS 15 Bug: Date Picker day names is missing! https://stackoverflow.com/questions/69417738/swiftui-days-name-is-missing-if-you-show-and-hide-datepicker")
     
     var body: some View {
         VStack {
@@ -49,6 +49,63 @@ struct TripDatePicker: View {
         }
     }
 }
+
+struct TripDatePickerAlternative: View {
+    
+    @StateObject private var viewModel = TripDatePickerViewModel()
+    
+#warning("iOS 15 Bug: Date Picker day names is missing! https://stackoverflow.com/questions/69417738/swiftui-days-name-is-missing-if-you-show-and-hide-datepicker")
+    
+    var body: some View {
+        VStack {
+            HStack {
+                Text("Start Date")
+                Spacer()
+                CustomButton(title: viewModel.startDate.toString(withFormat: "d MMM yyyy"), type: .tertiary, fullWidth: true) {
+                    viewModel.showPicker = viewModel.showPicker == .start ? .none : .start
+                }
+                
+            }
+            if viewModel.showPicker == .start{
+                
+                DatePicker("Start Date",
+                           selection: viewModel.$startDate,
+                           displayedComponents: [.date])
+                    .datePickerStyle(.graphical)
+            }
+            Divider()
+            HStack{
+                
+                Text("End Date")
+                Spacer()
+                CustomButton(title: viewModel.endDate.toString(withFormat: "d MMM yyyy"), type: .tertiary, fullWidth: true) {
+                    viewModel.showPicker = viewModel.showPicker == .end ? .none : .end
+                }
+            }
+        }
+        .padding(.leading, 16)
+        .onChange(of: viewModel.startDate, perform: { newValue in
+            viewModel.endDate = viewModel.startDate.addingTimeInterval(viewModel.duration)
+        })
+        .onChange(of: viewModel.endDate, perform: { newValue in
+            viewModel.duration = viewModel.endDate.timeIntervalSince1970 - viewModel.startDate.timeIntervalSince1970
+        })
+        switch viewModel.showPicker {
+        case .none:
+            EmptyView()
+        case .start:
+            EmptyView()
+        case .end:
+            DatePicker("End Date",
+                       selection: viewModel.$endDate,
+                       in: viewModel.startDate...,
+                       displayedComponents: [.date])
+                .datePickerStyle(.graphical)
+        }
+    }
+    
+}
+
 
 struct TripDatePicker_Previews: PreviewProvider {
     static var previews: some View {

@@ -21,7 +21,7 @@ final class BudgetFormViewModel: ObservableObject {
     @Binding var isPresented: Bool
     @Published var fieldBudget: String = "0"
     @Published var budgetId: UUID? = nil
-    //    @Published var finalvalue: String
+    @Published var fieldPersonalBudget: String = "0"
     
     init(budget: Budget? = nil, isPresented: Binding<Bool>) {
         self._isPresented = isPresented

@@ -74,7 +74,7 @@ struct MainPageView: View {
                             if budgets.count != 0 {
                                 BudgetFormModal(title: "New Budget", isPresented: $viewModel.presentingNewBudget)
                             } else {
-                                SetupBudgetFormModal(headline: "lalala", subheadline: "llilil", isPresented: $viewModel.presentingNewBudget)
+                                SetupBudgetFormModal(isPresented: $viewModel.presentingNewBudget)
                             }
                         }
                     }
@@ -98,15 +98,19 @@ struct MainPageView: View {
                                             SavingsList())
                                 }
                             } else {
-                                EmptyStateCardView(image: "TrackSavings_ES", width: 125, height: 171, headlineText: "Set Up Your Budget ", bodyText: "Your set budget will act as your saving goal and expense limit.", btnTitle: "Set Budget"){
-                                    CustomButton(title: "Set Budget", type: .primary, fullWidth: true) {
-                                        viewModel.presentingNewBudget.toggle()
+                                EmptyStateCardView(image: "TrackSavings_ES", width: 125, height: 171, headlineText: "Track Your Savings", bodyText: "Keep track of how much you've saved for your travel budget.", btnTitle: "Input New Saving"){
+                                    CustomButton(title: "Set Saving Plan", type: .primary, fullWidth: true) {
+                                        viewModel.presentingAddSavingRecord.toggle()
                                     }
                                 }
                             }
                         }
                         .sheet(isPresented: $viewModel.presentingAddSavingRecord, onDismiss: nil) {
-                            NewRecord(isPresented: $viewModel.presentingAddSavingRecord, type: .saving)
+                            if savingRecords.count != 0 {
+                                NewRecord(isPresented: $viewModel.presentingAddSavingRecord, type: .saving)
+                            } else {
+                                SetupSavingFormModal(headline: "How long do you want to save?")
+                            }
                         }
                     }
                     .padding(16)
@@ -126,9 +130,9 @@ struct MainPageView: View {
                                             ExpensesList(recents: false))
                                 }
                             } else {
-                                EmptyStateCardView(image: "TrackExpense_ES", width: 125, height: 171, headlineText: "Set Up Your Budget ", bodyText: "Your set budget will act as your saving goal and expense limit.", btnTitle: "Set Budget"){
-                                    CustomButton(title: "Set Budget", type: .primary, fullWidth: true) {
-                                        viewModel.presentingNewBudget.toggle()
+                                EmptyStateCardView(image: "TrackExpense_ES", width: 125, height: 171, headlineText: "Track Your Expenses", bodyText: "Say goodbye to overspending by tracking your travel expenses.", btnTitle: "Input New Expense"){
+                                    CustomButton(title: "Input New Expense", type: .primary, fullWidth: true) {
+                                        viewModel.presentingAddExpense.toggle()
                                     }
                                 }
                             }

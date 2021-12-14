@@ -7,166 +7,93 @@
 
 import SwiftUI
 
+struct ReusableSetupComponent: View {
+    
+    let headline: String
+    let subheadline: String
+    let image: String
+    let width: CGFloat
+    let height: CGFloat
+    
+    @ObservedObject var viewModel: BudgetFormViewModel
+    @Binding var selection: Int
+    
+    var body: some View {
+        VStack(spacing: 8){
+            VStack(alignment: .leading, spacing: 4){
+                Text(headline)
+                    .font(.title)
+                    .bold()
+                    .multilineTextAlignment(.leading)
+                Text(subheadline)
+                    .font(.title2)
+                    .foregroundColor(.gray)
+                    .multilineTextAlignment(.leading)
+            }
+            Image(image)
+                .resizable()
+                .frame(width: width, height: height, alignment: .center)            
+        }
+        .padding(8)
+    }
+}
+
 struct SetupBudgetFormModal: View {
     @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
     @ObservedObject private var viewModel: BudgetFormViewModel
     
-    let headline: String = "How much is your trip \n budget?"
-    let subheadline: String = "You can always edit your budget from \n Settings page."
+    @State private var selection = 0
     
-    init(headline: String, subheadline: String, isPresented: Binding<Bool>) {
-        //            self.headline = headline
+    init(isPresented: Binding<Bool>) {
         self.viewModel = BudgetFormViewModel(isPresented: isPresented)
-        //            self.subheadline = subheadline
     }
     
     
     var body: some View {
-        ZStack{
-            
-            VStack(alignment: .leading, spacing: 4){
-                Text(headline)
-                    .font(.title)
-                    .foregroundColor(.primary)
-                    .multilineTextAlignment(.leading)
-                Text(subheadline)
-                    .font(.caption)
-                    .foregroundColor(.gray)
-                    .multilineTextAlignment(.leading)
-                
-                Image(systemName: "person.fill").frame(width: 172, height: 172, alignment: .center)
-                
+        TabView(selection: $selection) {
+            VStack{
+                ReusableSetupComponent(headline: "How Much is your trip budget?", subheadline: "You can always edit your budget from Setting Page", image: "SetupBudget", width: 135, height: 166, viewModel: viewModel, selection: $selection)
                 NewFormField(title: "Personal Budget"){
-                    CalculatorField(finalValue: $viewModel.fieldBudget, isPresented: $viewModel.presentingCalculator)
+                    CalculatorField(finalValue: $viewModel.fieldPersonalBudget, isPresented: $viewModel.presentingCalculator)
                         .multilineTextAlignment(.trailing)
                 }
+                .background(RoundedRectangle(cornerRadius: 20)
+                                .foregroundColor(.customPrimary.opacity(0.1)))
                 CustomButton(title: "Next", type: .primary, fullWidth: true) {
-//                                viewModel.presentingCalculator.toggle()
-                    //            Text("lal")
+                    withAnimation {
+                        selection = 1
+                    }
                 }
                 if viewModel.presentingCalculator {
-                    CalculatorComponent(finalValue: $viewModel.fieldBudget, isPresented: $viewModel.presentingCalculator)
-                } else {
-//                    Image(systemName: "person.fill").frame(width: 172, height: 172, alignment: .center)
+                    CalculatorComponent(finalValue: $viewModel.fieldPersonalBudget, isPresented: $viewModel.presentingCalculator)
                 }
-//                CalculatorComponent(finalValue: $viewModel.fieldBudget, isPresented: $viewModel.presentingCalculator)
             }
+            .padding(16)
+            .tag(0)
             
-//            HalfASheet(isPresented: $viewModel.presentingCalculator){
-//            }.disableDragToDismiss
+            VStack{
+                ReusableSetupComponent(headline: "Do you want to categorize budget?", subheadline: "Categorizing budget can help you focus on how you'll spend money while travel", image:"SetupBudget2", width: 97, height: 166, viewModel: viewModel, selection: $selection)
+                CustomButton(title: "Skip", type: .secondary, fullWidth: true) {
+                    withAnimation {
+                        selection = 1
+                    }
+                }
+                CustomButton(title: "Category Budget", type: .primary, fullWidth: true) {
+                    withAnimation {
+                        selection = 1
+                    }
+                }
+                if viewModel.presentingCalculator {
+                    CalculatorComponent(finalValue: $viewModel.fieldPersonalBudget, isPresented: $viewModel.presentingCalculator)
+                }
+            }
+            .padding(16)
+            .tag(1)
+            
         }
+        .tabViewStyle(.page)
+        .indexViewStyle(.page(backgroundDisplayMode: .interactive))
+        
+        
     }
 }
-
-
-//struct BudgetFormModal: View {
-//
-//    @AppStorage("tripCurrency") var currency: String = Currency.allCurrencies.first!.identifier
-//    @ObservedObject private var viewModel: BudgetFormViewModel
-//
-//    init(title: String, isPresented: Binding<Bool>, budget: Budget? = nil) {
-//        self.title = title
-//        if let budget = budget {
-//            self.viewModel = BudgetFormViewModel(budget: budget, isPresented: isPresented)
-//        } else {
-//            self.viewModel = BudgetFormViewModel(isPresented: isPresented)
-//        }
-//    }
-//
-//    let title: String
-//
-//    var body: some View {
-//        NavigationView {
-//            ZStack {
-//                ScrollView {
-//                    VStack(alignment: .leading, spacing: 16) {
-//                        Spacer()
-//                        HStack {
-//                            Spacer()
-//                            BudgetIcon(image: viewModel.budgetIcon, iconSize: 117)
-//                            Spacer()
-//                        }
-//                        BudgetIconSelector(selectedBudget: $viewModel.budgetIcon)
-//                            .padding(.bottom, 16)
-//                        VStack {
-//                            NewFormField(title: "Budget Name"){
-//                                TextFieldComponent(field: $viewModel.budgetName, placeholder: "Transportation", errorState: .constant(false))
-//                                    .multilineTextAlignment(.trailing)
-//                            }
-//                            Divider()
-//                            NewFormField(title: "Budget Name"){
-//                                CalculatorField(finalValue: $viewModel.fieldBudget, isPresented: $viewModel.presentingCalculator)
-//                                    .multilineTextAlignment(.trailing)
-//                            }
-//                    }
-//                    .background(RoundedRectangle(cornerRadius: 20)
-//                                    .foregroundColor(.customPrimary.opacity(0.1)))
-//                    .padding(.horizontal, 16)
-//
-//                    }
-//
-//                Spacer()
-//            }
-//            .ignoresSafeArea(.keyboard, edges: .bottom)
-//            .navigationTitle(title)
-//            .navigationBarTitleDisplayMode(.inline)
-//            HalfASheet(isPresented: $viewModel.presentingCalculator){
-//                CalculatorComponent(finalValue: $viewModel.fieldBudget, isPresented: $viewModel.presentingCalculator)
-//            }.disableDragToDismiss
-//        }
-//        .toolbar {
-//            ToolbarItem(placement: .navigationBarTrailing) {
-//                Button {
-//                    viewModel.isPresented.toggle()
-//                    if viewModel.budgetId != nil {
-//                        viewModel.editBudget()
-//                    } else {
-//                        viewModel.createBudget()
-//                    }
-//                } label: {
-//                    Text("Save")
-//                        .bold()
-//                }.disabled(viewModel.budgetName.description.isEmpty || viewModel.budgetNameError)
-//            }
-//            ToolbarItem(placement: .navigationBarLeading) {
-//                Button {
-//                    viewModel.isPresented.toggle()
-//                } label: {
-//                    Text("Cancel")
-//                }
-//            }
-//        }
-//        .onTapGesture {
-//            endTextEditing()
-//        }
-//    }
-//        .onTapGesture {
-//            self.dismissKeyboard()
-//        }
-//}
-//}
-
-//struct BudgetIconSelector: View {
-//
-//    @Binding var selectedBudget: String
-//
-//    var body: some View {
-//        ScrollView(.horizontal, showsIndicators: false) {
-//            HStack(spacing: 10) {
-//                ForEach(Defaults.budgets, id:\.self) { budgeticon in
-//                    BudgetIcon(image: budgeticon, iconSize: 50, selected: budgeticon == selectedBudget)
-//                        .onTapGesture {
-//                            selectedBudget = budgeticon
-//                        }
-//                }
-//            }
-//            .padding(.horizontal, 16)
-//        }
-//    }
-//}
-
-//struct SetupBudgetFormModal_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SetupBudgetFormModal()
-//    }
-//}

@@ -8,22 +8,23 @@
 import SwiftUI
 
 
-struct NewFormField: View {
+struct NewFormField<Content: View>: View  {
     
-    @Binding var field: String
-    let placeholder: String
+    //    @Binding var field: String
+    var title: String
+    var content: Content
+    
+    init(title: String, @ViewBuilder content: @escaping () -> Content) {
+        self.title = title
+        self.content = content()
+    }
     
     var body: some View {
         HStack{
-            Text("Budget Name")
-            TextField("", text: $field)
-                .multilineTextAlignment(.leading)
+            Text(title)
+            Spacer()
+            content
         }
+        .padding(16)
     }
 }
-
-//struct NewFormField_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NewFormField()
-//    }
-//}
