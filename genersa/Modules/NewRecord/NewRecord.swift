@@ -50,18 +50,26 @@ struct NewRecord: View {
                                 }
                                 .padding(.horizontal, 8)
                             VStack(alignment: .leading, spacing: 16) {
-                                ReusableTitleView(title: "Budgets", description: "", errorState: $viewModel.errorState){
-                                    BudgetSelectedButton(budgetSelected: $viewModel.budgetSelected, geometry: geometry)
-                                }
-                                Divider()
-                                    .padding(.horizontal, 8)
-                                DateTimePicker(text: "Date", date: $viewModel.selectedDate)
-                                    .padding(.horizontal, 8)
+                                
                                 if type == .expense {
-                                    ReusableTitleView(title: "Notes", description: "", errorState: $viewModel.notesErrorState){
-                                        TextFieldComponent(field: $viewModel.fieldNote, placeholder: "Notes for this expenses", errorState:.constant(false))
+                                    ReusableTitleView(title: "Budgets", description: "", errorState: $viewModel.errorState){
+                                        BudgetSelectedButton(budgetSelected: $viewModel.budgetSelected, geometry: geometry)
                                     }
-                                    .padding(8)
+                                    DateTimePicker(text: "Date", date: $viewModel.selectedDate)
+                                        .padding(8)
+                                        .background(RoundedRectangle(cornerRadius: 20)
+                                                        .foregroundColor(.customPrimary.opacity(0.1)))
+                                    TextField( "Notes", text: $viewModel.fieldNote)
+                                        .frame(height: 90)
+                                        .multilineTextAlignment(.leading)
+                                        .padding(8)
+                                        .background(RoundedRectangle(cornerRadius: 20)
+                                                        .foregroundColor(.customPrimary.opacity(0.1)))
+                                } else {
+                                    DateTimePicker(text: "Date", date: $viewModel.selectedDate)
+                                        .padding(8)
+                                        .background(RoundedRectangle(cornerRadius: 20)
+                                                        .foregroundColor(.customPrimary.opacity(0.1)))
                                 }
                             }
                             .navigationBarTitle(type == .expense ? "New Expense" : "New Saving")
@@ -74,13 +82,15 @@ struct NewRecord: View {
                                             viewModel.addExpense()
                                             
                                         case .saving:
+                                            print("lala")
                                             viewModel.addSaving()
                                         }
                                         isPresented.toggle()
                                     } label: {
                                         Text("Save")
                                             .bold()
-                                    }.disabled(viewModel.budgetSelected == "" || viewModel.amount == "0")
+                                    }.disabled(
+                                        type == .expense ? viewModel.budgetSelected == "" || viewModel.budgetSelected == "" || viewModel.amount == "0" : viewModel.amount == "0")
                                 }
                                 ToolbarItem(placement: .navigationBarLeading) {
                                     Button {
@@ -125,7 +135,11 @@ final class NewRecordViewModel: ObservableObject {
     }
     
     func addSaving(){
-        let _ = SavingRecordDataSource.shared.updateRecord(amountSaved: Double(amount), date: Date(), budget: budgetSelected)
+        let _ = SavingRecordDataSource.shared.updateRecord(amountSaved: Double(amount), date: Date(), budget: "Budget")
+    }
+    
+    func initSavingRecord() {
+        let _ = SavingRecordDataSource.shared.createSavingRecord(amountSaved: 0, date: Date(), budget: "Others")
     }
 }
 

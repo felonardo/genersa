@@ -14,6 +14,7 @@ class SavingRecordDataSource {
     var container: NSPersistentContainer
     init() {
         container = PersistenceController.shared.container
+        readRecords()
     }
     
     func getRecord(with id: UUID) -> SavingRecord? {
@@ -23,6 +24,16 @@ class SavingRecordDataSource {
     func getRecord(date: String) -> SavingRecord? {
         return records.first(where: {$0.date?.toString(withFormat: "MMMM") == date})
     }
+    
+    func readRecords() {
+        let request = SavingRecord.fetchRequest()
+        do {
+            records =  try container.viewContext.fetch(request)
+        } catch {
+            print("Error reading members. \(error.localizedDescription)")
+        }
+    }
+
     
     func createSavingRecord(amountSaved: Double, date: Date, budget: String) -> SavingRecord{
         let newRecord = SavingRecord(context: container.viewContext)
@@ -44,9 +55,11 @@ class SavingRecordDataSource {
             BudgetDataSource.shared.readBudgets()
             record.budget = BudgetDataSource.shared.getBudget(name: budget)
             record.budget?.amountSaved = record.budget!.amountSaved + record.amountSaved
+            print("lalallalala", record)
             PersistenceController.shared.save()
             return true
         } else {
+            print("lilil")
             return false
         }
     }

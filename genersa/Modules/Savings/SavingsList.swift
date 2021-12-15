@@ -27,7 +27,7 @@ struct SavingsList: View {
         if recents {
             VStack(spacing: 4) {
                 ForEach(savings, id:\.date) { record in
-                    SavingHistoryComponent(month: record.date!, amountSaved: record.amountSaved, totalAmount: record.goal)
+                    ListHistoryComponent(month: record.date!, amountSaved: record.amountSaved, totalAmount: record.goal)
                     Divider()
                         .padding(.leading, 64)
                         .padding(.trailing, -16)
@@ -37,7 +37,7 @@ struct SavingsList: View {
             ScrollView {
                 LazyVStack(spacing: 4) {
                     ForEach(savings, id:\.date) { record in
-                        SavingHistoryComponent(month: record.date!, amountSaved: record.amountSaved, totalAmount: record.goal)
+                        ListHistoryComponent(month: record.date!, amountSaved: record.amountSaved, totalAmount: record.goal)
                         Divider()
                             .padding(.leading, 64)
                             .padding(.trailing, -16)

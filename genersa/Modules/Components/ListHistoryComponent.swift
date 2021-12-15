@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SavingHistoryComponent: View {
+struct ListHistoryComponent: View {
     
     @FetchRequest(
         entity: Budget.entity(),
@@ -22,7 +22,8 @@ struct SavingHistoryComponent: View {
     
     @AppStorage("tripStartDate") var startDate: Date = Date()
     
-    var month: Date
+    var month: Date?
+    var name: String?
     var amountSaved: Double
     var totalAmount: Double
     
@@ -40,8 +41,13 @@ struct SavingHistoryComponent: View {
         return goal
     }
     
+    
     var bar: Progress {
-        return Progress(progress: Double(amountSaved / calculateGoal), color: .customPrimary)
+        if let month = month {
+            return Progress(progress: Double(amountSaved / calculateGoal), color: .customPrimary)
+        } else {
+            return Progress(progress: Double(amountSaved / totalAmount), color: .customPrimary)
+        }
     }
     
     var body: some View{
@@ -51,6 +57,9 @@ struct SavingHistoryComponent: View {
                     Color.customPrimary.opacity(0.1)
                     if bar.progress.isInfinite || bar.progress.isNaN {
                         Text("\(0)%")
+                            .foregroundColor(.three)
+                            .font(.caption)
+                            .bold()
                     } else {
                         Text("\(Int(bar.progress*100))%")
                             .foregroundColor(.three)
@@ -60,15 +69,31 @@ struct SavingHistoryComponent: View {
                 }
             }
             VStack (alignment: .leading, spacing: 4){
-                Text(formatter.string(from: month))
-                    .bold()
-                    .foregroundColor(.three)
-                HStack(spacing: 4) {
-                    Text("\(amountSaved.toCurrency(currency))")
+                //savingCase
+                if let month = month {
+                    Text(formatter.string(from: month ?? Date()))
+                        .bold()
                         .foregroundColor(.three)
-                    Text("of \(calculateGoal.toCurrency(currency))")
-                        .foregroundColor(.gray)
+                    HStack(spacing: 4) {
+                        Text("\(amountSaved.toCurrency(currency))")
+                            .foregroundColor(.three)
+                        Text("of \(calculateGoal.toCurrency(currency))")
+                            .foregroundColor(.gray)
+                    }
                 }
+                //budgetCase
+                else {
+                    Text(name ?? "")
+                        .bold()
+                        .foregroundColor(.three)
+                    HStack(spacing: 4) {
+                        Text("\(amountSaved.toCurrency(currency))")
+                            .foregroundColor(.three)
+                        Text("of \(totalAmount.toCurrency(currency))")
+                            .foregroundColor(.gray)
+                    }
+                }
+
             }
             Spacer()
         }
@@ -77,6 +102,6 @@ struct SavingHistoryComponent: View {
 
 struct SavingHistoryComponent_Previews: PreviewProvider {
     static var previews: some View {
-        SavingHistoryComponent( month: Date(), amountSaved: 500000, totalAmount: 1000000)
+        ListHistoryComponent( month: Date(), amountSaved: 500000, totalAmount: 1000000)
     }
 }

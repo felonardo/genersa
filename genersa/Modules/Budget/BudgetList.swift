@@ -12,37 +12,67 @@ struct BudgetList: View {
     @FetchRequest(
         entity: Budget.entity(),
         sortDescriptors: [
-            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
+            NSSortDescriptor(keyPath: \Budget.name, ascending: false)
         ]) var budgets: FetchedResults<Budget>
     
     @ObservedObject private var viewModel: BudgetListViewModel
-    
     @State var selectedBudget: Budget?
+    @State var present: Bool = false
+    let recents: Bool
     
-    init(isPresented: Binding<Bool>) {
+    init(recents: Bool = false, isPresented: Binding<Bool>) {
         self.viewModel = BudgetListViewModel(isPresented: isPresented)
+        self.recents = recents
     }
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 0) {
-                ForEach(budgets, id:\.name) { budget in
+        if recents {
+            VStack(spacing: 0) {
+                ForEach(budgets.prefix(3), id:\.name) { budget in
                     Button {
                         self.selectedBudget = budget
                         viewModel.isPresented.toggle()
                     } label: {
-                        if let icon = budget.icon,
-                           let name = budget.name,
+                        if let name = budget.name,
                            let lastBudgetName = budgets.last?.name {
-                            BudgetCard(iconName: icon, name: name, amountUsed: budget.amountUsed, budgetAmount: budget.amountTotal)
-                                .padding(name == lastBudgetName ? .horizontal : .leading, 16)
+                            ListHistoryComponent(name: name, amountSaved: budget.amountUsed, totalAmount: budget.amountTotal) .background(RoundedRectangle(cornerRadius: 20)                                                               .foregroundColor(.customPrimary.opacity(0.1)))
+                                .padding(.vertical, 4)
                         }
                     }
                 }
             }
-        }
-        .sheet(isPresented: $viewModel.isPresented, onDismiss: nil) {
-            BudgetFormModal(title: "Edit Budget", isPresented: $viewModel.isPresented, budget: self.selectedBudget)
+            .sheet(isPresented: $viewModel.isPresented, onDismiss: nil) {
+                BudgetFormModal(title: "Budget Detail", isPresented: $viewModel.isPresented, budget: self.selectedBudget)
+            }
+
+        } else {
+            ScrollView {
+                LazyVStack(spacing: 0) {
+                    ForEach(budgets, id:\.name) { budget in
+                        Button {
+                            self.selectedBudget = budget
+                            viewModel.isPresented.toggle()
+                        }
+                label: {if let name = budget.name,
+                           let lastBudgetName = budgets.last?.name {
+                            ListHistoryComponent(name: name, amountSaved: budget.amountUsed, totalAmount: budget.amountTotal) .background(RoundedRectangle(cornerRadius: 20)                                                               .foregroundColor(.customPrimary.opacity(0.1)))
+                                .padding(.vertical, 4)
+                        }
+                        }
+                    }
+                    .padding(4)
+                }
+                .padding(16)
+                .navigationTitle("Budgets")
+                .navigationBarTitleDisplayMode(.inline)
+            }
+            .sheet(isPresented: $viewModel.isPresented, onDismiss: nil) {
+                BudgetFormModal(title: "Budget Detail", isPresented: $viewModel.isPresented, budget: self.selectedBudget)
+            }
+//            .sheet(isPresented: $present, onDismiss: nil) {
+//                BudgetFormModal(title: "Budget Detail", isPresented: $present, budget: self.selectedBudget)
+//            }
+            
         }
     }
 }
@@ -51,6 +81,7 @@ struct BudgetList: View {
 final class BudgetListViewModel: ObservableObject {
     
     @Binding var isPresented: Bool
+    @State var presenting: Bool = false
     
     
     func createBudget(amountTotal: Double, name: String, icon: String){

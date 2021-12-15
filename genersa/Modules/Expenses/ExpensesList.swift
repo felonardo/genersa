@@ -50,7 +50,9 @@ struct ExpensesList: View {
             VStack {
                 ForEach(expenses.prefix(3), id: \.id) { expense in
                     NavigationLink(destination: ExpenseDetail(expense: expense)) {
-                    ExpensesCell(expense: expense)
+                        ExpensesCell(expense: expense)
+                            .background(RoundedRectangle(cornerRadius: 20)
+                                            .foregroundColor(.customPrimary.opacity(0.1)))
                     }
                 }
             }
@@ -93,6 +95,8 @@ struct ExpensesListDayComponent: View {
             ForEach(expenses, id: \.id) { expense in
                 NavigationLink(destination: ExpenseDetail(expense: expense)) {
                     ExpensesCell(expense: expense)
+                        .background(RoundedRectangle(cornerRadius: 20)
+                                        .foregroundColor(.customPrimary.opacity(0.1)))
                 }
             }
         }
@@ -116,25 +120,26 @@ struct ExpensesCell: View {
                            let date = expense.date,
                            let notes = expense.notes {
                             VStack(alignment: .leading, spacing: 6) {
-                                Text(name)
+                                Text(notes)
+                                Text(expense.amount.toCurrency(currency))
                                     .bold()
-                                HStack(spacing: 4) {
-                                    Text(date.toString(withFormat: "HH.mm"))
-                                    Text(notes)
+                            }
+
+                            Spacer()
+                            VStack(spacing: 4) {
+                                Text(date.toString(withFormat: "HH.mm"))
+                                HStack{
+                                    Image(systemName: "person.fill")
+                                    //TODO ganti pake amount user
+                                    Text("1")
                                 }
-                                .font(.caption)
-                                .foregroundColor(.gray)
                             }
                         }
-                        Spacer()
-                        Text(expense.amount.toCurrency(currency))
-                        Image(systemName: "chevron.right")
                     }
-                    Divider()
-                        .padding(.trailing, -16)
                 }
             }
         }
+        .padding(8)
         .foregroundColor(.three)
     }
 }

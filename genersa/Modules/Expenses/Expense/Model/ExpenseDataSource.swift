@@ -31,8 +31,10 @@ class ExpenseDataSource {
         newExpense.date = date
         newExpense.notes = notes
         BudgetDataSource.shared.readBudgets()
+        
         newExpense.budget = BudgetDataSource.shared.getBudget(name: budget)
-        newExpense.budget?.amountUsed = newExpense.budget?.amountUsed ?? 0 + newExpense.amount
+        newExpense.budget?.amountUsed = newExpense.amount + newExpense.budget!.amountUsed
+        
         expenses.append(newExpense)
         PersistenceController.shared.save()
         return newExpense
@@ -54,6 +56,7 @@ class ExpenseDataSource {
         if let expense = getExpense(with: id) {
             expense.amount = amount ?? expense.amount
             expense.budget = BudgetDataSource.shared.getBudget(name: budget ?? "")
+            expense.budget?.amountUsed = expense.amount + expense.budget!.amountUsed
             expense.date = date ?? expense.date
             expense.notes = notes ?? expense.notes
             PersistenceController.shared.save()

@@ -24,7 +24,7 @@ struct FormField: View {
         NavigationView{
             VStack{
                 ReusableTitleView(title: "Title", description: "This is a sample description that sits", errorState: $errorState){
-                    TextFieldComponent(field: $field1.text, placeholder: "Placeholder", errorState: $errorState)
+                    TextFieldComponent(field: $field1.text, alignment: .leading, placeholder: "Placeholder", errorState: $errorState)
                 }
             }
         }

@@ -59,7 +59,7 @@ struct Overview: View {
             progresses.append(Progress(progress: totalUsed / totalAmount, color: .five))
             progresses.append(Progress(progress: totalSaved / totalAmount, color: .nine))
         }
-
+        
         return progresses
     }
     
@@ -68,27 +68,22 @@ struct Overview: View {
     }
     
     var body: some View {
-        NavigationLink {
-            CompleteOverview()
-        } label: {
-            HStack {
-                CircularProgressBar(size: 144, bars: progresses) {
-                    VStack {
-                        Text("Current Balance")
-                            .foregroundColor(.secondary)
-                        Text(currentBalance.toCurrency(currency))
-                            .bold()
-                            .foregroundColor(.primary)
-                    }
+        HStack {
+            CircularProgressBar(size: 144, bars: progresses) {
+                VStack {
+                    Text("Current Balance")
+                        .foregroundColor(.secondary)
+                    Text(currentBalance.toCurrency(currency))
+                        .bold()
+                        .foregroundColor(.primary)
                 }
-                Spacer(minLength: 0)
-                OverviewLegends(totalUsed: totalUsed, totalSaved: totalSaved, totalAmount: totalAmount, needToSave: needToSave)
             }
-            .padding(16)
-            .background(RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(.customPrimary.opacity(0.1)))
+            Spacer(minLength: 0)
+            OverviewLegends(totalUsed: totalUsed, totalSaved: totalSaved, totalAmount: totalAmount, needToSave: needToSave)
         }
-        .buttonStyle(.plain)
+        .padding(16)
+        .background(RoundedRectangle(cornerRadius: 20)
+                        .foregroundColor(.customPrimary.opacity(0.1)))
     }
 }
 

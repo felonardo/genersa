@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EmptyStateCardView: View {
+struct EmptyStateCardView<Content: View>: View {
     
     @State private var isShowing = true
     
@@ -17,11 +17,22 @@ struct EmptyStateCardView: View {
     let headlineText: String
     let bodyText: String
     let btnTitle: String
+    let content: Content
+    
+    init(image: String, width: CGFloat, height: CGFloat, headlineText: String, bodyText: String, btnTitle: String, @ViewBuilder content: @escaping () -> Content) {
+        self.image = image
+        self.width = width
+        self.height = height
+        self.headlineText = headlineText
+        self.bodyText = bodyText
+        self.btnTitle = btnTitle
+        self.content = content()
+    }
     
     var body: some View {
         ZStack {
             VStack {
-                XButtonView(isShowing: $isShowing)
+                //                XButtonView(isShowing: $isShowing)
                 Image(image)
                     .resizable()
                     .frame(width: width, height: height, alignment: .center)
@@ -35,26 +46,16 @@ struct EmptyStateCardView: View {
                         .frame(width: 297, height: 48, alignment: .leading)
                 }
                 .padding(.bottom, 5)
-                
-                CustomButton(title: btnTitle, type: .primary, fullWidth: true) {
-                    
-                }
-                .padding(.horizontal, 40)
+                content
+                    .padding(.horizontal, 24)
+                    .padding(.vertical, 8)
                 
             }
             .frame(width: 354, height: 368)
             .background(RoundedRectangle(cornerRadius: 20)
-                .foregroundColor(.customPrimary.opacity(0.1)))
+                            .foregroundColor(.customPrimary.opacity(0.1)))
             
         }
-    }
-}
-
-struct EmptyStateCardView_Previews: PreviewProvider {
-//    @State private var isAdShowing = true
-    
-    static var previews: some View {
-        EmptyStateCardView(image: "SetupBudget_ES", width: 125, height: 171, headlineText: "Set Up Your Budget ", bodyText: "Your set budget will act as your saving goal and expense limit.", btnTitle: "Set Budget")
     }
 }
 
@@ -64,13 +65,13 @@ struct XButtonView: View {
     var body: some View {
         
         Button(action: {
-            
+            isShowing.toggle()
         }) {
             Image(systemName: "xmark")
                 .font(Font.body.weight(.bold))
                 .foregroundColor(.gray)
-                .frame(width: 315, height: 28, alignment: .trailing)
-
+                .frame(width: 350, height: 28, alignment: .trailing)
+            
         }
         
     }
