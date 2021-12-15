@@ -43,7 +43,11 @@ struct ListHistoryComponent: View {
     
     
     var bar: Progress {
-        return Progress(progress: Double(amountSaved / calculateGoal), color: .customPrimary)
+        if let month = month {
+            return Progress(progress: Double(amountSaved / calculateGoal), color: .customPrimary)
+        } else {
+            return Progress(progress: Double(amountSaved / totalAmount), color: .customPrimary)
+        }
     }
     
     var body: some View{
@@ -53,6 +57,9 @@ struct ListHistoryComponent: View {
                     Color.customPrimary.opacity(0.1)
                     if bar.progress.isInfinite || bar.progress.isNaN {
                         Text("\(0)%")
+                            .foregroundColor(.three)
+                            .font(.caption)
+                            .bold()
                     } else {
                         Text("\(Int(bar.progress*100))%")
                             .foregroundColor(.three)
@@ -62,6 +69,7 @@ struct ListHistoryComponent: View {
                 }
             }
             VStack (alignment: .leading, spacing: 4){
+                //savingCase
                 if let month = month {
                     Text(formatter.string(from: month ?? Date()))
                         .bold()
@@ -72,7 +80,9 @@ struct ListHistoryComponent: View {
                         Text("of \(calculateGoal.toCurrency(currency))")
                             .foregroundColor(.gray)
                     }
-                } else {
+                }
+                //budgetCase
+                else {
                     Text(name ?? "")
                         .bold()
                         .foregroundColor(.three)

@@ -29,7 +29,7 @@ struct FormRowLinkView_1: View {
     
     var body: some View {
         NavigationLink {
-            CategorizeBudgetView()
+//            CategorizeBudgetView()
         } label: {
             HStack{
                 Text(firstText).foregroundColor(.three)

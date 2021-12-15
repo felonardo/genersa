@@ -45,13 +45,15 @@ struct BudgetFormModal: View {
                             .padding(.bottom, 16)
                         VStack {
                             NewFormField(title: "Budget Name"){
-                                TextFieldComponent(field: $viewModel.budgetName, placeholder: "Transportation", errorState: .constant(false))
+                                TextFieldComponent(field: $viewModel.budgetName, alignment: .trailing, placeholder: "Transportation", errorState: .constant(false))
                                     .multilineTextAlignment(.trailing)
                             }
                             Divider()
-                            NewFormField(title: "Budget Name"){
+                            NewFormField(title: "Personal Budget"){
                                 CalculatorField(finalValue: $viewModel.fieldBudget, isPresented: $viewModel.presentingCalculator)
                                     .multilineTextAlignment(.trailing)
+                            }.onTapGesture {
+                                viewModel.presentingCalculator.toggle()
                             }
                     }
                     .background(RoundedRectangle(cornerRadius: 20)

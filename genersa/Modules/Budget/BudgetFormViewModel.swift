@@ -21,7 +21,8 @@ final class BudgetFormViewModel: ObservableObject {
     @Binding var isPresented: Bool
     @Published var fieldBudget: String = "0"
     @Published var budgetId: UUID? = nil
-    @Published var fieldPersonalBudget: String = "0"
+    //    @Published var fieldPersonalBudget: String = "0"
+    
     
     init(budget: Budget? = nil, isPresented: Binding<Bool>) {
         self._isPresented = isPresented
@@ -42,6 +43,19 @@ final class BudgetFormViewModel: ObservableObject {
         } else {
             return false
         }
+    }
+    
+    func initBudget(budgetName: String) {
+        let _ = BudgetDataSource.shared.createPersonalBudget(amountSaved: 0, amountTotal: Double(fieldBudget) ?? 0, amountUsed: 0, name: budgetName, icon: "creditcard.fill")
+    }
+    
+    func initCategorizeBudget(){
+        let _ = BudgetDataSource.shared.createPersonalBudget(amountSaved: 0, amountTotal: Double(fieldBudget) ?? 0, amountUsed: 0, name: "Other", icon: "creditcard.fill")
+        let _ = BudgetDataSource.shared.createPersonalBudget(amountSaved: 0, amountTotal:  0, amountUsed: 0, name: "Accomodation", icon: "house.fill")
+        let _ = BudgetDataSource.shared.createPersonalBudget(amountSaved: 0, amountTotal: 0, amountUsed: 0, name: "Flight", icon: "airplane")
+        let _ = BudgetDataSource.shared.createPersonalBudget(amountSaved: 0, amountTotal: 0, amountUsed: 0, name: "Meal", icon: "fork.knife")
+        let _ = BudgetDataSource.shared.createPersonalBudget(amountSaved: 0, amountTotal: 0, amountUsed: 0, name: "Shopping", icon: "bag.fill")
+        let _ = BudgetDataSource.shared.createPersonalBudget(amountSaved: 0, amountTotal: 0, amountUsed: 0, name: "Transport", icon: "car.fill")
     }
     
     func createBudget(){

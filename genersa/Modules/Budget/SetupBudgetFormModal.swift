@@ -43,6 +43,7 @@ struct SetupBudgetFormModal: View {
     @ObservedObject private var viewModel: BudgetFormViewModel
     
     @State private var selection = 0
+    @State private var presentingCategorizeBudget = false
     
     init(isPresented: Binding<Bool>) {
         self.viewModel = BudgetFormViewModel(isPresented: isPresented)
@@ -52,48 +53,66 @@ struct SetupBudgetFormModal: View {
     var body: some View {
         TabView(selection: $selection) {
             VStack{
+                XButtonView(isShowing: $viewModel.isPresented)
+                Spacer()
                 ReusableSetupComponent(headline: "How Much is your trip budget?", subheadline: "You can always edit your budget from Setting Page", image: "SetupBudget", width: 135, height: 166, viewModel: viewModel, selection: $selection)
                 NewFormField(title: "Personal Budget"){
-                    CalculatorField(finalValue: $viewModel.fieldPersonalBudget, isPresented: $viewModel.presentingCalculator)
+                    CalculatorField(finalValue: $viewModel.fieldBudget, isPresented: $viewModel.presentingCalculator)
                         .multilineTextAlignment(.trailing)
                 }
                 .background(RoundedRectangle(cornerRadius: 20)
                                 .foregroundColor(.customPrimary.opacity(0.1)))
+                .onTapGesture {
+                    viewModel.presentingCalculator.toggle()
+                }
+                
                 CustomButton(title: "Next", type: .primary, fullWidth: true) {
                     withAnimation {
-                        viewModel.presentingCalculator = false
                         selection = 1
                     }
                 }
+                Spacer()
                 if viewModel.presentingCalculator {
-                    CalculatorComponent(finalValue: $viewModel.fieldPersonalBudget, isPresented: $viewModel.presentingCalculator)
+                    CalculatorComponent(finalValue: $viewModel.fieldBudget, isPresented: $viewModel.presentingCalculator)
                 }
             }
             .padding(16)
             .tag(0)
             
             VStack{
+                XButtonView(isShowing: $viewModel.isPresented)
+                Spacer()
                 ReusableSetupComponent(headline: "Do you want to categorize budget?", subheadline: "Categorizing budget can help you focus on how you'll spend money while travel", image:"SetupBudget2", width: 97, height: 166, viewModel: viewModel, selection: $selection)
                 CustomButton(title: "Skip", type: .secondary, fullWidth: true) {
                     withAnimation {
-                        
+                        viewModel.initBudget(budgetName: "Budget")
+                        viewModel.isPresented = false
                     }
                 }
                 CustomButton(title: "Category Budget", type: .primary, fullWidth: true) {
                     withAnimation {
-                        selection = 1
+//                        presentingCategorizeBudget.toggle()
+                        viewModel.initCategorizeBudget()
+                        viewModel.isPresented = false
                     }
                 }
+                Spacer()
                 if viewModel.presentingCalculator {
-                    CalculatorComponent(finalValue: $viewModel.fieldPersonalBudget, isPresented: $viewModel.presentingCalculator)
+                    CalculatorComponent(finalValue: $viewModel.fieldBudget, isPresented: $viewModel.presentingCalculator)
                 }
+            }
+            .onAppear{
+                    viewModel.presentingCalculator = false
             }
             .padding(16)
             .tag(1)
+//            .sheet(isPresented: $presentingCategorizeBudget, onDismiss: nil) {
+//                CategorizeBudgetView(isPresented: $presentingCategorizeBudget)
+//            }
             
         }
         .tabViewStyle(.page)
-        .indexViewStyle(.page(backgroundDisplayMode: .interactive))
+        .indexViewStyle(.page(backgroundDisplayMode: .never))
         
         
     }

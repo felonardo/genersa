@@ -13,12 +13,14 @@ struct TextFieldComponent: View {
     let placeholder: String
     @Binding var errorState: Bool
     let isEditing: Bool
+    var alignment: TextAlignment = .trailing
     
-    init(field: Binding<String>, placeholder: String, errorState: Binding<Bool>, isEditing: Bool = false) {
+    init(field: Binding<String>, alignment: TextAlignment, placeholder: String, errorState: Binding<Bool>, isEditing: Bool = false) {
         self._field = field
         self.placeholder = placeholder
         self._errorState = errorState
         self.isEditing = isEditing
+        self.alignment = alignment
     }
     
     var body: some View {
@@ -26,7 +28,7 @@ struct TextFieldComponent: View {
             HStack {
                 TextField(placeholder, text: $field)
                     .foregroundColor(errorState ? Color.red : Color.black)
-                    .multilineTextAlignment(.trailing)
+                    .multilineTextAlignment(alignment)
                 if isEditing {
                     Image(systemName: "pencil")
                         .font(.title2)
@@ -35,9 +37,6 @@ struct TextFieldComponent: View {
                 }
             }
             .padding(.vertical, 8)
-//            Divider()
-//                .frame(height: 1)
-//                .foregroundColor(errorState ? .red : .gray)
         }
     }
 }

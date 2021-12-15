@@ -32,7 +32,7 @@ struct EmptyStateCardView<Content: View>: View {
     var body: some View {
         ZStack {
             VStack {
-                XButtonView(isShowing: $isShowing)
+                //                XButtonView(isShowing: $isShowing)
                 Image(image)
                     .resizable()
                     .frame(width: width, height: height, alignment: .center)
@@ -46,12 +46,9 @@ struct EmptyStateCardView<Content: View>: View {
                         .frame(width: 297, height: 48, alignment: .leading)
                 }
                 .padding(.bottom, 5)
-                
-                //                CustomButton(title: btnTitle, type: .primary, fullWidth: true) {
-                //
-                //                }
                 content
-                    .padding(.horizontal, 40)
+                    .padding(.horizontal, 24)
+                    .padding(.vertical, 8)
                 
             }
             .frame(width: 354, height: 368)
@@ -62,34 +59,18 @@ struct EmptyStateCardView<Content: View>: View {
     }
 }
 
-//struct EmptyStateCardView_Previews: PreviewProvider {
-////    @State private var isShowing = true
-//
-//    static var previews: some View {
-//        ScrollView{
-//        LazyVStack{
-//        EmptyStateCardView(image: "SetupBudget_ES", width: 125, height: 171, headlineText: "Set Up Your Budget ", bodyText: "Your set budget will act as your saving goal and expense limit.", btnTitle: "Set Budget")
-//
-//        EmptyStateCardView(image: "TrackExpense_ES", width: 125, height: 171, headlineText: "Set Up Your Budget ", bodyText: "Your set budget will act as your saving goal and expense limit.", btnTitle: "Set Budget")
-//
-//        EmptyStateCardView(image: "TrackSavings_ES", width: 125, height: 171, headlineText: "Set Up Your Budget ", bodyText: "Your set budget will act as your saving goal and expense limit.", btnTitle: "Set Budget")
-//        }
-//        }
-//    }
-//}
-
 struct XButtonView: View {
     @Binding var isShowing: Bool
     
     var body: some View {
         
         Button(action: {
-            
+            isShowing.toggle()
         }) {
             Image(systemName: "xmark")
                 .font(Font.body.weight(.bold))
                 .foregroundColor(.gray)
-                .frame(width: 315, height: 28, alignment: .trailing)
+                .frame(width: 350, height: 28, alignment: .trailing)
             
         }
         

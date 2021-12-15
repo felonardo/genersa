@@ -9,11 +9,18 @@ import SwiftUI
 
 struct SetupSavingFormModal: View {
     
-    //    @ObservedObject var viewModel: NewRecordViewModel
+    @ObservedObject var viewModel: NewRecordViewModel
     let headline: String
     @State var s: String = ""
     @State var startDate: Date = Date()
     @State var endDate: Date = Date()
+    @Binding var isPresented: Bool
+    
+    init(isPresented: Binding<Bool>, headline: String) {
+        self._isPresented = isPresented
+        self.headline = headline
+        self.viewModel = NewRecordViewModel()
+    }
     
     var body: some View {
         VStack{
@@ -33,16 +40,11 @@ struct SetupSavingFormModal: View {
             
             CustomButton(title: "Next", type: .primary, fullWidth: true) {
                 withAnimation {
-                    //                selection = 1
+                    isPresented = false
+                    viewModel.initSavingRecord()
                 }
             }
         }
-            .padding(16)
-    }
-}
-
-struct SetupSavingFormModal_Previews: PreviewProvider {
-    static var previews: some View {
-        SetupSavingFormModal(headline: "How long do you want to save?")
+        .padding(16)
     }
 }

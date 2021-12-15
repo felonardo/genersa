@@ -17,6 +17,7 @@ class BudgetDataSource {
     
     init() {
         container = PersistenceController.shared.container
+        readBudgets()
     }
     
     func getBudget(with id: UUID) -> Budget? {

@@ -26,7 +26,7 @@ struct CreateProfileView: View {
                 AvatarIcon(imageName: viewModel.selectedAvatar, size: 117)
                 AvatarIconSelector(selectedAvatar: $viewModel.selectedAvatar)
                 ReusableTitleView(title: "Nickname", description: "Maximum character for nickname is 12 characters.", errorState: $viewModel.nicknameError, warningDescription: true) {
-                    TextFieldComponent(field: $viewModel.nickname , placeholder: "Your Nickname", errorState: $viewModel.nicknameError)
+                    TextFieldComponent(field: $viewModel.nickname, alignment: .leading, placeholder: "Your Nickname", errorState: $viewModel.nicknameError)
                 }
             }
             Spacer()

@@ -48,7 +48,14 @@ struct MainPageView: View {
                     }
                     .padding(16)
                     MainComponent(title: "Budgets", buttonTitle: "New Budget") {
-                        viewModel.presentingNewBudget.toggle()
+                                                    if budgets.count != 0 {
+                                                        viewModel.presentingNewBudget.toggle()
+                                                        
+                                                    } else {
+                                                        viewModel.presentingSetupBudget.toggle()
+
+                                                    }
+                        
                     } content: {
                         VStack(spacing: 16) {
                             if budgets.count != 0 {
@@ -59,26 +66,29 @@ struct MainPageView: View {
                                         type: .secondary,
                                         fullWidth: false,
                                         destination:
-                                            BudgetList(recents: false, isPresented: $viewModel.presentingEditBudget))
+                                            BudgetList(recents: false, isPresented: $viewModel.presentingEditBudgetDetail))
                                 }
                             } else {
                                 EmptyStateCardView(image: "SetupBudget_ES", width: 125, height: 171, headlineText: "Set Up Your Budget ", bodyText: "Your set budget will act as your saving goal and expense limit.", btnTitle: "Set Budget"){
                                     CustomButton(title: "Set Budget", type: .primary, fullWidth: true) {
-                                        viewModel.presentingNewBudget.toggle()
+                                        viewModel.presentingSetupBudget.toggle()
                                     }
                                 }
                                 
                             }
                         }
+                        .sheet(isPresented: $viewModel.presentingSetupBudget, onDismiss: nil) {
+                                SetupBudgetFormModal(isPresented: $viewModel.presentingSetupBudget)
+                        }
                         .sheet(isPresented: $viewModel.presentingNewBudget, onDismiss: nil) {
-                            if budgets.count != 0 {
                                 BudgetFormModal(title: "New Budget", isPresented: $viewModel.presentingNewBudget)
-                            } else {
-                                SetupBudgetFormModal(isPresented: $viewModel.presentingNewBudget)
-                            }
                         }
                     }
                     .padding(16)
+//                    .onAppear{
+//                        
+//                    }
+//                    
                     
                     MainComponent(title: "Savings", buttonTitle: "New Saving") {
                         viewModel.presentingAddSavingRecord.toggle()
@@ -109,7 +119,7 @@ struct MainPageView: View {
                             if savingRecords.count != 0 {
                                 NewRecord(isPresented: $viewModel.presentingAddSavingRecord, type: .saving)
                             } else {
-                                SetupSavingFormModal(headline: "How long do you want to save?")
+                                SetupSavingFormModal(isPresented: $viewModel.presentingAddSavingRecord, headline: "How long do you want to save?")
                             }
                         }
                     }

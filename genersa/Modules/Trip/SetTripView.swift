@@ -21,7 +21,7 @@ struct SetTripView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 4) {
                         ReusableTitleView(title: "Trip Name", description: "Maximum character for trip name is 12 characters.", errorState: $viewModel.errorState, warningDescription: true){
-                            TextFieldComponent(field: $viewModel.fieldTrip, placeholder: "My Trip", errorState: $viewModel.errorState)
+                            TextFieldComponent(field: $viewModel.fieldTrip, alignment: .leading, placeholder: "My Trip", errorState: $viewModel.errorState)
                         }
                         .onTapGesture {
                             endTextEditing()

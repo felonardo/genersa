@@ -12,16 +12,13 @@ struct BudgetList: View {
     @FetchRequest(
         entity: Budget.entity(),
         sortDescriptors: [
-            NSSortDescriptor(keyPath: \Budget.name, ascending: true)
+            NSSortDescriptor(keyPath: \Budget.name, ascending: false)
         ]) var budgets: FetchedResults<Budget>
     
     @ObservedObject private var viewModel: BudgetListViewModel
     @State var selectedBudget: Budget?
+    @State var present: Bool = false
     let recents: Bool
-    
-    //    init(recents: Bool = false) {
-    //        self.recents = recents
-    //    }
     
     init(recents: Bool = false, isPresented: Binding<Bool>) {
         self.viewModel = BudgetListViewModel(isPresented: isPresented)
@@ -29,7 +26,6 @@ struct BudgetList: View {
     }
     
     var body: some View {
-        //        ScrollView(.horizontal, showsIndicators: false) {
         if recents {
             VStack(spacing: 0) {
                 ForEach(budgets.prefix(3), id:\.name) { budget in
@@ -48,6 +44,7 @@ struct BudgetList: View {
             .sheet(isPresented: $viewModel.isPresented, onDismiss: nil) {
                 BudgetFormModal(title: "Budget Detail", isPresented: $viewModel.isPresented, budget: self.selectedBudget)
             }
+
         } else {
             ScrollView {
                 LazyVStack(spacing: 0) {
@@ -55,14 +52,12 @@ struct BudgetList: View {
                         Button {
                             self.selectedBudget = budget
                             viewModel.isPresented.toggle()
-                        } label: {
-                            if let name = budget.name,
-                               let lastBudgetName = budgets.last?.name {
-                                ListHistoryComponent(name: name, amountSaved: budget.amountUsed, totalAmount: budget.amountTotal)
-                                    .background(RoundedRectangle(cornerRadius: 20)
-                                                    .foregroundColor(.customPrimary.opacity(0.1)))
-                                    .padding(.horizontal, 4)
-                            }
+                        }
+                label: {if let name = budget.name,
+                           let lastBudgetName = budgets.last?.name {
+                            ListHistoryComponent(name: name, amountSaved: budget.amountUsed, totalAmount: budget.amountTotal) .background(RoundedRectangle(cornerRadius: 20)                                                               .foregroundColor(.customPrimary.opacity(0.1)))
+                                .padding(.vertical, 4)
+                        }
                         }
                     }
                     .padding(4)
@@ -70,6 +65,12 @@ struct BudgetList: View {
                 .navigationTitle("Budgets")
                 .navigationBarTitleDisplayMode(.inline)
             }
+            .sheet(isPresented: $viewModel.isPresented, onDismiss: nil) {
+                BudgetFormModal(title: "Budget Detail", isPresented: $viewModel.isPresented, budget: self.selectedBudget)
+            }
+//            .sheet(isPresented: $present, onDismiss: nil) {
+//                BudgetFormModal(title: "Budget Detail", isPresented: $present, budget: self.selectedBudget)
+//            }
             
         }
     }
@@ -79,6 +80,7 @@ struct BudgetList: View {
 final class BudgetListViewModel: ObservableObject {
     
     @Binding var isPresented: Bool
+    @State var presenting: Bool = false
     
     
     func createBudget(amountTotal: Double, name: String, icon: String){

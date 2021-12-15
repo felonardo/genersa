@@ -35,7 +35,7 @@ struct ExpenseDetail: View {
                         Divider()
                         DateTimePicker(text: "Date", date: $viewModel.selectedDate)
                         ReusableTitleView(title: "Notes", description: "", errorState: $viewModel.notesErrorState){
-                            TextFieldComponent(field:$viewModel.fieldNote, placeholder: "Notes for this expenses", errorState:.constant(false))
+                            TextFieldComponent(field:$viewModel.fieldNote, alignment: .leading, placeholder: "Notes for this expenses", errorState:.constant(false))
                         }
                         
                         CustomButton(title: "Delete Expense", type: .secondary, fullWidth: true){
@@ -59,7 +59,6 @@ struct ExpenseDetail: View {
                 CalculatorComponent(finalValue: $viewModel.amount, isPresented: $viewModel.isPresented)
             }
             .disableDragToDismiss
-            //        .padding(8)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
