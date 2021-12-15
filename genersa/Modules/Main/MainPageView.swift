@@ -85,10 +85,6 @@ struct MainPageView: View {
                         }
                     }
                     .padding(16)
-//                    .onAppear{
-//                        
-//                    }
-//                    
                     
                     MainComponent(title: "Savings", buttonTitle: "New Saving") {
                         viewModel.presentingAddSavingRecord.toggle()

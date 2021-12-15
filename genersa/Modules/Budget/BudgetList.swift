@@ -62,6 +62,7 @@ struct BudgetList: View {
                     }
                     .padding(4)
                 }
+                .padding(16)
                 .navigationTitle("Budgets")
                 .navigationBarTitleDisplayMode(.inline)
             }
